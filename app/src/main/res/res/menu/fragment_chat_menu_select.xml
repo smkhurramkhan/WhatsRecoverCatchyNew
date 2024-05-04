@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/ic_chat_delete"
+        android:title="@string/delete"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/action_clear_all"
+        android:title="@string/delet_all"
+        app:showAsAction="never" />
+
+  <!--  <item
+        android:id="@+id/action_select_all"
+        android:title="@string/select_all"
+        app:showAsAction="never" />-->
+
+    <!--  <item
+          android:id="@+id/action_forward"
+          android:icon="@drawable/ic_forward"
+          android:title="@string/forward"
+          app:showAsAction="always" />-->
+
+</menu>

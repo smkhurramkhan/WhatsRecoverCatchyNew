@@ -1,0 +1,33 @@
+buildscript {
+
+    ext {
+        agp_version = '8.2.2'
+    }
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$agp_version"
+        classpath 'com.google.gms:google-services:4.4.1'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.9'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral() // Ensure Maven Central repository is included
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

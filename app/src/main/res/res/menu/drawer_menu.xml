@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_chat"
+            android:icon="@drawable/ic_nav_chat"
+            android:title="@string/chat" />
+
+        <item
+            android:id="@+id/action_document"
+            android:icon="@drawable/ic_nav_document"
+            android:title="@string/document" />
+
+        <item
+            android:id="@+id/action_image"
+            android:icon="@drawable/ic_nav_image"
+            android:title="@string/image" />
+
+        <item
+            android:id="@+id/action_video"
+            android:icon="@drawable/ic_nav_video"
+            android:title="@string/video" />
+
+        <item
+            android:id="@+id/action_voice"
+            android:icon="@drawable/ic_nav_voicenote"
+            android:title="@string/voice_notes" />
+
+        <item
+            android:id="@+id/action_audio"
+            android:icon="@drawable/ic__nav_audio"
+            android:title="@string/audio" />
+
+        <item
+            android:id="@+id/action_restore"
+            android:icon="@drawable/ic_restore_download"
+            android:title="@string/restore_files" />
+
+
+    </group>
+
+    <item android:title="@string/premium">
+        <menu>
+            <item
+                android:id="@+id/action_premium"
+                android:icon="@drawable/ic_premium"
+                android:title="@string/upgrade_to_premium" />
+        </menu>
+    </item>
+
+
+    <item
+        android:title="@string/try_our_other_apps"
+        android:visible="false">
+        <menu>
+            <item
+                android:id="@+id/action_family"
+                android:icon="@drawable/ic_home"
+                android:title="@string/family_apps" />
+
+            <item
+                android:id="@+id/action_photo_editor"
+                android:icon="@drawable/ic_home"
+                android:title="@string/photo_editor" />
+        </menu>
+
+    </item>
+
+
+    <item android:title="@string/communicate">
+        <menu>
+
+            <item
+                android:id="@+id/action_howto"
+                android:icon="@drawable/ic_help_black"
+                android:title="@string/how_to_use" />
+
+            <item
+                android:id="@+id/action_share"
+                android:icon="@drawable/ic_share_black"
+                android:title="@string/share" />
+
+            <item
+                android:id="@+id/action_rate"
+                android:icon="@drawable/ic_rate_review_black"
+                android:title="@string/rate_it" />
+
+            <item
+                android:id="@+id/action_privacy"
+                android:icon="@drawable/ic_shield"
+                android:title="@string/privacy_policy" />
+
+        </menu>
+    </item>
+
+
+</menu>

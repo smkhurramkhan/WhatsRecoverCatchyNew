@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Einstellungen</string>
+    <string name="premium">Premium</string>
+    <string name="upgrade_to_premium">Upgrade auf Premium</string>
+    <string name="family_apps">Familien-Apps</string>
+    <string name="how_to_use">Verwendung</string>
+    <string name="share">Teilen</string>
+    <string name="rate_it">Bewerten Sie es</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="help">Hilfe</string>
+
+    <string name="enable_permission">BERECHTIGUNG AKTIVIEREN</string>
+    <string name="we_need_your_permission">Wir benötigen Ihre Erlaubnis</string>
+    <string name="we_need_your_permission_desc">Um Ihre gelöschten WhatsApp-Nachrichten lokal zu speichern, müssen Sie dieser App die Berechtigung „Benachrichtigungszugriff“ gewähren. Wählen Sie im nächsten Schritt die Anwendung <b>WA Recover</b> aus, um die Berechtigung zu aktivieren</string>
+    <string name="no_deleted_chat_detected_yet">Noch kein gelöschter Chat erkannt</string>
+
+    <string name="select_all">Alle auswählen</string>
+    <string name="delete">Löschen</string>
+    <string name="no_document_detected_yet">Noch kein Dokument erkannt</string>
+    <string name="no_image_detected_yet">Noch kein Bild erkannt</string>
+    <string name="no_voice_detected_yet">Noch keine Sprachnotizen erkannt</string>
+    <string name="no_audio_detected_yet">Noch kein Audio erkannt</string>
+
+
+    <string name="document">Dokument</string>
+    <string name="image">Bild</string>
+    <string name="video">Video</string>
+    <string name="voice_notes">Sprachnotizen</string>
+    <string name="audio">Audio</string>
+    <string name="clear_chat">Chat löschen</string>
+    <string name="copy">Kopieren</string>
+    <string name="forward">Weiterleiten</string>
+    <string name="next">Weiter</string>
+
+    <array name="startup_titles">
+        <item>Durch die Nutzung dieser Anwendung verstoßen Sie möglicherweise gegen die Nutzungsbedingungen anderer
+            Anwendungen.
+        </item>
+        <item>Wir legen Wert auf Ihre Privatsphäre und Datensicherheit und werden benachrichtigt, wenn der Absender etwas löscht
+            jede Nachricht.
+        </item>
+        <item>Indem Sie auf „Akzeptieren“ klicken, akzeptieren Sie unsere Werberichtlinien und verstoßen nicht gegen diese.</item>
+
+
+    </array>
+
+    <array name="startup_descriptions">
+        <item>Durch die Nutzung dieser Anwendung verstoßen Sie möglicherweise gegen die Nutzungsbedingungen anderer Anwendungen.
+            Denken Sie daran, diese Nutzungsbedingungen anderer Anwendungen zu lesen, bevor Sie sie auswählen, und tun Sie es
+            Wählen Sie KEINE inkompatiblen Anwendungen aus.
+        </item>
+        <item>Diese Anwendung ist kostenlos und um weiter daran arbeiten zu können, müssen wir Werbung zeigen.
+            Zu diesem Zweck nutzen unsere Werbeanbieter die über Sie erfassten Informationen.
+            Denken Sie daran: Lesen Sie die Richtlinien und Sie müssen volljährig sein, um fortfahren zu können. Unsere Anzeigen
+            Die Anbieter können variieren, die Datenschutzrichtlinien werden immer auf dem neuesten Stand angezeigt.\n\n WA Recover ist der Fall
+            Verwenden Sie Ihre Benachrichtigungen nicht für kommerzielle Zwecke, sondern nur zur Speicherung und Erkennung ihres Inhalts
+            auf Ihrem Gerät
+        </item>
+        <item>
+            Indem Sie auf „Akzeptieren“ klicken, akzeptieren Sie unsere Werberichtlinien und verstoßen nicht gegen die Bedingungen von
+            Nutzung anderer Anwendungen
+        </item>
+    </array>
+    <string name="how_it_work_desc">
+       <![CDATA[ 1) Öffnen Sie den \'WhatsApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: Aktivieren Sie die Einstellung zum automatischen Herunterladen von Medien von „WhatsApp Messenger“, damit WA Recover besser funktioniert.</font></b><br>< br>
+         3) Speichern Sie WhatsApp-Mediendateien (Bilder, Videos, Sprachnotizen, Audios, Dokumente).<br><br>
+         4) Sie werden benachrichtigt, wenn eine Nachricht vom Absender gelöscht wird.<br><br>
+         5) Duplizierungen ein-/ausschalten, um Speicherplatz zu sparen.<br><br>
+         6) Aktivieren oder deaktivieren Sie Tabs in den Einstellungen, um die gelöschte Mediendatei zu speichern.<br><br>
+         7) Ihre WhatsApp-Benachrichtigung muss aktiviert sein, um gelöschte Textnachrichten zu erhalten.
+     ]]></string>
+    <string name="accept">Akzeptieren</string>
+    <string name="media_file_backup_list">Mediendatei-Backup-Liste</string>
+    <string name="erase_all_messages">Alle Nachrichten löschen</string>
+    <string name="today">Heute</string>
+    <string name="search">Suchen</string>
+    <string name="back">iv zurück</string>
+    <string name="are_you_sure_you_want_to_exit">Sind Sie sicher, dass Sie beenden möchten?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="upgrade_to_enjoy_premium">Upgrade, um Premium zu genießen</string>
+
+    <string name="no_status_found">Kein Status gefunden</string>
+    <string name="restatus">Neustatus</string>
+    <string name="download">Herunterladen</string>
+    <string name="enter_collection_name">Sammlungsnamen eingeben</string>
+    <string name="collection_name">Sammlungsname</string>
+    <string name="cancel">ABBRECHEN</string>
+    <string name="create">ERSTELLEN</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">Neue Sammlung erstellen</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="fullscreen">Vollbild</string>
+    <string name="size_and_time">Größe und Zeit</string>
+    <string name="info">Info</string>
+    <string name="add_to_favourite">Zu Favorit hinzufügen</string>
+    <string name="removefavourite">Favorit entfernen</string>
+    <string name="totaltime">Gesamtzeit</string>
+    <string name="runtime">Laufzeit</string>
+    <string name="please_select_a_song_from_the_playlist">Bitte wählen Sie einen Song aus der Playlist aus</string>
+    <string name="customize_tabs">Registerkarten anpassen</string>
+    <string name="apply">Anwenden</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">WhatsApp öffnen</string>
+    <string name="view_the_status_you_want_to_download">Status anzeigen</string>
+    <string name="come_back_again">Komm wieder zurück</string>
+    <string name="noimagestatus">Kein Bildstatus gefunden</string>
+    <string name="novideostatus">Kein Videostatus gefunden</string>
+    <string name="no_saved_status_found">Kein gespeicherter Status gefunden</string>
+
+    <string name="rest_assured_permission_text">Seien Sie versichert, dass wir Ihre privaten Daten nicht zu unserem eigenen Vorteil verwenden.</string>
+
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">UMBENENNEN</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Diese Funktion verwendet die öffentliche WhatsApp-API, um einen Chat mit einer beliebigen von Ihnen eingegebenen Nummer zu öffnen, ohne eine Nummer zu speichern</string>
+    <string name="eg_1234567890">Beispiel: 1234567890</string>
+    <string name="open_in_whatsapp_chat">In WhatsApp Chat öffnen</string>
+
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">Ausgewählte Dateien löschen (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">Dateien</string>
+    <string name="no_files">keine Dateien</string>
+    <string name="date">Datum</string>
+    <string name="name">Name</string>
+    <string name="size">Größe</string>
+    <string name="clear_all_data">Alle Daten löschen</string>
+
+
+    <string name="_922">+92</string>
+
+
+    <string name="screenshot">Screenshot</string>
+
+    <string name="ad_loading">Anzeige wird geladen…</string>
+    <string name="please_wait">Anzeige wird geladen. Bitte warten…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">Noch keine Videos erkannt</string>
+
+    <string name="life_time"><b>Abonnement</b></string>
+    <string name="subscribe_now">Jetzt abonnieren</string>
+    <string name="continue_with_ads">Weiter mit Anzeigen</string>
+
+    <string name="recovery">Wiederherstellung</string>
+    <string name="direct_chat">Direkter Chat</string>
+    <string name="status">Status</string>
+    <string name="more_tools">Weitere Tools</string>
+    <string name="enjoyee_ads_free_application">AD-freies Erlebnis</string>
+    <string name="restore_unlimited_messages_instantly">Unbegrenzte Nachrichten sofort wiederherstellen</string>
+
+    <string name="or">ODER</string>
+    <string name="direct_whats_chat">Direkter Whats-Chat</string>
+    <string name="write_your_text">Schreiben Sie Ihren Text</string>
+    <string name="font_styles">Schriftstile</string>
+    <string name="stylish_text">Stilvoller Text</string>
+    <string name="quatations_text">Zitate</string>
+    <string name="text_repeater">Text-Repeater</string>
+    <string name="enter_message">Nachricht eingeben</string>
+    <string name="enter_repeat_number">Wiederholungsnummer eingeben</string>
+    <string name="enter_message_here">Nachricht hier eingeben…</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Hinweis: Anzahl der Repeater-Texte auf 999 begrenzt</string>
+    <string name="repeat">Wiederholen</string>
+    <string name="new_line_on">Neue Zeile ein</string>
+    <string name="clear">Löschen</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Bitte geben Sie den Text ein, den Sie wiederholen möchten.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Bitte geben Sie an, wie oft Sie den Text wiederholen möchten</string>
+    <string name="text_copied">Text kopiert</string>
+    <string name="whatsapp_not_found">WhatsApp nicht gefunden</string>
+    <!-- Strings, die für Fragmente zur Navigation verwendet werden -->
+    <string name="favourites">Favoriten</string>
+    <string name="text_to_emoji">Text an Emoji</string>
+    <string name="stickers">Aufkleber</string>
+    <string name="unlock_premium_version">Premium-Version freischalten</string>
+    <string name="_5_99">6,99 $/Lebensdauer</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Daten für WA und WAB wiederherstellen]]></string>
+    <string name="error_adding_sticker_pack">Fehler beim Laden der Aufkleber</string>
+    <string name="clear_all">Alles löschen</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Sind Sie sicher, dass Sie alle Daten löschen möchten?</string>
+    <string name="select_country_code">Ländercode auswählen</string>
+    <string name="enter_number">Nummer eingeben</string>
+    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="permission_needed">Berechtigung erforderlich</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Zum Lesen von WhatsApp Media ist eine Speicherberechtigung erforderlich. Drücken Sie OK, um es in den Einstellungen zu aktivieren.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Zum Lesen von WhatsApp Media ist eine Speicherberechtigung erforderlich</string>
+    <string name="chat">Chat</string>
+    <string name="voice">Stimme</string>
+    <string name="image_status">Bild\nStatus</string>
+    <string name="video_status">Video\nStatus</string>
+    <string name="saved_status">Gespeichert\nStatus</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Stilvoller\nText</string>
+    <string name="text_repeater_">Text\nRepeater</string>
+    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="direct_chat_">Direkt\nChat</string>
+    <string name="famous_quotes">Berühmte\nZitate</string>
+    <string name="text_to_emoji_">Text an\nEmoji</string>
+    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="ascii_faces">Ascii\nGesichter</string>
+    <string name="something_went_wrong">Etwas ist schief gelaufen</string>
+    <string name="screenshot_saved">Screenshot gespeichert</string>
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Sind Sie sicher, dass Sie alle Nachrichten in diesem Chat löschen möchten?</string>
+    <string name="clear_all_messages">ALLE NACHRICHTEN LÖSCHEN</string>
+    <string name="message_copied">Nachricht kopiert</string>
+    <string name="delete_message">Nachricht löschen?</string>
+    <string name="no_app_found_to_open_this_link">Keine App zum Öffnen dieses Links gefunden</string>
+    <string name="confirm_delete">Löschen bestätigen</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Sind Sie sicher, dass Sie den Status der ausgewählten Dateien ändern möchten?</string>
+    <string name="items_selected">ausgewählte Elemente</string>
+    <string name="screenshots">Screenshots</string>
+    <string name="saved_collections">Gespeicherte Sammlungen</string>
+    <string name="preview">Vorschau</string>
+    <string name="setting_applied">Einstellung angewendet</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Sind Sie sicher, dass Sie den Status des gesamten Chatverlaufs anzeigen möchten?</string>
+    <string name="all_chat_cleared">Alle Chats gelöscht</string>
+    <string name="delete_selected_image">Ausgewähltes Bild löschen?</string>
+    <string name="are_you_sure_want_to_status_this_file">Möchten Sie diese Datei wirklich in den Status setzen?</string>
+    <string name="notification_listener_service">Benachrichtigungs-Listener-Dienst</string>
+    <string name="goto_settings">GOTO-EINSTELLUNGEN</string>
+    <string name="not_now">Nicht jetzt</string>
+    <string name="permission_necessary">Berechtigung erforderlich</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Für den Status von Mediendateien ist eine Speicherberechtigung erforderlich</string>
+    <string name="delete_selected_chat">Ausgewählten Chat löschen?</string>
+    <string name="selected_chats">"ausgewählte Chats?"</string>
+    <string name="you_cannot_open_this_file">Sie können diese Datei nicht öffnen</string>
+    <string name="delete_selected_documents">Ausgewählte Dokumente löschen?</string>
+    <string name="added_to_favourites">Zu den Favoriten hinzugefügt</string>
+    <string name="removed_from_favourites">Aus den Favoriten entfernt</string>
+    <string name="are_you_sure_you_want_to_delete">Sind Sie sicher, dass Sie löschen möchten?</string>
+    <string name="delete_folder">ORDNER LÖSCHEN?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">ALLE DATEIEN IN DIESEM ORDNER WERDEN DAUERHAFT GELÖSCHT</string>
+    <string name="folder_name_can_t_be_empty">Ordnername darf nicht leer sein</string>
+    <string name="folder_already_exist_with_the_same_name">Ordner mit demselben Namen existiert bereits</string>
+    <string name="failed_to_create_folder">Ordner konnte nicht erstellt werden</string>
+    <string name="video_already_added">Video bereits hinzugefügt</string>
+    <string name="image_already_added">Bild bereits hinzugefügt</string>
+    <string name="create_or_select_collection_first">Zuerst Sammlung erstellen oder auswählen</string>
+    <string name="allow">ALLOW</string>
+    <string name="saved">Gespeichert</string>
+    <string name="only_tab_clicked">nur Tab angeklickt</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Wenn Sie Status nicht speichern, verschwinden diese nach 24 Stunden</string>
+    <string name="whatsapp_status">WhatsApp-Status</string>
+    <string name="share_status">Freigabestatus</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Sind Sie sicher, dass Sie diesen Status auf WhatsApp teilen möchten?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Es konnte keine App gefunden werden, die diese Datei öffnet"</string>
+    <string name="received_images">Empfangene Bilder</string>
+    <string name="received_videos">Empfangene Videos</string>
+    <string name="received_documents">Empfangene Dokumente</string>
+    <string name="received_audio">Audio empfangen</string>
+    <string name="received_voice">Empfangene Stimme</string>
+    <string name="received_wallpapers">Hintergründe erhalten</string>
+    <string name="received_gifs">Empfangene GIFs</string>
+    <string name="sent_images">Gesendete Bilder</string>
+    <string name="sent_videos">Gesendete Videos</string>
+    <string name="sent_documents">Gesendete Dokumente</string>
+    <string name="sent_audio">Audio gesendet</string>
+    <string name="sent_voice">Gesendete Stimme</string>
+    <string name="sent_wallpapers">Gesendete Hintergrundbilder</string>
+    <string name="sent_gifs">Gesendete GIFs</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Sprache ändern</string>
+    <string name="privacy_settings">Datenschutzeinstellungen</string>
+</resources>

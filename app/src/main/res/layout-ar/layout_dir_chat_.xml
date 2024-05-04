@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <TextView
+            android:id="@+id/directChat_TextView"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/textview_direct_chat_design"
+            android:gravity="center"
+            android:text="@string/direct_chat"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/tvcountrycode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnDirectChatScreen"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_next_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/directChat_TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/directChat_TextView"
+
+            />
+
+
+        <TextView
+            android:id="@+id/tvcountrycode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:padding="12dp"
+            android:text="@string/_922"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/textview_direct_chat_design"
+            app:layout_constraintEnd_toStartOf="@id/etnumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/directChat_TextView" />
+
+        <EditText
+            android:id="@+id/etnumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/btn_border"
+            android:hint="@string/eg_1234567890"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toStartOf="@id/btnDirectChat"
+            app:layout_constraintBottom_toBottomOf="@id/tvcountrycode"
+            app:layout_constraintStart_toEndOf="@id/tvcountrycode"
+            app:layout_constraintTop_toTopOf="@id/tvcountrycode" />
+
+        <ImageView
+            android:id="@+id/btnDirectChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_btn_direct_chat"
+            android:background="@drawable/gray_btn_background"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/etnumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/etnumber"
+            app:layout_constraintTop_toTopOf="@id/etnumber" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

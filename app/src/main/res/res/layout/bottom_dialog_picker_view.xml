@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/r1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/semi_black_transparent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/camera_selector"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_camera"
+            android:drawablePadding="10dp"
+            android:padding="8dp"
+            android:text="@string/camera"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCamera"
+        android:background="@drawable/gallery_selector"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_gallery"
+            android:drawablePadding="10dp"
+            android:padding="8dp"
+            android:text="@string/gallery"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnGallery"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cancel_selector"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:text="@string/cancel"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</RelativeLayout>

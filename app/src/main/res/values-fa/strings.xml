@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">تنظیمات</string>
+    <string name="premium">حق بیمه</string>
+    <string name="upgrade_to_premium">ارتقا به Premium</string>
+    <string name="family_apps">برنامه های خانوادگی</string>
+    <string name="how_to_use">نحوه استفاده از</string>
+    <string name="share">اشتراک گذاری</string>
+    <string name="rate_it">به آن امتیاز دهید</string>
+    <string name="privacy_policy">خط مشی رازداری</string>
+    <string name="help">راهنما</string>
+
+    <string name="enable_permission">اجازه فعال</string>
+    <string name="we_need_your_permission">به اجازه شما نیاز داریم</string>
+    <string name="we_need_your_permission_desc">برای اینکه پیام‌های حذف شده WhatsApp خود را به صورت محلی ذخیره کنید، باید مجوز \"دسترسی به اعلان\" را به این برنامه بدهید. برنامه <b>WA Recover</b> را در قسمت بعدی برای فعال کردن مجوز</string> انتخاب کنید
+    <string name="no_deleted_chat_detected_yet">هنوز گپ حذف شده ای شناسایی نشده است</string>
+
+    <string name="select_all">همه را انتخاب کنید</string>
+    <string name="delete">حذف</string>
+    <string name="no_document_detected_yet">هنوز سندی شناسایی نشده است</string>
+    <string name="no_image_detected_yet">هنوز تصویری شناسایی نشده است</string>
+    <string name="no_voice_detected_yet">هنوز هیچ یادداشت صوتی شناسایی نشده است</string>
+    <string name="no_audio_detected_yet">هنوز صوتی شناسایی نشده است</string>
+
+
+    <string name="document">سند</string>
+    <string name="image">تصویر</string>
+    <string name="video">ویدئو</string>
+    <string name="voice_notes">یادداشت‌های صوتی</string>
+    <string name="audio">صوتی</string>
+    <string name="clear_chat">پاک کردن چت</string>
+    <string name="copy">کپی</string>
+    <string name="forward">به جلو</string>
+    <string name="next">بعدی</string>
+
+    <array name="startup_titles">
+        <item>با استفاده از این برنامه ممکن است شرایط خدمات دیگران را نقض کنید
+            برنامه های کاربردی.
+        </item>
+        <item>ما به حفظ حریم خصوصی و امنیت داده‌های شما اهمیت می‌دهیم تا هر زمان که فرستنده آن را حذف کرد مطلع شویم
+            هر پیامی
+        </item>
+        <item>با کلیک روی پذیرش، خط‌مشی‌های تبلیغاتی ما را می‌پذیرید و تخلف نمی‌کنید.</item>
+
+
+    </array>
+
+    <array name="startup_descriptions">
+        <item>با استفاده از این برنامه ممکن است شرایط خدمات سایر برنامه ها را نقض کنید.
+            به یاد داشته باشید که این شرایط استفاده از سایر برنامه ها را قبل از انتخاب آنها مرور کنید و انجام دهید
+            برنامه های ناسازگار را انتخاب نکنید.
+        </item>
+        <item>این برنامه رایگان است و برای ادامه کار روی آن باید تبلیغات را نشان دهیم.
+            برای انجام این کار، آگهی ما از اطلاعاتی که در مورد شما جمع آوری کرده است استفاده می کند.
+            به یاد داشته باشید، خط‌مشی‌ها را بخوانید و برای ادامه باید به سن قانونی رسیده باشید. تبلیغات ما
+            ارائه‌دهندگان ممکن است متفاوت باشند، خط‌مشی‌های رازداری همیشه به‌روز ظاهر می‌شوند.\n\n WA Recover
+            از اعلان های خود برای اهداف تجاری استفاده نکنید، فقط برای ذخیره و شناسایی محتوای آن
+            در دستگاه شما
+        </item>
+        <item>
+            با کلیک روی پذیرش، سیاست های تبلیغاتی ما را می پذیرید و شرایط را نقض نمی کنید
+            استفاده از برنامه های کاربردی دیگر
+        </item>
+    </array>
+    <string name="how_it_work_desc">
+       <![CDATA[ 1) \'WhatsApp Messenger\' را باز کنید<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: تنظیم بارگیری خودکار رسانه را از \'WhatsApp Messenger\' روشن کنید تا WA Recover بهتر کار کند.</font></b><br><br><br><br> br>
+         3) فایل های رسانه ای WhatsApp (تصویر، فیلم ها، یادداشت های صوتی، صداها، اسناد) را ذخیره کنید.<br><br>
+         4) در صورت حذف هر پیامی از طرف فرستنده به شما اطلاع داده می شود.<br><br>
+         5) برای صرفه جویی در فضای ذخیره سازی، موارد تکراری را روشن/خاموش کنید.<br><br>
+         6) برگه ها را از تنظیمات علامت بزنید یا علامت آن را بردارید تا آن فایل رسانه ای حذف شده ذخیره شود.<br><br>
+         7) اعلان واتس اپ شما باید برای دریافت پیام های متنی پاک شده روشن باشد.
+     ]]></string>
+    <string name="accept">پذیرفتن</string>
+    <string name="media_file_backup_list">فهرست پشتیبان فایل رسانه</string>
+    <string name="erase_all_messages">پاک کردن همه پیام‌ها</string>
+    <string name="today">امروز</string>
+    <string name="search">جستجو</string>
+    <string name="back">برگشت</string>
+    <string name="are_you_sure_you_want_to_exit">آیا مطمئن هستید که می خواهید خارج شوید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="upgrade_to_enjoy_premium">برای لذت بردن از حق بیمه ارتقا دهید</string>
+
+    <string name="no_status_found">وضعیت یافت نشد</string>
+    <string name="restatus">وضعیت مجدد</string>
+    <string name="download">دانلود</string>
+    <string name="enter_collection_name">نام مجموعه را وارد کنید</string>
+    <string name="collection_name">نام مجموعه</string>
+    <string name="cancel">لغو</string>
+    <string name="create">ایجاد</string>
+    <string name="ok">خوب</string>
+    <string name="create_new_collection">ایجاد مجموعه جدید</string>
+    <string name="edit">ویرایش</string>
+    <string name="fullscreen">تمام صفحه</string>
+    <string name="size_and_time">اندازه و زمان</string>
+    <string name="info">اطلاعات</string>
+    <string name="add_to_favourite">افزودن به موارد دلخواه</string>
+    <string name="removefavourite">حذف مورد دلخواه</string>
+    <string name="totaltime">کل زمان</string>
+    <string name="runtime">زمان اجرا</string>
+    <string name="please_select_a_song_from_the_playlist">لطفاً آهنگی را از لیست پخش انتخاب کنید</string>
+    <string name="customize_tabs">سفارشی کردن برگه ها</string>
+    <string name="apply">اعمال</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">واتس آپ را باز کنید</string>
+    <string name="view_the_status_you_want_to_download">مشاهده وضعیت</string>
+    <string name="come_back_again">دوباره برگرد</string>
+    <string name="noimagestatus">وضعیت تصویری یافت نشد</string>
+    <string name="novideostatus">وضعیت ویدیویی یافت نشد</string>
+    <string name="no_saved_status_found">وضعیت ذخیره شده یافت نشد</string>
+
+    <string name="rest_assured_permission_text">مطمئن باشید که ما از داده های خصوصی شما به نفع خود استفاده نمی کنیم.</string>
+
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">واتساپ</string>
+    <string name="rename">RENAME</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">این ویژگی از WhatsApp Public API برای باز کردن چت با هر شماره ای که وارد می کنید بدون ذخیره هیچ شماره ای استفاده می کند</string>
+    <string name="eg_1234567890">به عنوان مثال: 1234567890</string>
+    <string name="open_in_whatsapp_chat">باز کردن در چت WhatsApp</string>
+
+
+    <!-- پاک کننده-->
+    <string name="delete_items_blank">پاک کردن فایل های انتخابی (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">فایل‌ها</string>
+    <string name="no_files">فایلی وجود ندارد</string>
+    <string name="date">تاریخ</string>
+    <string name="name">نام</string>
+    <string name="size">اندازه</string>
+    <string name="clear_all_data">پاک کردن همه داده ها</string>
+
+
+    <string name="_922">92+</string>
+
+
+    <string name="screenshot">عکس از صفحه نمایش</string>
+
+    <string name="ad_loading">در حال بارگیری آگهی…</string>
+    <string name="please_wait">در حال بارگیری آگهی لطفاً صبر کنید…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">هنوز ویدیویی شناسایی نشده است</string>
+
+    <string name="life_time"><b> اشتراک</b></string>
+    <string name="subscribe_now">اکنون مشترک شوید</string>
+    <string name="continue_with_ads">ادامه با تبلیغات</string>
+
+    <string name="recovery">بازیابی</string>
+    <string name="direct_chat">چت مستقیم</string>
+    <string name="status">وضعیت</string>
+    <string name="more_tools">ابزارهای بیشتر</string>
+    <string name="enjoyee_ads_free_application">تجربه رایگان آگهی</string>
+    <string name="restore_unlimited_messages_instantly">بازیابی فوری پیام‌های نامحدود</string>
+
+    <string name="or">OR</string>
+    <string name="direct_whats_chat">چت مستقیم Whats</string>
+    <string name="write_your_text">متن خود را بنویسید</string>
+    <string name="font_styles">سبک‌های قلم</string>
+    <string name="stylish_text">متن شیک</string>
+    <string name="quatations_text">نقل‌ها</string>
+    <string name="text_repeater">تکرارکننده متن</string>
+    <string name="enter_message">پیام را وارد کنید</string>
+    <string name="enter_repeat_number">شماره تکراری را وارد کنید</string>
+    <string name="enter_message_here">پیام را اینجا وارد کنید…</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">توجه: تعداد محدودیت نوشتاری تکرارکننده 999</string>
+    <string name="repeat">تکرار</string>
+    <string name="new_line_on">خط جدید روشن</string>
+    <string name="clear">پاک کردن</string>
+    <string name="please_enter_the_text_you_want_to_repeat">لطفاً متنی را که می خواهید تکرار کنید وارد کنید.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">لطفاً تعداد دفعاتی را که می خواهید متن را تکرار کنید وارد کنید</string>
+    <string name="text_copied">متن کپی شد</string>
+    <string name="whatsapp_not_found">WhatsApp یافت نشد</string>
+
+    <string name="favourites">Favourites</string>
+    <string name="text_to_emoji">Text To Emoji</string>
+    <string name="stickers">Stickers</string>
+    <string name="unlock_premium_version">Unlock Premium Version</string>
+    <string name="_5_99">$6.99/lifetime</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Recover Data for WA & WAB]]></string>
+    <string name="error_adding_sticker_pack">Error loading stickers</string>
+    <string name="clear_all">Clear All</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Are you sure you want to clear all the data?</string>
+    <string name="select_country_code">Select Country Code</string>
+    <string name="enter_number">Enter Number</string>
+    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="permission_needed">Permission needed</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Storage permission is needed to read WhatsApp Media. Press OK to enable in settings.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Storage permission is needed to read WhatsApp Media</string>
+    <string name="chat">Chat</string>
+    <string name="voice">Voice</string>
+    <string name="image_status">Image\nStatus</string>
+    <string name="video_status">Video\nStatus</string>
+    <string name="saved_status">Saved\nStatus</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Stylish\nText</string>
+    <string name="text_repeater_">Text\nRepeater</string>
+    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="direct_chat_">Direct\nChat</string>
+    <string name="famous_quotes">Famous\nQuotes</string>
+    <string name="text_to_emoji_">Text to\nEmoji</string>
+    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="ascii_faces">Ascii\nFaces</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="screenshot_saved">Screenshot Saved</string>
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">آیا مطمئن هستید که می‌خواهید همه پیام‌های این گپ را پاک کنید؟</string>
+    <string name="clear_all_messages">پاک کردن همه پیام ها</string>
+    <string name="message_copied">پیام کپی شد</string>
+    <string name="delete_message">پیام حذف شود؟</string>
+    <string name="no_app_found_to_open_this_link">برنامه ای برای باز کردن این پیوند پیدا نشد</string>
+    <string name="confirm_delete">تأیید حذف</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">آیا مطمئن هستید که می‌خواهید فایل‌های انتخابی را وضعیت کنید؟</string>
+    <string name="items_selected">موارد انتخاب شده</string>
+    <string name="screenshots">عکس‌های صفحه</string>
+    <string name="saved_collections">مجموعه های ذخیره شده</string>
+    <string name="preview">پیش نمایش</string>
+    <string name="setting_applied">تنظیم اعمال شد</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">آیا مطمئن هستید که می‌خواهید تمام سابقه چت را وضعیت کنید؟</string>
+    <string name="all_chat_cleared">همه چت ها پاک شد</string>
+    <string name="delete_selected_image">تصویر انتخابی حذف شود؟</string>
+    <string name="are_you_sure_want_to_status_this_file">آیا مطمئن هستید که می‌خواهید این فایل را وضعیت کنید؟</string>
+    <string name="notification_listener_service">سرویس شنونده اعلان</string>
+    <string name="goto_settings">رفتن به تنظیمات</string>
+    <string name="not_now">اکنون نه</string>
+    <string name="permission_necessary">اجازه لازم</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">مجوز ذخیره‌سازی برای وضعیت فایل‌های رسانه لازم است</string>
+    <string name="delete_selected_chat">چت انتخابی را حذف کنید؟</string>
+    <string name="selected_chats">" چت‌های انتخاب شده؟</string>
+    <string name="you_cannot_open_this_file">شما نمی توانید این فایل را باز کنید</string>
+    <string name="delete_selected_documents">اسناد انتخابی حذف شود؟</string>
+    <string name="added_to_favourites">به موارد دلخواه اضافه شد</string>
+    <string name="removed_from_favourites">از موارد دلخواه حذف شد</string>
+    <string name="are_you_sure_you_want_to_delete">آیا مطمئن هستید که می خواهید حذف کنید؟</string>
+    <string name="delete_folder">پوشه حذف شود؟</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">همه فایل‌های موجود در این پوشه برای همیشه حذف خواهند شد</string>
+    <string name="folder_name_can_t_be_empty">نام پوشه نمی تواند خالی باشد</string>
+    <string name="folder_already_exist_with_the_same_name">پوشه از قبل با همین نام وجود دارد</string>
+    <string name="failed_to_create_folder">پوشه ایجاد نشد</string>
+    <string name="video_already_added">ویدیوی قبلاً اضافه شده است</string>
+    <string name="image_already_added">تصویر قبلاً اضافه شده است</string>
+    <string name="create_or_select_collection_first">ابتدا مجموعه را ایجاد یا انتخاب کنید</string>
+    <string name="allow">اجازه دادن</string>
+    <string name="saved">ذخیره شد</string>
+    <string name="only_tab_clicked">فقط روی برگه کلیک شد</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">اگر وضعیت ها را ذخیره نکنید، پس از 24 ساعت ناپدید می شوند</string>
+    <string name="whatsapp_status">وضعیت واتساپ</string>
+    <string name="share_status">وضعیت اشتراک</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">آیا مطمئن هستید که می‌خواهید این وضعیت را در WhatsApp به اشتراک بگذارید؟</string>
+    <string name="couldn_t_find_app_that_open_this_file">"برنامه ای که این فایل را باز می کند پیدا نشد"</string>
+    <string name="received_images">تصاویر دریافت شده</string>
+    <string name="received_videos">ویدیوهای دریافتی</string>
+    <string name="received_documents">اسناد دریافت شده</string>
+    <string name="received_audio">صوت دریافت شده</string>
+    <string name="received_voice">صدای دریافت شده</string>
+    <string name="received_wallpapers">کاپیپرهای دریافتی</string>
+    <string name="received_gifs">GIFهای دریافتی</string>
+    <string name="sent_images">تصاویر ارسال شده</string>
+    <string name="sent_videos">ویدیوهای ارسالی</string>
+    <string name="sent_documents">اسناد ارسال شده</string>
+    <string name="sent_audio">صوت ارسال شده</string>
+    <string name="sent_voice">صدا ارسال شده</string>
+    <string name="sent_wallpapers">تصاویر پس زمینه ارسال شده</string>
+    <string name="sent_gifs">GIF ارسال شده</string>
+    <string name="whatsapp_web_">وب واتساپ</string>
+    <string name="change_language">تغییر زبان</string>
+    <string name="privacy_settings">تنظیمات حریم خصوصی</string>
+</resources>

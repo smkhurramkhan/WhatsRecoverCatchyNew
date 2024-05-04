@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/action_download"
+        android:icon="@drawable/icon_menu_down"
+        android:title="@string/download"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_photo_editor"
+        android:icon="@drawable/icon_image_edit"
+        android:title="@string/edit"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/icon_share_menu"
+        android:title="@string/share"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_restatus"
+        android:icon="@drawable/icon_menu_restatus"
+        android:title="@string/restatus"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_fullscreen"
+        android:icon="@drawable/icon_full_screen_white"
+        android:title="@string/fullscreen"
+        app:showAsAction="always" />
+
+
+</menu>

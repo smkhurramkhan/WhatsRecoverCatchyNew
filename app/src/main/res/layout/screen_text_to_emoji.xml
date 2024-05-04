@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgScreenColor"
+    tools:context=".appactivities.activitytexttoemoji.TextToEmojiScreen">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bottom_corner_round"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintHeight_percent="0.23"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+
+        >
+
+        <EditText
+            android:id="@+id/etTextToEmoji"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="@string/hello"
+            android:maxLength="10"
+            android:padding="8dp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etEmoji"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+          android:layout_marginHorizontal="40dp"
+            android:maxLength="2"
+            android:padding="8dp"
+            android:fontFamily="@font/poppins"
+            android:textSize="18sp"
+            android:hint="@string/emoji"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintTop_toBottomOf="@id/etTextToEmoji"
+            app:layout_constraintStart_toStartOf="@id/etTextToEmoji"
+            app:layout_constraintEnd_toEndOf="@id/etTextToEmoji"
+
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvTextToEmoji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="300dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/tv_text_to_emoji_bg"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clTextView" />
+
+    <ImageView
+        android:id="@+id/btnShare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/share_icon"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="@id/tvTextToEmoji"
+        app:layout_constraintTop_toTopOf="@id/tvTextToEmoji"
+        />
+
+
+    <ImageView
+        android:id="@+id/btnCopy"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/icon_copy"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnShare"
+        app:layout_constraintEnd_toStartOf="@+id/btnShare"
+        app:layout_constraintTop_toTopOf="@+id/btnShare" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

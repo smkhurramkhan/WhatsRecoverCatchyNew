@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_8sdp"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:background="@drawable/quatation_item_background"
+    android:minHeight="140dp">
+
+
+    <TextView
+        android:id="@+id/tvMotivationalQuate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter"
+        android:gravity="center"
+        android:lines="3"
+        android:text="@string/app_name"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="20dp" />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/tvMotivationalQuate"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <ImageView
+        android:id="@+id/btn_share"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginVertical="8dp"
+        android:src="@drawable/icon_menu_share"
+        app:layout_constraintTop_toBottomOf="@id/lineView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_copy" />
+
+    <ImageView
+        android:id="@+id/btn_copy"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/icon_copy_svg"
+        app:layout_constraintBottom_toBottomOf="@id/btn_share"
+        app:layout_constraintEnd_toStartOf="@id/btn_share"
+        app:layout_constraintStart_toEndOf="@id/btn_whatsapp"
+        app:layout_constraintTop_toTopOf="@id/btn_share"
+        />
+
+    <ImageView
+        android:id="@+id/btn_whatsapp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon_whatsapp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_copy"
+        app:layout_constraintEnd_toStartOf="@id/btn_copy"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_copy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

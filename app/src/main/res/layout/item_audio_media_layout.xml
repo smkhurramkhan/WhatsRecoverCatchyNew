@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:cardCornerRadius="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivDocumentType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_audio_media"
+                app:layout_constraintEnd_toStartOf="@+id/tvDocumentName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/tvDocumentName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:maxLines="2"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+
+    <TextView
+        android:id="@+id/tvSizeTime"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:baselineAligned="false"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:lines="1"
+        android:text="@string/size_and_time"
+        android:textSize="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvDocumentName"
+        app:layout_constraintTop_toBottomOf="@+id/tvDocumentName" />
+
+
+    <ImageView
+        android:id="@+id/favitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|fill_horizontal"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="@string/app_name"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivMore"
+        app:layout_constraintStart_toEndOf="@+id/tvDocumentName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/ivMore"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:visibility="gone"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/favitem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_more"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/icon_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_play_audio_media"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

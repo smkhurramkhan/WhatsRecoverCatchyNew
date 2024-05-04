@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Inställningar</string>
+    <string name="premium">Premium</string>
+    <string name="upgrade_to_premium">Uppgradera till premium</string>
+    <string name="family_apps">Familjeappar</string>
+    <string name="how_to_use">Hur man använder</string>
+    <string name="share">Dela</string>
+    <string name="rate_it">Betygsätt det</string>
+    <string name="privacy_policy">Integritetspolicy</string>
+    <string name="help">Hjälp</string>
+
+    <string name="enable_permission">AKTIVERA BEHÖRIGHET</string>
+    <string name="we_need_your_permission">Vi behöver din tillåtelse</string>
+    <string name="we_need_your_permission_desc">För att lagra dina raderade meddelanden från WhatsApp lokalt måste du tillåta "Åtkomst till aviseringar" för den här appen. Välj <b>WA Recover</b>-appen i nästa vy för att aktivera behörigheten</string>
+    <string name="no_deleted_chat_detected_yet">Inget raderat chatt upptäckt ännu</string>
+
+    <string name="select_all">Välj Alla</string>
+    <string name="delete">Ta bort</string>
+    <string name="no_document_detected_yet">Inget dokument upptäckt ännu</string>
+    <string name="no_image_detected_yet">Ingen bild upptäckt ännu</string>
+    <string name="no_voice_detected_yet">Inga röstmeddelanden upptäckta ännu</string>
+    <string name="no_audio_detected_yet">Ingen ljudfil upptäckt ännu</string>
+
+    <string name="document">Dokument</string>
+    <string name="image">Bild</string>
+    <string name="video">Video</string>
+    <string name="voice_notes">Röstmeddelanden</string>
+    <string name="audio">Ljud</string>
+    <string name="clear_chat">Rensa chatt</string>
+    <string name="copy">Kopiera</string>
+    <string name="forward">Skicka vidare</string>
+    <string name="next">Nästa</string>
+
+    <array name="startup_titles">
+        <item>Genom att använda den här applikationen kan du bryta mot användarvillkoren för andra appar.</item>
+        <item>Vi bryr oss om din integritet och datasäkerhet för att bli notifierad när avsändaren raderar meddelanden.</item>
+        <item>Genom att klicka på acceptera godkänner du våra annonseringspolicyer och bryter inte mot dem.</item>
+    </array>
+
+    <array name="startup_descriptions">
+        <item>Genom att använda den här applikationen kan du bryta mot användarvillkoren för andra appar. Kom ihåg att granska dessa användarvillkor för andra appar innan du väljer dem och VÄLJ INTE inkompatibla appar.</item>
+        <item>Denna applikation är gratis och för att fortsätta arbeta med den måste vi visa reklam. För att göra detta kommer våra annonsleverantörer att använda information de har samlat in om dig. Kom ihåg, läs policyn och du måste vara myndig för att fortsätta. Våra annonsleverantörer kan variera, integritetspolicyn kommer alltid att vara aktuell. WA Recover använder inte dina aviseringar för kommersiella ändamål, endast för att spara och upptäcka dess innehåll på din enhet.</item>
+        <item>Genom att klicka på acceptera godkänner du våra annonseringspolicyer och bryter inte mot användarvillkoren för andra appar.</item>
+    </array>
+    <string name="how_it_work_desc">
+  <![CDATA[
+    1) Öppna \'WhatsApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'>2) Viktigt*: Slå på automatisk nedladdning av media från \'WhatsApp Messenger\' för bättre WA Recover-funktion.</font></b><br><br>
+    3) Spara WhatsApp-mediafiler (Bilder, Videor, Röstmeddelanden, Ljud, Dokument).<br><br>
+    4) Du kommer att bli notifierad om något meddelande raderas från avsändarens sida.<br><br>
+    5) Slå AV/PAÅ dubbletter för att spara lagringsutrymme.<br><br>
+    6) Markera eller avmarkera flikar från inställningarna för att spara den raderade mediafilen.<br><br>
+    7) Dina WhatsApp-aviseringar måste vara påslagna för att få raderade textmeddelanden.
+  ]]></string>
+    <string name="accept">Acceptera</string>
+    <string name="media_file_backup_list">Backuplista för mediefiler</string>
+    <string name="erase_all_messages">Radera alla meddelanden</string>
+    <string name="today">Idag</string>
+    <string name="search">Sök</string>
+    <string name="back">iv bakåt</string>
+    <string name="are_you_sure_you_want_to_exit">Är du säker på att du vill avsluta?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nej</string>
+    <string name="upgrade_to_enjoy_premium">Uppgradera för att njuta av premium</string>
+
+    <string name="no_status_found">Inget status hittat</string>
+    <string name="restatus">Återställ status</string>
+    <string name="download">Ladda ner</string>
+    <string name="enter_collection_name">Ange samlingsnamn</string>
+    <string name="collection_name">Samlingsnamn</string>
+    <string name="cancel">AVBRYT</string>
+    <string name="create">SKAPA</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">Skapa ny samling</string>
+    <string name="edit">Redigera</string>
+    <string name="fullscreen">Helskärm</string>
+    <string name="size_and_time">Storlek och tid</string>
+    <string name="info">Information</string>
+    <string name="add_to_favourite">Lägg till i favoriter</string>
+    <string name="removefavourite">Ta bort från favoriter</string>
+    <string name="totaltime">totaltid</string>
+    <string name="runtime">körtid</string>
+    <string name="please_select_a_song_from_the_playlist">Välj en låt från spellistan</string>
+    <string name="customize_tabs">Anpassa flikar</string>
+    <string name="apply">Tillämpa</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">Öppna WhatsApp</string>
+    <string name="view_the_status_you_want_to_download">Visa status</string>
+    <string name="come_back_again">Kom tillbaka igen</string>
+    <string name="noimagestatus">Ingen bildstatus hittad</string>
+    <string name="novideostatus">Ingen videostatus hittad</string>
+    <string name="no_saved_status_found">Ingen sparad status hittad</string>
+
+  <string name="rest_assured_permission_text">Var lugn, vi använder inte dina privata data för vår egen fördel.</string>
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">Ändra namn</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Den här funktionen använder WhatsApps offentliga API för att öppna en chatt med vilket nummer du än anger utan att spara det.</string>
+    <string name="eg_1234567890">Exempel: 1234567890</string>
+    <string name="open_in_whatsapp_chat">Öppna i WhatsApp-chatt</string>
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">Rensa valda filer (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">Filer</string>
+    <string name="no_files">inga filer</string>
+    <string name="date">Datum</string>
+    <string name="name">Namn</string>
+    <string name="size">Storlek</string>
+    <string name="clear_all_data">Rensa all data</string>
+
+    <string name="_922">+92</string>
+
+    <string name="screenshot">Skärmbild</string>
+
+    <string name="ad_loading">Laddar annons…</string>
+    <string name="please_wait">Laddar annons, var god vänta…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">Inga videor upptäckta ännu</string>
+
+    <string name="life_time"><b> Prenumeration</b></string>
+    <string name="subscribe_now">Prenumerera nu</string>
+    <string name="continue_with_ads">Fortsätt med annonser</string>
+
+  <string name="recovery">Återställning</string>
+    <string name="direct_chat">Direkt chatt</string>
+    <string name="status">Status</string>
+    <string name="more_tools">Fler verktyg</string>
+  <string name="enjoyee_ads_free_application">Annonsfri upplevelse</string>
+    <string name="restore_unlimited_messages_instantly">Återställ obegränsat meddelanden omedelbart</string>
+
+    <string name="or">ELLER</string>
+    <string name="direct_whats_chat">Direkt WhatsApp-chatt</string>
+    <string name="write_your_text">Skriv din text</string>
+    <string name="font_styles">Teckensnittsstilar</string>
+    <string name="stylish_text">Stilig text</string>
+    <string name="quatations_text">Citat</string>
+    <string name="text_repeater">Textrepeater</string>
+    <string name="enter_message">Ange meddelande</string>
+    <string name="enter_repeat_number">Ange antal repetitioner</string>
+    <string name="enter_message_here">Ange meddelande här…</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Observera: Antalet textrepetitioner är begränsat till 999</string>
+    <string name="repeat">Repetera</string>
+    <string name="new_line_on">Ny rad på</string>
+    <string name="clear">Rensa</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Ange den text du vill upprepa.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Ange antalet gånger du vill upprepa texten</string>
+    <string name="text_copied">Text kopierad</string>
+    <string name="whatsapp_not_found">WhatsApp hittades inte</string>
+    <!-- Strings used for fragments for navigation -->
+  <string name="favourites">Favoriter</string>
+    <string name="text_to_emoji">Text till Emoji</string>
+    <string name="stickers">Stickers</string>
+
+    <string name="unlock_premium_version">Lås upp premiumversion</string>
+  <string name="_5_99">6,99 USD/livstid</string>
+    <string name="recover_data_for_wa_wab">><![CDATA[Recover Data for WA & WAB]]></string>
+    <string name="error_adding_sticker_pack">Fel vid laddning av klistermärken</string>
+    <string name="clear_all">Rensa alla</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Är du säker på att du vill rensa all data?</string>
+    <string name="select_country_code">Välj landskod</string>
+    <string name="enter_number">Ange nummer</string>
+    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="permission_needed">Behörighet behövs</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Lagringsbehörighet krävs för att läsa WhatsApp Media. Tryck på OK för att aktivera i inställningarna.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Lagringsbehörighet krävs för att läsa WhatsApp Media</string>
+    <string name="chat">Chatta</string>
+    <string name="voice">Röst</string>
+    <string name="image_status">Bild\nStatus</string>
+    <string name="video_status">Video\nStatus</string>
+    <string name="saved_status">Sparad\nStatus</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Snygg\nText</string>
+    <string name="text_repeater_">Text\nRepeater</string>
+    <string name="whats_cleaner">WhatsApp\nRenare</string>
+    <string name="direct_chat_">Direkt\nChatt</string>
+    <string name="famous_quotes">Kända\nCitat</string>
+    <string name="text_to_emoji_">Text till\nEmoji</string>
+    <string name="whatsapp_stickers">WhatsApp\nKlistermärken</string>
+    <string name="ascii_faces">Ascii\nAnsikten</string>
+    <string name="something_went_wrong">Något gick fel</string>
+    <string name="screenshot_saved">Skärmdump sparad</string>
+
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Är du säker på att du vill rensa alla meddelanden i den här chatten?</string>
+    <string name="clear_all_messages">RENSA ALLA MEDDELANDEN</string>
+    <string name="message_copied">Meddelandet har kopierats</string>
+    <string name="delete_message">Ta bort meddelande?</string>
+    <string name="no_app_found_to_open_this_link">Ingen app hittades för att öppna denna länk</string>
+    <string name="confirm_delete">Bekräfta borttagning</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Är du säker på att du vill ge de valda filerna status?</string>
+    <string name="items_selected">objekt valda</string>
+    <string name="screenshots">Skärmbilder</string>
+    <string name="saved_collections">Sparade samlingar</string>
+    <string name="preview">Förhandsgranska</string>
+    <string name="setting_applied">Inställning tillämpad</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Är du säker på att du vill ge status för hela chatthistoriken?</string>
+    <string name="all_chat_cleared">All chat rensad</string>
+    <string name="delete_selected_image">Ta bort vald bild?</string>
+    <string name="are_you_sure_want_to_status_this_file">Är du säker på att du vill ge denna fil status?</string>
+    <string name="notification_listener_service">Tjänst för aviseringslyssnare</string>
+    <string name="goto_settings">GÅ TILL INSTÄLLNINGAR</string>
+    <string name="not_now">Inte nu</string>
+    <string name="permission_necessary">Behörighet krävs</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Lagringsbehörighet är nödvändig för att status mediefiler</string>
+    <string name="delete_selected_chat">Ta bort vald chatt?</string>
+    <string name="selected_chats">" valda chattar?"</string>
+    <string name="you_cannot_open_this_file">du kan inte öppna den här filen</string>
+    <string name="delete_selected_documents">Ta bort markerade dokument?</string>
+    <string name="added_to_favourites">Lägg till i favoriter</string>
+    <string name="removed_from_favourites">Borttaget från favoriter</string>
+    <string name="are_you_sure_you_want_to_delete">Är du säker på att du vill ta bort?</string>
+    <string name="delete_folder">RADERA MAPP?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">ALLA FILER I DENNA MAPP KOMMER ATT RADERAS PERMANENT</string>
+    <string name="folder_name_can_t_be_empty">Mappnamnet får inte vara tomt</string>
+    <string name="folder_already_exist_with_the_same_name">Mapp finns redan med samma namn</string>
+    <string name="failed_to_create_folder">Det gick inte att skapa mapp</string>
+    <string name="video_already_added">Video har redan lagts till</string>
+    <string name="image_already_added">Bilden har redan lagts till</string>
+    <string name="create_or_select_collection_first">Skapa eller välj samling först</string>
+    <string name="allow">TILLÅT</string>
+    <string name="saved">Sparat</string>
+    <string name="only_tab_clicked">endast klickade på flik</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Om du inte sparar statusar försvinner de efter 24 timmar</string>
+    <string name="whatsapp_status">WhatsApp-status</string>
+    <string name="share_status">Dela status</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Är du säker på att du vill dela denna status på WhatsApp?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Det gick inte att hitta appen som öppnar den här filen"</string>
+    <string name="received_images">Mottagna bilder</string>
+    <string name="received_videos">Mottagna videoklipp</string>
+    <string name="received_documents">Mottagna dokument</string>
+    <string name="received_audio">Motaget ljud</string>
+    <string name="received_voice">Mottagen röst</string>
+    <string name="received_wallpapers">Mottagna bakgrundsbilder</string>
+    <string name="received_gifs">Mottagna GIF-filer</string>
+    <string name="sent_images">Skickade bilder</string>
+    <string name="sent_videos">Skickade videoklipp</string>
+    <string name="sent_documents">Skickade dokument</string>
+    <string name="sent_audio">Skickat ljud</string>
+    <string name="sent_voice">Skickad röst</string>
+    <string name="sent_wallpapers">Skickade bakgrunder</string>
+    <string name="sent_gifs">Skickade GIF-filer</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Ändra språk</string>
+  <string name="privacy_settings">Sekretessinställningar</string>
+</resources>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".appactivities.activitywhatscleaner.WACleanerScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.38"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:background="@drawable/bottom_corner_round"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topAdLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="@dimen/_6sdp"
+            android:background="@drawable/boarder_native_app"
+            app:layout_constraintBottom_toTopOf="@+id/dataCard"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <include layout="@layout/shimmer_banner_native_" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/nativeAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dataCard"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="75dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topAdLayout"
+            >
+            <LinearLayout
+                android:id="@+id/datalayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <TextView
+                    android:id="@+id/data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/_0b"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    app:layout_constraintEnd_toStartOf="@id/files"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/files"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center"
+                    android:text="@string/files"
+                    android:visibility="gone"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/data"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/data"
+                    app:layout_constraintTop_toTopOf="@id/data" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <include
+       android:id="@+id/toolbar"
+       layout="@layout/toolbar_layout"
+       />
+
+
+
+
+
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="true"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clearall"
+        tools:listitem="@layout/item_cleaner_content_layout" />
+
+    <Button
+        android:id="@+id/clearall"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/bgDarkGreen"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingBottom="@dimen/_5sdp"
+        android:text="@string/quick_clean"
+        android:paddingHorizontal="30dp"
+
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/clTop"
+        app:layout_constraintTop_toBottomOf="@id/clTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/hProgressbar"
+        style="@style/Widget.App.CircularProgressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

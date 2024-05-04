@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".appactivities.activitydirectchat.DirectChatScreenActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topAdLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="@dimen/_6sdp"
+            android:background="@drawable/boarder_native_app"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <include layout="@layout/shimmer_banner_native_" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/nativebanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/bannercontainer"
+            app:layout_constraintTop_toBottomOf="@id/topAdLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="@string/this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvcountrycode"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bordered_btn_directchat"
+                   android:paddingEnd="10dp"
+                    android:textSize="20sp"
+                    android:text="@string/_92"
+                    android:gravity="end|center_vertical"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/poppins"
+                    android:translationZ="5dp"
+                    app:layout_constraintBottom_toTopOf="@id/etmessage"
+                    app:layout_constraintEnd_toStartOf="@id/etnumber"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:layout_constraintVertical_bias="0.3" />
+
+                <EditText
+                    android:id="@+id/etnumber"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                   android:layout_marginEnd="16dp"
+                    android:translationZ="5dp"
+                    android:background="@drawable/bordered_btn_directchat"
+                    android:hint="@string/eg_1234567890"
+                    android:inputType="phone"
+                    android:padding="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvcountrycode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvcountrycode"
+                    app:layout_constraintTop_toTopOf="@id/tvcountrycode" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etmessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bordered_btn_directchat"
+                    android:focusable="true"
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="start|top"
+                    android:hint="@string/type_you_message_here"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:fontFamily="@font/poppins"
+                    android:maxLength="250"
+                    android:minLines="6"
+                    android:padding="@dimen/_8sdp"
+                    android:scrollbars="vertical"
+                    android:singleLine="false"
+                    android:translationZ="5dp"
+                    app:layout_constraintEnd_toEndOf="@id/etnumber"
+                    app:layout_constraintStart_toStartOf="@id/tvcountrycode"
+                    app:layout_constraintTop_toBottomOf="@id/tvcountrycode" />
+
+                <ImageView
+                    android:id="@+id/btnSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/icon_send_msg_svg"
+                    android:translationZ="5dp"
+                    app:layout_constraintEnd_toEndOf="@id/etmessage"
+                    app:layout_constraintBottom_toBottomOf="@id/etmessage"
+                    />
+
+                <ImageView
+                    android:id="@+id/numAndMsgBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_direct_chat_bg"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:layout_constraintBottom_toTopOf="@id/opendirectChat"
+                    />
+
+                <Button
+                    android:id="@+id/opendirectChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/exit_dialog_btn"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/open_in_whatsapp_chat"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/numAndMsgBg"
+                    tools:layout_editor_absoluteY="286dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/bannercontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

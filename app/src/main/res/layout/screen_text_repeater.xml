@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/bgScreenColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".appactivities.activitytextrepeater.TextRepeaterScreen">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topAdLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/_6sdp"
+        app:layout_constraintBottom_toTopOf="@id/scrollView2"
+        android:background="@drawable/boarder_native_app"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" >
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include layout="@layout/shimmer_banner_native_" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/nativebanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAdLayout">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRepeatText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_corner_round"
+                app:layout_constraintHeight_percent="0.52"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="#D4F0DE"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/tvEnterText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="12dp"
+                            android:fontFamily="@font/poppins"
+                            android:text="@string/enter_message"
+                            android:textColor="@color/black"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toTopOf="@id/etCard"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/etCard"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="4dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:layout_constraintEnd_toEndOf="@id/tvEnterText"
+                            app:layout_constraintStart_toStartOf="@id/tvEnterText"
+                            app:layout_constraintTop_toBottomOf="@id/tvEnterText">
+
+                            <EditText
+                                android:id="@+id/etmessageText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@color/transparent"
+                                android:fontFamily="@font/poppins"
+                                android:hint="@string/enter_message_here"
+                                android:inputType="text|textMultiLine"
+                                android:maxLines="1"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:scrollHorizontally="true"
+                                android:textSize="18dp" />
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvEnterRepeatNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/poppins"
+                            android:text="@string/enter_repeat_number"
+                            android:textColor="@color/black"
+                            android:textSize="11sp"
+                            app:layout_constraintStart_toStartOf="@id/etCard"
+                            app:layout_constraintTop_toBottomOf="@id/etCard"
+
+                            />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/etNumberCard"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="4dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:layout_constraintEnd_toEndOf="@+id/textRepeatLimitTv"
+                            app:layout_constraintStart_toStartOf="@id/tvEnterText"
+                            app:layout_constraintTop_toBottomOf="@id/tvEnterRepeatNumber">
+
+                            <EditText
+                                android:id="@+id/etNumberText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@color/transparent"
+                                android:fontFamily="@font/poppins"
+                                android:hint="@string/_10"
+                                android:inputType="number"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:textSize="18sp" />
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/textRepeatLimitTv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_warning_svg"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="@string/note_number_of_repeater_text_limit_999"
+                            android:textColor="@color/red"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@id/tvEnterRepeatNumber"
+                            app:layout_constraintEnd_toEndOf="@id/tvEnterText"
+                            app:layout_constraintTop_toTopOf="@id/tvEnterRepeatNumber" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="16dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/etNumberCard">
+
+                            <RadioButton
+                                android:id="@+id/regular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@string/regular"
+                                android:textSize="11sp" />
+
+                            <RadioButton
+                                android:id="@+id/newLine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@string/new_line"
+                                android:checked="true"
+                                android:textSize="11sp" />
+
+                            <RadioButton
+                                android:id="@+id/space"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@string/space"
+                                android:textSize="11sp" />
+
+                        </RadioGroup>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/btnRepeatText"
+                    android:layout_width="110dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/exit_dialog_btn"
+                    android:backgroundTint="#007B2A"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="@string/repeat"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginVertical="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/btnClear"
+                    app:layout_constraintTop_toBottomOf="@id/card" />
+
+                <TextView
+                    android:id="@+id/btnClear"
+                    android:layout_width="110dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/exit_dialog_btn"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="@string/reset"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/btnRepeatText"
+                    app:layout_constraintEnd_toStartOf="@+id/btnRepeatText"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btnRepeatText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ReapetedTextCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:minHeight="250dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clRepeatText">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/btnShare"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/share_icon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:id="@+id/btnCopy"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/icon_copy"
+                        app:layout_constraintBottom_toBottomOf="@+id/btnShare"
+                        app:layout_constraintEnd_toStartOf="@+id/btnShare"
+                        app:layout_constraintTop_toTopOf="@+id/btnShare" />
+
+                    <TextView
+                        android:id="@+id/etRepeatedText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fadeScrollbars="false"
+                        android:maxLines="999"
+                        android:padding="8dp"
+                        android:scrollbarStyle="insideInset"
+                        app:layout_constraintTop_toBottomOf="@id/btnCopy"
+                        android:scrollbars="vertical"
+                        android:textSize="16sp" />
+
+                    <ScrollView
+                        android:id="@+id/scrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btnCopy">
+
+
+                    </ScrollView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchForNewLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        android:background="@drawable/radio_background"
+        android:checked="false"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/new_line_on"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

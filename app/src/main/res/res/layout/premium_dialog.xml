@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/premium"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_circle_bg"
+            android:src="@drawable/ic_close" />
+    </FrameLayout>
+
+
+    <RadioGroup
+        android:id="@+id/rgSubscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <RadioButton
+            android:id="@+id/rbSixMonth"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="6 Moth Pakcage: USD 3.16"
+            android:theme="@style/SwitchTheme" />
+
+        <RadioButton
+            android:id="@+id/rbOneYear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="1 Year Pakcage: USD 6.33"
+            android:theme="@style/SwitchTheme" />
+
+        <RadioButton
+            android:id="@+id/rbLifetime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="Lifetime Pakcage: USD 12.67"
+            android:theme="@style/SwitchTheme" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/home_btn_bg"
+        android:text="@string/continue_"
+        android:textColor="@color/white" />
+
+</LinearLayout>

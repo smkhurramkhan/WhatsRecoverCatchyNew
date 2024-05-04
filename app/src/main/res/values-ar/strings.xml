@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">الإعدادات</string>
+    <string name="premium">بريميوم</string>
+    <string name="upgrade_to_premium">الترقية إلى الإصدار المميز</string>
+    <string name="family_apps">تطبيقات العائلة</string>
+    <string name="how_to_use">كيفية الاستخدام</string>
+    <string name="share">مشاركة</string>
+    <string name="rate_it">قيمه</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="help">تعليمات</string>
+
+    <string name="enable_permission">تمكين الإذن</string>
+    <string name="we_need_your_permission">نحتاج إلى إذنك</string>
+    <string name="we_need_your_permission_desc">لتخزين رسائل WhatsApp المحذوفة محليًا، يلزمك السماح بإذن \"الوصول إلى الإشعارات\" لهذا التطبيق. حدد تطبيق <b>WA Recover</b> في المرة التالية لتمكين الإذن</string>
+    <string name="no_deleted_chat_detected_yet">لم يتم اكتشاف أي دردشة محذوفة حتى الآن</string>
+
+    <string name="select_all">حدد الكل</string>
+    <string name="delete">حذف</string>
+    <string name="no_document_detected_yet">لم يتم اكتشاف أي مستند حتى الآن</string>
+    <string name="no_image_detected_yet">لم يتم اكتشاف صورة بعد</string>
+    <string name="no_voice_detected_yet">لم يتم اكتشاف أي ملاحظات صوتية حتى الآن</string>
+    <string name="no_audio_detected_yet">لم يتم اكتشاف أي صوت بعد</string>
+
+
+    <string name="document">المستند</string>
+    <string name="image">صورة</string>
+    <string name="video">فيديو</string>
+    <string name="voice_notes">الملاحظات الصوتية</string>
+    <string name="audio">الصوت</string>
+    <string name="clear_chat">مسح الدردشة</string>
+    <string name="copy">نسخ</string>
+    <string name="forward">للأمام</string>
+    <string name="next">التالي</string>
+
+    <array name="startup_titles">
+        <item>باستخدام هذا التطبيق قد تنتهك شروط خدمات الآخرين
+            التطبيقات.
+        </item>
+        <item>نحن نهتم بخصوصيتك وأمن بياناتك ليتم إعلامك عندما يقوم المرسل بالحذف
+            أي رسالة.
+        </item>
+        <item>بالنقر على "قبول"، فإنك تقبل سياساتنا الإعلانية ولا تنتهكها.</item>
+
+
+    </array>
+
+    <array name="startup_descriptions">
+        <item>باستخدام هذا التطبيق، قد تنتهك شروط خدمات التطبيقات الأخرى.
+            تذكر مراجعة شروط استخدام التطبيقات الأخرى قبل تحديدها والقيام بذلك
+            لا تقم بتحديد التطبيقات غير المتوافقة.
+        </item>
+        <item>هذه التطبيقات مجانية ولمواصلة العمل عليها علينا عرض الإعلانات.
+            وللقيام بذلك، ستستخدم إعلاناتنا المعلومات التي جمعوها عنك.
+            تذكر، اقرأ السياسات ويجب أن تكون في السن القانونية للمتابعة. إعلاناتنا
+            قد يختلف مقدمو الخدمة، وستظهر سياسات الخصوصية دائمًا محدثة.\n\n WA Recover هو كذلك
+            لا تستخدم إشعاراتك لأغراض تجارية، فقط لحفظ محتواها واكتشافه
+            على جهازك
+        </item>
+        <item>
+            بالنقر على "قبول"، فإنك تقبل سياساتنا الإعلانية ولا تنتهك شروطها
+            استخدام التطبيقات الأخرى
+        </item>
+    </array>
+
+    <string name="how_it_work_desc">
+        <![CDATA[ 1) افتح \'WhatsApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: تشغيل إعداد وسائط التنزيل التلقائي من \'WhatsApp Messenger\' لتحسين عمل استرداد WA.</font></b><br>< ر>
+         3) حفظ ملفات وسائط WhatsApp (الصور ومقاطع الفيديو والملاحظات الصوتية والتسجيلات الصوتية والمستندات).<br><br>
+         4) سيتم إعلامك في حالة حذف أي رسالة من جانب المرسل.<br><br>
+         5) قم بتشغيل/إيقاف التكرارات من أجل توفير مساحة التخزين.<br><br>
+         6) قم بتحديد أو إلغاء تحديد علامات التبويب من الإعدادات لحفظ ملف الوسائط المحذوف.<br><br>
+         7) يجب تشغيل إشعار WhatsApp الخاص بك للحصول على الرسائل النصية المحذوفة.
+     ]]></string>
+    <string name="accept">قبول</string>
+    <string name="media_file_backup_list">قائمة النسخ الاحتياطي لملفات الوسائط</string>
+    <string name="erase_all_messages">مسح كافة الرسائل</string>
+    <string name="today">اليوم</string>
+    <string name="search">بحث</string>
+    <string name="back">الرابع للخلف</string>
+    <string name="are_you_sure_you_want_to_exit">هل أنت متأكد من رغبتك في الخروج؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="upgrade_to_enjoy_premium">الترقية للاستمتاع بالإصدار المميز</string>
+
+    <string name="no_status_found">لم يتم العثور على حالة</string>
+    <string name="restatus">إعادة الحالة</string>
+    <string name="download">تنزيل</string>
+    <string name="enter_collection_name">أدخل اسم المجموعة</string>
+    <string name="collection_name">اسم المجموعة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="create">إنشاء</string>
+    <string name="ok">موافق</string>
+    <string name="create_new_collection">إنشاء مجموعة جديدة</string>
+    <string name="edit">تحرير</string>
+    <string name="fullscreen">ملء الشاشة</string>
+    <string name="size_and_time">الحجم والوقت</string>
+    <string name="info">المعلومات</string>
+    <string name="add_to_favourite">إضافة إلى المفضلة</string>
+    <string name="removefavourite">إزالة المفضلة</string>
+    <string name="totaltime">الوقت الإجمالي</string>
+    <string name="runtime">وقت التشغيل</string>
+    <string name="please_select_a_song_from_the_playlist">يُرجى تحديد أغنية من قائمة التشغيل</string>
+    <string name="customize_tabs">تخصيص علامات التبويب</string>
+    <string name="apply">تطبيق</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">افتح واتساب</string>
+    <string name="view_the_status_you_want_to_download">عرض الحالة</string>
+    <string name="come_back_again">العودة مرة أخرى</string>
+    <string name="noimagestatus">لم يتم العثور على حالة الصورة</string>
+    <string name="novideostatus">لم يتم العثور على حالة فيديو</string>
+    <string name="no_saved_status_found">لم يتم العثور على حالة محفوظة</string>
+
+    <string name="rest_assured_permission_text">كن مطمئنًا أننا لا نستخدم بياناتك الخاصة لمصلحتنا الخاصة.</string>
+
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">إعادة التسمية</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">تستخدم هذه الميزة WhatsApp Public API لفتح محادثة مع أي رقم تدخله دون حفظ أي رقم</string>
+    <string name="eg_1234567890">مثال: 1234567890</string>
+    <string name="open_in_whatsapp_chat">فتح في دردشة WhatsApp</string>
+
+
+    <!--منظف-->
+    <string name="delete_items_blank">مسح الملفات المحددة (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">الملفات</string>
+    <string name="no_files">لا توجد ملفات</string>
+    <string name="date">التاريخ</string>
+    <string name="name">الاسم</string>
+    <string name="size">الحجم</string>
+    <string name="clear_all_data">مسح كافة البيانات</string>
+
+
+    <string name="_922">+92</string>
+
+
+    <string name="screenshot">لقطة الشاشة</string>
+
+    <string name="ad_loading">جارٍ تحميل الإعلان…</string>
+    <string name="please_wait">جارٍ تحميل الإعلان، برجاء الانتظار…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">لم يتم اكتشاف أي مقاطع فيديو حتى الآن</string>
+
+    <string name="life_time"><b> الاشتراك</b></string>
+    <string name="subscribe_now">اشترك الآن</string>
+    <string name="continue_with_ads">متابعة الإعلانات</string>
+
+    <string name="recovery">الاسترداد</string>
+    <string name="direct_chat">الدردشة المباشرة</string>
+    <string name="status">الحالة</string>
+    <string name="more_tools">المزيد من الأدوات</string>
+    <string name="enjoyee_ads_free_application">تجربة خالية من الإعلانات</string>
+    <string name="restore_unlimited_messages_instantly">استعادة عدد غير محدود من الرسائل على الفور</string>
+
+    <string name="or">أو</string>
+    <string name="direct_whats_chat">الدردشة المباشرة</string>
+    <string name="write_your_text">اكتب النص الخاص بك</string>
+    <string name="font_styles">أنماط الخطوط</string>
+    <string name="stylish_text">نص أنيق</string>
+    <string name="quatations_text">الاقتباسات</string>
+    <string name="text_repeater">مكرر النص</string>
+    <string name="enter_message">أدخل الرسالة</string>
+    <string name="enter_repeat_number">أدخل رقم التكرار</string>
+    <string name="enter_message_here">أدخل الرسالة هنا...</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">ملاحظة: الحد الأقصى لعدد النص المكرر هو 999</string>
+    <string name="repeat">كرر</string>
+    <string name="new_line_on">سطر جديد قيد التشغيل</string>
+    <string name="clear">مسح</string>
+    <string name="please_enter_the_text_you_want_to_repeat">الرجاء إدخال النص الذي تريد تكراره.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">الرجاء إدخال عدد المرات التي تريد فيها تكرار النص</string>
+    <string name="text_copied">تم نسخ النص</string>
+    <string name="whatsapp_not_found">لم يتم العثور على WhatsApp</string>
+    <!-- السلاسل المستخدمة للأجزاء للتنقل -->
+    <string name="favourites">المفضلة</string>
+    <string name="text_to_emoji">إرسال رسالة نصية إلى Emoji</string>
+    <string name="stickers">الملصقات</string>
+    <string name="unlock_premium_version">فتح الإصدار المميز</string>
+    <string name="_5_99">6.99 دولارًا أمريكيًا/مدى الحياة</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[استرداد البيانات لـ WA وWAB]]></string>
+    <string name="error_adding_sticker_pack">حدث خطأ أثناء تحميل الملصقات</string>
+    <string name="clear_all">مسح الكل</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">هل أنت متأكد من رغبتك في مسح كافة البيانات؟</string>
+    <string name="select_country_code">حدد رمز البلد</string>
+    <string name="enter_number">أدخل الرقم</string>
+    <string name="whatsapp_cleaner">منظف الواتساب</string>
+    <string name="permission_needed">الإذن مطلوب</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">يلزم الحصول على إذن التخزين لقراءة وسائط WhatsApp. اضغط على "موافق" للتمكين في الإعدادات.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">يلزم الحصول على إذن التخزين لقراءة وسائط WhatsApp</string>
+    <string name="chat">الدردشة</string>
+    <string name="voice">الصوت</string>
+
+    <string name="image_status">حالة\nالصورة</string>
+    <string name="video_status">حالة\nالفيديو</string>
+    <string name="saved_status">الحالة\nالمحفوظة</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">نص\nأنيق</string>
+    <string name="text_repeater_">مكرر\nالنص</string>
+    <string name="whats_cleaner">منظف\nWhatsApp</string>
+    <string name="direct_chat_">الدردشة\nالمباشرة</string>
+    <string name="famous_quotes">اقتباسات\nمشهورة</string>
+    <string name="text_to_emoji_">أرسل رسالة نصية إلى\nEmoji</string>
+    <string name="whatsapp_stickers">ملصقات\nWhatsApp</string>
+    <string name="ascii_faces">Ascii\nالوجوه</string>
+    <string name="something_went_wrong">حدث خطأ ما</string>
+    <string name="screenshot_saved">تم حفظ لقطة الشاشة</string>
+
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">هل أنت متأكد من رغبتك في مسح جميع الرسائل في هذه الدردشة؟</string>
+    <string name="clear_all_messages">مسح كافة الرسائل</string>
+    <string name="message_copied">تم نسخ الرسالة</string>
+    <string name="delete_message">هل تريد حذف الرسالة؟</string>
+    <string name="no_app_found_to_open_this_link">لم يتم العثور على تطبيق لفتح هذا الرابط</string>
+    <string name="confirm_delete">تأكيد الحذف</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">هل أنت متأكد من رغبتك في تحديد حالة الملفات المحددة؟</string>
+    <string name="items_selected">العناصر المحددة</string>
+    <string name="screenshots">لقطات الشاشة</string>
+    <string name="saved_collections">المجموعات المحفوظة</string>
+    <string name="preview">معاينة</string>
+    <string name="setting_applied">تم تطبيق الإعداد</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">هل أنت متأكد من رغبتك في تحديد حالة سجل الدردشة بالكامل؟</string>
+    <string name="all_chat_cleared">تم مسح كل الدردشة</string>
+    <string name="delete_selected_image">هل تريد حذف الصورة المحددة؟</string>
+    <string name="are_you_sure_want_to_status_this_file">هل أنت متأكد أنك تريد تحديد حالة هذا الملف؟</string>
+    <string name="notification_listener_service">خدمة مستمع الإشعارات</string>
+    <string name="goto_settings">الانتقال إلى الإعدادات</string>
+    <string name="not_now">ليس الآن</string>
+    <string name="permission_necessary">الإذن ضروري</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">إذن التخزين ضروري لحالة ملفات الوسائط</string>
+    <string name="delete_selected_chat">هل تريد حذف الدردشة المحددة؟</string>
+    <string name="selected_chats">"الدردشات المحددة؟"</string>
+    <string name="you_cannot_open_this_file">لا يمكنك فتح هذا الملف</string>
+    <string name="delete_selected_documents">هل تريد حذف المستندات المحددة؟</string>
+    <string name="added_to_favourites">تمت الإضافة إلى المفضلة</string>
+    <string name="removed_from_favourites">تمت الإزالة من المفضلة</string>
+    <string name="are_you_sure_you_want_to_delete">هل أنت متأكد من رغبتك في الحذف؟</string>
+    <string name="delete_folder">هل تريد حذف المجلد؟</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">سيتم حذف جميع الملفات الموجودة في هذا المجلد نهائيًا</string>
+    <string name="folder_name_can_t_be_empty">لا يمكن أن يكون اسم المجلد فارغًا</string>
+    <string name="folder_already_exist_with_the_same_name">المجلد موجود بالفعل بنفس الاسم</string>
+    <string name="failed_to_create_folder">فشل في إنشاء المجلد</string>
+    <string name="video_already_added">تمت إضافة الفيديو بالفعل</string>
+    <string name="image_already_added">تمت إضافة الصورة بالفعل</string>
+    <string name="create_or_select_collection_first">إنشاء المجموعة أو تحديدها أولاً</string>
+    <string name="allow">السماح</string>
+    <string name="saved">تم الحفظ</string>
+    <string name="only_tab_clicked">تم النقر على علامة التبويب فقط</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">إذا لم تقم بحفظ الحالات فسوف تختفي بعد 24 ساعة</string>
+    <string name="whatsapp_status">حالة الواتساب</string>
+    <string name="share_status">حالة المشاركة</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">هل أنت متأكد من رغبتك في مشاركة هذه الحالة على WhatsApp؟</string>
+    <string name="couldn_t_find_app_that_open_this_file">"تعذر العثور على التطبيق الذي يفتح هذا الملف"</string>
+    <string name="received_images">الصور المستلمة</string>
+    <string name="received_videos">مقاطع الفيديو المستلمة</string>
+    <string name="received_documents">المستندات المستلمة</string>
+    <string name="received_audio">تم استلام الصوت</string>
+    <string name="received_voice">الصوت المستلم</string>
+    <string name="received_wallpapers">الخلفيات المستلمة</string>
+    <string name="received_gifs">صور GIF المستلمة</string>
+    <string name="sent_images">الصور المرسلة</string>
+    <string name="sent_videos">مقاطع الفيديو المرسلة</string>
+    <string name="sent_documents">المستندات المرسلة</string>
+    <string name="sent_audio">الصوت المرسل</string>
+    <string name="sent_voice">الصوت المرسل</string>
+    <string name="sent_wallpapers">الخلفيات المرسلة</string>
+    <string name="sent_gifs">صور GIF المرسلة</string>
+    <string name="whatsapp_web_">واتساب ويب</string>
+    <string name="change_language">تغيير اللغة</string>
+    <string name="privacy_settings">إعدادات الخصوصية</string>
+</resources>

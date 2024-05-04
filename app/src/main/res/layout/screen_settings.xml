@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topAdLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/_6sdp"
+        android:background="@drawable/boarder_native_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollview"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include layout="@layout/shimmer_banner_native_" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/nativeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/nativeAdContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAdLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/customize_tabs"
+                    android:textColor="@color/backup_color"
+                    android:textSize="18sp" />
+
+
+                <com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
+                    android:id="@+id/hDragDropRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:item_layout="@layout/share_row_"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_apply"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_background_setting"
+                    android:text="@string/apply"
+                    android:textColor="@color/white"
+                    app:cornerRadius="16dp"
+                    tools:ignore="UnusedAttribute" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/media_file_backup_list"
+                    android:textColor="@color/backup_color"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingRight="@dimen/_10sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_black_image" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/iv_image"
+                        android:text="@string/image"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingRight="@dimen/_10sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_video" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/iv_video"
+                        android:text="@string/video"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingRight="@dimen/_10sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_voice"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_notes_voice" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/iv_voice"
+                        android:text="@string/voice_notes"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_voice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingRight="@dimen/_10sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_audio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_audio" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/iv_audio"
+                        android:text="@string/audio"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_audio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingRight="@dimen/_10sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_document"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_document" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/iv_document"
+                        android:text="@string/document"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_document"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end" />
+                </RelativeLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_erase"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_background_setting"
+                    android:text="@string/erase_all_messages"
+                    android:textColor="@color/white"
+                    app:cornerRadius="16dp"
+                    tools:ignore="UnusedAttribute"
+                    tools:text="@string/erase_all_messages" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/nativeAdContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollview" />
+</androidx.constraintlayout.widget.ConstraintLayout>

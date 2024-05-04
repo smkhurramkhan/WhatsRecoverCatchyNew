@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_prem"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_crown_"/>
+    <item
+        android:id="@+id/action_whatsapp"
+        android:orderInCategory="100"
+        android:title="@string/whatsapp"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_whatsapp_"/>
+
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="100"
+        android:title="@string/help"
+        app:showAsAction="always"
+        android:visible="true"
+        android:icon="@drawable/help_white"/>
+
+
+</menu>

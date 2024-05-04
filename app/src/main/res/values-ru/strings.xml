@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Настройки</string>
+    <string name="premium">Премиум</string>
+    <string name="upgrade_to_premium">Повысить до премиума</string>
+    <string name="family_apps">Семейные приложения</string>
+    <string name="how_to_use">Как использовать</string>
+    <string name="share">Поделиться</string>
+    <string name="rate_it">Оценить</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="help">Помощь</string>
+
+    <string name="enable_permission">ВКЛЮЧИТЬ РАЗРЕШЕНИЕ</string>
+    <string name="we_need_your_permission">Нам нужно ваше разрешение</string>
+    <string name="we_need_your_permission_desc">Чтобы сохранять ваши удаленные сообщения WhatsApp локально, вам нужно разрешить доступ к уведомлениям этому приложению. Выберите приложение <b>WA Recover</b> в следующем окне, чтобы включить разрешение</string>
+    <string name="no_deleted_chat_detected_yet">Еще не обнаружено удаленных чатов</string>
+
+    <string name="select_all">Выбрать все</string>
+    <string name="delete">Удалить</string>
+    <string name="no_document_detected_yet">Документы не обнаружены</string>
+    <string name="no_image_detected_yet">Изображения не обнаружены</string>
+    <string name="no_voice_detected_yet">Голосовые заметки не обнаружены</string>
+    <string name="no_audio_detected_yet">Аудио не обнаружено</string>
+
+    <string name="document">Документ</string>
+    <string name="image">Изображение</string>
+    <string name="video">Видео</string>
+    <string name="voice_notes">Голосовые заметки</string>
+    <string name="audio">Аудио</string>
+    <string name="clear_chat">Очистить чат</string>
+    <string name="copy">Копировать</string>
+    <string name="forward">Переслать</string>
+    <string name="next">Далее</string>
+
+    <array name="startup_titles">
+        <item>Используя это приложение, вы можете нарушить условия обслуживания других приложений.</item>
+        <item>Мы заботимся о вашей конфиденциальности и безопасности данных, чтобы получать уведомления, когда отправитель удаляет любое сообщение.</item>
+        <item>Нажимая принять, вы принимаете наши рекламные политики и не нарушаете их.</item>
+    </array>
+
+    <array name="startup_descriptions">
+        <item>Используя это приложение, вы можете нарушить условия обслуживания других приложений. Помните, прежде чем выбрать их, ознакомьтесь с правилами использования других приложений и НЕ выбирайте несовместимые приложения.</item>
+        <item>Это приложение бесплатное, и для его дальнейшей работы нам нужно показывать рекламу. Для этого наши поставщики рекламы будут использовать собранную ими о вас информацию. Помните, читайте политику, и вам должно быть достаточно лет для продолжения. Наши поставщики рекламы могут меняться, политика конфиденциальности всегда будет актуальной.\n\n WA Recover не использует ваши уведомления в коммерческих целях, только для сохранения и обнаружения их содержимого на вашем устройстве.</item>
+        <item>Нажимая принять, вы принимаете наши рекламные политики и не нарушаете условия использования других приложений.</item>
+    </array>
+    <string name="how_it_work_desc">
+  <![CDATA[  1) Откройте \'WhatsApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'> 2) Важно*: Включите автоматическую загрузку медиафайлов в \'WhatsApp Messenger\' для лучшей работы WA Recover.</font></b><br><br>
+    3) Сохраните медиафайлы WhatsApp (изображения, видео, голосовые заметки, аудио, документы).<br><br>
+    4) Вы получите уведомление, если какое-либо сообщение удалено со стороны отправителя.<br><br>
+    5) Включите/отключите дубликаты, чтобы сохранить место на устройстве.<br><br>
+    6) Выберите вкладки для сохранения удаленных медиафайлов в настройках.<br><br>
+    7) У вас должны быть включены уведомления WhatsApp, чтобы получать удаленные текстовые сообщения.
+]]>
+</string>
+    <string name="accept">Принять</string>
+    <string name="media_file_backup_list">Список резервных копий медиафайлов</string>
+    <string name="erase_all_messages">Стереть все сообщения</string>
+    <string name="today">Сегодня</string>
+    <string name="search">Поиск</string>
+    <string name="back">назад</string>
+    <string name="are_you_sure_you_want_to_exit">Вы уверены, что хотите выйти?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="upgrade_to_enjoy_premium">Повысьте до премиума для полного воспользования</string>
+
+    <string name="no_status_found">Статус не найден</string>
+    <string name="restatus">Повторный статус</string>
+    <string name="download">Скачать</string>
+    <string name="enter_collection_name">Введите название коллекции</string>
+    <string name="collection_name">Название коллекции</string>
+    <string name="cancel">ОТМЕНА</string>
+    <string name="create">СОЗДАТЬ</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">Создать новую коллекцию</string>
+    <string name="edit">Редактировать</string>
+    <string name="fullscreen">Полноэкранный режим</string>
+    <string name="size_and_time">Размер и время</string>
+    <string name="info">Информация</string>
+    <string name="add_to_favourite">Добавить в избранное</string>
+    <string name="removefavourite">Удалить из избранного</string>
+    <string name="totaltime">Общее время</string>
+    <string name="runtime">Время выполнения</string>
+    <string name="please_select_a_song_from_the_playlist">Выберите песню из плейлиста</string>
+    <string name="customize_tabs">Настроить вкладки</string>
+    <string name="apply">Применить</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">Открыть WhatsApp</string>
+    <string name="view_the_status_you_want_to_download">Просмотреть статус</string>
+    <string name="come_back_again">Вернитесь снова</string>
+    <string name="noimagestatus">Изображения статуса не найдены</string>
+    <string name="novideostatus">Видео статуса не найдены</string>
+    <string name="no_saved_status_found">Сохраненные статусы не найдены</string>
+
+    <string name="rest_assured_permission_text">Мы заверяем, что не используем ваши личные данные в свою пользу.</string>
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">Переименовать</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Эта функция использует общедоступное API WhatsApp для открытия чата с любым номером, который вы вводите, без сохранения этого номера</string>
+    <string name="eg_1234567890">Пример: 1234567890</string>
+    <string name="open_in_whatsapp_chat">Открыть чат в WhatsApp</string>
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">Очистить выбранные файлы (0Б)</string>
+    <string name="_0b">0Б</string>
+    <string name="files">Файлы</string>
+    <string name="no_files">нет файлов</string>
+    <string name="date">Дата</string>
+    <string name="name">Имя</string>
+    <string name="size">Размер</string>
+    <string name="clear_all_data">Очистить все данные</string>
+
+    <string name="_922">+92</string>
+
+    <string name="screenshot">Снимок экрана</string>
+
+    <string name="ad_loading">Загрузка рекламы…</string>
+    <string name="please_wait">Подождите, идет загрузка рекламы…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">Видео не обнаружено</string>
+
+    <string name="life_time"><b> Подписка</b></string>
+    <string name="subscribe_now">Подписаться сейчас</string>
+    <string name="continue_with_ads">Продолжить с рекламой</string>
+
+    <string name="recovery">Восстановление</string>
+    <string name="direct_chat">Прямой чат</string>
+    <string name="status">Статус</string>
+    <string name="more_tools">Дополнительные инструменты</string>
+    <string name="enjoyee_ads_free_application">Без рекламы</string>
+    <string name="restore_unlimited_messages_instantly">Мгновенное восстановление неограниченного количества сообщений</string>
+
+    <string name="or">ИЛИ</string>
+    <string name="direct_whats_chat">Прямой чат в WhatsApp</string>
+    <string name="write_your_text">Напишите свой текст</string>
+    <string name="font_styles">Стили шрифта</string>
+    <string name="stylish_text">Стильный текст</string>
+
+    <string name="quatations_text">Цитаты</string>
+    <string name="text_repeater">Повторитель текста</string>
+    <string name="enter_message">Введите сообщение</string>
+    <string name="enter_repeat_number">Введите номер повтора</string>
+    <string name="enter_message_here">Введите сообщение здесь...</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Примечание: максимальное количество повторителей текста – 999</string>
+    <string name="repeat">Повторить</string>
+    <string name="new_line_on">Новая строка</string>
+    <string name="clear">Очистить</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Введите текст, который хотите повторить.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Пожалуйста, введите количество раз, которое вы хотите повторить текст</string>
+    <string name="text_copied">Текст скопирован</string>
+    <string name="whatsapp_not_found">WhatsApp не найден</string>
+    <!-- Строки, используемые для фрагментов навигации -->
+    <string name="favourites">Избранное</string>
+    <string name="text_to_emoji">Отправить текст в эмодзи</string>
+    <string name="stickers">Стикеры</string>
+    <string name="unlock_premium_version">Разблокировать премиум-версию</string>
+    <string name="_5_99">6,99 доллара США/пожизненно</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Восстановить данные для WA и WAB]]></string>
+    <string name="error_adding_sticker_pack">Ошибка при загрузке стикеров</string>
+    <string name="clear_all">Очистить все</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Вы уверены, что хотите удалить все данные?</string>
+    <string name="select_country_code">Выберите код страны</string>
+    <string name="enter_number">Введите номер</string>
+    <string name="whatsapp_cleaner">Очиститель WhatsApp</string>
+    <string name="permission_needed">Требуется разрешение</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Для чтения WhatsApp Media необходимо разрешение на хранение. Нажмите ОК, чтобы включить в настройках.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Для чтения WhatsApp Media необходимо разрешение на хранение</string>
+    <string name="chat">Чат</string>
+    <string name="voice">Голос</string>
+    <string name="image_status">Изображение\nСтатус</string>
+    <string name="video_status">Видео\nСтатус</string>
+    <string name="saved_status">Сохранено\nСтатус</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Стильный\nТекст</string>
+    <string name="text_repeater_">Текст\nПовторитель</string>
+    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="direct_chat_">Прямой\nЧат</string>
+    <string name="famous_quotes">Известные\nЦитаты</string>
+    <string name="text_to_emoji_">Отправьте текст в\nEmoji</string>
+    <string name="whatsapp_stickers">Стикеры WhatsApp\n</string>
+    <string name="ascii_faces">Ascii\nFaces</string>
+    <string name="something_went_wrong">Что-то пошло не так</string>
+    <string name="screenshot_saved">Скриншот сохранен</string>
+
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Вы уверены, что хотите удалить все сообщения в этом чате?</string>
+    <string name="clear_all_messages">ОЧИСТИТЬ ВСЕ СООБЩЕНИЯ</string>
+    <string name="message_copied">Сообщение скопировано</string>
+    <string name="delete_message">Удалить сообщение?</string>
+    <string name="no_app_found_to_open_this_link">Не найдено ни одного приложения, позволяющего открыть эту ссылку</string>
+    <string name="confirm_delete">Подтвердить удаление</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Вы уверены, что хотите установить статус выбранных файлов?</string>
+    <string name="items_selected">выбранные элементы</string>
+    <string name="screenshots">Снимки экрана</string>
+    <string name="saved_collections">Сохраненные коллекции</string>
+    <string name="preview">Предварительный просмотр</string>
+    <string name="setting_applied">Настройка применена</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Вы уверены, что хотите сохранить статус всей истории чата?</string>
+    <string name="all_chat_cleared">Весь чат очищен</string>
+    <string name="delete_selected_image">Удалить выбранное изображение?</string>
+    <string name="are_you_sure_want_to_status_this_file">Вы действительно хотите установить статус этого файла?</string>
+    <string name="notification_listener_service">Служба прослушивателя уведомлений</string>
+    <string name="goto_settings">ПЕРЕЙТИ К НАСТРОЙКАМ</string>
+    <string name="not_now">Не сейчас</string>
+    <string name="permission_necessary">Необходимо разрешение</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Для статуса медиафайлов необходимо разрешение на хранение</string>
+    <string name="delete_selected_chat">Удалить выбранный чат?</string>
+    <string name="selected_chats">"выбранные чаты?"</string>
+    <string name="you_cannot_open_this_file">вы не можете открыть этот файл</string>
+    <string name="delete_selected_documents">Удалить выбранные документы?</string>
+    <string name="added_to_favourites">Добавлено в избранное</string>
+    <string name="removed_from_favourites">Удалено из избранного</string>
+    <string name="are_you_sure_you_want_to_delete">Вы уверены, что хотите удалить?</string>
+    <string name="delete_folder">УДАЛИТЬ ПАПКУ?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">ВСЕ ФАЙЛЫ В ЭТОЙ ПАПКЕ БУДУТ УДАЛЕНЫ НАВСЕГДА</string>
+    <string name="folder_name_can_t_be_empty">Имя папки не может быть пустым</string>
+    <string name="folder_already_exist_with_the_same_name">Папка с таким именем уже существует</string>
+    <string name="failed_to_create_folder">Не удалось создать папку</string>
+    <string name="video_already_added">Видео уже добавлено</string>
+    <string name="image_already_added">Изображение уже добавлено</string>
+    <string name="create_or_select_collection_first">Сначала создайте или выберите коллекцию</string>
+    <string name="allow">РАЗРЕШИТЬ</string>
+    <string name="saved">Сохранено</string>
+    <string name="only_tab_clicked">выбрана только вкладка</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Если вы не сохраните статусы, они исчезнут через 24 часа</string>
+    <string name="whatsapp_status">Статус WhatsApp</string>
+    <string name="share_status">Статус общего доступа</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Вы уверены, что хотите поделиться этим статусом в WhatsApp?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Не удалось найти приложение, открывающее этот файл"</string>
+    <string name="received_images">Полученные изображения</string>
+    <string name="received_videos">Полученные видео</string>
+    <string name="received_documents">Полученные документы</string>
+    <string name="received_audio">Полученный звук</string>
+    <string name="received_voice">Принятый голос</string>
+    <string name="received_wallpapers">Полученные обои</string>
+    <string name="received_gifs">Полученные GIF-файлы</string>
+    <string name="sent_images">Отправленные изображения</string>
+    <string name="sent_videos">Отправленные видео</string>
+    <string name="sent_documents">Отправленные документы</string>
+    <string name="sent_audio">Отправлено аудио</string>
+    <string name="sent_voice">Отправленный голос</string>
+    <string name="sent_wallpapers">Отправленные обои</string>
+    <string name="sent_gifs">Отправленные GIF-изображения</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Изменить язык</string>
+    <string name="privacy_settings">Настройки конфиденциальности</string>
+</resources>

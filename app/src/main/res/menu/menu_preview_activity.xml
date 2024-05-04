@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/share_home_image_preview_"
+        android:title="@string/share"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/icon_home_image_preview_"
+        android:title="@string/home"
+        android:visible="false"
+        app:showAsAction="always" />
+
+
+</menu>

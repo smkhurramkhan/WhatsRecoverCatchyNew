@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Pengaturan</string>
+    <string name="premium">Premium</string>
+    <string name="upgrade_to_premium">Upgrade ke premium</string>
+    <string name="family_apps">Aplikasi Keluarga</string>
+    <string name="how_to_use">Cara Penggunaan</string>
+    <string name="share">Bagikan</string>
+    <string name="rate_it">Beri Peringkat</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="help">Bantuan</string>
+
+    <string name="enable_permission">AKTIFKAN IZIN</string>
+    <string name="we_need_your_permission">Kami membutuhkan izin Anda</string>
+    <string name="we_need_your_permission_desc">Untuk menyimpan pesan WhatsApp yang dihapus secara lokal, Anda perlu memberikan izin "Akses Pemberitahuan" kepada aplikasi ini. Pilih aplikasi <b>WA Recover</b> pada tampilan selanjutnya untuk mengaktifkan izin tersebut.</string>
+    <string name="no_deleted_chat_detected_yet">Belum ada obrolan yang dihapus terdeteksi</string>
+
+    <string name="select_all">Pilih Semua</string>
+    <string name="delete">Hapus</string>
+    <string name="no_document_detected_yet">Belum ada dokumen terdeteksi</string>
+    <string name="no_image_detected_yet">Belum ada gambar terdeteksi</string>
+    <string name="no_voice_detected_yet">Belum ada catatan suara terdeteksi</string>
+    <string name="no_audio_detected_yet">Belum ada audio terdeteksi</string>
+
+    <string name="document">Dokumen</string>
+    <string name="image">Gambar</string>
+    <string name="video">Video</string>
+    <string name="voice_notes">Catatan Suara</string>
+    <string name="audio">Audio</string>
+    <string name="clear_chat">Hapus Obrolan</string>
+    <string name="copy">Salin</string>
+    <string name="forward">Teruskan</string>
+    <string name="next">Selanjutnya</string>
+
+    <array name="startup_titles">
+        <item>Dengan menggunakan aplikasi ini, Anda dapat melanggar syarat layanan aplikasi lainnya.</item>
+        <item>Kami peduli terhadap privasi dan keamanan data Anda untuk mendapatkan pemberitahuan setiap kali pengirim menghapus pesan.</item>
+        <item>Dengan mengklik terima, Anda menerima kebijakan periklanan kami dan tidak melanggar syarat penggunaan aplikasi lain.</item>
+    </array>
+
+    <array name="startup_descriptions">
+        <item>Dengan menggunakan aplikasi ini, Anda dapat melanggar syarat layanan aplikasi lainnya. Ingat untuk meninjau syarat penggunaan aplikasi lain sebelum memilihnya dan JANGAN memilih aplikasi yang tidak kompatibel.</item>
+        <item>Aplikasi ini gratis dan untuk terus bekerja di atasnya, kami harus menampilkan iklan. Untuk melakukannya, penyedia iklan kami akan menggunakan informasi yang mereka kumpulkan tentang Anda. Ingat, baca kebijakan dan Anda harus berusia legal untuk melanjutkan. Penyedia iklan kami dapat berubah, kebijakan privasi akan selalu terlihat terbaru.\n\n WA Recover tidak menggunakan pemberitahuan Anda untuk tujuan komersial, hanya untuk menyimpan dan mendeteksi kontennya di perangkat Anda.</item>
+        <item>Dengan mengklik terima, Anda menerima kebijakan periklanan kami dan tidak melanggar syarat penggunaan aplikasi lain.</item>
+    </array>
+
+    <string name="how_it_work_desc"><![CDATA[
+    1) Buka \'WhatsApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'>2) Penting*: Aktifkan pengaturan unduhan otomatis media dari \'WhatsApp Messenger\' untuk kinerja WA Recover yang lebih baik.</font></b><br><br>
+    3) Simpan file media WhatsApp (Gambar, Video, Catatan Suara, Audio, Dokumen).<br><br>
+    4) Anda akan diberi tahu jika ada pesan yang dihapus dari sisi pengirim.<br><br>
+    5) Aktifkan/Nonaktifkan duplikasi untuk menghemat penyimpanan.<br><br>
+    6) Periksa atau tidak centang tab dari pengaturan untuk menyimpan file media yang dihapus.<br><br>
+    7) Notifikasi WhatsApp Anda harus aktif untuk mendapatkan pesan teks yang dihapus.
+]]></string>
+    <string name="accept">Terima</string>
+    <string name="media_file_backup_list">Daftar Backup File Media</string>
+    <string name="erase_all_messages">Hapus Semua Pesan</string>
+    <string name="today">Hari Ini</string>
+    <string name="search">Cari</string>
+    <string name="back">Kembali</string>
+    <string name="are_you_sure_you_want_to_exit">Apakah Anda yakin ingin keluar?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="upgrade_to_enjoy_premium">Upgrade untuk menikmati premium</string>
+
+    <string name="no_status_found">Tidak Ada Status Ditemukan</string>
+    <string name="restatus">Ulang Status</string>
+    <string name="download">Unduh</string>
+    <string name="enter_collection_name">Masukkan nama koleksi</string>
+    <string name="collection_name">Nama Koleksi</string>
+    <string name="cancel">BATAL</string>
+    <string name="create">BUAT</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">Buat koleksi baru</string>
+    <string name="edit">Edit</string>
+    <string name="fullscreen">Layar Penuh</string>
+    <string name="size_and_time">Ukuran dan Waktu</string>
+    <string name="info">Info</string>
+    <string name="add_to_favourite">Tambahkan ke Favorit</string>
+    <string name="removefavourite">Hapus dari Favorit</string>
+    <string name="totaltime">totaltime</string>
+    <string name="runtime">waktu pemutaran</string>
+    <string name="please_select_a_song_from_the_playlist">Silakan pilih lagu dari Playlist</string>
+    <string name="customize_tabs">Kustomisasi Tab</string>
+    <string name="apply">Terapkan</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">Buka WhatsApp</string>
+    <string name="view_the_status_you_want_to_download">Lihat Status</string>
+    <string name="come_back_again">Kembali Lagi</string>
+    <string name="noimagestatus">Tidak Ada Status Gambar Ditemukan</string>
+    <string name="novideostatus">Tidak Ada Status Video Ditemukan</string>
+    <string name="no_saved_status_found">Tidak Ada Status Tersimpan Ditemukan</string>
+
+    <string name="rest_assured_permission_text">Yakinlah kami tidak menggunakan data pribadi Anda untuk keuntungan kami sendiri.</string>
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">GANTI NAMA</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Fitur ini menggunakan WhatsApp Public API untuk membuka obrolan dengan nomor apa pun yang Anda masukkan tanpa menyimpan nomor tersebut.</string>
+    <string name="eg_1234567890">Contoh: 1234567890</string>
+    <string name="open_in_whatsapp_chat">Buka di WhatsApp Chat</string>
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">Hapus File yang Dipilih (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">File</string>
+    <string name="no_files">tidak ada file</string>
+    <string name="date">Tanggal</string>
+    <string name="name">Nama</string>
+    <string name="size">Ukuran</string>
+    <string name="clear_all_data">Hapus Semua Data</string>
+
+    <string name="_922">+92</string>
+
+    <string name="screenshot">Screenshot</string>
+
+    <string name="ad_loading">Memuat Iklan…</string>
+    <string name="please_wait">Tunggu sebentar…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">Belum ada video terdeteksi</string>
+
+    <string name="life_time"><b> Berlangganan</b></string>
+    <string name="subscribe_now">Berlangganan Sekarang</string>
+    <string name="continue_with_ads">Lanjutkan dengan Iklan</string>
+
+    <string name="recovery">Pemulihan</string>
+    <string name="direct_chat">Obrolan Langsung</string>
+    <string name="status">Status</string>
+    <string name="more_tools">Alat Lainnya</string>
+    <string name="enjoyee_ads_free_application">Pengalaman Tanpa Iklan</string>
+    <string name="restore_unlimited_messages_instantly">Pulihkan Pesan Tanpa Batas Secara Instan</string>
+
+    <string name="or">ATAU</string>
+    <string name="direct_whats_chat">Obrolan WhatsApp Langsung</string>
+    <string name="write_your_text">Tulis teks Anda</string>
+    <string name="font_styles">Gaya Font</string>
+    <string name="stylish_text">Teks Stylish</string>
+    <string name="quatations_text">Teks Kutipan</string>
+    <string name="text_repeater">Pengulang Teks</string>
+    <string name="enter_message">Masukkan Pesan</string>
+    <string name="enter_repeat_number">Masukkan Angka Pengulangan</string>
+    <string name="enter_message_here">Masukkan pesan di sini…</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Catatan: Batas Teks Pengulang hingga 999</string>
+    <string name="repeat">Ulangi</string>
+    <string name="new_line_on">Baris Baru pada</string>
+    <string name="clear">Hapus</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Silakan masukkan teks yang ingin Anda ulangi.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Silakan masukkan jumlah kali Anda ingin mengulangi teks</string>
+    <string name="text_copied">Teks disalin</string>
+    <string name="whatsapp_not_found">WhatsApp Tidak Ditemukan</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="favourites">Favorit</string>
+    <string name="text_to_emoji">Teks ke Emoji</string>
+    <string name="stickers">Stiker</string>
+    <string name="unlock_premium_version">Buka Versi Premium</string>
+    <string name="_5_99">$6.99/seumur hidup</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Pulihkan Data untuk WA & WAB]]></string>
+    <string name="error_adding_sticker_pack">Kesalahan memuat stiker</string>
+    <string name="clear_all">Hapus Semua</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Apakah Anda yakin ingin menghapus semua data?</string>
+    <string name="select_country_code">Pilih Kode Negara</string>
+    <string name="enter_number">Masukkan Nomor</string>
+    <string name="whatsapp_cleaner">Pembersih WhatsApp</string>
+    <string name="permission_needed">Izin diperlukan</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Izin penyimpanan diperlukan untuk membaca Media WhatsApp. Tekan OK untuk mengaktifkannya di pengaturan.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Izin penyimpanan diperlukan untuk membaca Media WhatsApp</string>
+    <string name="chat">Obrolan</string>
+    <string name="voice">Suara</string>
+    <string name="image_status">Gambar\nStatus</string>
+    <string name="video_status">Video\nStatus</string>
+    <string name="saved_status">Status\nTersimpan</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Teks\nStylish</string>
+    <string name="text_repeater_">Pengulang\nTeks</string>
+    <string name="whats_cleaner">Pembersih WhatsApp</string>
+    <string name="direct_chat_">Obrolan\nLangsung</string>
+    <string name="famous_quotes">Kutipan\nTerkenal</string>
+    <string name="text_to_emoji_">Teks ke\nEmoji</string>
+    <string name="whatsapp_stickers">Stiker\nWhatsApp</string>
+    <string name="ascii_faces">Wajah\nASCII</string>
+    <string name="something_went_wrong">Ada yang salah</string>
+    <string name="screenshot_saved">Screenshot Tersimpan</string>
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Apakah Anda yakin ingin menghapus semua pesan dalam obrolan ini?</string>
+    <string name="clear_all_messages">HAPUS SEMUA PESAN</string>
+    <string name="message_copied">Pesan disalin</string>
+    <string name="delete_message">Hapus pesan?</string>
+    <string name="no_app_found_to_open_this_link">Tidak ada aplikasi yang ditemukan untuk membuka tautan ini</string>
+    <string name="confirm_delete">Konfirmasi Hapus</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Apakah Anda yakin ingin membagikan file yang dipilih?</string>
+    <string name="items_selected">item dipilih</string>
+    <string name="screenshots">Tangkapan Layar</string>
+    <string name="saved_collections">Koleksi Tersimpan</string>
+    <string name="preview">Pratinjau</string>
+    <string name="setting_applied">Pengaturan Diterapkan</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Apakah Anda yakin ingin membagikan sejarah obrolan?</string>
+    <string name="all_chat_cleared">Semua Obrolan dibersihkan</string>
+    <string name="delete_selected_image">Hapus Gambar yang Dipilih?</string>
+    <string name="are_you_sure_want_to_status_this_file">Apakah Anda yakin ingin membagikan file ini?</string>
+    <string name="notification_listener_service">Layanan Penerima Pemberitahuan</string>
+    <string name="goto_settings">KE PENGATURAN</string>
+    <string name="not_now">Nanti</string>
+    <string name="permission_necessary">Izin diperlukan</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Izin penyimpanan diperlukan untuk membagikan file media</string>
+    <string name="delete_selected_chat">Hapus Obrolan yang Dipilih?</string>
+    <string name="selected_chats">" obrolan yang dipilih?"</string>
+    <string name="you_cannot_open_this_file">Anda tidak dapat membuka file ini</string>
+    <string name="delete_selected_documents">Hapus Dokumen yang Dipilih?</string>
+    <string name="added_to_favourites">Ditambahkan ke favorit</string>
+    <string name="removed_from_favourites">Dihapus dari favorit</string>
+    <string name="are_you_sure_you_want_to_delete">Apakah Anda yakin ingin menghapus?</string>
+    <string name="delete_folder">HAPUS FOLDER?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">SEMUA FILE DALAM FOLDER INI AKAN DIHAPUS SECARA PERMANEN</string>
+    <string name="folder_name_can_t_be_empty">Nama folder tidak boleh kosong</string>
+    <string name="folder_already_exist_with_the_same_name">Folder sudah ada dengan nama yang sama</string>
+    <string name="failed_to_create_folder">Gagal membuat folder</string>
+    <string name="video_already_added">Video sudah ditambahkan</string>
+    <string name="image_already_added">Gambar sudah ditambahkan</string>
+    <string name="create_or_select_collection_first">Buat atau pilih koleksi terlebih dahulu</string>
+    <string name="allow">IZINKAN</string>
+    <string name="saved">Tersimpan</string>
+    <string name="only_tab_clicked">hanya tab yang diklik</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Jika Anda tidak menyimpan status, mereka akan menghilang setelah 24 jam</string>
+    <string name="whatsapp_status">Status WhatsApp</string>
+    <string name="share_status">Bagikan Status</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Apakah Anda yakin ingin membagikan status ini di WhatsApp?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Tidak dapat menemukan aplikasi yang membuka file ini "</string>
+    <string name="received_images">Gambar yang Diterima</string>
+    <string name="received_videos">Video yang Diterima</string>
+    <string name="received_documents">Dokumen yang Diterima</string>
+    <string name="received_audio">Audio yang Diterima</string>
+    <string name="received_voice">Voice yang Diterima</string>
+    <string name="received_wallpapers">Wallpaper yang Diterima</string>
+    <string name="received_gifs">GIF yang Diterima</string>
+    <string name="sent_images">Gambar yang Dikirim</string>
+    <string name="sent_videos">Video yang Dikirim</string>
+    <string name="sent_documents">Dokumen yang Dikirim</string>
+    <string name="sent_audio">Audio yang Dikirim</string>
+    <string name="sent_voice">Voice yang Dikirim</string>
+    <string name="sent_wallpapers">Wallpaper yang Dikirim</string>
+    <string name="sent_gifs">GIF yang Dikirim</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="privacy_settings">Pengaturan Privasi</string>
+</resources>

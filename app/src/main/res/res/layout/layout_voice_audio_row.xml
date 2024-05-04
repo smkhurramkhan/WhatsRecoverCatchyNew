@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_group_chat_message"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_toStartOf="@+id/iv_right_corner"
+    app:cardCornerRadius="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/layout_audio"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            style="@style/SelectableItemBackgroundBorder"
+            android:src="@drawable/ic_play_circle" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/iv_menu"
+            android:layout_toEndOf="@+id/iv_play" />
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_toStartOf="@+id/iv_menu"
+            android:gravity="end"
+            android:text="@string/app_name"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            style="@style/SelectableItemBackgroundBorder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_menu" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

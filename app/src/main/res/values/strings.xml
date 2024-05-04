@@ -1,0 +1,418 @@
+<resources>
+    <string name="app_name" translatable="false">WA Recovery &amp; Tools</string>
+    <string name="home" translatable="false">Home</string>
+
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <!--Admob test id-->
+    <string name="admob_app_id" translatable="false">@string/admobAppId</string>
+    <string name="banner_ad_unit_id" translatable="false">@string/admobBannerAdUnitId</string>
+    <string name="interstitial_id" translatable="false">@string/admobInterstitialId</string>
+    <string name="native_advanced" translatable="false">@string/admobNativeAdvanced</string>
+    <string name="privacy_url" translatable="false">"https://catchyappsofficial.blogspot.com/2022/04/privacy-policy.html"</string>
+
+    <!--facebook ads id-->
+    <string name="facebook_banner_ads_id" translatable="false"></string>
+    <string name="facebook_interstitial_id" translatable="false"></string>
+    <string name="facebook_native_banner_id" translatable="false"></string>
+    <string name="facebook_native_ads_id" translatable="false"></string>
+
+
+    <string name="status_permission" translatable="false">
+            <![CDATA[ Please provide permission for  <b>"Whatsapp Status"</b> folder to view/edit/delete whatsapp statuses. This is
+        only required once.<br> ]]>
+    </string>
+
+    <string name="doc_permission" translatable="false">
+            <![CDATA[Please provide permission for  <b>"Whatsapp Media"</b> folder to view/edit/delete whatsapp media. This is
+        only required once.<br>]]>
+    </string>
+
+    <string name="doc_permission_dialog" translatable="false">
+           Please provide permission for "Whatsapp Media Folder" folder to view/edit/delete whatsapp data. This is
+        only required once.
+    </string>
+
+
+    <string name="doc_sent_permission" translatable="false">
+         <![CDATA[Please provide permission for  <b>"Whatsapp Documnets/Sent"</b> folder to view/edit/delete whatsapp
+        documents. This is only required once.<br>]]>
+    </string>
+
+    <string name="image_permission" translatable="false">
+        <![CDATA[Please provide permission for <b>"Whatsapp Image"</b> folder to view/edit/delete whatsapp images. This is
+        only required once.<br>]]>
+    </string>
+
+
+    <string name="image_sent_permission" translatable="false">
+         <![CDATA[ Please provide permission for  <b>"Whatsapp Image/Sent"</b> folder to view/edit/delete whatsapp
+        images. This is only required once.<br>]]>
+    </string>
+
+
+    <string name="video_permission" translatable="false">
+         <![CDATA[Please provide permission for <b>"Whatsapp Video"</b> folder to view/edit/delete whatsapp videos. This is
+        only required once.<br>]]>
+    </string>
+
+
+    <string name="video_sent_permission" translatable="false">
+         <![CDATA[ Please provide permission for  <b>"Whatsapp Video/Sent"</b> folder to view/edit/delete whatsapp
+        videos. This is only required once.<br>]]>
+    </string>
+
+
+    <string name="audio_permission" translatable="false">
+         <![CDATA[Please provide permission for <b>"Whatsapp Audio"</b> folder to view/edit/delete whatsapp audio files. This
+        is only required once.<br>]]>
+    </string>
+
+
+    <string name="audio_sent_permission" translatable="false">
+         <![CDATA[Please provide permission for  <b>"Whatsapp Audio/Sent"</b> folder to view/edit/delete whatsapp audio
+        files. This is only required once.<br>]]>
+    </string>
+
+
+    <string name="voice_permission" translatable="false">
+         <![CDATA[Please provide permission for <b>"Whatsapp Voice"</b> folder to view/edit/delete whatsapp voice notes. This is
+        only required once. <br>]]>
+    </string>
+
+
+    <string name="voice_sent_permission" translatable="false">
+         <![CDATA[Please provide permission for  <b>"Whatsapp Voice/Sent"</b> folder to view/edit/delete whatsapp
+        voice notes. This is only required once.<br>]]>
+    </string>
+
+
+    <string name="wallpaper_permission" translatable="false">
+         <![CDATA[ Please provide permission for <b>"Whatsapp Wallpaper"</b> folder to view/edit/delete whatsapp wallpapers. This
+        is only required once.<br>]]>
+    </string>
+
+
+    <string name="wallpaper_sent_permission" translatable="false">
+         <![CDATA[ Please provide permission for  <b>"Whatsapp Wallpaper/Sent"</b> folder to view/edit/delete whatsapp
+        wallpapers. This is only required once.<br>]]>
+    </string>
+
+
+    <string name="gif_permission" translatable="false">
+         <![CDATA[ Please provide permission for <b>"Whatsapp Gif"</b> folder to view/edit/delete whatsapp gifs. This is
+        only required once.<br> ]]>
+    </string>
+
+
+    <string name="gif_sent_permission" translatable="false">
+         <![CDATA[Please provide permission for  <b>"Whatsapp Gif/Sent"</b> folder to view/edit/delete whatsapp
+        gifs. This is only required once.<br>]]>
+        </string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="premium">Premium</string>
+    <string name="upgrade_to_premium">Upgrade to premium</string>
+    <string name="family_apps">Family apps</string>
+    <string name="how_to_use">How to use</string>
+    <string name="share">Share</string>
+    <string name="rate_it">Rate it</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="help">Help</string>
+
+    <string name="enable_permission">ENABLE PERMISSION</string>
+    <string name="we_need_your_permission">We need your permission</string>
+    <string name="we_need_your_permission_desc">In order to store your WhatsApp deleted messages locally, you need to allow \"Notification Access\" permission to this app. Select <b>WA Recover</b> application in next seen to enable the permission</string>
+    <string name="no_deleted_chat_detected_yet">No deleted chat detected yet</string>
+
+    <string name="select_all">Select All</string>
+    <string name="delete">Delete</string>
+    <string name="no_document_detected_yet">No Document detected yet</string>
+    <string name="no_image_detected_yet">No Image detected yet</string>
+    <string name="no_voice_detected_yet">No Voice notes detected yet</string>
+    <string name="no_audio_detected_yet">No Audio detected yet</string>
+
+
+    <string name="document">Document</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="voice_notes">Voice Notes</string>
+    <string name="audio">Audio</string>
+    <string name="clear_chat">Clear Chat</string>
+    <string name="copy">Copy</string>
+    <string name="forward">Forward</string>
+    <string name="next">Next</string>
+
+    <array name="startup_titles">
+        <item>By using this application you may violate the terms of services of other
+            applications.
+        </item>
+        <item>We care about your privacy and data security to get notified whenever sender deletes
+            any message.
+        </item>
+        <item>By clicking accept, you accept our advertising policies and do not violate.</item>
+
+
+    </array>
+
+    <array name="startup_descriptions">
+        <item>By using this application you may violate the terms of services of other applications.
+            Remember to review these terms of use of other applications before selecting them and DO
+            NOT select incompatible applications.
+        </item>
+        <item>This applications is free and to continue working on it we have to show advertising.
+            To do this, our ad provides will use the information they have gathered about you.
+            Remember, read the policies and you need to be of legal age to continue. Our ads
+            providers may vary, privacy policies will always appear up-to-date.\n\n WA Recover does
+            not use your notifications for commercial purpose, only to save and detect its content
+            on your device
+        </item>
+        <item>
+            By clicking accept, you accept our advertising policies and do not violate the terms of
+            use of other applications
+        </item>
+    </array>
+    <string name="how_it_work_desc">
+      <![CDATA[  1) Open the \'WhatsApp Messenger\'<br><br>
+        <b><font color=\'#cc0029\'> 2) Imp*: Turn on auto download media setting from \'WhatsApp Messenger\' for better WA Recover Working.</font></b><br><br>
+        3) Save WhatsApp media files(Image, Videos, Voice Notes, Audios, Documents).<br><br>
+        4) You will be notified if any message is deleted from sender side.<br><br>
+        5) Turn ON/OFF duplications in order to save storage.<br><br>
+        6) Check or uncheck Tabs from settings to save that deleted media file.<br><br>
+        7) Your WhatsApp notification must be turned on for getting deleted text messages.
+    ]]></string>
+    <string name="accept">Accept</string>
+    <string name="media_file_backup_list">Media file backup list</string>
+    <string name="erase_all_messages">Erase All Messages</string>
+    <string name="today">Today</string>
+    <string name="search">Search</string>
+    <string name="back">iv back</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="upgrade_to_enjoy_premium">Upgrade to enjoy premium</string>
+
+
+    <string name="no_status_found">No Status Found</string>
+    <string name="restatus">Restatus</string>
+    <string name="download">Download</string>
+    <string name="enter_collection_name">Enter collection name</string>
+    <string name="collection_name">Collection Name</string>
+    <string name="cancel">CANCEL</string>
+    <string name="create">CREATE</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">Create new collection</string>
+    <string name="edit">Edit</string>
+    <string name="fullscreen">Full Screen</string>
+    <string name="size_and_time">Size and Time</string>
+    <string name="info">Info</string>
+    <string name="add_to_favourite">Add to Favourite</string>
+    <string name="removefavourite">Remove Favourite</string>
+    <string name="totaltime">totaltime</string>
+    <string name="runtime">runtime</string>
+    <string name="please_select_a_song_from_the_playlist">Please select a song from the Playlist</string>
+    <string name="customize_tabs">Customize Tabs</string>
+    <string name="apply">Apply</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">Open WhatsApp</string>
+    <string name="view_the_status_you_want_to_download">View Status</string>
+    <string name="come_back_again">Come Back Again</string>
+    <string name="noimagestatus">No Image Status Found</string>
+    <string name="novideostatus">No Video Status Found</string>
+    <string name="no_saved_status_found">No Saved Status Found</string>
+
+    <string name="rest_assured_permission_text">Rest assured we do not use your private data for our own benefit.</string>
+
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">RENAME</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">This feature uses WhatsApp Public API to open a chat with any number you enter without saving any number</string>
+    <string name="eg_1234567890">Eg: 1234567890</string>
+    <string name="open_in_whatsapp_chat">Open in WhatsApp Chat</string>
+
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">Clear Selected files (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">Files</string>
+    <string name="no_files">no files</string>
+    <string name="date">Date</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="clear_all_data">Clear All Data</string>
+
+
+    <string name="_922">+92</string>
+
+
+    <string name="screenshot">Screenshot</string>
+
+    <string name="ad_loading">Loading Ad…</string>
+    <string name="please_wait">Loading Ad Please wait…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">No Videos detected yet</string>
+
+    <string name="life_time"><b> Subscription</b></string>
+    <string name="subscribe_now">Subscribe</string>
+    <string name="continue_with_ads">Continue With Ads</string>
+
+    <string name="recovery">Recovery</string>
+    <string name="direct_chat">Direct Chat</string>
+    <string name="status">Status</string>
+    <string name="more_tools">More Tools</string>
+    <string name="enjoyee_ads_free_application">AD Free Experience</string>
+    <string name="restore_unlimited_messages_instantly">Restore Unlimited Messages Instantly</string>
+
+    <string name="or">OR</string>
+    <string name="direct_whats_chat">Direct Whats Chat</string>
+    <string name="write_your_text">Write your text</string>
+    <string name="font_styles">Font Styles</string>
+    <string name="stylish_text">Stylish Text</string>
+    <string name="quatations_text">Quotations</string>
+    <string name="text_repeater">Text Repeater</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="enter_repeat_number">Enter Repeat Number</string>
+    <string name="enter_message_here">Enter message here…</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Note: Number of Repeater Text Limit 999</string>
+    <string name="repeat">Repeat</string>
+    <string name="new_line_on">New Line on</string>
+    <string name="clear">Clear</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Please enter the text you want to repeat.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Please enter the number of times you want to repeat the text</string>
+    <string name="text_copied">Text copied</string>
+    <string name="whatsapp_not_found">WhatsApp Not Found</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="favourites">Favourites</string>
+    <string name="text_to_emoji">Text To Emoji</string>
+    <string name="stickers">Stickers</string>
+    <string name="unlock_premium_version">Unlock Premium Version</string>
+    <string name="_5_99">$5.99</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Recover Data for WA & WAB]]></string>
+    <string name="error_adding_sticker_pack">Error loading stickers</string>
+    <string name="clear_all">Clear All</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Are you sure you want to clear all the data?</string>
+    <string name="select_country_code">Select Country Code</string>
+    <string name="enter_number">Enter Number</string>
+    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="permission_needed">Permission needed</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Storage permission is needed to read WhatsApp Media. Press OK to enable in settings.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Storage permission is needed to read WhatsApp Media</string>
+    <string name="chat">Chat</string>
+    <string name="voice">Voice</string>
+    <string name="image_status">Image\nStatus</string>
+    <string name="video_status">Video\nStatus</string>
+    <string name="saved_status">Saved\nStatus</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Stylish\nText</string>
+    <string name="text_repeater_">Text\nRepeater</string>
+    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="direct_chat_">Direct\nChat</string>
+    <string name="famous_quotes">Famous\nQuotes</string>
+    <string name="text_to_emoji_">Text to\nEmoji</string>
+    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="ascii_faces">Ascii\nFaces</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="screenshot_saved">Screenshot Saved</string>
+
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Are you sure you want to clear all messages in this chat?</string>
+    <string name="clear_all_messages">CLEAR ALL MESSAGES</string>
+    <string name="message_copied">Message copied</string>
+    <string name="delete_message">Delete message?</string>
+    <string name="no_app_found_to_open_this_link">No app found to open this link</string>
+    <string name="confirm_delete">Confirm Delete</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Are you sure you want to status the selected files?</string>
+    <string name="items_selected">items selected</string>
+    <string name="screenshots">Screenshots</string>
+    <string name="saved_collections">Saved Collections</string>
+    <string name="preview">Preview</string>
+    <string name="setting_applied">Setting Applied</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Are you sure you want to status all chat history?</string>
+    <string name="all_chat_cleared">All Chat cleared</string>
+    <string name="delete_selected_image">Delete selected Image?</string>
+    <string name="are_you_sure_want_to_status_this_file">Are you sure want to status this file?</string>
+    <string name="notification_listener_service">Notification Listener Service</string>
+    <string name="goto_settings">GOTO SETTINGS</string>
+    <string name="turn_On_Notification">Turn On Notification</string>
+    <string name="not_now">Not Now</string>
+    <string name="permission_necessary">Permission necessary</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Storage permission is necessary to status media files</string>
+    <string name="delete_selected_chat">Delete selected Chat?</string>
+    <string name="selected_chats">" selected chats?"</string>
+    <string name="you_cannot_open_this_file">you cannot open this file</string>
+    <string name="delete_selected_documents">Delete selected Documents?</string>
+    <string name="added_to_favourites">Added to favourites</string>
+    <string name="removed_from_favourites">Removed from favourites</string>
+    <string name="are_you_sure_you_want_to_delete">Are you sure you want to delete?</string>
+    <string name="delete_folder">DELETE FOLDER?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">ALL FILES IN THIS FOLDER WILL BE DELETED PERMANENTLY</string>
+    <string name="folder_name_can_t_be_empty">Folder name can\'t be empty</string>
+    <string name="folder_already_exist_with_the_same_name">Folder already exist with the same name</string>
+    <string name="failed_to_create_folder">Failed to create folder</string>
+    <string name="video_already_added">Video already added</string>
+    <string name="image_already_added">Image already added</string>
+    <string name="create_or_select_collection_first">Create or select collection first</string>
+    <string name="allow">ALLOW</string>
+    <string name="saved">Saved</string>
+    <string name="only_tab_clicked">only tab clicked</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">If you don\'t save statuses they will disappear after 24 hours</string>
+    <string name="whatsapp_status">WhatsApp Status</string>
+    <string name="share_status">Share Status</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Are you sure you want to share this status on WhatsApp?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Couldn't find app that open this file "</string>
+    <string name="received_images">Received Images</string>
+    <string name="received_videos">Received Videos</string>
+    <string name="received_documents">Received Documents</string>
+    <string name="received_audio">Received Audio</string>
+    <string name="received_voice">Received Voice</string>
+    <string name="received_wallpapers">Received Wallpapers</string>
+    <string name="received_gifs">Received GIFs</string>
+    <string name="sent_images">Sent Images</string>
+    <string name="sent_videos">Sent Videos</string>
+    <string name="sent_documents">Sent Documents</string>
+    <string name="sent_audio">Sent Audio</string>
+    <string name="sent_voice">Sent Voice</string>
+    <string name="sent_wallpapers">Sent Wallpapers</string>
+    <string name="sent_gifs">Sent GIFs</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Change Language</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="check_this_app" translatable="false">Hey Check out this amazing WhatsApp deleted messages recovery app: \n</string>
+    <string name="play_url" translatable="false">https://play.google.com/store/apps/details?id=%1$s</string>
+
+    <string name="cp_file" translatable="false">File Recovery PRO <font size='10'>(Ad)</font></string>
+    <string name="cp_cans" translatable="false">Translator <font size='10'>(Ad)</font></string>
+    <string name="file_name">File Name</string>
+    <string name="full_name">Full Name:</string>
+    <string name="path">Path:</string>
+    <string name="last_modification_date">Last Modification Date:</string>
+    <string name="required_permission">Required Permission</string>
+    <string name="hello">Hello</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Search Quotations</string>
+    <string name="type_you_message_here">Type you message here</string>
+    <string name="_92">+92</string>
+    <string name="unlimited_messages_recovery">Unlimited Messages Recovery</string>
+    <string name="pay_once_enjoye_lifetime">Pay Once Enjoye lifetime</string>
+    <string name="unlock_now">Unlock Now</string>
+    <string name="ulimited_access_for_all_features">Ulimited Access for All Features.</string>
+    <string name="unlimited_media_recovery">Unlimited Media Recovery</string>
+    <string name="features">Features</string>
+    <string name="whatsapp_direct_message">WhatsApp Direct Message</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="regular">Regular</string>
+    <string name="new_line">New Line</string>
+    <string name="space">Space</string>
+    <string name="reset">Reset</string>
+    <string name="quick_scan">Quick Scan</string>
+    <string name="quick_clean">Quick Clean</string>
+</resources>

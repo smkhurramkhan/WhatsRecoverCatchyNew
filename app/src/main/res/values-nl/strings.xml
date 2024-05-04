@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Instellingen</string>
+    <string name="premium">Premium</string>
+    <string name="upgrade_to_premium">Upgrade naar premium</string>
+    <string name="family_apps">Familie-apps</string>
+    <string name="how_to_use">Hoe te gebruiken</string>
+    <string name="share">Delen</string>
+    <string name="rate_it">Beoordeel het</string>
+    <string name="privacy_policy">Privacybeleid</string>
+    <string name="help">Help</string>
+
+    <string name="enable_permission">Machtiging inschakelen</string>
+    <string name="we_need_your_permission">We hebben uw toestemming nodig</string>
+    <string name="we_need_your_permission_desc">Om uw WhatsApp verwijderde berichten lokaal op te slaan, moet u toestemming geven voor "Meldings-toegang" aan deze app. Selecteer de <b>WA Recover</b>-toepassing in het volgende scherm om de toestemming in te schakelen</string>
+    <string name="no_deleted_chat_detected_yet">Nog geen verwijderde chat gedetecteerd</string>
+
+    <string name="select_all">Alles selecteren</string>
+    <string name="delete">Verwijderen</string>
+    <string name="no_document_detected_yet">Nog geen document gedetecteerd</string>
+    <string name="no_image_detected_yet">Nog geen afbeelding gedetecteerd</string>
+    <string name="no_voice_detected_yet">Nog geen spraakberichten gedetecteerd</string>
+    <string name="no_audio_detected_yet">Nog geen audio gedetecteerd</string>
+
+    <string name="document">Document</string>
+    <string name="image">Afbeelding</string>
+    <string name="video">Video</string>
+    <string name="voice_notes">Spraaknotities</string>
+    <string name="audio">Audio</string>
+    <string name="clear_chat">Chat wissen</string>
+    <string name="copy">Kopiëren</string>
+    <string name="forward">Doorsturen</string>
+    <string name="next">Volgende</string>
+
+    <array name="startup_titles">
+        <item>Door deze toepassing te gebruiken, kunt u mogelijk de gebruiksvoorwaarden van andere applicaties schenden.</item>
+        <item>Wij geven om uw privacy en gegevensbeveiliging om u op de hoogte te stellen wanneer de afzender een bericht verwijdert.</item>
+        <item>Door op accepteren te klikken, accepteert u ons advertentiebeleid en overtreedt u deze niet.</item>
+    </array>
+
+    <array name="startup_descriptions">
+        <item>Door deze toepassing te gebruiken, kunt u mogelijk de gebruiksvoorwaarden van andere applicaties schenden. Vergeet niet om deze gebruiksvoorwaarden van andere applicaties te bekijken voordat u ze selecteert en selecteer GEEN onverenigbare applicaties.</item>
+        <item>Deze applicatie is gratis en om erop te blijven werken, moeten we advertenties tonen. Hiervoor gebruiken onze advertentieleveranciers de informatie die ze over u hebben verzameld. Onthoud, lees de beleidsregels en u moet de wettelijke leeftijd hebben om door te gaan. Onze advertentieleveranciers kunnen variëren, privacybeleid zal altijd actueel verschijnen.\n\n WA Recover gebruikt uw meldingen niet voor commerciële doeleinden, alleen om de inhoud op uw apparaat op te slaan en te detecteren.
+        </item>
+        <item>Door op accepteren te klikken, accepteert u ons advertentiebeleid en overtreedt u niet de gebruiksvoorwaarden van andere applicaties.</item>
+    </array>
+    <string name="how_it_work_desc">
+  <![CDATA[  1) Open \'WhatsApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'> 2) Belangrijk*: Zet de automatische downloadmedia-instelling aan in \'WhatsApp Messenger\' voor een betere WA Recover-werking.</font></b><br><br>
+    3) Sla WhatsApp-mediabestanden op (afbeeldingen, video\'s, spraaknotities, audio, documenten).<br><br>
+    4) U wordt op de hoogte gebracht als een bericht is verwijderd aan de kant van de afzender.<br><br>
+    5) Zet duplicaties AAN/UIT om opslagruimte te besparen.<br><br>
+    6) Vink tabbladen aan of uit in de instellingen om dat verwijderde mediabestand op te slaan.<br><br>
+    7) Uw WhatsApp-meldingen moeten zijn ingeschakeld om verwijderde tekstberichten te ontvangen.
+]]>
+</string>
+    <string name="accept">Accepteren</string>
+    <string name="media_file_backup_list">Back-uplijst voor mediabestanden</string>
+    <string name="erase_all_messages">Wis alle berichten</string>
+    <string name="today">Vandaag</string>
+    <string name="search">Zoeken</string>
+    <string name="back">iv terug</string>
+    <string name="are_you_sure_you_want_to_exit">Weet u zeker dat u wilt afsluiten?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nee</string>
+    <string name="upgrade_to_enjoy_premium">Upgrade om premium te genieten</string>
+
+    <string name="no_status_found">Geen status gevonden</string>
+    <string name="restatus">Herstelstatus</string>
+    <string name="download">Downloaden</string>
+    <string name="enter_collection_name">Voer de naam van de collectie in</string>
+    <string name="collection_name">Naam van de collectie</string>
+    <string name="cancel">ANNULEREN</string>
+    <string name="create">MAKEN</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">Nieuwe collectie maken</string>
+    <string name="edit">Bewerken</string>
+    <string name="fullscreen">Volledig scherm</string>
+    <string name="size_and_time">Grootte en tijd</string>
+    <string name="info">Informatie</string>
+    <string name="add_to_favourite">Toevoegen aan favorieten</string>
+    <string name="removefavourite">Favoriet verwijderen</string>
+    <string name="totaltime">totaaltijd</string>
+    <string name="runtime">looptijd</string>
+    <string name="please_select_a_song_from_the_playlist">Selecteer een nummer uit de afspeellijst</string>
+    <string name="customize_tabs">Tabbladen aanpassen</string>
+    <string name="apply">Toepassen</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">WhatsApp openen</string>
+    <string name="view_the_status_you_want_to_download">Status bekijken</string>
+    <string name="come_back_again">Kom weer terug</string>
+    <string name="noimagestatus">Geen afbeeldingsstatus gevonden</string>
+    <string name="novideostatus">Geen videostatus gevonden</string>
+    <string name="no_saved_status_found">Geen opgeslagen status gevonden</string>
+
+    <string name="rest_assured_permission_text">Wees gerust, we gebruiken uw privégegevens niet voor ons eigen voordeel.</string>
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">HERNOEMEN</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Deze functie maakt gebruik van de WhatsApp Public API om een chat te openen met elk nummer dat u invoert zonder enig nummer op te slaan</string>
+    <string name="eg_1234567890">Bijv: 1234567890</string>
+    <string name="open_in_whatsapp_chat">Openen in WhatsApp-chat</string>
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">Geselecteerde bestanden wissen (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">Bestanden</string>
+    <string name="no_files">geen bestanden</string>
+    <string name="date">Datum</string>
+    <string name="name">Naam</string>
+    <string name="size">Grootte</string>
+    <string name="clear_all_data">Alle gegevens wissen</string>
+
+    <string name="_922">+92</string>
+
+    <string name="screenshot">Screenshot</string>
+
+    <string name="ad_loading">Advertentie laden…</string>
+    <string name="please_wait">Advertentie laden, even geduld aub…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">Nog geen video\'s gedetecteerd</string>
+
+    <string name="life_time"><b> Abonnement</b></string>
+    <string name="subscribe_now">Abonneer nu</string>
+    <string name="continue_with_ads">Doorgaan met advertenties</string>
+
+    <string name="recovery">Herstel</string>
+    <string name="direct_chat">Directe chat</string>
+    <string name="status">Status</string>
+    <string name="more_tools">Meer tools</string>
+    <string name="enjoyee_ads_free_application">Advertentievrije ervaring</string>
+    <string name="restore_unlimited_messages_instantly">Herstel onbeperkt berichten direct</string>
+
+    <string name="or">OF</string>
+    <string name="direct_whats_chat">Directe WhatsApp-chat</string>
+    <string name="write_your_text">Schrijf je tekst</string>
+    <string name="font_styles">Lettertypen</string>
+    <string name="stylish_text">Stijlvolle tekst</string>
+    <string name="quatations_text">Citaten</string>
+    <string name="text_repeater">Tekstherhaling</string>
+    <string name="enter_message">Voer bericht in</string>
+    <string name="enter_repeat_number">Voer herhalingsnummer in</string>
+    <string name="enter_message_here">Voer hier het bericht in…</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Let op: Aantal herhalingsberichten beperkt tot 999</string>
+    <string name="repeat">Herhalen</string>
+    <string name="new_line_on">Nieuwe regel aan</string>
+    <string name="clear">Wissen</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Voer de tekst in die u wilt herhalen.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Voer het aantal keren in dat u de tekst wilt herhalen</string>
+    <string name="text_copied">Tekst gekopieerd</string>
+    <string name="whatsapp_not_found">WhatsApp niet gevonden</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="favourites">Favorieten</string>
+    <string name="text_to_emoji">Tekst naar Emoji</string>
+    <string name="stickers">Stickers</string>
+    <string name="unlock_premium_version">Ontgrendel Premium-versie</string>
+    <string name="_5_99">$6.99/levenslang</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Herstel gegevens voor WA & WAB]]></string>
+    <string name="error_adding_sticker_pack">Fout bij laden van stickers</string>
+    <string name="clear_all">Alles wissen</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Weet u zeker dat u alle gegevens wilt wissen?</string>
+    <string name="select_country_code">Selecteer landcode</string>
+    <string name="enter_number">Voer nummer in</string>
+    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="permission_needed">Toestemming nodig</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Opslagtoestemming is nodig om WhatsApp-media te lezen. Druk op OK om in instellingen in te schakelen.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Opslagtoestemming is nodig om WhatsApp-media te lezen</string>
+    <string name="chat">Chat</string>
+    <string name="voice">Stem</string>
+    <string name="image_status">Afbeelding\nStatus</string>
+    <string name="video_status">Video\nStatus</string>
+    <string name="saved_status">Opgeslagen\nStatus</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Stijlvolle\nTekst</string>
+    <string name="text_repeater_">Tekst\nHerhaling</string>
+    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="direct_chat_">Directe\nChat</string>
+    <string name="famous_quotes">Beroemde\nCitaten</string>
+    <string name="text_to_emoji_">Tekst naar\nEmoji</string>
+
+    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="ascii_faces">Ascii\nGezichten</string>
+    <string name="something_went_wrong">Er is iets misgegaan</string>
+    <string name="screenshot_saved">Screenshot Opgeslagen</string>
+
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Weet je zeker dat je alle berichten in deze chat wilt wissen?</string>
+    <string name="clear_all_messages">ALLE BERICHTEN WISSEN</string>
+    <string name="message_copied">Bericht gekopieerd</string>
+    <string name="delete_message">Bericht verwijderen?</string>
+    <string name="no_app_found_to_open_this_link">Geen app gevonden om deze link te openen</string>
+    <string name="confirm_delete">Bevestig Verwijdering</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Weet je zeker dat je de geselecteerde bestanden wilt statussen?</string>
+    <string name="items_selected">items geselecteerd</string>
+    <string name="screenshots">Screenshots</string>
+    <string name="saved_collections">Opgeslagen Collecties</string>
+    <string name="preview">Voorbeeld</string>
+    <string name="setting_applied">Instelling toegepast</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Weet je zeker dat je de status van alle chatgeschiedenis wilt?</string>
+    <string name="all_chat_cleared">Alle chat gewist</string>
+    <string name="delete_selected_image">Geselecteerde afbeelding verwijderen?</string>
+    <string name="are_you_sure_want_to_status_this_file">Weet je zeker dat je de status van dit bestand wilt?</string>
+    <string name="notification_listener_service">Meldingsluisteraar-service</string>
+    <string name="goto_settings">NAAR INSTELLINGEN</string>
+    <string name="not_now">Niet nu</string>
+    <string name="permission_necessary">Toestemming vereist</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Opslagtoestemming is nodig om statussen van mediabestanden te lezen</string>
+    <string name="delete_selected_chat">Geselecteerde chat verwijderen?</string>
+    <string name="selected_chats">" geselecteerde chats?"</string>
+    <string name="you_cannot_open_this_file">Je kunt dit bestand niet openen</string>
+    <string name="delete_selected_documents">Geselecteerde documenten verwijderen?</string>
+    <string name="added_to_favourites">Toegevoegd aan favorieten</string>
+    <string name="removed_from_favourites">Verwijderd uit favorieten</string>
+    <string name="are_you_sure_you_want_to_delete">Weet je zeker dat je wilt verwijderen?</string>
+    <string name="delete_folder">MAP VERWIJDEREN?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">ALLE BESTANDEN IN DEZE MAP WORDEN DEFINITIEF VERWIJDERD</string>
+    <string name="folder_name_can_t_be_empty">Mapnaam kan niet leeg zijn</string>
+    <string name="folder_already_exist_with_the_same_name">Map bestaat al met dezelfde naam</string>
+    <string name="failed_to_create_folder">Aanmaken map mislukt</string>
+    <string name="video_already_added">Video is al toegevoegd</string>
+    <string name="image_already_added">Afbeelding is al toegevoegd</string>
+    <string name="create_or_select_collection_first">Maak eerst een collectie aan of selecteer er een</string>
+    <string name="allow">TOESTAAN</string>
+    <string name="saved">Opgeslagen</string>
+    <string name="only_tab_clicked">Alleen tabblad geklikt</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Als je statussen niet opslaat, verdwijnen ze na 24 uur</string>
+    <string name="whatsapp_status">WhatsApp-status</string>
+    <string name="share_status">Deel status</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Weet je zeker dat je deze status op WhatsApp wilt delen?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Kan geen app vinden die dit bestand kan openen "</string>
+    <string name="received_images">Ontvangen Afbeeldingen</string>
+    <string name="received_videos">Ontvangen Video\'s</string>
+    <string name="received_documents">Ontvangen Documenten</string>
+    <string name="received_audio">Ontvangen Audio</string>
+    <string name="received_voice">Ontvangen Spraak</string>
+    <string name="received_wallpapers">Ontvangen Wallpapers</string>
+    <string name="received_gifs">Ontvangen GIFs</string>
+    <string name="sent_images">Verzonden Afbeeldingen</string>
+    <string name="sent_videos">Verzonden Video\'s</string>
+    <string name="sent_documents">Verzonden Documenten</string>
+    <string name="sent_audio">Verzonden Audio</string>
+    <string name="sent_voice">Verzonden Spraak</string>
+    <string name="sent_wallpapers">Verzonden Wallpapers</string>
+    <string name="sent_gifs">Verzonden GIFs</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Taal wijzigen</string>
+    <string name="privacy_settings">Privacy-instellingen</string>
+</resources>

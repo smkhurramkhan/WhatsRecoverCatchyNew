@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Cài đặt</string>
+    <string name="premium">Cao cấp</string>
+    <string name="upgrade_to_premium">Nâng cấp lên cao cấp</string>
+    <string name="family_apps">Ứng dụng gia đình</string>
+    <string name="how_to_use">Cách sử dụng</string>
+    <string name="share">Chia sẻ</string>
+    <string name="rate_it">Đánh giá nó</string>
+    <string name="privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="help">Trợ giúp</string>
+
+    <string name="enable_permission">BẬT QUYỀN</string>
+    <string name="we_need_your_permission">Chúng tôi cần sự cho phép của bạn</string>
+    <string name="we_need_your_permission_desc">Để lưu trữ cục bộ các tin nhắn đã xóa WhatsApp của bạn, bạn cần cấp quyền \"Truy cập thông báo\" cho ứng dụng này. Chọn ứng dụng <b>WA Recover</b> trong lần xem tiếp theo để bật quyền</string>
+    <string name="no_deleted_chat_detected_yet">Chưa phát hiện cuộc trò chuyện nào bị xóa</string>
+
+    <string name="select_all">Chọn tất cả</string>
+    <string name="delete">Xóa</string>
+    <string name="no_document_detected_yet">Chưa tìm thấy tài liệu nào</string>
+    <string name="no_image_detected_yet">Chưa tìm thấy hình ảnh nào</string>
+    <string name="no_voice_detected_yet">Chưa tìm thấy ghi chú thoại nào</string>
+    <string name="no_audio_detected_yet">Chưa phát hiện thấy âm thanh</string>
+
+
+    <string name="document">Tài liệu</string>
+    <string name="image">Hình ảnh</string>
+    <string name="video">Video</string>
+    <string name="voice_notes">Ghi chú bằng giọng nói</string>
+    <string name="audio">Âm thanh</string>
+    <string name="clear_chat">Xóa trò chuyện</string>
+    <string name="copy">Sao chép</string>
+    <string name="forward">Chuyển tiếp</string>
+    <string name="next">Tiếp theo</string>
+
+    <array name="startup_titles">
+        <item>Bằng cách sử dụng ứng dụng này, bạn có thể vi phạm các điều khoản dịch vụ của người khác
+            các ứng dụng.
+        </item>
+        <item>Chúng tôi quan tâm đến quyền riêng tư và bảo mật dữ liệu của bạn để nhận được thông báo bất cứ khi nào người gửi xóa
+            bất kì tin nhắn nào.
+        </item>
+        <item>Bằng cách nhấp vào chấp nhận, bạn chấp nhận chính sách quảng cáo của chúng tôi và không vi phạm.</item>
+
+
+    </array>
+
+    <array name="startup_descriptions">
+        <item>Bằng cách sử dụng ứng dụng này, bạn có thể vi phạm các điều khoản dịch vụ của các ứng dụng khác.
+            Hãy nhớ xem lại các điều khoản sử dụng này của các ứng dụng khác trước khi chọn chúng và LÀM
+            KHÔNG chọn các ứng dụng không tương thích.
+        </item>
+        <item>Ứng dụng này miễn phí và để tiếp tục phát triển nó, chúng tôi phải hiển thị quảng cáo.
+            Để làm điều này, quảng cáo của chúng tôi cung cấp sẽ sử dụng thông tin họ đã thu thập về bạn.
+            Hãy nhớ rằng, hãy đọc các chính sách và bạn cần phải đủ tuổi hợp pháp để tiếp tục. Quảng cáo của chúng tôi
+            nhà cung cấp có thể khác nhau, chính sách bảo mật sẽ luôn được cập nhật.\n\n WA Recover có
+            không sử dụng thông báo của bạn cho mục đích thương mại, chỉ để lưu và phát hiện nội dung của nó
+            trên thiết bị của bạn
+        </item>
+        <item>
+            Bằng cách nhấp vào chấp nhận, bạn chấp nhận chính sách quảng cáo của chúng tôi và không vi phạm các điều khoản của
+            sử dụng các ứng dụng khác
+        </item>
+    </array>
+    <string name="how_it_work_desc">
+       <![CDATA[ 1) Mở \'WhatsApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: Bật cài đặt phương tiện tự động tải xuống từ \'WhatsApp Messenger\' để WA Recover hoạt động tốt hơn.</font></b><br>< br>
+         3) Lưu tệp phương tiện WhatsApp (Hình ảnh, Video, Ghi chú thoại, Âm thanh, Tài liệu).<br><br>
+         4) Bạn sẽ được thông báo nếu có bất kỳ tin nhắn nào bị xóa từ phía người gửi.<br><br>
+         5) BẬT/TẮT tính năng sao chép để tiết kiệm dung lượng.<br><br>
+         6) Chọn hoặc bỏ chọn Tab trong cài đặt để lưu tệp phương tiện đã xóa đó.<br><br>
+         7) Thông báo WhatsApp của bạn phải được bật để nhận tin nhắn văn bản đã xóa.
+     ]]></string>
+    <string name="accept">Chấp nhận</string>
+    <string name="media_file_backup_list">Danh sách sao lưu tập tin media</string>
+    <string name="erase_all_messages">Xóa tất cả tin nhắn</string>
+    <string name="today">Hôm nay</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="back">iv quay lại</string>
+    <string name="are_you_sure_you_want_to_exit">Bạn có chắc chắn muốn thoát không?</string>
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+    <string name="upgrade_to_enjoy_premium">Nâng cấp để tận hưởng phí bảo hiểm</string>
+
+
+    <string name="no_status_found">Không tìm thấy trạng thái</string>
+    <string name="restatus">Khôi phục lại</string>
+    <string name="download">Tải xuống</string>
+    <string name="enter_collection_name">Nhập tên bộ sưu tập</string>
+    <string name="collection_name">Tên bộ sưu tập</string>
+    <string name="cancel">HỦY</string>
+    <string name="create">TẠO</string>
+    <string name="ok">Được</string>
+    <string name="create_new_collection">Tạo bộ sưu tập mới</string>
+    <string name="edit">Chỉnh sửa</string>
+    <string name="fullscreen">Toàn màn hình</string>
+    <string name="size_and_time">Kích thước và thời gian</string>
+
+    <string name="info">Thông tin</string>
+    <string name="add_to_favourite">Thêm vào mục yêu thích</string>
+    <string name="removefavourite">Xóa mục yêu thích</string>
+    <string name="totaltime">tổng thời gian</string>
+    <string name="runtime">thời gian chạy</string>
+    <string name="please_select_a_song_from_the_playlist">Vui lòng chọn một bài hát từ Danh sách phát</string>
+    <string name="customize_tabs">Tùy chỉnh tab</string>
+    <string name="apply">Áp dụng</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">Mở WhatsApp</string>
+    <string name="view_the_status_you_want_to_download">Xem trạng thái</string>
+    <string name="come_back_again">Trở lại lần nữa</string>
+    <string name="noimagestatus">Không tìm thấy trạng thái hình ảnh</string>
+    <string name="novideostatus">Không tìm thấy trạng thái video</string>
+    <string name="no_saved_status_found">Không tìm thấy trạng thái đã lưu</string>
+
+    <string name="rest_assured_permission_text">Hãy yên tâm rằng chúng tôi không sử dụng dữ liệu riêng tư của bạn vì lợi ích riêng của chúng tôi.</string>
+
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">ĐỔI TÊN</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Tính năng này sử dụng API công khai của WhatsApp để mở cuộc trò chuyện với bất kỳ số nào bạn nhập mà không lưu bất kỳ số nào</string>
+    <string name="eg_1234567890">Ví dụ: 1234567890</string>
+    <string name="open_in_whatsapp_chat">Mở trong Trò chuyện WhatsApp</string>
+
+
+    <!-- Dọn dẹp-->
+    <string name="delete_items_blank">Xóa các tệp đã chọn (0B)</string>
+    <string name="_0b">0B</string>
+    <string name="files">Tệp</string>
+    <string name="no_files">không có tập tin</string>
+    <string name="date">Ngày</string>
+    <string name="name">Tên</string>
+    <string name="size">Kích thước</string>
+    <string name="clear_all_data">Xóa tất cả dữ liệu</string>
+
+
+    <string name="_922">+92</string>
+
+
+    <string name="screenshot">Ảnh chụp màn hình</string>
+
+    <string name="ad_loading">Đang tải quảng cáo…</string>
+    <string name="please_wait">Đang tải quảng cáo Vui lòng đợi…</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">Chưa tìm thấy Video nào</string>
+
+    <string name="life_time"><b> Đăng ký</b></string>
+    <string name="subscribe_now">Đăng ký ngay</string>
+    <string name="continue_with_ads">Tiếp tục với quảng cáo</string>
+
+    <string name="recovery">Phục hồi</string>
+    <string name="direct_chat">Trò chuyện trực tiếp</string>
+    <string name="status">Trạng thái</string>
+    <string name="more_tools">Thêm công cụ</string>
+    <string name="enjoyee_ads_free_application">Trải nghiệm không có quảng cáo</string>
+    <string name="restore_unlimited_messages_instantly">Khôi phục tin nhắn không giới hạn ngay lập tức</string>
+
+    <string name="or">HOẶC</string>
+    <string name="direct_whats_chat">Trò chuyện trực tiếp</string>
+    <string name="write_your_text">Viết văn bản của bạn</string>
+    <string name="font_styles">Các kiểu phông chữ</string>
+    <string name="stylish_text">Văn bản thời trang</string>
+    <string name="quatations_text">Trích dẫn</string>
+    <string name="text_repeater">Bộ lặp văn bản</string>
+    <string name="enter_message">Nhập tin nhắn</string>
+    <string name="enter_repeat_number">Nhập số lặp lại</string>
+    <string name="enter_message_here">Nhập tin nhắn vào đây...</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">Lưu ý: Số lượng giới hạn văn bản lặp lại 999</string>
+    <string name="repeat">Lặp lại</string>
+    <string name="new_line_on">Bật dòng mới</string>
+    <string name="clear">Xóa</string>
+    <string name="please_enter_the_text_you_want_to_repeat">Vui lòng nhập văn bản bạn muốn lặp lại.</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Vui lòng nhập số lần bạn muốn lặp lại văn bản</string>
+    <string name="text_copied">Đã sao chép văn bản</string>
+    <string name="whatsapp_not_found">Không tìm thấy WhatsApp</string>
+    <!-- Các chuỗi được sử dụng cho các đoạn để điều hướng -->
+    <string name="favourites">Yêu thích</string>
+    <string name="text_to_emoji">Chuyển văn bản thành biểu tượng cảm xúc</string>
+    <string name="stickers">Nhãn dán</string>
+    <string name="unlock_premium_version">Mở khóa phiên bản cao cấp</string>
+    <string name="_5_99">$6,99/đời</string>
+    <string name="recover_data_for_wa_wab"><![CDATA[Khôi phục dữ liệu cho WA & WAB]]></string>
+
+    <string name="error_adding_sticker_pack">Lỗi tải hình dán</string>
+    <string name="clear_all">Xóa tất cả</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">Bạn có chắc chắn muốn xóa tất cả dữ liệu không?</string>
+    <string name="select_country_code">Chọn mã quốc gia</string>
+    <string name="enter_number">Nhập số</string>
+    <string name="whatsapp_cleaner">Trình dọn dẹp WhatsApp</string>
+    <string name="permission_needed">Cần có quyền</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Cần có quyền lưu trữ để đọc WhatsApp Media. Nhấn OK để bật trong cài đặt.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Cần có quyền lưu trữ để đọc WhatsApp Media</string>
+    <string name="chat">Trò chuyện</string>
+    <string name="voice">Giọng nói</string>
+    <string name="image_status">Hình ảnh\nTrạng thái</string>
+    <string name="video_status">Trạng thái video</string>
+    <string name="saved_status">Đã lưu\nTrạng thái</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">Sành điệu\nVăn bản</string>
+    <string name="text_repeater_">Văn bản\nRepeater</string>
+    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="direct_chat_">Trực tiếp\nTrò chuyện</string>
+    <string name="famous_quotes">Những câu trích dẫn nổi tiếng</string>
+    <string name="text_to_emoji_">Nhắn tin tới\nEmoji</string>
+    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="ascii_faces">Ascii\nKhuôn mặt</string>
+    <string name="something_went_wrong">Đã xảy ra lỗi</string>
+    <string name="screenshot_saved">Đã lưu ảnh chụp màn hình</string>
+
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">Bạn có chắc chắn muốn xóa tất cả tin nhắn trong cuộc trò chuyện này không?</string>
+    <string name="clear_all_messages">XÓA TẤT CẢ TIN NHẮN</string>
+    <string name="message_copied">Đã sao chép tin nhắn</string>
+    <string name="delete_message">Xóa tin nhắn?</string>
+    <string name="no_app_found_to_open_this_link">Không tìm thấy ứng dụng nào để mở liên kết này</string>
+    <string name="confirm_delete">Xác nhận xóa</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">Bạn có chắc chắn muốn trạng thái các tệp đã chọn không?</string>
+    <string name="items_selected">các mục đã chọn</string>
+    <string name="screenshots">Ảnh chụp màn hình</string>
+    <string name="saved_collections">Bộ sưu tập đã lưu</string>
+    <string name="preview">Xem trước</string>
+    <string name="setting_applied">Đã áp dụng cài đặt</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">Bạn có chắc chắn muốn trạng thái tất cả lịch sử trò chuyện không?</string>
+    <string name="all_chat_cleared">Đã xóa tất cả cuộc trò chuyện</string>
+    <string name="delete_selected_image">Xóa hình ảnh đã chọn?</string>
+    <string name="are_you_sure_want_to_status_this_file">Bạn có chắc chắn muốn trạng thái tập tin này không?</string>
+    <string name="notification_listener_service">Dịch vụ nghe thông báo</string>
+    <string name="goto_settings">CÀI ĐẶT GOTO</string>
+    <string name="not_now">Không phải bây giờ</string>
+    <string name="permission_necessary">Cần có quyền</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">Cần có quyền lưu trữ để xác định trạng thái của các tệp phương tiện</string>
+    <string name="delete_selected_chat">Xóa cuộc trò chuyện đã chọn?</string>
+    <string name="selected_chats">" cuộc trò chuyện đã chọn?"</string>
+    <string name="you_cannot_open_this_file">bạn không thể mở tệp này</string>
+    <string name="delete_selected_documents">Xóa tài liệu đã chọn?</string>
+    <string name="added_to_favourites">Đã thêm vào mục yêu thích</string>
+    <string name="removed_from_favourites">Đã xóa khỏi mục ưa thích</string>
+    <string name="are_you_sure_you_want_to_delete">Bạn có chắc chắn muốn xóa không?</string>
+    <string name="delete_folder">XÓA THƯ MỤC?</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">TẤT CẢ CÁC TỆP TRONG THƯ MỤC NÀY SẼ BỊ XÓA VĨNH VIỄN</string>
+    <string name="folder_name_can_t_be_empty">Tên thư mục không được để trống</string>
+    <string name="folder_already_exist_with_the_same_name">Thư mục có cùng tên đã tồn tại</string>
+    <string name="failed_to_create_folder">Tạo thư mục không thành công</string>
+    <string name="video_already_added">Video đã được thêm</string>
+    <string name="image_already_added">Hình ảnh đã được thêm</string>
+    <string name="create_or_select_collection_first">Tạo hoặc chọn bộ sưu tập trước</string>
+    <string name="allow">Cho phép</string>
+    <string name="saved">Đã lưu</string>
+    <string name="only_tab_clicked">chỉ nhấp vào tab</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Nếu bạn không lưu trạng thái, chúng sẽ biến mất sau 24 giờ</string>
+    <string name="whatsapp_status">Trạng thái WhatsApp</string>
+    <string name="share_status">Trạng thái chia sẻ</string>
+
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Bạn có chắc chắn muốn chia sẻ trạng thái này trên WhatsApp không?</string>
+    <string name="couldn_t_find_app_that_open_this_file">"Không thể tìm thấy ứng dụng mở tệp này "</string>
+    <string name="received_images">Hình ảnh đã nhận được</string>
+    <string name="received_videos">Video đã nhận được</string>
+    <string name="received_documents">Tài liệu đã nhận được</string>
+    <string name="received_audio">Âm thanh đã nhận được</string>
+    <string name="received_voice">Đã nhận được giọng nói</string>
+    <string name="received_wallpapers">Đã nhận được hình nền</string>
+    <string name="received_gifs">Đã nhận được GIF</string>
+    <string name="sent_images">Đã gửi hình ảnh</string>
+    <string name="sent_videos">Video đã gửi</string>
+    <string name="sent_documents">Tài liệu đã gửi</string>
+    <string name="sent_audio">Đã gửi âm thanh</string>
+    <string name="sent_voice">Giọng nói đã gửi</string>
+    <string name="sent_wallpapers">Đã gửi hình nền</string>
+    <string name="sent_gifs">Đã gửi GIF</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">Thay đổi ngôn ngữ</string>
+    <string name="privacy_settings">Cài đặt quyền riêng tư</string>
+</resources>

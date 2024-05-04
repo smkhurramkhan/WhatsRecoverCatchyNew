@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageviewmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        
+        <com.catchyapps.whatsdelete.appclasseshelpers.VPNonSwipeable
+            android:id="@+id/viewPager_startup"
+            android:layout_width="0dp"
+            android:layout_height="500dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPager_startup"
+            app:piv_animationType="scale"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_padding="10dp"
+            app:piv_radius="7dp"
+            app:piv_selectedColor="@color/colorPrimary"
+            app:piv_unselectedColor="@color/btnNotSelected"
+            app:piv_viewPager="@id/viewPager_startup" />
+
+
+        <Button
+            android:id="@+id/btn_next1"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_background_start"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_next_card"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp"
+            android:layout_marginEnd="-20dp"
+            android:layout_marginBottom="-20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+
+            >
+            <TextView
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/next"
+                android:fontFamily="@font/inter"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:gravity="start|center"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_previous"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp"
+            android:layout_marginStart="-10dp"
+            android:layout_marginBottom="-20dp"
+           app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+
+            >
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back_icon"
+                android:fontFamily="@font/inter"
+                android:textSize="20sp"
+                android:layout_marginEnd="20dp"
+
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

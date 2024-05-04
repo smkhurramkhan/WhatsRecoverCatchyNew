@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">設定</string>
+    <string name="premium">プレミアム</string>
+    <string name="upgrade_to_premium">プレミアムにアップグレード</string>
+    <string name="family_apps">家族向けアプリ</string>
+    <string name="how_to_use">使い方</string>
+    <string name="share">共有</string>
+    <string name="rate_it">評価する</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="help">ヘルプ</string>
+
+    <string name="enable_permission">権限を有効にする</string>
+    <string name="we_need_your_permission">権限が必要です</string>
+    <string name="we_need_your_permission_desc">WhatsAppの削除されたメッセージをローカルに保存するために、このアプリに「通知アクセス」権限を許可する必要があります。「WA Recover」アプリを次に表示される画面で選択して権限を有効にします。</string>
+    <string name="no_deleted_chat_detected_yet">まだ削除されたチャットが検出されていません</string>
+
+    <string name="select_all">すべて選択</string>
+    <string name="delete">削除</string>
+    <string name="no_document_detected_yet">まだドキュメントが検出されていません</string>
+    <string name="no_image_detected_yet">まだ画像が検出されていません</string>
+    <string name="no_voice_detected_yet">まだボイスメモが検出されていません</string>
+    <string name="no_audio_detected_yet">まだオーディオが検出されていません</string>
+
+    <string name="document">ドキュメント</string>
+    <string name="image">画像</string>
+    <string name="video">ビデオ</string>
+    <string name="voice_notes">ボイスメモ</string>
+    <string name="audio">オーディオ</string>
+    <string name="clear_chat">チャットをクリア</string>
+    <string name="copy">コピー</string>
+    <string name="forward">転送</string>
+    <string name="next">次へ</string>
+
+    <array name="startup_titles">
+        <item>このアプリを使用すると、他のアプリのサービス利用規約に違反する可能性があります。</item>
+        <item>私たちはあなたのプライバシーとデータセキュリティを大切にし、送信者がメッセージを削除した場合に通知を受け取ることができます。</item>
+        <item>受け入れをクリックすると、広告ポリシーに同意し、違反しません。</item>
+    </array>
+
+    <array name="startup_descriptions">
+        <item>このアプリを使用すると、他のアプリのサービス利用規約に違反する可能性があります。これらのアプリの利用規約を選択する前に確認し、互換性のないアプリを選択しないようにしてください。</item>
+        <item>このアプリケーションは無料で、引き続き動作するために広告を表示する必要があります。これを行うために、広告提供者はあなたに関する収集した情報を使用します。広告ポリシーを読んでください。続行するには法定の年齢である必要があります。広告プロバイダーは異なる場合があり、プライバシーポリシーは常に最新のものが表示されます。\n\n WA Recoverは商業目的で通知を使用しません。デバイス上のコンテンツを保存および検出するためだけです。</item>
+        <item>受け入れをクリックすると、広告ポリシーに同意し、他のアプリの利用規約に違反しません。</item>
+    </array>
+    <string name="how_it_work_desc">
+  <![CDATA[1) \'WhatsApp Messenger\'を開きます<br><br>
+    <b><font color=\'#cc0029\'> 2) 注意*: \'WhatsApp Messenger\'で自動ダウンロードメディア設定をオンにしてください。WA Recoverの動作が向上します。</font></b><br><br>
+    3) WhatsAppメディアファイル（画像、ビデオ、ボイスメモ、オーディオ、ドキュメント）を保存します<br><br>
+    4) 送信者がメッセージを削除した場合、通知されます<br><br>
+    5) ストレージを節約するために重複をON / OFFにします<br><br>
+    6) 設定からタブを確認または非表示にします。削除されたメディアファイルを保存する<br><br>
+    7) 削除されたテキストメッセージを取得するためにWhatsApp通知をオンにする必要があります
+]]></string>
+    <string name="accept">受け入れる</string>
+    <string name="media_file_backup_list">メディアファイルのバックアップリスト</string>
+    <string name="erase_all_messages">すべてのメッセージを消去</string>
+    <string name="today">今日</string>
+    <string name="search">検索</string>
+    <string name="back">戻る</string>
+    <string name="are_you_sure_you_want_to_exit">本当に終了しますか？</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="upgrade_to_enjoy_premium">プレミアムをお楽しみください</string>
+
+    <string name="no_status_found">ステータスが見つかりません</string>
+    <string name="restatus">再ステータス</string>
+    <string name="download">ダウンロード</string>
+    <string name="enter_collection_name">コレクション名を入力してください</string>
+    <string name="collection_name">コレクション名</string>
+    <string name="cancel">キャンセル</string>
+    <string name="create">作成</string>
+    <string name="ok">OK</string>
+    <string name="create_new_collection">新しいコレクションを作成</string>
+    <string name="edit">編集</string>
+    <string name="fullscreen">フルスクリーン</string>
+    <string name="size_and_time">サイズと時間</string>
+    <string name="info">情報</string>
+    <string name="add_to_favourite">お気に入りに追加</string>
+    <string name="removefavourite">お気に入りから削除</string>
+    <string name="totaltime">合計時間</string>
+    <string name="runtime">ランタイム</string>
+    <string name="please_select_a_song_from_the_playlist">プレイリストから曲を選択してください</string>
+    <string name="customize_tabs">タブをカスタマイズ</string>
+    <string name="apply">適用</string>
+    <string name="mCursorDrawableRes">mCursorDrawableRes</string>
+    <string name="open_whatsapp">WhatsAppを開く</string>
+    <string name="view_the_status_you_want_to_download">ステータスを表示</string>
+    <string name="come_back_again">また来てください</string>
+    <string name="noimagestatus">画像ステータスが見つかりません</string>
+    <string name="novideostatus">ビデオステータスが見つかりません</string>
+    <string name="no_saved_status_found">保存されたステータスが見つかりません</string>
+
+    <string name="rest_assured_permission_text">安心してください。私たちはあなたのプライベートデータを自己の利益のために使用しません。</string>
+
+    <string name="drawablessd">mCursorDrawableRes</string>
+
+    <string name="whatsapp">WhatsApp</string>
+    <string name="rename">名前を変更</string>
+
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">この機能はWhatsApp Public APIを使用して、保存せずに入力した任意の番号でチャットを開くものです</string>
+    <string name="eg_1234567890">例: 1234567890</string>
+    <string name="open_in_whatsapp_chat">WhatsAppチャットで開く</string>
+
+    <!-- Cleaner-->
+    <string name="delete_items_blank">選択したファイルをクリア（0B）</string>
+    <string name="_0b">0B</string>
+    <string name="files">ファイル</string>
+    <string name="no_files">ファイルなし</string>
+    <string name="date">日付</string>
+    <string name="name">名前</string>
+    <string name="size">サイズ</string>
+    <string name="clear_all_data">すべてのデータをクリア</string>
+
+    <string name="_922">+92</string>
+
+    <string name="screenshot">スクリーンショット</string>
+
+    <string name="ad_loading">広告の読み込み中...</string>
+    <string name="please_wait">広告の読み込み中、お待ちください...</string>
+
+    <string name="_00_0000">00:00</string>
+    <string name="no_video_detected_yet">まだビデオが検出されていません</string>
+
+    <string name="life_time"><b> サブスクリプション</b></string>
+    <string name="subscribe_now">今すぐ購読</string>
+    <string name="continue_with_ads">広告を表示して続行</string>
+
+    <string name="recovery">回復</string>
+    <string name="direct_chat">ダイレクトチャット</string>
+    <string name="status">ステータス</string>
+    <string name="more_tools">その他のツール</string>
+    <string name="enjoyee_ads_free_application">広告なしのエクスペリエンス</string>
+    <string name="restore_unlimited_messages_instantly">無制限のメッセージを即座に復元</string>
+
+    <string name="or">または</string>
+    <string name="direct_whats_chat">直接Whats Chat</string>
+    <string name="write_your_text">テキストを入力</string>
+    <string name="font_styles">フォントスタイル</string>
+    <string name="stylish_text">スタイリッシュなテキスト</string>
+    <string name="quatations_text">引用文</string>
+    <string name="text_repeater">テキストリピーター</string>
+    <string name="enter_message">メッセージを入力</string>
+    <string name="enter_repeat_number">リピート回数を入力</string>
+    <string name="enter_message_here">ここにメッセージを入力...</string>
+    <string name="_10">10</string>
+    <string name="note_number_of_repeater_text_limit_999">注意: リピーターテキストの上限は999です</string>
+    <string name="repeat">リピート</string>
+    <string name="new_line_on">改行オン</string>
+    <string name="clear">クリア</string>
+    <string name="please_enter_the_text_you_want_to_repeat">繰り返したいテキストを入力してください。</string>
+    <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">テキストを繰り返す回数を入力してください</string>
+    <string name="text_copied">テキストがコピーされました</string>
+    <string name="whatsapp_not_found">WhatsAppが見つかりません</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="favourites">お気に入り</string>
+    <string name="text_to_emoji">テキストから絵文字</string>
+    <string name="stickers">ステッカー</string>
+    <string name="unlock_premium_version">プレミアムバージョンのロックを解除</string>
+    <string name="_5_99">$6.99/終身</string>
+    <string name="recover_data_for_wa_wab">WA＆WABのデータを回復</string>
+    <string name="error_adding_sticker_pack">ステッカーの読み込みエラー</string>
+    <string name="clear_all">すべてクリア</string>
+    <string name="are_you_sure_you_want_to_clear_all_the_data">すべてのデータをクリアしますか？</string>
+    <string name="select_country_code">国コードを選択</string>
+    <string name="enter_number">番号を入力</string>
+    <string name="whatsapp_cleaner">WhatsAppクリーナー</string>
+    <string name="permission_needed">許可が必要</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">WhatsAppメディアを読むためにはストレージの許可が必要です。設定で有効にするにはOKを押してください。</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">WhatsAppメディアを読むためにはストレージの許可が必要です</string>
+    <string name="chat">チャット</string>
+    <string name="voice">ボイス</string>
+    <string name="image_status">画像\nステータス</string>
+    <string name="video_status">ビデオ\nステータス</string>
+    <string name="saved_status">保存された\nステータス</string>
+    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="stylish_text_">スタイリッシュ\nテキスト</string>
+    <string name="text_repeater_">テキスト\nリピーター</string>
+    <string name="whats_cleaner">WhatsApp\nクリーナー</string>
+    <string name="direct_chat_">ダイレクト\nチャット</string>
+    <string name="famous_quotes">有名な\n引用</string>
+    <string name="text_to_emoji_">テキストから\n絵文字</string>
+    <string name="whatsapp_stickers">WhatsApp\nステッカー</string>
+    <string name="ascii_faces">ASCII\n顔</string>
+    <string name="something_went_wrong">何かがうまくいきませんでした</string>
+    <string name="screenshot_saved">スクリーンショットが保存されました</string>
+
+    <string name="are_you_sure_you_want_to_clear_all_messages_in_this_chat">このチャットのすべてのメッセージをクリアしますか？</string>
+    <string name="clear_all_messages">すべてのメッセージをクリア</string>
+    <string name="message_copied">メッセージがコピーされました</string>
+    <string name="delete_message">メッセージを削除しますか？</string>
+    <string name="no_app_found_to_open_this_link">このリンクを開くアプリが見つかりません</string>
+    <string name="confirm_delete">削除を確認</string>
+    <string name="are_you_sure_you_want_to_status_the_selected_files">選択したファイルのステータスを更新しますか？</string>
+    <string name="items_selected">アイテムが選択されました</string>
+    <string name="screenshots">スクリーンショット</string>
+    <string name="saved_collections">保存されたコレクション</string>
+    <string name="preview">プレビュー</string>
+    <string name="setting_applied">設定が適用されました</string>
+    <string name="are_you_sure_you_want_to_status_all_chat_history">すべてのチャット履歴のステータスを更新しますか？</string>
+    <string name="all_chat_cleared">すべてのチャットがクリアされました</string>
+    <string name="delete_selected_image">選択した画像を削除しますか？</string>
+    <string name="are_you_sure_want_to_status_this_file">このファイルをステータスにしますか？</string>
+    <string name="notification_listener_service">通知リスナーサービス</string>
+    <string name="goto_settings">設定に移動</string>
+    <string name="not_now">今はしない</string>
+    <string name="permission_necessary">許可が必要</string>
+    <string name="storage_permission_is_necessary_to_status_media_files">メディアファイルのステータスにはストレージの許可が必要です</string>
+    <string name="delete_selected_chat">選択したチャットを削除しますか？</string>
+    <string name="selected_chats">選択したチャット</string>
+    <string name="you_cannot_open_this_file">このファイルを開くことはできません</string>
+    <string name="delete_selected_documents">選択したドキュメントを削除しますか？</string>
+    <string name="added_to_favourites">お気に入りに追加されました</string>
+    <string name="removed_from_favourites">お気に入りから削除されました</string>
+    <string name="are_you_sure_you_want_to_delete">削除しますか？</string>
+    <string name="delete_folder">フォルダを削除しますか？</string>
+    <string name="all_files_in_this_folder_will_be_deleted_permanently">このフォルダ内のすべてのファイルが永久に削除されます</string>
+    <string name="folder_name_can_t_be_empty">フォルダ名は空にできません</string>
+    <string name="folder_already_exist_with_the_same_name">同じ名前のフォルダがすでに存在しています</string>
+    <string name="failed_to_create_folder">フォルダの作成に失敗しました</string>
+    <string name="video_already_added">ビデオはすでに追加されています</string>
+    <string name="image_already_added">画像はすでに追加されています</string>
+    <string name="create_or_select_collection_first">最初にコレクションを作成または選択してください</string>
+    <string name="allow">許可する</string>
+    <string name="saved">保存されました</string>
+    <string name="only_tab_clicked">タブのみがクリックされました</string>
+    <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">ステータスを保存しない場合、24時間後に消えます</string>
+    <string name="whatsapp_status">WhatsAppステータス</string>
+    <string name="share_status">ステータスを共有</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">このステータスをWhatsAppで共有しますか？</string>
+    <string name="couldn_t_find_app_that_open_this_file">このファイルを開くアプリが見つかりませんでした</string>
+    <string name="received_images">受信した画像</string>
+    <string name="received_videos">受信したビデオ</string>
+    <string name="received_documents">受信したドキュメント</string>
+    <string name="received_audio">受信したオーディオ</string>
+    <string name="received_voice">受信したボイス</string>
+    <string name="received_wallpapers">受信した壁紙</string>
+    <string name="received_gifs">受信したGIF</string>
+    <string name="sent_images">送信した画像</string>
+    <string name="sent_videos">送信したビデオ</string>
+    <string name="sent_documents">送信したドキュメント</string>
+    <string name="sent_audio">送信したオーディオ</string>
+    <string name="sent_voice">送信したボイス</string>
+    <string name="sent_wallpapers">送信した壁紙</string>
+    <string name="sent_gifs">送信したGIF</string>
+    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="change_language">言語を変更</string>
+  <string name="privacy_settings">プライバシー設定</string>
+</resources>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/playerCardLayout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:scrollbars="vertical"
+                        android:visibility="visible" />
+
+
+                    <TextView
+                        android:id="@+id/tv_no_audio_voice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:drawablePadding="16dp"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/no_audio_detected_yet"
+                        android:visibility="gone"
+                        app:drawableTopCompat="@drawable/nofiles_img" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/playerCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/playercontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fbedfa"
+                    android:padding="@dimen/_8sdp"
+                    android:visibility="gone">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animation_view"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/mp3_img"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lottie_autoPlay="false"
+                        app:lottie_colorFilter="@android:color/transparent"
+                        app:lottie_fileName="mp3anim.json"
+                        app:lottie_loop="true"
+                        app:lottie_progress="0.5"
+                        app:lottie_renderMode="automatic"
+                        app:lottie_repeatMode="restart"
+                        app:lottie_speed="1.0" />
+
+                    <TextView
+                        android:id="@+id/totalTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/totaltime"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/runTime"
+                        app:layout_constraintStart_toEndOf="@+id/runTime"
+                        app:layout_constraintTop_toTopOf="@+id/runTime"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/runTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="1dp"
+                        android:text="@string/runtime"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/animation_view"
+                        app:layout_constraintTop_toBottomOf="@+id/songName"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/songName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:ellipsize="end"
+                        android:fadingEdge="horizontal"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/please_select_a_song_from_the_playlist"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/runTime"
+                        app:layout_constraintEnd_toStartOf="@+id/playcontroller"
+                        app:layout_constraintStart_toEndOf="@+id/animation_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <SeekBar
+                        android:id="@+id/realseekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="@dimen/_1sdp"
+                        android:minHeight="@dimen/_1sdp"
+                        android:progressDrawable="@drawable/seekbar_player_color_bg"
+                        android:thumb="@drawable/player_seekbar_thumb"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/animation_view" />
+
+                    <LinearLayout
+                        android:id="@+id/playcontroller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/previousButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/app_name"
+                            android:padding="@dimen/_4sdp"
+                            android:src="@drawable/icon_rewind_fast"
+                            android:visibility="gone" />
+
+                        <ImageButton
+                            android:id="@+id/playButton"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/app_name" />
+
+                        <ImageButton
+                            android:id="@+id/pauseButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/app_name"
+                            android:padding="@dimen/_4sdp"
+                            android:src="@drawable/icon_pause"
+                            android:visibility="gone" />
+
+                        <ImageButton
+                            android:id="@+id/nextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/app_name"
+                            android:padding="@dimen/_4sdp"
+                            android:src="@drawable/icon_forward_fast"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

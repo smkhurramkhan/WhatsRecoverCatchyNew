@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".appactivities.activityhome.ActivityHomeScreen">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            android:minHeight="?attr/actionBarSize"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="@string/app_name"
+            app:titleMarginStart="0dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topAdsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="@dimen/_6sdp"
+            android:background="@drawable/boarder_native_app"
+            app:layout_constraintBottom_toTopOf="@+id/scrollViewMain"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <include layout="@layout/shimmer_banner_native_" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/nativebanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollViewMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topAdsLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/recovery_cardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    android:elevation="0dp"
+                    app:layout_constraintBottom_toTopOf="@id/status_cardView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/recovery_TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="24sp"
+                            android:text="@string/features"
+                            android:textColor="@color/black" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recovery_RecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/status_cardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:layout_constraintEnd_toEndOf="@id/recovery_cardView"
+                    app:layout_constraintStart_toStartOf="@id/recovery_cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/recovery_cardView"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/moreTools_cardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:translationZ="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardBackgroundColor="@color/bgScreenColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/status_cardView"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="0.5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/status_TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:text="@string/status"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="24sp"
+                            android:textColor="@color/black"
+                            />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/status_RecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/more_TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:text="@string/more_tools"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="24sp"
+                            android:textColor="@color/black"
+                           />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/moreTools_RecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_more_tools" />
+
+
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38755058186",
+    "project_id": "whatsdelete-23741",
+    "storage_bucket": "whatsdelete-23741.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38755058186:android:c839abb5b78c18e74fd5f3",
+        "android_client_info": {
+          "package_name": "com.catchyapps.whatsdelete"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJazu1BgXcvVGN21sU0hw87duOTaQTCYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
