@@ -260,9 +260,9 @@ class OnboardingScreens : com.catchyapps.whatsdelete.appactivities.BaseActivity(
     inner class ViewPagerAdapter : PagerAdapter() {
         private var itemBinding: LayoutHintStartBinding? = null
         var resources = intArrayOf(
-            R.drawable.icon_by_using_this_app_png,
-            R.drawable.icon_we_care_about_privacy,
-            R.drawable.icon_by_click_accipting
+            R.drawable.icon_by_using_this_app_svg,
+            R.drawable.icon_we_care_about_privacy_svg,
+            R.drawable.icon_by_click_accipting_svg
         )
         private var titles = getResources().getStringArray(R.array.startup_titles)
         private var descriptions = getResources().getStringArray(R.array.startup_descriptions)

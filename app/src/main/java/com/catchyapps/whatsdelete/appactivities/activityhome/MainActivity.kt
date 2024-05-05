@@ -438,7 +438,7 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         binding.appbarHome.moreToolsRecyclerView.adapter = toolsMenuAdapter
         binding.appbarHome.moreToolsRecyclerView.layoutManager = GridLayoutManager(
             this,
-            3
+            4
         )
 
     }
