@@ -32,7 +32,7 @@ import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerCons
 import com.catchyapps.whatsdelete.databinding.ScreensOnboardingBinding
 import com.rd.animation.type.AnimationType
 
-class OnboardingScreens : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
+class OnboardingScreens : BaseActivity() {
     private var viewPagerAdapter: ViewPagerAdapter? = null
     private var prefs: MyAppSharedPrefs? = null
     private var selectedPosition = 0

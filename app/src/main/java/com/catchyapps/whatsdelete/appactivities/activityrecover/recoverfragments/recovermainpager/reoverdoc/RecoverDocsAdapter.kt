@@ -79,7 +79,7 @@ class RecoverDocsAdapter(
 
     private fun getRecourseImage(url: String): Int {
         return if (url.contains(".doc") || url.contains(".docx")) {
-            R.drawable.ic_word_img
+            R.drawable.ic_doc_svg
         } else if (url.contains(".pdf")) {
             // PDF file
             R.drawable.ic_pdf_svg

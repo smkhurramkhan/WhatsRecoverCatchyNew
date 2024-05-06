@@ -27,7 +27,7 @@ import com.catchyapps.whatsdelete.roomdb.appentities.EntityStatuses
         EntityFolders::class,
         EntityStatuses::class
     ],
-    version = 2
+    version = 1
 )
 @TypeConverters(
     AppConverterType::class
@@ -41,7 +41,7 @@ abstract class  DatabaseRecover : RoomDatabase() {
 
 
     companion object {
-        private const val DBNAME = "RecoverDb"
+        private const val DBNAME = "WhatsDeleteDb"
 
 
         @Volatile

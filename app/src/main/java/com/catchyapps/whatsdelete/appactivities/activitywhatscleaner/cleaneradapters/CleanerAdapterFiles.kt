@@ -43,7 +43,7 @@ class CleanerAdapterFiles(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var hFileDetailsList = listOf<CleanerDetailsFile>()
-    var count = 0
+
 
     companion object {
         const val H_IMAGE_VH = 0
@@ -144,9 +144,6 @@ class CleanerAdapterFiles(
                 (context as AppCompatActivity).startActivityForResult(intent, 101)
             }
             checkbox.setOnCheckedChangeListener { buttonView: CompoundButton?, isChecked: Boolean ->
-                if (count > 1) {
-                    count = 0
-                }
                 hFileDetailsItem.isSelected = isChecked
                 if (checkbox.isPressed) {
                     hCheckBoxCallBack(hFileDetailsItem)
@@ -218,9 +215,6 @@ class CleanerAdapterFiles(
             extension.text = hFileDetailsItem.ext
             image.setImageResource(hFileDetailsItem.image)
             checkbox.setOnCheckedChangeListener { buttonView: CompoundButton?, isChecked: Boolean ->
-                if (count > 1) {
-                    count = 0
-                }
                 hFileDetailsItem.isSelected = isChecked
                 if (checkbox.isPressed) {
                     hCheckBoxCallBack(hFileDetailsItem)
@@ -270,9 +264,6 @@ class CleanerAdapterFiles(
             extension.text = hFileDetailsItem.ext
             image.setImageResource(hFileDetailsItem.image)
             checkbox.setOnCheckedChangeListener { buttonView: CompoundButton?, isChecked: Boolean ->
-                if (count > 1) {
-                    count = 0
-                }
                 hFileDetailsItem.isSelected = isChecked
                 if (checkbox.isPressed) {
                     hCheckBoxCallBack(hFileDetailsItem)
@@ -318,9 +309,6 @@ class CleanerAdapterFiles(
             extension.text = hFileDetailsItem.ext
             image.setImageResource(hFileDetailsItem.image)
             checkbox.setOnCheckedChangeListener { buttonView: CompoundButton?, isChecked: Boolean ->
-                if (count > 1) {
-                    count = 0
-                }
                 hFileDetailsItem.isSelected = isChecked
                 if (checkbox.isPressed) {
                     hCheckBoxCallBack(hFileDetailsItem)

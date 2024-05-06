@@ -32,11 +32,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-          /*  resValue 'string', 'admobAppId', '"ca-app-pub-3203968387145721~7555042458"'
-            resValue 'string', 'admobBannerAdUnitId', '"ca-app-pub-3203968387145721/2715562554"'
-            resValue 'string', 'admobInterstitialId', '"ca-app-pub-3203968387145721/2726298704"'
-            resValue 'string', 'admobNativeAdvanced', '"ca-app-pub-3203968387145721/7592484718"'*/
-
             resValue 'string', 'admobAppId', '"ca-app-pub-1440070764432562~9246900012"'
             resValue 'string', 'admobBannerAdUnitId', '"ca-app-pub-1440070764432562/9039888592"'
             resValue 'string', 'admobInterstitialId', '"ca-app-pub-1440070764432562/3099497908"'
@@ -65,11 +60,11 @@ android {
 
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_19
-        targetCompatibility JavaVersion.VERSION_19
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '19'
+        jvmTarget = '17'
     }
     namespace 'com.catchyapps.whatsdelete'
     buildFeatures {

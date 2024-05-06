@@ -1,1 +1,1 @@
-this is a whatsapp recovery app for einfach apps
+this is a whatsapp recovery app for catchy apps
