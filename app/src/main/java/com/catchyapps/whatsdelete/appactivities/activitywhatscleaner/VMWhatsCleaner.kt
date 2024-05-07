@@ -233,7 +233,7 @@ class VMWhatsCleaner(
     private fun hGetImageIcon(type: String): Int? {
         return when (type) {
             H_IMAGE -> R.drawable.ic_images_svg
-            H_DOCUMENTS -> R.drawable.icon_white_folder
+            H_DOCUMENTS -> R.drawable.ic_doc_cleaner
             H_VIDEOS -> R.drawable.ic_videos_svg
             H_AUDIO -> R.drawable.ic_audios_svg
             H_WALLPAPERS -> R.drawable.ic_wallpaper_svg
