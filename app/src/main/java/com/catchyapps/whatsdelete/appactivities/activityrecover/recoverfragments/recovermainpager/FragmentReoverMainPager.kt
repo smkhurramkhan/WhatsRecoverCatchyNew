@@ -224,6 +224,7 @@ class FragmentReoverMainPager : Fragment() {
                         tab.text = fragmentNamesList[position]
                     }.attach()
                     hFragmentRecoveryMainBinding.viewpager.currentItem = position
+
                 }
             }
         }

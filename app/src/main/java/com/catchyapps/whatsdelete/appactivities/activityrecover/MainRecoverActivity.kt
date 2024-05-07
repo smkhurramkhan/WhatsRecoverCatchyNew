@@ -12,13 +12,13 @@ import com.catchyapps.whatsdelete.appclasseshelpers.PopUpDialogHowToUseRecoverFe
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.FragmentReoverMainPager
 import com.catchyapps.whatsdelete.appnotifications.AppDeletedMessagesNotificationService
-import com.catchyapps.whatsdelete.databinding.ScreenMainBinding
+import com.catchyapps.whatsdelete.databinding.ScreenMainRecoveryBinding
 
 class MainRecoverActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
 
     private var appSharedPrefs: MyAppSharedPrefs? = null
     private var hFragmentManager: FragmentManager? = null
-    private lateinit var hActivityMainBinding: ScreenMainBinding
+    private lateinit var hActivityMainBinding: ScreenMainRecoveryBinding
     private var position = 0
     private var name: String? = null
     private val viewModel by viewModels<SharedVM>()
@@ -31,7 +31,7 @@ class MainRecoverActivity : com.catchyapps.whatsdelete.appactivities.BaseActivit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        hActivityMainBinding = ScreenMainBinding.inflate(layoutInflater)
+        hActivityMainBinding = ScreenMainRecoveryBinding.inflate(layoutInflater)
         setContentView(hActivityMainBinding.root)
 
         hFragmentManager = supportFragmentManager

@@ -18,6 +18,7 @@ import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -27,6 +28,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
@@ -48,6 +52,7 @@ import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appactivities.activityprivacypolicy.PrivacyPolicyScreen
 import com.catchyapps.whatsdelete.appactivities.activityquatations.ActivityQuotationsScreen
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
+import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.recoverchat.FragmentChatRecover
 import com.catchyapps.whatsdelete.appactivities.activitystatussaver.ActivityStatusMain
 import com.catchyapps.whatsdelete.appactivities.activitystickers.ActivityStickersScreen
 import com.catchyapps.whatsdelete.appactivities.activitystylishtext.StylishTextActivity
@@ -170,6 +175,7 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         BaseApplication.showNativeBanner(binding.appbarHome.nativebanner,binding.appbarHome.shimmerViewContainer)
     }
 
+
     private fun navigationClickListener() {
         binding.navView.setNavigationItemSelectedListener { item: MenuItem ->
 
@@ -281,7 +287,13 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
             onClick = { menuItem ->
                 when (menuItem.id) {
                     "chat" -> {
-                        startIntentForRecover(getString(MyAppConstants.H_CHATS_FRAGMENT))
+                        Toast.makeText(this, "Chats", Toast.LENGTH_SHORT).show()
+                       // replaceFragment(FragmentChatRecover())
+
+                       // startIntentForRecover(getString(MyAppConstants.H_CHATS_FRAGMENT))
+                        startActivity(Intent(this, MainRecoverActivity::class.java)
+                            .putExtra("tab", R.string.chat)
+                        )
                     }
 
                     "documents" -> {
@@ -312,6 +324,14 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         binding.appbarHome.recoveryRecyclerView.layoutManager = GridLayoutManager(
             this,
             2)
+    }
+
+    fun replaceFragment(fragment: Fragment) {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
     private fun createDirectory() {
