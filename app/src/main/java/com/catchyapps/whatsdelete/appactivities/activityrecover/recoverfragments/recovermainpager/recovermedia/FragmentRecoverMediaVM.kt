@@ -47,7 +47,7 @@ class FragmentRecoverMediaVM(application: Application) : AndroidViewModel(applic
 
     fun hSetFragmentType(arguments: Bundle?) {
         if (arguments != null) {
-            hIsImageFragment = arguments.getBoolean(MyAppConstants.H_IS_IMAGE, true)
+            hIsImageFragment = arguments.getBoolean("Image", true)
         }
         hGetData()
     }

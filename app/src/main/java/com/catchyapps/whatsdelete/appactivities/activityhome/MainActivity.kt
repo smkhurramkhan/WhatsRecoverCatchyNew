@@ -287,33 +287,36 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
             onClick = { menuItem ->
                 when (menuItem.id) {
                     "chat" -> {
-                        Toast.makeText(this, "Chats", Toast.LENGTH_SHORT).show()
-                       // replaceFragment(FragmentChatRecover())
-
+                    //replaceFragment(FragmentChatRecover())
                        // startIntentForRecover(getString(MyAppConstants.H_CHATS_FRAGMENT))
                         startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", R.string.chat)
+                            .putExtra("tab", "Chat")
                         )
                     }
 
                     "documents" -> {
-                        startIntentForRecover(getString(MyAppConstants.H_DOCUMENT_FRAGMENT))
+                        startActivity(Intent(this, MainRecoverActivity::class.java)
+                            .putExtra("tab", "documents"))
                     }
 
                     "images" -> {
-                        startIntentForRecover(getString(MyAppConstants.H_IMAGES_FRAGMENT))
+                        startActivity(Intent(this, MainRecoverActivity::class.java)
+                            .putExtra("tab", "images"))
                     }
 
                     "video" -> {
-                        startIntentForRecover(getString(MyAppConstants.H_VIDEO_FRAGMENT))
+                        startActivity(Intent(this, MainRecoverActivity::class.java)
+                            .putExtra("tab", "video"))
                     }
 
                     "audio" -> {
-                        startIntentForRecover(getString(MyAppConstants.H_AUDIO_FRAGMENT))
+                        startActivity(Intent(this, MainRecoverActivity::class.java)
+                            .putExtra("tab", "audio"))
                     }
 
                     "voice" -> {
-                        startIntentForRecover(getString(MyAppConstants.H_VOICE_FRAGMENT))
+                        startActivity(Intent(this, MainRecoverActivity::class.java)
+                            .putExtra("tab", "voice"))
                     }
 
                 }

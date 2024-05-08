@@ -8,6 +8,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.Settings
 import android.view.MenuItem
@@ -75,6 +76,7 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
             layoutInflater
         )
 
+
         setContentView(activityWhatsCleanerBinding.root)
 
         hCheckForPermissions()
@@ -93,6 +95,18 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
 
         hSubscribeObservers()
 
+    }
+
+    private fun calculateStorage() {
+
+        val totalSpace: Long = Environment.getExternalStorageDirectory().totalSpace
+        val freeSpace: Long = Environment.getExternalStorageDirectory().freeSpace
+        val usedSpace: Long = totalSpace - freeSpace
+        val percentUsed: Int = ((usedSpace.toFloat() / totalSpace.toFloat()) * 100).toInt()
+        val freeSpaceInGB: Float = freeSpace.toFloat() / (1024 * 1024 * 1024)
+
+        activityWhatsCleanerBinding.tvStorageUsage.text = "$percentUsed%\nUsed"
+        activityWhatsCleanerBinding.tvFreeStorage.text = String.format("%.2f", freeSpaceInGB) + "GB\nFree"
     }
 
     private fun hLaunchIntent(title: String) {
@@ -128,6 +142,7 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
         whatsCleanerViewModel.hTotalSizeLd.observe(this) {
             activityWhatsCleanerBinding.hProgressbar.visibility = View.GONE
             activityWhatsCleanerBinding.data.text = it
+            calculateStorage()
         }
 
         whatsCleanerViewModel.hCleanerVSLD.observe(this) {

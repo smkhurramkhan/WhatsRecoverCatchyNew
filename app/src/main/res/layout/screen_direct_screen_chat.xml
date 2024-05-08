@@ -86,7 +86,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/bordered_btn_directchat"
                    android:paddingEnd="10dp"
-                    android:textSize="20sp"
+                    android:textSize="12sp"
                     android:text="@string/_92"
                     android:gravity="end|center_vertical"
                     android:textColor="@color/colorPrimary"

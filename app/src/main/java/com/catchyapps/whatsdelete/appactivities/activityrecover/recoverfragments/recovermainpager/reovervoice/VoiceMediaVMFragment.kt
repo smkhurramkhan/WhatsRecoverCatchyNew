@@ -65,7 +65,7 @@ class VoiceMediaVMFragment(application: Application) : AndroidViewModel(applicat
 
     fun hSetFragmentType(arguments: Bundle?) {
         if (arguments != null) {
-            hIsAudioFragment = arguments.getBoolean(H_IS_AUDIO, true)
+            hIsAudioFragment = arguments.getBoolean("Audio", true)
         }
         viewModelScope.launch(Dispatchers.IO) {
             hGetData()

@@ -78,6 +78,8 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
         hSetUpLoadMoreListener()
         hSetupItemTouchListener()
         hSubscribeObservers()
+
+
         if (checkPermission()) {
             hFragmentImagesBinding!!.hProgressbar.visibility = View.VISIBLE
             hFragmentMediaViewModel!!.hSetFragmentType(arguments)
