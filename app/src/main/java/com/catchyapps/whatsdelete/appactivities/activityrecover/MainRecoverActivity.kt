@@ -53,7 +53,6 @@ class MainRecoverActivity : com.catchyapps.whatsdelete.appactivities.BaseActivit
             supportActionBar?.setDisplayShowHomeEnabled(true)
         }
         name = intent.extras?.getString("tab", null)
-        Toast.makeText(this, "$name", Toast.LENGTH_SHORT).show()
 
         when(name){
             "Chat"->{

@@ -95,6 +95,5 @@
     <style name="ThemeOverlay.App.CircularProgressIndicator" parent="">
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
-
     <color name="hintcolor">#8C8C8C</color>
 </resources>
