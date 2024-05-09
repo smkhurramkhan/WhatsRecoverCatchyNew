@@ -82,25 +82,24 @@
                     android:id="@+id/tvcountrycode"
                     android:layout_width="70dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/bordered_btn_directchat"
                    android:paddingEnd="10dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:text="@string/_92"
-                    android:gravity="end|center_vertical"
+                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
                     android:fontFamily="@font/poppins"
                     android:translationZ="5dp"
                     app:layout_constraintBottom_toTopOf="@id/etmessage"
                     app:layout_constraintEnd_toStartOf="@id/etnumber"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/title"
-                    app:layout_constraintVertical_bias="0.3" />
+                    app:layout_constraintTop_toBottomOf="@id/title" />
 
                 <EditText
                     android:id="@+id/etnumber"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="@dimen/_10sdp"
                    android:layout_marginEnd="16dp"
@@ -110,9 +109,9 @@
                     android:inputType="phone"
                     android:padding="10dp"
                     android:fontFamily="@font/poppins"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/tvcountrycode"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/etmessage"
                     app:layout_constraintStart_toEndOf="@id/tvcountrycode"
                     app:layout_constraintTop_toTopOf="@id/tvcountrycode" />
 

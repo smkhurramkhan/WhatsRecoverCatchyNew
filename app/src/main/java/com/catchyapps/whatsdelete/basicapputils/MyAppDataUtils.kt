@@ -147,13 +147,13 @@ object MyAppDataUtils {
 
             )
         )
-
+/*
         toolsCardList.add(
             ModelMenu(
                 "stickers", context.getString(R.string.whatsapp_stickers), R.drawable.ic_sticker_svg
 
             )
-        )
+        )*/
 
         toolsCardList.add(
             ModelMenu(

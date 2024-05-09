@@ -115,8 +115,8 @@ class TextRepeaterScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity
 
             toolbarTitle.text = getString(R.string.text_repeater)
             btnback.setOnClickListener { onBackPressed() }
-            btnPremium.setOnClickListener { startActivity(Intent(this@TextRepeaterScreen, ActivityPremium::class.java))
-                finish()
+            btnPremium.setOnClickListener {
+                startActivity(Intent(this@TextRepeaterScreen, ActivityPremium::class.java))
             }
 
         }

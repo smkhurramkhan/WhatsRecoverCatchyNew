@@ -21,26 +21,25 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import androidx.core.util.isEmpty
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
+import com.catchyapps.whatsdelete.appactivities.activitystatussaver.ActivityPreviewStatusScreen
+import com.catchyapps.whatsdelete.appactivities.activitystatussaver.ActivityStatusMain
+import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatusaver.AdaptersaverPlayList
+import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatusaver.statusaverviewholder.VHStatus
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
+import com.catchyapps.whatsdelete.basicapputils.getPath
+import com.catchyapps.whatsdelete.databinding.StatusesItemBinding
 import com.catchyapps.whatsdelete.roomdb.AppHelperDb
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityFolders
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityStatuses
-import com.catchyapps.whatsdelete.appactivities.activitystatussaver.ActivityStatusMain
-import com.catchyapps.whatsdelete.appactivities.activitystatussaver.ActivityPreviewStatusScreen
-import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatusaver.AdaptersaverPlayList
-import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatusaver.statusaverviewholder.VHStatus
-import com.catchyapps.whatsdelete.basicapputils.getPath
-import com.catchyapps.whatsdelete.databinding.StatusesItemBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -84,16 +83,6 @@ class StatusSaveAdapter(
         val hStatusesEntity = filesList[position] as EntityStatuses
 
 
-            viewHolder.itemStatusesBinding.itemSize.setText(VMSaveStatus.itemSize?.let {
-                formatSize(
-                    it
-                )
-            })
-
-
-
-
-
         val path = if (hStatusesEntity.savedPath != null) hStatusesEntity.savedPath
         else hStatusesEntity.path
 
@@ -103,6 +92,10 @@ class StatusSaveAdapter(
         } else {
             viewHolder.itemStatusesBinding.playButtonImage.visibility = View.VISIBLE
         }
+
+
+        viewHolder.itemStatusesBinding.itemSize.text =
+            hStatusesEntity.fileSize?.let { formatSize(it) }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             var hImageUri = hStatusesEntity.uri
@@ -144,11 +137,12 @@ class StatusSaveAdapter(
             )
         }
         viewHolder.itemView.setOnClickListener {
-            Timber.d("hStatus model ${hStatusesEntity.filename}")
-            val intent = Intent(context, ActivityPreviewStatusScreen::class.java)
-            intent.putExtra("statusObject", hStatusesEntity)
-            context.startActivity(intent)
-            ShowInterstitial.showAdmobInter(context as AppCompatActivity)
+            if (selected_items.isEmpty()) {
+                Timber.d("hStatus model ${hStatusesEntity.filename}")
+                val intent = Intent(context, ActivityPreviewStatusScreen::class.java)
+                intent.putExtra("statusObject", hStatusesEntity)
+                context.startActivity(intent)
+            }
         }
         if (isShow) {
             viewHolder.itemStatusesBinding.download.visibility = View.GONE
@@ -221,7 +215,7 @@ class StatusSaveAdapter(
             whatsappIntent.type = "video/*"
         }
         whatsappIntent.setPackage("com.whatsapp")
-         try {
+        try {
             context.startActivity(whatsappIntent)
         } catch (ex: ActivityNotFoundException) {
             MyAppUtils.showToast(context, context.getString(R.string.whatsapp_not_found))
@@ -257,8 +251,10 @@ class StatusSaveAdapter(
                     context,
                     context.getString(R.string.folder_name_can_t_be_empty)
                 ) else if (foldersEntityList?.isNotEmpty() == true) {
-                    MyAppUtils.showToast(context,
-                        context.getString(R.string.folder_already_exist_with_the_same_name))
+                    MyAppUtils.showToast(
+                        context,
+                        context.getString(R.string.folder_already_exist_with_the_same_name)
+                    )
                 } else {
                     dialog.dismiss()
                     val foldersEntity =
@@ -270,8 +266,10 @@ class StatusSaveAdapter(
                     foldersEntity.id = folderId.toInt()
                     if (folderId > 0) {
                         hShowPlaylistDialog(hStatusesEntity)
-                    } else MyAppUtils.showToast(context,
-                        context.getString(R.string.failed_to_create_folder))
+                    } else MyAppUtils.showToast(
+                        context,
+                        context.getString(R.string.failed_to_create_folder)
+                    )
                 }
             }
         }
@@ -345,10 +343,13 @@ class StatusSaveAdapter(
                             } else {
 
                                 if (hStatusesEntity.type == hVideoType) {
-                                    MyAppUtils.showToast(context,
-                                        context.getString(R.string.video_already_added))
+                                    MyAppUtils.showToast(
+                                        context,
+                                        context.getString(R.string.video_already_added)
+                                    )
                                 } else {
-                                    MyAppUtils.showToast(context,
+                                    MyAppUtils.showToast(
+                                        context,
                                         context.getString(R.string.image_already_added)
                                     )
                                 }
@@ -356,12 +357,16 @@ class StatusSaveAdapter(
                         }
                     }
                     if (!isCheck) {
-                        MyAppUtils.showToast(context,
-                            context.getString(R.string.create_or_select_collection_first))
+                        MyAppUtils.showToast(
+                            context,
+                            context.getString(R.string.create_or_select_collection_first)
+                        )
                     }
                 } else {
-                    MyAppUtils.showToast(context,
-                        context.getString(R.string.create_or_select_collection_first))
+                    MyAppUtils.showToast(
+                        context,
+                        context.getString(R.string.create_or_select_collection_first)
+                    )
                 }
             }
         }
@@ -461,12 +466,14 @@ class StatusSaveAdapter(
         hStatusesEntity.savedPath = destPath + filename
 
     }
-    fun formatSize(size: Long): String {
+
+    private fun formatSize(size: Long): String {
         if (size <= 0) return "0 B"
         val units = arrayOf("B", "KB", "MB", "GB", "TB")
         val digitGroups = (log10(size.toDouble()) / log10(1024.0)).toInt()
         return DecimalFormat("#,##0.#").format(size / 1024.0.pow(digitGroups.toDouble())) + " " + units[digitGroups]
     }
+
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun hWriteDataForPostAndroid10(hStatusesEntity: EntityStatuses) {
 

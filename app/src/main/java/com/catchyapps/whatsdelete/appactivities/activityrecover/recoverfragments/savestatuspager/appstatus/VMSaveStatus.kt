@@ -13,19 +13,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.catchyapps.whatsdelete.BaseApplication
-import com.catchyapps.whatsdelete.basicapputils.AppPathUtil
-import com.catchyapps.whatsdelete.roomdb.appentities.EntityStatuses
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.MIME_TYPE_IS_DIRECTORY
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hGetStatusPath
+import com.catchyapps.whatsdelete.basicapputils.AppPathUtil
 import com.catchyapps.whatsdelete.basicapputils.MyAppConstants.H_TITLE_ARG
 import com.catchyapps.whatsdelete.basicapputils.MyAppConstants.H_TITLE_ARRAY
+import com.catchyapps.whatsdelete.roomdb.appentities.EntityStatuses
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
-import java.util.*
-import kotlin.collections.ArrayList
+import java.util.Locale
 
 class VMSaveStatus(application: Application) : AndroidViewModel(application) {
     private val hVideoFilesList: MutableList<EntityStatuses> = ArrayList()
@@ -51,15 +50,13 @@ class VMSaveStatus(application: Application) : AndroidViewModel(application) {
         Timber.d("Uri: $statusUri")
 
         val documentsTree = DocumentsContract.buildTreeDocumentUri(
-            CleanerConstans.EXTERNAL_STORAGE_PROVIDER_AUTHORITY,
-            CleanerConstans.hWhatAppMainUri
+            CleanerConstans.EXTERNAL_STORAGE_PROVIDER_AUTHORITY, CleanerConstans.hWhatAppMainUri
         )
 
         val resolver: ContentResolver = getApplication<BaseApplication>().contentResolver
 
         val childrenUri: Uri = DocumentsContract.buildChildDocumentsUriUsingTree(
-            documentsTree,
-            statusUri
+            documentsTree, statusUri
         )
 
         var cursor: Cursor? = null
@@ -105,8 +102,7 @@ class VMSaveStatus(application: Application) : AndroidViewModel(application) {
                 val fileMime = cursor.getString(hDocMimeType)
 
                 val hDocUri: Uri = DocumentsContract.buildDocumentUriUsingTree(
-                    documentsTree,
-                    path
+                    documentsTree, path
                 )
 
                 val filePath = AppPathUtil.getPath(hDocUri, getApplication())
@@ -117,15 +113,13 @@ class VMSaveStatus(application: Application) : AndroidViewModel(application) {
 
                 Timber.d("File Mime $fileMime")
 
-               // Timber.d("File Size $hSize")
-                Timber.d("File Size $itemSize")
+                Timber.d("File Size $hSize")
 
 
 
                 if (fileMime != MIME_TYPE_IS_DIRECTORY) {
 
                     if (fileMime == StatusSaveAdapter.hImageType || fileMime == StatusSaveAdapter.hVideoType) {
-
 
 
                         val hStatusesEntity = EntityStatuses()
@@ -142,12 +136,11 @@ class VMSaveStatus(application: Application) : AndroidViewModel(application) {
                         when (fileMime) {
                             StatusSaveAdapter.hVideoType -> {
                                 hVideoFilesList.add(hStatusesEntity)
-                                itemSize = hSize
 
                             }
+
                             StatusSaveAdapter.hImageType -> {
                                 hImagesFileList.add(hStatusesEntity)
-                                itemSize = hSize
                                 Timber.d("size1213: $hSize")
                             }
                         }
@@ -186,21 +179,19 @@ class VMSaveStatus(application: Application) : AndroidViewModel(application) {
                     hStatusMode.path = files[i].absolutePath
                     hStatusMode.filename = file.name
                     if (!hStatusMode.path?.endsWith(".nomedia")!!) {
-                        if (
-                            hMediaType?.lowercase(Locale.getDefault()) ==getApplication<Application>()
-                                .getString( H_TITLE_ARRAY[0]).lowercase(
+                        if (hMediaType?.lowercase(Locale.getDefault()) == getApplication<Application>().getString(
+                                H_TITLE_ARRAY[0]
+                            ).lowercase(
                                 Locale.getDefault()
-                            )
-                            && !hStatusMode.path?.endsWith(".mp4")!!
+                            ) && !hStatusMode.path?.endsWith(".mp4")!!
                         ) {
                             hStatusMode.type = StatusSaveAdapter.hImageType
                             hImagesFileList.add(hStatusMode)
-                        } else if (
-                            hMediaType!!.lowercase(Locale.getDefault()) ==getApplication<Application>()
-                                .getString( H_TITLE_ARRAY[1]).lowercase(
+                        } else if (hMediaType!!.lowercase(Locale.getDefault()) == getApplication<Application>().getString(
+                                H_TITLE_ARRAY[1]
+                            ).lowercase(
                                 Locale.getDefault()
-                            )
-                            && hStatusMode.path?.endsWith(".mp4")!!
+                            ) && hStatusMode.path?.endsWith(".mp4")!!
                         ) {
                             hStatusMode.type = StatusSaveAdapter.hVideoType
                             hVideoFilesList.add(hStatusMode)
@@ -228,9 +219,5 @@ class VMSaveStatus(application: Application) : AndroidViewModel(application) {
                 hGetDataForPreAndroid11()
             }
         }
-    }
-
-    companion object{
-        var itemSize : Long? = null
     }
 }

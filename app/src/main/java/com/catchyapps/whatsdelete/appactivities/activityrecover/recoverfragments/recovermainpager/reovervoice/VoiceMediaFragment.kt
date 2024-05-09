@@ -35,6 +35,7 @@ import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
 import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reovervoice.AudioMediaAdapter.CallBack
+import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
 import com.catchyapps.whatsdelete.databinding.AudioMediaFragmentBinding
 import timber.log.Timber
 import java.io.File
@@ -734,7 +735,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> {
-                sharedVM.hLaunchIntent(TypesIntent.H_SETTINGS)
+                startActivity(Intent(requireContext(), SettingsScreen::class.java))
                 return false
             }
 

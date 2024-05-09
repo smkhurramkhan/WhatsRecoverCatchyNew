@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.view.ActionMode
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -212,7 +213,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
     }
 
     private fun toggleSelection(position: Int) {
-        statusAdapter!!.toggleSelection(position)
+        statusAdapter?.toggleSelection(position)
         val count = statusAdapter?.selectedItemCount
         if (count == 0) {
             actionMode?.finish()
@@ -234,15 +235,13 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
 
             }
         }
-        ShowInterstitial.showInter(this)
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private suspend fun deleteStatus(position: Int) {
-        val path = (folderList!![position] as EntityStatuses?)!!.savedPath
-        val file = File(path!!)
-        try {
-            if (file.exists()) {
+        val path = folderList?.get(position)?.savedPath
+        val file = path?.let { File(it) }
+            if (file?.exists() == true) {
                 val del = file.delete()
                 if (del) {
                     MediaScannerConnection.scanFile(
@@ -251,7 +250,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                         arrayOf("image/jpg", "video/mp4"),
                         object : MediaScannerConnection.MediaScannerConnectionClient {
                             override fun onMediaScannerConnected() {}
-                            override fun onScanCompleted(path: String, uri: Uri) {
+                            override fun onScanCompleted(path: String?, uri: Uri?) {
                                 Timber.d(path)
                             }
                         })
@@ -260,26 +259,25 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                 }
 
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
         if (foldersEntity != null) {
 
-            AppHelperDb.hDeleteStatus(
-                (folderList!![position] as EntityStatuses?)!!.id
-            )
+            folderList?.get(position)?.id?.let {
+                AppHelperDb.hDeleteStatus(
+                    it
+                )
+            }
 
-            folderList!!.removeAt(position)
-            foldersEntity!!.noOfItems = foldersEntity!!.noOfItems - 1
+            folderList?.removeAt(position)
+            foldersEntity?.noOfItems = foldersEntity?.noOfItems!! - 1
 
 
-            val temp = AppHelperDb.hGetfolderById(foldersEntity!!.id.toString())
+            val temp = AppHelperDb.hGetfolderById(foldersEntity?.id.toString())
             if (temp?.isNotEmpty() == true) {
                 foldersEntity?.playListLogo = temp[temp.size - 1].savedPath
                 AppHelperDb.hUpdateFolderById(
-                    foldersEntity!!.playListLogo,
-                    foldersEntity!!.noOfItems,
-                    foldersEntity!!.id
+                    foldersEntity?.playListLogo,
+                    foldersEntity?.noOfItems!!,
+                    foldersEntity?.id!!
                 )
                 withContext(Dispatchers.Main) {
                     statusAdapter?.notifyDataSetChanged()
@@ -291,7 +289,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                     foldersEntity!!.id
                 )
                 withContext(Dispatchers.Main) {
-                    statusAdapter!!.notifyDataSetChanged()
+                    statusAdapter?.notifyDataSetChanged()
                 }
             }
 

@@ -7,14 +7,14 @@ import android.text.TextWatcher
 import android.text.method.ScrollingMovementMethod
 import android.widget.Toast
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.basicapputils.MyAppShareUtils
-import com.catchyapps.whatsdelete.basicapputils.AppTextToEmojiHelper.textToEmojiConverter
 import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
+import com.catchyapps.whatsdelete.basicapputils.AppTextToEmojiHelper.textToEmojiConverter
+import com.catchyapps.whatsdelete.basicapputils.MyAppShareUtils
 import com.catchyapps.whatsdelete.databinding.ScreenTextToEmojiBinding
 
 
-class TextToEmojiScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
+class TextToEmojiScreen : BaseActivity() {
     private lateinit var textToEmojiBinding: ScreenTextToEmojiBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,8 +89,13 @@ class TextToEmojiScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity(
         textToEmojiBinding.toolbar.apply {
             toolbarTitle.text = getString(R.string.text_to_emoji)
             btnback.setOnClickListener { onBackPressed() }
-            btnPremium.setOnClickListener { startActivity(Intent(this@TextToEmojiScreen, ActivityPremium::class.java))
-                finish()
+            btnPremium.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@TextToEmojiScreen,
+                        ActivityPremium::class.java
+                    )
+                )
             }
 
         }

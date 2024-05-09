@@ -5,16 +5,20 @@ import android.net.Uri
 import android.os.Bundle
 import android.telephony.TelephonyManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.catchyapps.whatsdelete.BaseApplication.Companion.showNativeBannerAdmobOnly
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
+import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appactivities.activitydirectchat.countrytfragment.FragmentCountryCodeSelection.Companion.newInstance
+import com.catchyapps.whatsdelete.appactivities.activitydirectchat.namesetlistener.SetMyName
 import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
+import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.databinding.ScreenDirectScreenChatBinding
-import java.util.*
+import java.util.Locale
+import java.util.Objects
 
-class DirectChatScreenActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
-    com.catchyapps.whatsdelete.appactivities.activitydirectchat.namesetlistener.SetMyName {
+class DirectChatScreenActivity : BaseActivity(),
+    SetMyName {
     private var number: String? = null
     var message: String? = null
     private lateinit var directChatBinding: ScreenDirectScreenChatBinding
@@ -45,12 +49,15 @@ class DirectChatScreenActivity : com.catchyapps.whatsdelete.appactivities.BaseAc
                 directChatBinding.etnumber.text.toString().isEmpty() -> {
                     directChatBinding.etnumber.error = getString(R.string.enter_number)
                 }
+
                 directChatBinding.tvcountrycode.text.toString().isEmpty() -> {
                     directChatBinding.tvcountrycode.error = getString(R.string.select_country_code)
                 }
+
                 Objects.requireNonNull(directChatBinding.etmessage.text).toString().isEmpty() -> {
                     directChatBinding.etmessage.error = getString(R.string.enter_message)
                 }
+
                 else -> {
                     message = directChatBinding.etmessage.text.toString()
                     number =
@@ -65,12 +72,15 @@ class DirectChatScreenActivity : com.catchyapps.whatsdelete.appactivities.BaseAc
                 directChatBinding.etnumber.text.toString().isEmpty() -> {
                     directChatBinding.etnumber.error = getString(R.string.enter_number)
                 }
+
                 directChatBinding.tvcountrycode.text.toString().isEmpty() -> {
                     directChatBinding.tvcountrycode.error = getString(R.string.select_country_code)
                 }
+
                 Objects.requireNonNull(directChatBinding.etmessage.text).toString().isEmpty() -> {
                     directChatBinding.etmessage.error = getString(R.string.enter_message)
                 }
+
                 else -> {
                     message = directChatBinding.etmessage.text.toString()
                     number =
@@ -97,12 +107,14 @@ class DirectChatScreenActivity : com.catchyapps.whatsdelete.appactivities.BaseAc
 
     private fun initToolbar() {
         directChatBinding.toolbar.apply {
-
-            toolbar.background = getDrawable(R.drawable.bottom_corner_round)
+            toolbar.background = ContextCompat.getDrawable(
+                this@DirectChatScreenActivity,
+                R.drawable.bottom_corner_round
+            )
             toolbarTitle.text = getString(R.string.direct_whats_chat)
             btnback.setOnClickListener { onBackPressed() }
-            btnPremium.setOnClickListener { startActivity(Intent(this@DirectChatScreenActivity, ActivityPremium::class.java))
-                finish()
+            btnPremium.setOnClickListener {
+                startActivity(Intent(this@DirectChatScreenActivity, ActivityPremium::class.java))
             }
 
         }
@@ -113,7 +125,10 @@ class DirectChatScreenActivity : com.catchyapps.whatsdelete.appactivities.BaseAc
         ShowInterstitial.hideNativeAndBanner(directChatBinding.topAdLayout, this)
         ShowInterstitial.hideNativeAndBanner(directChatBinding.bannercontainer, this)
 
-        showNativeBannerAdmobOnly(directChatBinding.nativebanner, directChatBinding.shimmerViewContainer)
+        showNativeBannerAdmobOnly(
+            directChatBinding.nativebanner,
+            directChatBinding.shimmerViewContainer
+        )
     }
 
     private fun countryZipCode(): String {

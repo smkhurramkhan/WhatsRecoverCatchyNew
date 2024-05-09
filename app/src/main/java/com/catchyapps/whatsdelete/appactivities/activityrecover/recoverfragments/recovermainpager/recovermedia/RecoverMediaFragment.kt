@@ -35,6 +35,7 @@ import com.catchyapps.whatsdelete.appactivities.activitypreview.PreviewScreen
 import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
+import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
 import com.catchyapps.whatsdelete.databinding.ImagesFragmentLayoutBinding
 import timber.log.Timber
 import java.io.File
@@ -470,7 +471,7 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> {
-                hSharedVM.hLaunchIntent(TypesIntent.H_SETTINGS)
+                startActivity(Intent(requireContext(), SettingsScreen::class.java))
                 return false
             }
             else -> {

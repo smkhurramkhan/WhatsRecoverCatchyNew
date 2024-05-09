@@ -21,21 +21,24 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
+import com.catchyapps.whatsdelete.appactivities.BaseActivity
+import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.EXTERNAL_STORAGE_PROVIDER_AUTHORITY
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.H_CLEANER_IC
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hWhatAppMainUri
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleaneradapters.CleanerAdapterDetails
-import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.CleanerVs.*
+import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.CleanerVs.OnLaunchIntent
+import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.CleanerVs.OnShowPermissionDialog
+import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.CleanerVs.OnShowProgress
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanertabactivity.ActivityTabLayout
+import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
 import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
-import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.databinding.ScreenCleanerWhatsBinding
 
 
-class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
+class WACleanerScreen : BaseActivity() {
 
     private lateinit var activityWhatsCleanerBinding: ScreenCleanerWhatsBinding
     private var detailsAdapter: CleanerAdapterDetails? = null
@@ -105,8 +108,15 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
         val percentUsed: Int = ((usedSpace.toFloat() / totalSpace.toFloat()) * 100).toInt()
         val freeSpaceInGB: Float = freeSpace.toFloat() / (1024 * 1024 * 1024)
 
-        activityWhatsCleanerBinding.tvStorageUsage.text = "$percentUsed%\nUsed"
-        activityWhatsCleanerBinding.tvFreeStorage.text = String.format("%.2f", freeSpaceInGB) + "GB\nFree"
+        activityWhatsCleanerBinding.tvStorageUsage.text = buildString {
+        append(percentUsed)
+        append("%\nUsed")
+    }
+        activityWhatsCleanerBinding.tvFreeStorage.text =
+            buildString {
+                append(String.format("%.2f", freeSpaceInGB))
+                append("\nGB Free")
+            }
     }
 
     private fun hLaunchIntent(title: String) {
@@ -150,6 +160,7 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
                 is OnLaunchIntent -> {
                     hLaunchIntent(it.detailItem)
                 }
+
                 is OnShowProgress -> hShowHideProgressDialog(it)
                 is OnShowPermissionDialog -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     showPermissionDialog()
@@ -192,10 +203,16 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
             hAlertDialog.setTitle(getString(R.string.clear_all))
             hAlertDialog.setMessage(getString(R.string.are_you_sure_you_want_to_clear_all_the_data))
             hAlertDialog.setIcon(R.drawable.ic_app)
-            hAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.clear_all)) { _, _ ->
+            hAlertDialog.setButton(
+                AlertDialog.BUTTON_POSITIVE,
+                getString(R.string.clear_all)
+            ) { _, _ ->
                 whatsCleanerViewModel.hExecuteDeletion(null)
             }
-            hAlertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.no)) { dialog, _ ->
+            hAlertDialog.setButton(
+                AlertDialog.BUTTON_NEGATIVE,
+                getString(R.string.no)
+            ) { dialog, _ ->
                 dialog.dismiss()
             }
             hAlertDialog.show()
@@ -236,8 +253,13 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
         activityWhatsCleanerBinding.toolbar.apply {
             toolbarTitle.text = title
             btnback.setOnClickListener { onBackPressed() }
-            btnPremium.setOnClickListener { startActivity(Intent(this@WACleanerScreen, ActivityPremium::class.java))
-                finish()
+            btnPremium.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@WACleanerScreen,
+                        ActivityPremium::class.java
+                    )
+                )
             }
         }
 
@@ -328,6 +350,7 @@ class WACleanerScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() 
                 onBackPressed()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
 
         }

@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.savestatuspager.FragmentStatusesPager
+import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.databinding.ScreenStatusHomeBinding
 
 class ActivityStatusMain : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
@@ -46,8 +46,8 @@ class ActivityStatusMain : com.catchyapps.whatsdelete.appactivities.BaseActivity
             // toolbar.background = getDrawable(R.drawable.bottom_corner_round)
             toolbarTitle.text = getString(R.string.whatsapp_status)
             btnback.setOnClickListener { onBackPressed() }
-            btnPremium.setOnClickListener { startActivity(Intent(this@ActivityStatusMain, ActivityPremium::class.java))
-                finish()
+            btnPremium.setOnClickListener {
+                startActivity(Intent(this@ActivityStatusMain, ActivityPremium::class.java))
             }
         }
 

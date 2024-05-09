@@ -45,6 +45,7 @@ import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActiv
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
 import com.catchyapps.whatsdelete.appactivities.activityrecover.ViewStateShared
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reoverdoc.RecoverDocsAdapter.DocsAdapterCallbacks
+import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
 import com.catchyapps.whatsdelete.databinding.DocFragmentLayoutBinding
 import timber.log.Timber
 import java.io.*
@@ -128,7 +129,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         hSharedVM.hSharedViewStateLD.observe(viewLifecycleOwner) {
             when (it) {
                 is ViewStateShared.OnUpdateDocs ->
-                    hFragmentDocViewModel!!.hLoadMoreItems(pageNumber)
+                    hFragmentDocViewModel?.hLoadMoreItems(pageNumber)
 
                 else -> Unit
             }
@@ -236,7 +237,6 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     private fun checkPermission(): Boolean {
         val currentAPIVersion = Build.VERSION.SDK_INT
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -714,7 +714,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> {
-                hSharedVM.hLaunchIntent(TypesIntent.H_SETTINGS)
+                startActivity(Intent(requireContext(), SettingsScreen::class.java))
                 return false
             }
             else -> {

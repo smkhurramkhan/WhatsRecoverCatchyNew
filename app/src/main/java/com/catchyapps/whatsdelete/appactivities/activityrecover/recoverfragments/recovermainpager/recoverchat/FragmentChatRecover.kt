@@ -25,6 +25,7 @@ import com.catchyapps.whatsdelete.appactivities.activitychat.ActivityChat
 import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
+import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
 import com.catchyapps.whatsdelete.databinding.ChatFragmentScreenBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -333,7 +334,7 @@ class FragmentChatRecover : Fragment(), ActionMode.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> {
-                hSharedVM.hLaunchIntent(TypesIntent.H_SETTINGS)
+               startActivity(Intent(requireContext(),SettingsScreen::class.java))
                 return false
             }
 

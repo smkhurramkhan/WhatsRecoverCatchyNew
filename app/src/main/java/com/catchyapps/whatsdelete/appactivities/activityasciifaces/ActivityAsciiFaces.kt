@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.appactivities.activityasciifaces.asciifacesadapter.AdapterAsciiFaces
+import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.basicapputils.MyAppDataUtils.getAsciiList
 import com.catchyapps.whatsdelete.basicapputils.MyAppShareUtils
-import com.catchyapps.whatsdelete.appactivities.activityasciifaces.asciifacesadapter.AdapterAsciiFaces
 import com.catchyapps.whatsdelete.databinding.ScreenAsciiBinding
-import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 
 class ActivityAsciiFaces : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
     lateinit var binding: ScreenAsciiBinding
@@ -24,8 +24,8 @@ class ActivityAsciiFaces : com.catchyapps.whatsdelete.appactivities.BaseActivity
 
         asciiFileAdapter = AdapterAsciiFaces(this,
             asciiFilesList,
-            onItemClick = {item,type->
-                when(type){
+            onItemClick = { item, type ->
+                when (type) {
                     "whatsapp" -> {
                         MyAppShareUtils.shareToWhatsApp(
                             message = item,
@@ -70,8 +70,13 @@ class ActivityAsciiFaces : com.catchyapps.whatsdelete.appactivities.BaseActivity
         binding.toolbar.apply {
             toolbarTitle.text = getString(R.string.ascii_faces)
             btnback.setOnClickListener { onBackPressed() }
-            btnPremium.setOnClickListener { startActivity(Intent(this@ActivityAsciiFaces, ActivityPremium::class.java))
-                finish()
+            btnPremium.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@ActivityAsciiFaces,
+                        ActivityPremium::class.java
+                    )
+                )
             }
 
         }

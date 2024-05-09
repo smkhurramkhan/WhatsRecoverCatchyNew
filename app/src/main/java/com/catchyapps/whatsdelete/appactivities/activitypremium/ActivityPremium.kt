@@ -1,12 +1,10 @@
 package com.catchyapps.whatsdelete.appactivities.activitypremium
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.anjlab.android.iab.v3.BillingProcessor
 import com.anjlab.android.iab.v3.PurchaseInfo
-import com.catchyapps.whatsdelete.appactivities.activityhome.MainActivity
 import com.catchyapps.whatsdelete.appadsmanager.GoogleMobileAdsConsentManager
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs

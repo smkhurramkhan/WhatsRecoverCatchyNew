@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_gradeint"
-
-    >
+    android:background="@drawable/splash_gradeint">
 
     <ImageView
         android:id="@+id/ivBack"
@@ -18,51 +16,9 @@
         android:backgroundTint="@color/black"
         android:src="@drawable/primary_closed_svg"
         android:translationZ="2dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="155dp"
-        android:layout_height="155dp"
-        android:src="@drawable/img_1_bg"
-        android:translationZ="2dp"
-        android:scaleType="fitEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <ImageView
-        android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:src="@drawable/img_2_bg"
-        android:scaleType="fitStart"
-        android:translationZ="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <ImageView
-        android:layout_width="155dp"
-        android:layout_height="155dp"
-        android:src="@drawable/img_3_bg"
-        android:translationZ="1dp"
-        android:layout_marginBottom="40dp"
-        android:scaleType="fitEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-    <ImageView
-        android:layout_width="155dp"
-        android:layout_height="155dp"
-        android:src="@drawable/img_4_bg"
-        android:translationZ="5dp"
-        android:scaleType="fitStart"
-       app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -76,8 +32,9 @@
 
             <ImageView
                 android:id="@+id/icon_premuime"
-                android:layout_width="155dp"
-                android:layout_height="155dp"
+                android:layout_width="140dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="140dp"
                 android:src="@drawable/icon_premuim_screen"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,28 +51,26 @@
                 app:cardCornerRadius="12dp"
                 app:layout_constraintBottom_toTopOf="@id/btnUnlock"
                 app:layout_constraintTop_toBottomOf="@id/icon_premuime"
-                app:layout_constraintVertical_bias="0.0"
                 app:strokeColor="@color/white"
-                app:strokeWidth="1dp"
-                tools:layout_editor_absoluteX="2dp">
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="20dp"
                     android:orientation="vertical"
-                    android:paddingVertical="20dp">
+                    android:paddingVertical="10dp">
 
                     <TextView
                         android:id="@+id/tvRecoverDataWaandWab"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="@string/ulimited_access_for_all_features"
                         android:textAllCaps="true"
                         android:textColor="#FFDD0B"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -255,8 +210,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSubscribe"
-                android:layout_width="135dp"
-                android:layout_height="34dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:background="@drawable/subscription_btn_background"
                 android:clickable="true"
                 android:focusable="true"
@@ -279,10 +234,9 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/tvContinueWithAd"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/button_continue_with_ads_background"
                 android:gravity="center"
@@ -291,13 +245,13 @@
                 android:padding="8dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="@id/subscriptionCard"
+                app:layout_constraintStart_toStartOf="@id/subscriptionCard" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

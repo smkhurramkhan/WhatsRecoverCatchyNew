@@ -11,18 +11,19 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
-import com.catchyapps.whatsdelete.basicapputils.MyAppShareModel
-import com.catchyapps.whatsdelete.appclasseshelpers.PopUpDialogHowToUseRecoverFeature
 import com.catchyapps.whatsdelete.appclasseshelpers.ItemsDecorateClass
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils.Companion.showToast
-import com.catchyapps.whatsdelete.roomdb.AppHelperDb
+import com.catchyapps.whatsdelete.appclasseshelpers.PopUpDialogHowToUseRecoverFeature
+import com.catchyapps.whatsdelete.basicapputils.MyAppShareModel
 import com.catchyapps.whatsdelete.databinding.ScreenSettingsBinding
+import com.catchyapps.whatsdelete.roomdb.AppHelperDb
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
 import kotlinx.coroutines.launch
 
-class SettingsScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
+class SettingsScreen : BaseActivity(),
     CompoundButton.OnCheckedChangeListener {
 
     private lateinit var activitySettingBinding: ScreenSettingsBinding
@@ -135,7 +136,8 @@ class SettingsScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
                 }
 
             }
-            adapter = hAppSharedPrefs?.hGetPagerList(this@SettingsScreen)?.let { SettingAdapter(it) }
+            adapter =
+                hAppSharedPrefs?.hGetPagerList(this@SettingsScreen)?.let { SettingAdapter(it) }
         }
     }
 
