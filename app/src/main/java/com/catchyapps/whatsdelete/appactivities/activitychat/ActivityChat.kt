@@ -57,7 +57,7 @@ class ActivityChat : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Ac
     private fun initAds() {
         ShowInterstitial.hideNativeAndBanner(chatBinding.topAdLayout, this)
 
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             chatBinding.nativeContainer, chatBinding.shimmerViewContainer
         )
     }

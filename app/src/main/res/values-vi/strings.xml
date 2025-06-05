@@ -274,4 +274,30 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Thay đổi ngôn ngữ</string>
     <string name="privacy_settings">Cài đặt quyền riêng tư</string>
+
+    <string name="file_name">Tên tệp</string>
+    <string name="full_name">Họ và tên:</string>
+    <string name="path">Đường dẫn:</string>
+    <string name="last_modification_date">Ngày sửa đổi cuối cùng:</string>
+    <string name="required_permission">Quyền cần thiết</string>
+    <string name="hello">Xin chào</string>
+    <string name="emoji">Biểu tượng cảm xúc</string>
+    <string name="search_quatations">Tìm kiếm trích dẫn</string>
+    <string name="type_you_message_here">Nhập tin nhắn của bạn ở đây</string>
+    <string name="_92">+84</string>
+    <string name="unlimited_messages_recovery">Phục hồi tin nhắn không giới hạn</string>
+    <string name="pay_once_enjoye_lifetime">Thanh toán một lần, tận hưởng trọn đời</string>
+    <string name="unlock_now">Mở khóa ngay</string>
+    <string name="ulimited_access_for_all_features">Truy cập không giới hạn tất cả tính năng.</string>
+    <string name="unlimited_media_recovery">Phục hồi phương tiện không giới hạn</string>
+    <string name="features">Tính năng</string>
+    <string name="whatsapp_direct_message">Tin nhắn trực tiếp WhatsApp</string>
+    <string name="hello_blank_fragment">Xin chào đoạn trống</string>
+    <string name="regular">Thường</string>
+    <string name="new_line">Dòng mới</string>
+    <string name="space">Khoảng trắng</string>
+    <string name="reset">Đặt lại</string>
+    <string name="quick_scan">Quét nhanh</string>
+    <string name="quick_clean">Dọn dẹp nhanh</string>
+
 </resources>

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.telephony.TelephonyManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.catchyapps.whatsdelete.BaseApplication.Companion.showNativeBannerAdmobOnly
+import com.catchyapps.whatsdelete.BaseApplication.Companion.showNativeBanner
 import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appactivities.activitydirectchat.countrytfragment.FragmentCountryCodeSelection.Companion.newInstance
@@ -125,7 +125,7 @@ class DirectChatScreenActivity : BaseActivity(),
         ShowInterstitial.hideNativeAndBanner(directChatBinding.topAdLayout, this)
         ShowInterstitial.hideNativeAndBanner(directChatBinding.bannercontainer, this)
 
-        showNativeBannerAdmobOnly(
+        showNativeBanner(
             directChatBinding.nativebanner,
             directChatBinding.shimmerViewContainer
         )

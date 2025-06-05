@@ -104,7 +104,7 @@ class TextRepeaterScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity
 
     private fun loadAds() {
         ShowInterstitial.hideNativeAndBanner(textRepeaterBinding.topAdLayout, this)
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             textRepeaterBinding.nativebanner,
             textRepeaterBinding.shimmerViewContainer
         )

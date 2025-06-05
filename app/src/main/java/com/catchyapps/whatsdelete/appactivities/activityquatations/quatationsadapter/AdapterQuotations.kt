@@ -51,7 +51,7 @@ class AdapterQuotations(
         quotesList = if (query.isEmpty()) {
             originalDataList
         } else {
-            originalDataList.filter { it.toString().toLowerCase().contains(query.toLowerCase()) }
+            originalDataList.filter { it.toString().lowercase().contains(query.lowercase()) }
         }
         notifyDataSetChanged()
     }

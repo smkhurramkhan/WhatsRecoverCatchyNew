@@ -265,4 +265,29 @@
     <string name="change_language">Bytt språk</string>
     <string name="privacy_settings">Personverninnstillinger</string>
 
+    <string name="file_name">Filnavn</string>
+    <string name="full_name">Fullt navn:</string>
+    <string name="path">Sti:</string>
+    <string name="last_modification_date">Sist endret dato:</string>
+    <string name="required_permission">Nødvendig tillatelse</string>
+    <string name="hello">Hei</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Søk etter sitater</string>
+    <string name="type_you_message_here">Skriv meldingen din her</string>
+    <string name="_92">+47</string>
+    <string name="unlimited_messages_recovery">Ubegrenset meldinggjenoppretting</string>
+    <string name="pay_once_enjoye_lifetime">Betal en gang, nyt livet ut</string>
+    <string name="unlock_now">Lås opp nå</string>
+    <string name="ulimited_access_for_all_features">Ubegrenset tilgang til alle funksjoner.</string>
+    <string name="unlimited_media_recovery">Ubegrenset mediegjenoppretting</string>
+    <string name="features">Funksjoner</string>
+    <string name="whatsapp_direct_message">WhatsApp direktemelding</string>
+    <string name="hello_blank_fragment">Hei tomt fragment</string>
+    <string name="regular">Vanlig</string>
+    <string name="new_line">Ny linje</string>
+    <string name="space">Mellomrom</string>
+    <string name="reset">Tilbakestill</string>
+    <string name="quick_scan">Rask skanning</string>
+    <string name="quick_clean">Rask rengjøring</string>
+
 </resources>

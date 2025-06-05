@@ -249,4 +249,30 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Alterar Idioma</string>
     <string name="privacy_settings">Configurações de privacidade</string>
+
+    <string name="file_name">Nome do arquivo</string>
+    <string name="full_name">Nome completo:</string>
+    <string name="path">Caminho:</string>
+    <string name="last_modification_date">Data da última modificação:</string>
+    <string name="required_permission">Permissão necessária</string>
+    <string name="hello">Olá</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Pesquisar citações</string>
+    <string name="type_you_message_here">Digite sua mensagem aqui</string>
+    <string name="_92">+351</string>
+    <string name="unlimited_messages_recovery">Recuperação ilimitada de mensagens</string>
+    <string name="pay_once_enjoye_lifetime">Pague uma vez, aproveite para sempre</string>
+    <string name="unlock_now">Desbloquear agora</string>
+    <string name="ulimited_access_for_all_features">Acesso ilimitado a todos os recursos.</string>
+    <string name="unlimited_media_recovery">Recuperação ilimitada de mídia</string>
+    <string name="features">Recursos</string>
+    <string name="whatsapp_direct_message">Mensagem direta do WhatsApp</string>
+    <string name="hello_blank_fragment">Olá fragmento vazio</string>
+    <string name="regular">Regular</string>
+    <string name="new_line">Nova linha</string>
+    <string name="space">Espaço</string>
+    <string name="reset">Redefinir</string>
+    <string name="quick_scan">Verificação rápida</string>
+    <string name="quick_clean">Limpeza rápida</string>
+
 </resources>

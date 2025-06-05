@@ -55,7 +55,7 @@ class ActivityQuotationsScreen : com.catchyapps.whatsdelete.appactivities.BaseAc
 
     private fun loadAds() {
         ShowInterstitial.hideNativeAndBanner(quotationsBinding.topAdLayout, this)
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             quotationsBinding.nativebanner,
             quotationsBinding.shimmerViewContainer
         )

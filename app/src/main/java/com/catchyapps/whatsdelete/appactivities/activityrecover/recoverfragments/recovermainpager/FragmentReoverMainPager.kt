@@ -236,7 +236,7 @@ class FragmentReoverMainPager : Fragment() {
             requireContext() as AppCompatActivity
         )
 
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             hFragmentRecoveryMainBinding.nativeContainer,
             hFragmentRecoveryMainBinding.shimmerViewContainer
         )

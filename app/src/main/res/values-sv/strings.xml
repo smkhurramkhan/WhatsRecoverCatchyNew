@@ -249,4 +249,30 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Ändra språk</string>
   <string name="privacy_settings">Sekretessinställningar</string>
+
+  <string name="file_name">Filnamn</string>
+  <string name="full_name">Fullständigt namn:</string>
+  <string name="path">Sökväg:</string>
+  <string name="last_modification_date">Senaste ändringsdatum:</string>
+  <string name="required_permission">Nödvändig behörighet</string>
+  <string name="hello">Hej</string>
+  <string name="emoji">Emoji</string>
+  <string name="search_quatations">Sök citat</string>
+  <string name="type_you_message_here">Skriv ditt meddelande här</string>
+  <string name="_92">+46</string>
+  <string name="unlimited_messages_recovery">Obegränsad meddelandeåterställning</string>
+  <string name="pay_once_enjoye_lifetime">Betala en gång, njut livet ut</string>
+  <string name="unlock_now">Lås upp nu</string>
+  <string name="ulimited_access_for_all_features">Obegränsad tillgång till alla funktioner.</string>
+  <string name="unlimited_media_recovery">Obegränsad mediaåterställning</string>
+  <string name="features">Funktioner</string>
+  <string name="whatsapp_direct_message">WhatsApp direktmeddelande</string>
+  <string name="hello_blank_fragment">Hej tom fragment</string>
+  <string name="regular">Vanlig</string>
+  <string name="new_line">Ny rad</string>
+  <string name="space">Mellanslag</string>
+  <string name="reset">Återställ</string>
+  <string name="quick_scan">Snabbskanning</string>
+  <string name="quick_clean">Snabbstädning</string>
+
 </resources>

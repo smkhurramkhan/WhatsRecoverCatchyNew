@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+// https://docs.gradle.org/current/userguide/publishing_maven.html
+// http://www.flexlabs.org/2013/06/using-local-aar-android-library-packages-in-gradle-builds
+apply plugin: 'maven-publish'
+
+
+def appCompatVersion = "1.6.1"
+def exifInterfaceVersion = "1.3.6"
+
+
+android {
+
+    compileSdkVersion 29
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.1"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    namespace "com.theartofdev.edmodo.cropper"
+}
+
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.exifinterface:exifinterface:$exifInterfaceVersion"
+}

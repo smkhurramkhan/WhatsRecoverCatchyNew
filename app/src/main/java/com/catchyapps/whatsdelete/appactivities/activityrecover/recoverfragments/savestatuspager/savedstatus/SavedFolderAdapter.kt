@@ -31,7 +31,6 @@ import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatu
 import com.bumptech.glide.Glide
 import com.catchyapps.whatsdelete.basicapputils.MyAppFolderListener
 import com.catchyapps.whatsdelete.databinding.PlaylistItemVideoBinding
-import com.geniusforapp.fancydialog.FancyAlertDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -132,15 +131,13 @@ class SavedFolderAdapter(
 
             tempList = AppHelperDb.hGetfolderById(entity.id.toString())
 
-            val alert = FancyAlertDialog.Builder(context)
-                .setTextTitle(context.getString(R.string.delete_folder))
-                .setBody(context.getString(R.string.all_files_in_this_folder_will_be_deleted_permanently))
-                .setNegativeColor(R.color.colorPrimary)
-                .setNegativeButtonText(context.getString(R.string.cancel))
-                .setOnNegativeClicked { _: View?, dialog: Dialog -> dialog.dismiss() }
-                .setPositiveButtonText(context.getString(R.string.delete))
-                .setPositiveColor(R.color.colorPrimary)
-                .setOnPositiveClicked { _: View?, dialog: Dialog ->
+            AlertDialog.Builder(context)
+                .setTitle(context.getString(R.string.delete_folder))
+                .setMessage(context.getString(R.string.all_files_in_this_folder_will_be_deleted_permanently))
+                .setNegativeButton(context.getString(R.string.cancel)) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setPositiveButton(context.getString(R.string.delete)) { dialog, _ ->
                     CoroutineScope(Dispatchers.Main).launch {
                         try {
                             if (tempList?.isNotEmpty() == true) {
@@ -152,29 +149,18 @@ class SavedFolderAdapter(
                                         if (del) {
                                             MediaScannerConnection.scanFile(
                                                 context,
-                                                arrayOf(path, path),
-                                                arrayOf("image/jpg", "video/mp4"),
-                                                object :
-                                                    MediaScannerConnection.MediaScannerConnectionClient {
-                                                    override fun onMediaScannerConnected() {}
-                                                    override fun onScanCompleted(
-                                                        path: String,
-                                                        uri: Uri
-                                                    ) {
-                                                        Timber.d(path)
-                                                    }
-                                                })
+                                                arrayOf(path),
+                                                null,
+                                                null
+                                            )
                                         }
-                                        if (del && i == (tempList?.size?.minus(1) ?: 0)) {
-                                            Timber.d("status it?")
+                                        if (del && i == tempList.lastIndex) {
                                             AppHelperDb.hRemoveFolder(entity.id)
-
                                             list.removeAt(position)
                                             notifyDataSetChanged()
                                         }
                                     } else {
-                                        Timber.d("status it in else?")
-                                        if (i == (tempList?.size?.minus(1) ?: 0)) {
+                                        if (i == tempList.lastIndex) {
                                             AppHelperDb.hRemoveFolder(entity.id)
                                             list.removeAt(position)
                                             notifyDataSetChanged()
@@ -182,9 +168,7 @@ class SavedFolderAdapter(
                                     }
                                 }
                             } else {
-                                Timber.d("status in else parttttt")
                                 AppHelperDb.hRemoveFolder(entity.id)
-
                                 list.removeAt(position)
                                 notifyDataSetChanged()
                             }
@@ -195,8 +179,7 @@ class SavedFolderAdapter(
                         dialog.dismiss()
                     }
                 }
-                .build()
-            alert.show()
+                .show()
 
         }
     }

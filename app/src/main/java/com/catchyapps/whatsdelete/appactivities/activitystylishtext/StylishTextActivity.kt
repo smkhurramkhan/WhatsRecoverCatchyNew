@@ -45,7 +45,7 @@ class StylishTextActivity : AppCompatActivity() {
 
     private fun loadAds() {
         ShowInterstitial.hideNativeAndBanner(stylishTextBinding.topAdLayout, this)
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             stylishTextBinding.nativebanner,
             stylishTextBinding.shimmerViewContainer
         )

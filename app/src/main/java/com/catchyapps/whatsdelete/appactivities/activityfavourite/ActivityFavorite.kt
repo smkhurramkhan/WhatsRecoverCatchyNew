@@ -2,8 +2,8 @@ package com.catchyapps.whatsdelete.appactivities.activityfavourite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.catchyapps.whatsdelete.BaseApplication.Companion.showNativeBanner
 import com.catchyapps.whatsdelete.appactivities.activityfavourite.favfragments.FavDocsFragment
-import com.catchyapps.whatsdelete.BaseApplication.Companion.showNativeBannerAdmobOnly
 import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.appactivities.activityfavourite.favfragments.FavImagesMediaFragment
@@ -52,7 +52,7 @@ class ActivityFavorite : com.catchyapps.whatsdelete.appactivities.BaseActivity()
 
     private fun initAds() {
         ShowInterstitial.hideNativeAndBanner(binding.topAdLayout, this)
-        showNativeBannerAdmobOnly(binding.nativeContainer, binding.shimmerViewContainer)
+        showNativeBanner(binding.nativeContainer, binding.shimmerViewContainer)
     }
 
     override fun onSupportNavigateUp(): Boolean {

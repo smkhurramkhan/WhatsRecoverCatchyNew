@@ -180,7 +180,7 @@
     <string name="text_to_emoji">Texto a emoji</string>
     <string name="stickers">Pegatinas</string>
     <string name="unlock_premium_version">Desbloquear la versión Premium</string>
-    <string name="_5_99">$6.99/vida útil</string>
+    <string name="_5_99">$5.99</string>
     <string name="recover_data_for_wa_wab"><![CDATA[Recuperar datos para WA y WAB]]></string>
     <string name="error_adding_sticker_pack">Error al cargar pegatinas</string>
     <string name="clear_all">Borrar todo</string>
@@ -269,4 +269,30 @@
     <string name="whatsapp_web_">WhatsAppWeb</string>
     <string name="change_language">Cambiar idioma</string>
     <string name="privacy_settings">Configuración de privacidad</string>
+
+    <string name="file_name">Nombre de archivo</string>
+    <string name="full_name">Nombre completo:</string>
+    <string name="path">Ruta:</string>
+    <string name="last_modification_date">Fecha de última modificación:</string>
+    <string name="required_permission">Permiso requerido</string>
+    <string name="hello">Hola</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Buscar citas</string>
+    <string name="type_you_message_here">Escribe tu mensaje aquí</string>
+    <string name="_92">+971</string>
+    <string name="unlimited_messages_recovery">Recuperación ilimitada de mensajes</string>
+    <string name="pay_once_enjoye_lifetime">Paga una vez y disfruta de por vida</string>
+    <string name="unlock_now">Desbloquear ahora</string>
+    <string name="ulimited_access_for_all_features">Acceso ilimitado a todas las funciones.</string>
+    <string name="unlimited_media_recovery">Recuperación ilimitada de medios</string>
+    <string name="features">Funciones</string>
+    <string name="whatsapp_direct_message">Mensaje directo de WhatsApp</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="regular">Regular</string>
+    <string name="new_line">Nueva línea</string>
+    <string name="space">Espacio</string>
+    <string name="reset">Restablecer</string>
+    <string name="quick_scan">Escaneo rápido</string>
+    <string name="quick_clean">Limpieza rápida</string>
+
 </resources>

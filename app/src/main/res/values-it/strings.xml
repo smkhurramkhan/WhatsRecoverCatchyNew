@@ -159,7 +159,7 @@
     <string name="text_to_emoji">Testo in Emoji</string>
     <string name="stickers">Adesivi</string>
     <string name="unlock_premium_version">Sblocca la versione premium</string>
-    <string name="_5_99">$6.99/a vita</string>
+    <string name="_5_99">$5.99</string>
     <string name="recover_data_for_wa_wab"><![CDATA[Recupera i dati per WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Errore nel caricare gli adesivi</string>
     <string name="clear_all">Cancella tutto</string>
@@ -249,4 +249,31 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Cambia Lingua</string>
     <string name="privacy_settings">Impostazioni sulla privacy</string>
+
+    <string name="file_name">Nome file</string>
+    <string name="full_name">Nome completo:</string>
+    <string name="path">Percorso:</string>
+    <string name="last_modification_date">Data dell’ultima modifica:</string>
+    <string name="required_permission">Permesso richiesto</string>
+    <string name="hello">Ciao</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Cerca citazioni</string>
+    <string name="type_you_message_here">Scrivi il tuo messaggio qui</string>
+    <string name="_92">+39</string>
+    <string name="unlimited_messages_recovery">Recupero illimitato dei messaggi</string>
+    <string name="pay_once_enjoye_lifetime">Paga una volta, godi a vita</string>
+    <string name="unlock_now">Sblocca ora</string>
+    <string name="ulimited_access_for_all_features">Accesso illimitato a tutte le funzionalità.</string>
+    <string name="unlimited_media_recovery">Recupero illimitato dei media</string>
+    <string name="features">Caratteristiche</string>
+    <string name="whatsapp_direct_message">Messaggio diretto WhatsApp</string>
+
+    <string name="hello_blank_fragment">Ciao frammento vuoto</string>
+    <string name="regular">Regolare</string>
+    <string name="new_line">Nuova riga</string>
+    <string name="space">Spazio</string>
+    <string name="reset">Reimposta</string>
+    <string name="quick_scan">Scansione rapida</string>
+    <string name="quick_clean">Pulizia rapida</string>
+
 </resources>

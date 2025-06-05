@@ -62,9 +62,9 @@ class FavImagesMediaFragment : Fragment(), ActionMode.Callback {
                         if (position < objectList.size) {
                             try {
                                 val intent = Intent(context, MediaPreviewScreen::class.java)
-                                intent.putExtra("file_path", objectList.get(position).filePath)
+                                intent.putExtra("file_path", objectList[position].filePath)
                                 requireActivity().startActivityForResult(intent, 101)
-                                ShowInterstitial.showAdmobInter(requireActivity())
+                                ShowInterstitial.showInter(requireActivity())
                             } catch (e: Exception) {
                                 e.printStackTrace()
                             }
@@ -122,10 +122,10 @@ class FavImagesMediaFragment : Fragment(), ActionMode.Callback {
                         }
                     }
                 }
-                if (objectList.size > 0) {
+                if (objectList.isNotEmpty()) {
                     binding.recyclerView.visibility = View.VISIBLE
                     binding.tvNotFound.visibility = View.GONE
-                    mediaFavAdapter!!.notifyDataSetChanged()
+                    mediaFavAdapter?.notifyDataSetChanged()
                 } else {
                     binding.recyclerView.visibility = View.GONE
                     binding.tvNotFound.visibility = View.VISIBLE
@@ -137,16 +137,17 @@ class FavImagesMediaFragment : Fragment(), ActionMode.Callback {
 
     private fun multiSelect(position: Int) {
         if (position > -1) {
-            val data = mediaFavAdapter!!.getItem(position)
+            val data = mediaFavAdapter?.getItem(position)
             multi = true
             if (actionMode != null) {
-                if (selectedIds.indexOfKey(position) > -1) selectedIds.remove(position) else selectedIds.put(position, data.title)
-                if (selectedIds.size() > 0) actionMode!!.title = selectedIds.size().toString() + "  Selected" //show selected item count on action mode.
+                if (selectedIds.indexOfKey(position) > -1) selectedIds.remove(position)
+                else selectedIds.put(position, data?.title)
+                if (selectedIds.size() > 0) actionMode?.title = selectedIds.size().toString() + "  Selected"
                 else {
-                    actionMode!!.title = "" //remove item count from action mode.
-                    actionMode!!.finish() //hide action mode.
+                    actionMode?.title = ""
+                    actionMode?.finish()
                 }
-                mediaFavAdapter!!.setSelectedIds(selectedIds)
+                mediaFavAdapter?.setSelectedIds(selectedIds)
             } else {
                 Timber.d("Action mode is null")
             }
@@ -185,23 +186,20 @@ class FavImagesMediaFragment : Fragment(), ActionMode.Callback {
     private fun alertDeleteConfirmation() {
         val builder = AlertDialog.Builder(activity)
 
-        // if (selectedIds.size() > 1)
         builder.setMessage("Delete " + selectedIds.size() + "selected Images?")
 
-//        else
-//            builder.setMessage("Delete selected image?");
         builder.setPositiveButton("DELETE") { dialog: DialogInterface, which: Int ->
             try {
                 for (i in 0 until selectedIds.size()) {
                     val recoverFileEntity = objectList[selectedIds.keyAt(i)]
-                    val fdelete = File(recoverFileEntity.filePath!!)
-                    if (fdelete.exists()) {
-                        fdelete.delete()
+                    val fDelete = File(recoverFileEntity.filePath!!)
+                    if (fDelete.exists()) {
+                        fDelete.delete()
                     }
                     objectList.removeAt(selectedIds.keyAt(i))
                 }
-                if (objectList.size > 0) {
-                    mediaFavAdapter!!.notifyDataSetChanged()
+                if (objectList.isNotEmpty()) {
+                    mediaFavAdapter?.notifyDataSetChanged()
                 } else {
                     binding.recyclerView.visibility = View.GONE
                     binding.tvNotFound.visibility = View.VISIBLE
@@ -210,25 +208,25 @@ class FavImagesMediaFragment : Fragment(), ActionMode.Callback {
                 e.printStackTrace()
             }
             dialog.cancel()
-            actionMode!!.title = "" //remove item count from action mode.
-            actionMode!!.finish() //
+            actionMode?.title = "" //remove item count from action mode.
+            actionMode?.finish() //
         }.setNegativeButton("CANCEL") { dialog: DialogInterface, which: Int -> dialog.cancel() }
         builder.create().show()
     }
 
     private fun shareMultipleFiles() {
         try {
-            val selecteduri = ArrayList<Uri>()
+            val selectedUri = ArrayList<Uri>()
             //List<Integer> selectedItemPositions = recyclerViewAdapter.getSelectedItems();
             for (i in 0 until selectedIds.size()) {
                 val recoverFileEntity = objectList[selectedIds.keyAt(i)]
                 val uri = recoverFileEntity.filePath
                 val u = FileProvider.getUriForFile(requireContext(), requireContext().packageName + ".provider", File(uri!!))
-                selecteduri.add(u)
+                selectedUri.add(u)
             }
-            actionMode!!.title = ""
-            actionMode!!.finish()
-            shareMultiple(selecteduri)
+            actionMode?.title = ""
+            actionMode?.finish()
+            shareMultiple(selectedUri)
         } catch (e: Exception) {
             e.printStackTrace()
         }

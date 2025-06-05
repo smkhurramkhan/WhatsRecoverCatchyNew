@@ -239,7 +239,7 @@ class WACleanerScreen : BaseActivity() {
 
     private fun hLoadAds() {
         ShowInterstitial.hideNativeAndBanner(activityWhatsCleanerBinding.topAdLayout, this)
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             activityWhatsCleanerBinding.nativeAd,
             activityWhatsCleanerBinding.shimmerViewContainer
         )

@@ -182,7 +182,7 @@
     <string name="text_to_emoji">إرسال رسالة نصية إلى Emoji</string>
     <string name="stickers">الملصقات</string>
     <string name="unlock_premium_version">فتح الإصدار المميز</string>
-    <string name="_5_99">6.99 دولارًا أمريكيًا/مدى الحياة</string>
+    <string name="_5_99">$5.99</string>
     <string name="recover_data_for_wa_wab"><![CDATA[استرداد البيانات لـ WA وWAB]]></string>
     <string name="error_adding_sticker_pack">حدث خطأ أثناء تحميل الملصقات</string>
     <string name="clear_all">مسح الكل</string>
@@ -273,4 +273,30 @@
     <string name="whatsapp_web_">واتساب ويب</string>
     <string name="change_language">تغيير اللغة</string>
     <string name="privacy_settings">إعدادات الخصوصية</string>
+
+    <string name="file_name">اسم الملف</string>
+    <string name="full_name">الاسم الكامل:</string>
+    <string name="path">المسار:</string>
+    <string name="last_modification_date">تاريخ آخر تعديل:</string>
+    <string name="required_permission">الصلاحية المطلوبة</string>
+    <string name="hello">مرحبًا</string>
+    <string name="emoji">رمز تعبيري</string>
+    <string name="search_quatations">بحث عن الاقتباسات</string>
+    <string name="type_you_message_here">اكتب رسالتك هنا</string>
+    <string name="_92">+971</string>
+    <string name="unlimited_messages_recovery">استعادة غير محدودة للرسائل</string>
+    <string name="pay_once_enjoye_lifetime">ادفع مرة واحدة واستمتع مدى الحياة</string>
+    <string name="unlock_now">افتح الآن</string>
+    <string name="ulimited_access_for_all_features">وصول غير محدود لجميع الميزات.</string>
+    <string name="unlimited_media_recovery">استعادة غير محدودة للوسائط</string>
+    <string name="features">الميزات</string>
+    <string name="whatsapp_direct_message">رسالة مباشرة عبر واتساب</string>
+    <string name="hello_blank_fragment">مرحبًا بالمكون الفارغ</string>
+    <string name="regular">عادي</string>
+    <string name="new_line">سطر جديد</string>
+    <string name="space">مسافة</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="quick_scan">فحص سريع</string>
+    <string name="quick_clean">تنظيف سريع</string>
+
 </resources>

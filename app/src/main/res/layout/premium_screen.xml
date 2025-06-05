@@ -32,9 +32,9 @@
 
             <ImageView
                 android:id="@+id/icon_premuime"
-                android:layout_width="140dp"
+                android:layout_width="120dp"
                 android:layout_marginTop="8dp"
-                android:layout_height="140dp"
+                android:layout_height="120dp"
                 android:src="@drawable/icon_premuim_screen"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
                         android:text="@string/ulimited_access_for_all_features"
                         android:textAllCaps="true"
                         android:textColor="#FFDD0B"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -83,7 +83,7 @@
                         android:fontFamily="@font/inter_semibold"
                         android:text="@string/unlimited_messages_recovery"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                         android:fontFamily="@font/inter_semibold"
                         android:text="@string/unlimited_media_recovery"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
                         android:fontFamily="@font/inter_semibold"
                         android:text="@string/enjoyee_ads_free_application"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -121,7 +121,7 @@
                         android:fontFamily="@font/inter_semibold"
                         android:text="@string/unlock_premium_version"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
 
                 </LinearLayout>
@@ -192,12 +192,12 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/tvPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/inter_semibold"
                         android:gravity="center"
-                        android:text="@string/_5_99"
                         android:textColor="@color/redishColor"
                         android:textSize="52sp"
                         android:textStyle="bold" />

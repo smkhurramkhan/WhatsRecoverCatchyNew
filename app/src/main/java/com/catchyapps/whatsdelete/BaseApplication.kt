@@ -21,20 +21,9 @@ import timber.log.Timber
 class BaseApplication : LocaleAwareApplication() {
 
     fun getContext(): BaseApplication? {
-        return instance!!.getContext()
+        return instance?.getContext()
     }
 
-
-    private fun turnOnStrictMode() {
-        if (BuildConfig.DEBUG) {
-            StrictMode.setThreadPolicy(
-                StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().penaltyDeath().build()
-            )
-            StrictMode.setVmPolicy(
-                StrictMode.VmPolicy.Builder().detectAll().penaltyLog().penaltyDeath().build()
-            )
-        }
-    }
 
     override fun onCreate() {
         super.onCreate()
@@ -213,7 +202,7 @@ class BaseApplication : LocaleAwareApplication() {
             if (isPremium) return
             if (MyAppDetectorConnection.isNotConnectedToInternet()) return
             when (adPriority) {
-                1,2 -> adMobManager?.admobNativeBanner(bannerAdContainer, alternateView)
+                1,2 -> adsFacebookManger?.fbNativeBanner(bannerAdContainer)
             }
         }
 

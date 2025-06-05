@@ -158,7 +158,7 @@
     <string name="text_to_emoji">Teks ke Emoji</string>
     <string name="stickers">Stiker</string>
     <string name="unlock_premium_version">Buka Versi Premium</string>
-    <string name="_5_99">$6.99/seumur hidup</string>
+    <string name="_5_99">$5.99</string>
     <string name="recover_data_for_wa_wab"><![CDATA[Pulihkan Data untuk WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Kesalahan memuat stiker</string>
     <string name="clear_all">Hapus Semua</string>
@@ -247,4 +247,30 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Ganti Bahasa</string>
     <string name="privacy_settings">Pengaturan Privasi</string>
+
+    <string name="file_name">Nama Berkas</string>
+    <string name="full_name">Nama Lengkap:</string>
+    <string name="path">Jalur:</string>
+    <string name="last_modification_date">Tanggal Modifikasi Terakhir:</string>
+    <string name="required_permission">Izin yang Dibutuhkan</string>
+    <string name="hello">Halo</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Cari Kutipan</string>
+    <string name="type_you_message_here">Ketik pesan Anda di sini</string>
+    <string name="_92">+971</string>
+    <string name="unlimited_messages_recovery">Pemulihan Pesan Tak Terbatas</string>
+    <string name="pay_once_enjoye_lifetime">Bayar Sekali, Nikmati Seumur Hidup</string>
+    <string name="unlock_now">Buka Sekarang</string>
+    <string name="ulimited_access_for_all_features">Akses Tak Terbatas ke Semua Fitur.</string>
+    <string name="unlimited_media_recovery">Pemulihan Media Tak Terbatas</string>
+    <string name="features">Fitur</string>
+    <string name="whatsapp_direct_message">Pesan Langsung WhatsApp</string>
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="regular">Reguler</string>
+    <string name="new_line">Baris Baru</string>
+    <string name="space">Spasi</string>
+    <string name="reset">Atur Ulang</string>
+    <string name="quick_scan">Pindai Cepat</string>
+    <string name="quick_clean">Bersihkan Cepat</string>
+
 </resources>

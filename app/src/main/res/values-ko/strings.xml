@@ -246,4 +246,31 @@
     <string name="whatsapp_web_">WhatsApp 웹</string>
     <string name="change_language">언어 변경</string>
   <string name="privacy_settings">개인정보 설정</string>
+
+
+  <string name="file_name">파일 이름</string>
+  <string name="full_name">전체 이름:</string>
+  <string name="path">경로:</string>
+  <string name="last_modification_date">최종 수정 날짜:</string>
+  <string name="required_permission">필요한 권한</string>
+  <string name="hello">안녕하세요</string>
+  <string name="emoji">이모지</string>
+  <string name="search_quatations">인용문 검색</string>
+  <string name="type_you_message_here">여기에 메시지를 입력하세요</string>
+  <string name="_92">+82</string>
+  <string name="unlimited_messages_recovery">무제한 메시지 복구</string>
+  <string name="pay_once_enjoye_lifetime">한 번 결제하고 평생 이용</string>
+  <string name="unlock_now">지금 잠금 해제</string>
+  <string name="ulimited_access_for_all_features">모든 기능 무제한 액세스.</string>
+  <string name="unlimited_media_recovery">무제한 미디어 복구</string>
+  <string name="features">기능</string>
+  <string name="whatsapp_direct_message">WhatsApp 직접 메시지</string>
+  <string name="hello_blank_fragment">빈 프래그먼트 안녕하세요</string>
+  <string name="regular">일반</string>
+  <string name="new_line">새 줄</string>
+  <string name="space">공백</string>
+  <string name="reset">재설정</string>
+  <string name="quick_scan">빠른 스캔</string>
+  <string name="quick_clean">빠른 정리</string>
+
 </resources>

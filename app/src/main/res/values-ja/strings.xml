@@ -157,7 +157,7 @@
     <string name="text_to_emoji">テキストから絵文字</string>
     <string name="stickers">ステッカー</string>
     <string name="unlock_premium_version">プレミアムバージョンのロックを解除</string>
-    <string name="_5_99">$6.99/終身</string>
+    <string name="_5_99">$5.99</string>
     <string name="recover_data_for_wa_wab">WA＆WABのデータを回復</string>
     <string name="error_adding_sticker_pack">ステッカーの読み込みエラー</string>
     <string name="clear_all">すべてクリア</string>
@@ -246,4 +246,31 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">言語を変更</string>
   <string name="privacy_settings">プライバシー設定</string>
+
+
+  <string name="file_name">ファイル名</string>
+  <string name="full_name">フルネーム：</string>
+  <string name="path">パス：</string>
+  <string name="last_modification_date">最終更新日：</string>
+  <string name="required_permission">必要な権限</string>
+  <string name="hello">こんにちは</string>
+  <string name="emoji">絵文字</string>
+  <string name="search_quatations">引用を検索</string>
+  <string name="type_you_message_here">ここにメッセージを入力してください</string>
+  <string name="_92">+81</string>
+  <string name="unlimited_messages_recovery">無制限のメッセージ復元</string>
+  <string name="pay_once_enjoye_lifetime">一度支払って一生楽しむ</string>
+  <string name="unlock_now">今すぐアンロック</string>
+  <string name="ulimited_access_for_all_features">すべての機能への無制限アクセス。</string>
+  <string name="unlimited_media_recovery">無制限のメディア復元</string>
+  <string name="features">機能</string>
+  <string name="whatsapp_direct_message">WhatsApp 直接メッセージ</string>
+  <string name="hello_blank_fragment">空のフラグメントへようこそ</string>
+  <string name="regular">通常</string>
+  <string name="new_line">改行</string>
+  <string name="space">スペース</string>
+  <string name="reset">リセット</string>
+  <string name="quick_scan">クイックスキャン</string>
+  <string name="quick_clean">クイッククリーニング</string>
+
 </resources>

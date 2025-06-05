@@ -10,9 +10,9 @@ import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 object ShowInterstitial {
     @JvmStatic
     fun showInter(activity: Activity) {
-        if (BaseApplication.isInterstitialAvailable()) {
+        if (BaseApplication.isFbInterstitialAvailable()) {
             activity.startActivity(Intent(activity, PleaseWaitAdScreen::class.java)
-                .putExtra("admob", true))
+                .putExtra("admob", false))
         }
     }
 

@@ -250,4 +250,30 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Taal wijzigen</string>
     <string name="privacy_settings">Privacy-instellingen</string>
+
+    <string name="file_name">Bestandsnaam</string>
+    <string name="full_name">Volledige naam:</string>
+    <string name="path">Pad:</string>
+    <string name="last_modification_date">Laatste wijzigingsdatum:</string>
+    <string name="required_permission">Vereiste toestemming</string>
+    <string name="hello">Hallo</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Citaties zoeken</string>
+    <string name="type_you_message_here">Typ hier uw bericht</string>
+    <string name="_92">+31</string>
+    <string name="unlimited_messages_recovery">Onbeperkt berichten herstellen</string>
+    <string name="pay_once_enjoye_lifetime">Eenmalig betalen, levenslang genieten</string>
+    <string name="unlock_now">Nu ontgrendelen</string>
+    <string name="ulimited_access_for_all_features">Onbeperkte toegang tot alle functies.</string>
+    <string name="unlimited_media_recovery">Onbeperkt mediabestand herstellen</string>
+    <string name="features">Functies</string>
+    <string name="whatsapp_direct_message">WhatsApp directe boodschap</string>
+    <string name="hello_blank_fragment">Hallo leeg fragment</string>
+    <string name="regular">Normaal</string>
+    <string name="new_line">Nieuwe regel</string>
+    <string name="space">Spatie</string>
+    <string name="reset">Resetten</string>
+    <string name="quick_scan">Snelle scan</string>
+    <string name="quick_clean">Snelle schoonmaak</string>
+
 </resources>

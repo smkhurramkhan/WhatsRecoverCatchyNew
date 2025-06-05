@@ -29,32 +29,24 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.davemorrissey.labs.subscaleview.ImageSource
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.savestatuspager.appstatus.StatusSaveAdapter
+import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatusaver.AdaptersaverPlayList
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
-import com.catchyapps.whatsdelete.basicapputils.getPath
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
+import com.catchyapps.whatsdelete.basicapputils.getPath
+import com.catchyapps.whatsdelete.databinding.ScreenStatusPreviewBinding
 import com.catchyapps.whatsdelete.roomdb.AppHelperDb
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityFolders
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityStatuses
-import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.savestatuspager.appstatus.StatusSaveAdapter
-import com.catchyapps.whatsdelete.appactivities.activitystatussaver.adapterstatusaver.AdaptersaverPlayList
-import com.catchyapps.whatsdelete.databinding.ScreenStatusPreviewBinding
-import com.google.android.exoplayer2.ExoPlayerFactory
+import com.davemorrissey.labs.subscaleview.ImageSource
+import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
-import com.google.android.exoplayer2.extractor.ExtractorsFactory
-import com.google.android.exoplayer2.source.ExtractorMediaSource
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
-import com.google.android.exoplayer2.trackselection.TrackSelector
-import com.google.android.exoplayer2.upstream.BandwidthMeter
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
+import com.google.android.exoplayer2.upstream.DefaultDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -78,7 +70,6 @@ class ActivityPreviewStatusScreen : com.catchyapps.whatsdelete.appactivities.Bas
     private var fromCollection: String? = null
 
     private var simpleExoPlayer: SimpleExoPlayer? = null
-    private var extractorsFactory: ExtractorsFactory? = null
     private lateinit var hActivityStatusPreviewBinding: ScreenStatusPreviewBinding
 
     override fun onSupportNavigateUp(): Boolean {
@@ -100,6 +91,7 @@ class ActivityPreviewStatusScreen : com.catchyapps.whatsdelete.appactivities.Bas
             release()
         }
     }
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,12 +119,12 @@ class ActivityPreviewStatusScreen : com.catchyapps.whatsdelete.appactivities.Bas
 
     private fun initVars() {
         prefs = MyAppSharedPrefs(this)
-        val bandwidthMeter: BandwidthMeter = DefaultBandwidthMeter()
-        val trackSelector: TrackSelector =
-            DefaultTrackSelector(AdaptiveTrackSelection.Factory(bandwidthMeter))
-        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector)
-        extractorsFactory = DefaultExtractorsFactory()
+        val trackSelector = DefaultTrackSelector(this)
+        simpleExoPlayer = SimpleExoPlayer.Builder(this)
+            .setTrackSelector(trackSelector)
+            .build()
     }
+
 
     private fun setupView() {
 
@@ -194,27 +186,25 @@ class ActivityPreviewStatusScreen : com.catchyapps.whatsdelete.appactivities.Bas
 
     private fun playVideo() {
         try {
-            val playerInfo = Util.getUserAgent(this, "VEditor")
-            val dataSourceFactory = DefaultDataSourceFactory(this, playerInfo)
-            val hUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                hStatusesEntity?.uri!!
-            } else {
-                hStatusesEntity?.path?.toUri()!!
-            }
-            val mediaSource: MediaSource = ExtractorMediaSource(
-                hUri,
-                dataSourceFactory,
-                extractorsFactory,
-                null,
-                null
-            )
+            val dataSourceFactory = DefaultDataSource.Factory(this)
+            val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(MediaItem.fromUri(
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        hStatusesEntity?.uri!!
+                    } else {
+                        hStatusesEntity?.path?.toUri()!!
+                    }
+                ))
+
             hActivityStatusPreviewBinding.simpleExoPlayerTrim.player = simpleExoPlayer
-            simpleExoPlayer?.prepare(mediaSource)
+            simpleExoPlayer?.setMediaSource(mediaSource)
+            simpleExoPlayer?.prepare()
             simpleExoPlayer?.playWhenReady = false
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
+
 
     private fun reWAStatus() {
         val whatsappIntent = Intent(Intent.ACTION_SEND)
@@ -634,5 +624,12 @@ class ActivityPreviewStatusScreen : com.catchyapps.whatsdelete.appactivities.Bas
         hStatusesEntity.savedPath = destPath + filename
 
     }
+
+    override fun onStop() {
+        super.onStop()
+        simpleExoPlayer?.release()
+        simpleExoPlayer = null
+    }
+
 
 }

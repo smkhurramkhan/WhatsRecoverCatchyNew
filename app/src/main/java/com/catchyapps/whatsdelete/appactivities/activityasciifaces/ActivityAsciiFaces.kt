@@ -60,7 +60,7 @@ class ActivityAsciiFaces : com.catchyapps.whatsdelete.appactivities.BaseActivity
 
     private fun loadAds() {
         ShowInterstitial.hideNativeAndBanner(binding.topAdLayout, this)
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             binding.nativebanner,
             binding.shimmerViewContainer
         )

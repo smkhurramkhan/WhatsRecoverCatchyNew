@@ -53,7 +53,7 @@ class SettingsScreen : BaseActivity(),
         ShowInterstitial.hideNativeAndBanner(activitySettingBinding.topAdLayout, this)
         ShowInterstitial.hideNativeAndBanner(activitySettingBinding.nativeAdContainer, this)
 
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             activitySettingBinding.nativeContainer,
             activitySettingBinding.shimmerViewContainer
         )

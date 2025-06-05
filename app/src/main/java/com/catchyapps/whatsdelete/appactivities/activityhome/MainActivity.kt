@@ -18,7 +18,6 @@ import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -28,20 +27,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.appadsmanager.GoogleMobileAdsConsentManager
-import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
-import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
-import com.catchyapps.whatsdelete.basicapputils.MyAppDataUtils
-import com.catchyapps.whatsdelete.basicapputils.MyAppExcelUtils
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
-import com.catchyapps.whatsdelete.appactivities.myapplanguage.ChangeLanguageActivity
 import com.catchyapps.whatsdelete.appactivities.activitycollection.ActivityStatusSavedCollections
 import com.catchyapps.whatsdelete.appactivities.activitydirectchat.DirectChatScreenActivity
 import com.catchyapps.whatsdelete.appactivities.activityhome.homeadapter.HomeMenuAdapter
@@ -52,14 +40,20 @@ import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appactivities.activityprivacypolicy.PrivacyPolicyScreen
 import com.catchyapps.whatsdelete.appactivities.activityquatations.ActivityQuotationsScreen
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
-import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.recoverchat.FragmentChatRecover
 import com.catchyapps.whatsdelete.appactivities.activitystatussaver.ActivityStatusMain
 import com.catchyapps.whatsdelete.appactivities.activitystickers.ActivityStickersScreen
 import com.catchyapps.whatsdelete.appactivities.activitystylishtext.StylishTextActivity
-import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.WACleanerScreen
 import com.catchyapps.whatsdelete.appactivities.activitytextrepeater.TextRepeaterScreen
 import com.catchyapps.whatsdelete.appactivities.activitytexttoemoji.TextToEmojiScreen
 import com.catchyapps.whatsdelete.appactivities.activitywhatsappweb.WhatsWebScreen
+import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.WACleanerScreen
+import com.catchyapps.whatsdelete.appactivities.myapplanguage.ChangeLanguageActivity
+import com.catchyapps.whatsdelete.appadsmanager.GoogleMobileAdsConsentManager
+import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
+import com.catchyapps.whatsdelete.basicapputils.MyAppDataUtils
+import com.catchyapps.whatsdelete.basicapputils.MyAppExcelUtils
 import com.catchyapps.whatsdelete.databinding.ScreenHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import com.nabinbhandari.android.permissions.PermissionHandler
@@ -73,7 +67,6 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
     private var appSharedPreferences: MyAppSharedPrefs? = null
     private var number: String? = null
     var message: String? = null
-
 
 
     private var toolsCardList: List<ModelMenu> = mutableListOf()
@@ -104,22 +97,22 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
     private val notificationPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            //val data: Intent? = result.data
-            if (isNotificationListenerEnable) {
-                if (notificationListenerDialog != null) {
-                    notificationListenerDialog?.dismiss()
-                    notificationListenerDialog?.cancel()
-                    appSharedPreferences?.hSetFirstTime(false)
-                    val intent = Intent(this@MainActivity, MainRecoverActivity::class.java)
-                    intent.putExtra("is_new_user", true)
-                    startActivity(intent)
+            if (result.resultCode == Activity.RESULT_OK) {
+                //val data: Intent? = result.data
+                if (isNotificationListenerEnable) {
+                    if (notificationListenerDialog != null) {
+                        notificationListenerDialog?.dismiss()
+                        notificationListenerDialog?.cancel()
+                        appSharedPreferences?.hSetFirstTime(false)
+                        val intent = Intent(this@MainActivity, MainRecoverActivity::class.java)
+                        intent.putExtra("is_new_user", true)
+                        startActivity(intent)
+                    }
                 }
             }
         }
-    }
 
-   private val backPressedCallback = object : OnBackPressedCallback(true) {
+    private val backPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             exitAlertDialog()
         }
@@ -171,8 +164,11 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
     }
 
     private fun loadAds() {
-        ShowInterstitial.hideNativeAndBanner(binding.appbarHome.topAdsLayout,this)
-        BaseApplication.showNativeBanner(binding.appbarHome.nativebanner,binding.appbarHome.shimmerViewContainer)
+        ShowInterstitial.hideNativeAndBanner(binding.appbarHome.topAdsLayout, this)
+        BaseApplication.showNativeBannerAdmobOnly(
+            binding.appbarHome.nativebanner,
+            binding.appbarHome.shimmerViewContainer
+        )
     }
 
 
@@ -199,17 +195,19 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
                     goToPrivacyPolicy()
                 }
 
-                R.id.action_language->{
+                R.id.action_language -> {
                     goToChangeLanguage()
                 }
 
-                R.id.action_privacy_settings->{
+                R.id.action_privacy_settings -> {
                     showConsentForm()
                 }
-                R.id.cp_filerecovert->{
+
+                R.id.cp_filerecovert -> {
                     cpApps("https://play.google.com/store/apps/details?id=com.catchyapps.audiorecover")
                 }
-                R.id.cp_Translator->{
+
+                R.id.cp_Translator -> {
                     cpApps("https://play.google.com/store/apps/details?id=com.catchyapps.phototranslator")
                 }
 
@@ -223,13 +221,15 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         try {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(playStoreUrl)))
         } catch (e: ActivityNotFoundException) {
-            Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
+            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
         }
     }
 
     private fun goToChangeLanguage() {
-        startActivity(Intent(this,ChangeLanguageActivity::class.java)
-            .putExtra("fromHome",true))
+        startActivity(
+            Intent(this, ChangeLanguageActivity::class.java)
+                .putExtra("fromHome", true)
+        )
     }
 
     private fun goToPrivacyPolicy() {
@@ -287,36 +287,45 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
             onClick = { menuItem ->
                 when (menuItem.id) {
                     "chat" -> {
-                    //replaceFragment(FragmentChatRecover())
-                       // startIntentForRecover(getString(MyAppConstants.H_CHATS_FRAGMENT))
-                        startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", "Chat")
+                        startActivity(
+                            Intent(this, MainRecoverActivity::class.java)
+                                .putExtra("tab", "Chat")
                         )
                     }
 
                     "documents" -> {
-                        startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", "documents"))
+                        startActivity(
+                            Intent(this, MainRecoverActivity::class.java)
+                                .putExtra("tab", "documents")
+                        )
                     }
 
                     "images" -> {
-                        startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", "images"))
+                        startActivity(
+                            Intent(this, MainRecoverActivity::class.java)
+                                .putExtra("tab", "images")
+                        )
                     }
 
                     "video" -> {
-                        startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", "video"))
+                        startActivity(
+                            Intent(this, MainRecoverActivity::class.java)
+                                .putExtra("tab", "video")
+                        )
                     }
 
                     "audio" -> {
-                        startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", "audio"))
+                        startActivity(
+                            Intent(this, MainRecoverActivity::class.java)
+                                .putExtra("tab", "audio")
+                        )
                     }
 
                     "voice" -> {
-                        startActivity(Intent(this, MainRecoverActivity::class.java)
-                            .putExtra("tab", "voice"))
+                        startActivity(
+                            Intent(this, MainRecoverActivity::class.java)
+                                .putExtra("tab", "voice")
+                        )
                     }
 
                 }
@@ -325,17 +334,10 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
         binding.appbarHome.recoveryRecyclerView.adapter = homeMenuAdapter
         binding.appbarHome.recoveryRecyclerView.layoutManager = GridLayoutManager(
-            this,
-            2)
+            this, 3
+        )
     }
 
-    fun replaceFragment(fragment: Fragment) {
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-    }
 
     private fun createDirectory() {
         if (ContextCompat.checkSelfPermission(
@@ -376,7 +378,7 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
 
     private fun showPremium() {
-        if (!appSharedPreferences!!.isPremium) {
+        if (appSharedPreferences?.isPremium == false) {
             goToPremium()
         }
     }
@@ -451,7 +453,6 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
                     "ascii" -> {
                         gotoAscii()
                     }
-
 
 
                 }
@@ -540,8 +541,11 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         builder.setPositiveButton(getString(R.string.goto_settings)) { dialog: DialogInterface, _: Int ->
             dialog.cancel()
             dialog.dismiss()
-            notificationPermissionLauncher.launch(Intent(
-                "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"))
+            notificationPermissionLauncher.launch(
+                Intent(
+                    "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"
+                )
+            )
         }
         builder.setNegativeButton(getString(R.string.not_now)) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
         notificationListenerDialog = builder.create()
@@ -551,7 +555,8 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
     private fun checkStatusSaverPermissions(position: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            Permissions.check(this, storagePermission33,
+            Permissions.check(
+                this, storagePermission33,
                 null /*rationale*/, null /*options*/, object : PermissionHandler() {
                     override fun onGranted() {
                         val intent = Intent(
@@ -583,7 +588,6 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         }
 
     }
-
 
 
     private fun startIntentForRecover(name: String) {
@@ -625,7 +629,12 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
     }
 
     private fun gotoAscii() {
-        startActivity(Intent(this@MainActivity, com.catchyapps.whatsdelete.appactivities.activityasciifaces.ActivityAsciiFaces::class.java))
+        startActivity(
+            Intent(
+                this@MainActivity,
+                com.catchyapps.whatsdelete.appactivities.activityasciifaces.ActivityAsciiFaces::class.java
+            )
+        )
         ShowInterstitial.showAdmobInter(this)
     }
 
@@ -652,59 +661,59 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
     private fun initClickListeners() {
 
-     /*   binding.appbarHome.dirChat.etnumber.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                charSequence: CharSequence?,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
-            }
+        /*   binding.appbarHome.dirChat.etnumber.addTextChangedListener(object : TextWatcher {
+               override fun beforeTextChanged(
+                   charSequence: CharSequence?,
+                   start: Int,
+                   count: Int,
+                   after: Int
+               ) {
+               }
 
-            override fun onTextChanged(
-                charSequence: CharSequence?,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
-            }
+               override fun onTextChanged(
+                   charSequence: CharSequence?,
+                   start: Int,
+                   before: Int,
+                   count: Int
+               ) {
+               }
 
-            override fun afterTextChanged(editable: Editable?) {
-                if (editable.toString().isNotEmpty()) {
-                    binding.appbarHome.dirChat.btnDirectChat.isEnabled = true
-                    binding.appbarHome.dirChat.btnDirectChat.setBackgroundResource(R.drawable.btn_direct_chat_background)
-                } else {
+               override fun afterTextChanged(editable: Editable?) {
+                   if (editable.toString().isNotEmpty()) {
+                       binding.appbarHome.dirChat.btnDirectChat.isEnabled = true
+                       binding.appbarHome.dirChat.btnDirectChat.setBackgroundResource(R.drawable.btn_direct_chat_background)
+                   } else {
 
-                    binding.appbarHome.dirChat.btnDirectChat.setBackgroundResource(R.drawable.gray_btn_background)
-                }
-            }
-        })
+                       binding.appbarHome.dirChat.btnDirectChat.setBackgroundResource(R.drawable.gray_btn_background)
+                   }
+               }
+           })
 
-        binding.appbarHome.dirChat.tvcountrycode.setOnClickListener {
-            val fragment = FragmentCountryCodeSelection.newInstance()
-            fragment.show(supportFragmentManager, "dialog")
-        }
-        binding.appbarHome.dirChat.btnDirectChat.setOnClickListener {
-            when {
-                binding.appbarHome.dirChat.etnumber.text.toString().isEmpty() -> {
-                    binding.appbarHome.dirChat.etnumber.error = getString(R.string.enter_number)
+           binding.appbarHome.dirChat.tvcountrycode.setOnClickListener {
+               val fragment = FragmentCountryCodeSelection.newInstance()
+               fragment.show(supportFragmentManager, "dialog")
+           }
+           binding.appbarHome.dirChat.btnDirectChat.setOnClickListener {
+               when {
+                   binding.appbarHome.dirChat.etnumber.text.toString().isEmpty() -> {
+                       binding.appbarHome.dirChat.etnumber.error = getString(R.string.enter_number)
 
-                }
+                   }
 
-                binding.appbarHome.dirChat.tvcountrycode.text.toString().isEmpty() -> {
-                    binding.appbarHome.dirChat.tvcountrycode.error = getString(R.string.select_country_code)
-                }
+                   binding.appbarHome.dirChat.tvcountrycode.text.toString().isEmpty() -> {
+                       binding.appbarHome.dirChat.tvcountrycode.error = getString(R.string.select_country_code)
+                   }
 
-                else -> {
-                    number =
-                        binding.appbarHome.dirChat.tvcountrycode.text.toString()
-                            .plus(binding.appbarHome.dirChat.etnumber.text.toString())
-                    openWhatsApp(number)
-                }
-            }
-        }
-        if (countryZipCode().isNotEmpty())  binding.appbarHome.dirChat.tvcountrycode.text =
-            countryZipCode() else  binding.appbarHome.dirChat.tvcountrycode.setText(R.string._922)*/
+                   else -> {
+                       number =
+                           binding.appbarHome.dirChat.tvcountrycode.text.toString()
+                               .plus(binding.appbarHome.dirChat.etnumber.text.toString())
+                       openWhatsApp(number)
+                   }
+               }
+           }
+           if (countryZipCode().isNotEmpty())  binding.appbarHome.dirChat.tvcountrycode.text =
+               countryZipCode() else  binding.appbarHome.dirChat.tvcountrycode.setText(R.string._922)*/
     }
 
     private fun countryZipCode(): String {
@@ -737,7 +746,7 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
     }
 
     override fun setMyName(string: String?) {
-       // binding.appbarHome.dirChat.tvcountrycode.text = string
+        // binding.appbarHome.dirChat.tvcountrycode.text = string
     }
 
     private fun askNotificationPermission() {
@@ -748,7 +757,7 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
             ) {
                 Log.e(TAG, "PERMISSION_GRANTED")
             } else {
-               Log.e(TAG, "NO_PERMISSION")
+                Log.e(TAG, "NO_PERMISSION")
                 // Directly ask for the permission
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }

@@ -180,7 +180,7 @@
     <string name="text_to_emoji">Text an Emoji</string>
     <string name="stickers">Aufkleber</string>
     <string name="unlock_premium_version">Premium-Version freischalten</string>
-    <string name="_5_99">6,99 $/Lebensdauer</string>
+    <string name="_5_99">6,99 $</string>
     <string name="recover_data_for_wa_wab"><![CDATA[Daten für WA und WAB wiederherstellen]]></string>
     <string name="error_adding_sticker_pack">Fehler beim Laden der Aufkleber</string>
     <string name="clear_all">Alles löschen</string>
@@ -269,4 +269,30 @@
     <string name="whatsapp_web_">WhatsApp Web</string>
     <string name="change_language">Sprache ändern</string>
     <string name="privacy_settings">Datenschutzeinstellungen</string>
+
+    <string name="file_name">Dateiname</string>
+    <string name="full_name">Vollständiger Name:</string>
+    <string name="path">Pfad:</string>
+    <string name="last_modification_date">Letztes Änderungsdatum:</string>
+    <string name="required_permission">Erforderliche Berechtigung</string>
+    <string name="hello">Hallo</string>
+    <string name="emoji">Emoji</string>
+    <string name="search_quatations">Zitate suchen</string>
+    <string name="type_you_message_here">Gib deine Nachricht hier ein</string>
+    <string name="_92">+971</string>
+    <string name="unlimited_messages_recovery">Unbegrenzte Nachrichtenwiederherstellung</string>
+    <string name="pay_once_enjoye_lifetime">Einmal zahlen, lebenslang genießen</string>
+    <string name="unlock_now">Jetzt freischalten</string>
+    <string name="ulimited_access_for_all_features">Unbegrenzter Zugriff auf alle Funktionen.</string>
+    <string name="unlimited_media_recovery">Unbegrenzte Medienwiederherstellung</string>
+    <string name="features">Funktionen</string>
+    <string name="whatsapp_direct_message">WhatsApp Direktnachricht</string>
+    <string name="hello_blank_fragment">Hallo leeres Fragment</string>
+    <string name="regular">Regulär</string>
+    <string name="new_line">Neue Zeile</string>
+    <string name="space">Leerzeichen</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="quick_scan">Schnellscan</string>
+    <string name="quick_clean">Schnellreinigung</string>
+
 </resources>

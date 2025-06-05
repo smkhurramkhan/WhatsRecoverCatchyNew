@@ -181,7 +181,7 @@
     <string name="text_to_emoji">Text To Emoji</string>
     <string name="stickers">Stickers</string>
     <string name="unlock_premium_version">Unlock Premium Version</string>
-    <string name="_5_99">$6.99/lifetime</string>
+    <string name="_5_99">$5.99</string>
     <string name="recover_data_for_wa_wab"><![CDATA[Recover Data for WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Error loading stickers</string>
     <string name="clear_all">Clear All</string>
@@ -270,4 +270,30 @@
     <string name="whatsapp_web_">وب واتساپ</string>
     <string name="change_language">تغییر زبان</string>
     <string name="privacy_settings">تنظیمات حریم خصوصی</string>
+
+    <string name="file_name">نام فایل</string>
+    <string name="full_name">نام کامل:</string>
+    <string name="path">مسیر:</string>
+    <string name="last_modification_date">تاریخ آخرین تغییر:</string>
+    <string name="required_permission">مجوز مورد نیاز</string>
+    <string name="hello">سلام</string>
+    <string name="emoji">ایموجی</string>
+    <string name="search_quatations">جستجوی نقل‌قول‌ها</string>
+    <string name="type_you_message_here">پیام خود را اینجا تایپ کنید</string>
+    <string name="_92">+۹۲</string>
+    <string name="unlimited_messages_recovery">بازیابی نامحدود پیام‌ها</string>
+    <string name="pay_once_enjoye_lifetime">یک بار پرداخت، لذت مادام‌العمر</string>
+    <string name="unlock_now">اکنون باز کنید</string>
+    <string name="ulimited_access_for_all_features">دسترسی نامحدود به تمام امکانات.</string>
+    <string name="unlimited_media_recovery">بازیابی نامحدود رسانه‌ها</string>
+    <string name="features">ویژگی‌ها</string>
+    <string name="whatsapp_direct_message">پیام مستقیم واتساپ</string>
+    <string name="hello_blank_fragment">سلام بخش خالی</string>
+    <string name="regular">عادی</string>
+    <string name="new_line">خط جدید</string>
+    <string name="space">فاصله</string>
+    <string name="reset">تنظیم مجدد</string>
+    <string name="quick_scan">اسکن سریع</string>
+    <string name="quick_clean">پاک‌سازی سریع</string>
+
 </resources>

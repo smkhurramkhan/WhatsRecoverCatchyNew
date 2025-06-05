@@ -106,7 +106,7 @@ class ActivityStickersScreen : com.catchyapps.whatsdelete.appactivities.BaseActi
 
     private fun loadAds() {
         ShowInterstitial.hideNativeAndBanner(stickersBinding.topAdLayout, this)
-        BaseApplication.showNativeBannerAdmobOnly(
+        BaseApplication.showNativeBanner(
             stickersBinding.nativebanner,
             stickersBinding.shimmerViewContainer
         )

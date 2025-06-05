@@ -1,1 +1,5 @@
-include ':app',':nativetemplates',':library'
+include ':app',
+        ':nativetemplates',
+        ':library',
+        ':cropper',
+        ':pageindicatorview'

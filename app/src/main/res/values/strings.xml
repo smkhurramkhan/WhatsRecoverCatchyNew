@@ -14,10 +14,10 @@
     <string name="privacy_url" translatable="false">"https://catchyappsofficial.blogspot.com/2022/04/privacy-policy.html"</string>
 
     <!--facebook ads id-->
-    <string name="facebook_banner_ads_id" translatable="false"></string>
-    <string name="facebook_interstitial_id" translatable="false"></string>
-    <string name="facebook_native_banner_id" translatable="false"></string>
-    <string name="facebook_native_ads_id" translatable="false"></string>
+    <string name="facebook_banner_ads_id" translatable="false">729641902896689_729646722896207</string>
+    <string name="facebook_interstitial_id" translatable="false">729641902896689_729646889562857</string>
+    <string name="facebook_native_banner_id" translatable="false">729641902896689_729647109562835</string>
+    <string name="facebook_native_ads_id" translatable="false">729641902896689_729646999562846</string>
 
 
     <string name="status_permission" translatable="false">
@@ -388,8 +388,8 @@
     <string name="check_this_app" translatable="false">Hey Check out this amazing WhatsApp deleted messages recovery app: \n</string>
     <string name="play_url" translatable="false">https://play.google.com/store/apps/details?id=%1$s</string>
 
-    <string name="cp_file" translatable="false">File Recovery PRO <font size='10'>(Ad)</font></string>
-    <string name="cp_cans" translatable="false">Translator <font size='10'>(Ad)</font></string>
+    <string name="cp_file" translatable="false">Audio Recovery <font size='10'>(Ad)</font></string>
+    <string name="cp_cans" translatable="false">Language Translator <font size='10'>(Ad)</font></string>
     <string name="file_name">File Name</string>
     <string name="full_name">Full Name:</string>
     <string name="path">Path:</string>
@@ -399,13 +399,13 @@
     <string name="emoji">Emoji</string>
     <string name="search_quatations">Search Quotations</string>
     <string name="type_you_message_here">Type you message here</string>
-    <string name="_92">+92</string>
+    <string name="_92">+971</string>
     <string name="unlimited_messages_recovery">Unlimited Messages Recovery</string>
     <string name="pay_once_enjoye_lifetime">Pay Once Enjoye lifetime</string>
     <string name="unlock_now">Unlock Now</string>
     <string name="ulimited_access_for_all_features">Ulimited Access for All Features.</string>
     <string name="unlimited_media_recovery">Unlimited Media Recovery</string>
-    <string name="features">Features</string>
+    <string name="features">Recovery Features</string>
     <string name="whatsapp_direct_message">WhatsApp Direct Message</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -415,4 +415,7 @@
     <string name="reset">Reset</string>
     <string name="quick_scan">Quick Scan</string>
     <string name="quick_clean">Quick Clean</string>
+
+    <string name="premium_package_price_format" translatable="false">Lifetime subscription - %s</string>
+    <string name="premium_package_default_price" translatable="false">$5.99</string>
 </resources>

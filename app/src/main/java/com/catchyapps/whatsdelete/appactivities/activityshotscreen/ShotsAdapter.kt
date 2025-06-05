@@ -70,7 +70,7 @@ class ShotsAdapter(
                 val intent = Intent(context, MediaPreviewScreen::class.java)
                 intent.putExtra("file_path", screenShotsEntity.path)
                 context.startActivity(intent)
-                ShowInterstitial.showAdmobInter(context as AppCompatActivity)
+                ShowInterstitial.showInter(context as AppCompatActivity)
             }
         }
         viewHolder.itemView.setOnLongClickListener { view: View? ->
