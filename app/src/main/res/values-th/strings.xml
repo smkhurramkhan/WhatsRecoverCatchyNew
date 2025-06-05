@@ -296,7 +296,7 @@
     <string name="unlock_now">ปลดล็อกตอนนี้</string>
     <string name="ulimited_access_for_all_features">เข้าถึงทุกฟีเจอร์ได้ไม่จำกัด</string>
     <string name="unlimited_media_recovery">กู้คืนสื่อได้ไม่จำกัด</string>
-    <string name="features">ฟีเจอร์</string>
+    <string name="features">คุณสมบัติการกู้คืน</string>
     <string name="whatsapp_direct_message">ส่งข้อความตรง WhatsApp</string>
     <string name="hello_blank_fragment">สวัสดีส่วนว่าง</string>
     <string name="regular">ปกติ</string>

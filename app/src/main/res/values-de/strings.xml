@@ -285,7 +285,7 @@
     <string name="unlock_now">Jetzt freischalten</string>
     <string name="ulimited_access_for_all_features">Unbegrenzter Zugriff auf alle Funktionen.</string>
     <string name="unlimited_media_recovery">Unbegrenzte Medienwiederherstellung</string>
-    <string name="features">Funktionen</string>
+    <string name="features">Wiederherstellungsfunktionen</string>
     <string name="whatsapp_direct_message">WhatsApp Direktnachricht</string>
     <string name="hello_blank_fragment">Hallo leeres Fragment</string>
     <string name="regular">Regulär</string>
@@ -294,5 +294,6 @@
     <string name="reset">Zurücksetzen</string>
     <string name="quick_scan">Schnellscan</string>
     <string name="quick_clean">Schnellreinigung</string>
+
 
 </resources>

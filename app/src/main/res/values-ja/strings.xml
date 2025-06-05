@@ -263,7 +263,8 @@
   <string name="unlock_now">今すぐアンロック</string>
   <string name="ulimited_access_for_all_features">すべての機能への無制限アクセス。</string>
   <string name="unlimited_media_recovery">無制限のメディア復元</string>
-  <string name="features">機能</string>
+  <string name="features">回復機能</string>
+
   <string name="whatsapp_direct_message">WhatsApp 直接メッセージ</string>
   <string name="hello_blank_fragment">空のフラグメントへようこそ</string>
   <string name="regular">通常</string>

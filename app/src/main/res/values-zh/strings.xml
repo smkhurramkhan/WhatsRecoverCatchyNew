@@ -284,7 +284,7 @@
     <string name="unlock_now">立即解锁</string>
     <string name="ulimited_access_for_all_features">所有功能无限制访问。</string>
     <string name="unlimited_media_recovery">无限制媒体恢复</string>
-    <string name="features">功能</string>
+    <string name="features">恢复功能</string>
     <string name="whatsapp_direct_message">WhatsApp 直接消息</string>
     <string name="hello_blank_fragment">你好，空白片段</string>
     <string name="regular">常规</string>

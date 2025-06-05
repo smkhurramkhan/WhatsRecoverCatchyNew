@@ -265,7 +265,8 @@
     <string name="unlock_now">Разблокировать сейчас</string>
     <string name="ulimited_access_for_all_features">Безлимитный доступ ко всем функциям.</string>
     <string name="unlimited_media_recovery">Безлимитное восстановление медиа</string>
-    <string name="features">Функции</string>
+    <string name="features">Функции восстановления</string>
+
     <string name="whatsapp_direct_message">Прямое сообщение WhatsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
