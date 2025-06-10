@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.appclasseshelpers.RVClickListeners
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
@@ -32,7 +33,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.util.*
 
-class ActivityChat : com.catchyapps.whatsdelete.appactivities.BaseActivity(), ActionMode.Callback {
+class ActivityChat : BaseActivity(), ActionMode.Callback {
     private var messageId: Long = 0
     private lateinit var chatScreenAdapter: AdapterChat
     private var actionMode: ActionMode? = null

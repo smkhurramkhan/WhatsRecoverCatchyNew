@@ -432,76 +432,54 @@ class CleanerConstans {
             val hEndString = context.getString(R.string.rest_assured_permission_text)
             return when (schemas) {
                 MyAppSchemas.H_IMAGE_TYPE -> {
-                    context.getString(R.string.image_permission) + hEndString
+                     hEndString
                 }
                 MyAppSchemas.H_STATUS_TYPE -> {
-                    context.getString(R.string.status_permission) + hEndString
+                    hEndString
                 }
                 MyAppSchemas.H_DOCUMENT_TYPE -> {
-                    context.getString(R.string.doc_permission) + hEndString
+                     hEndString
                 }
                 MyAppSchemas.H_DOCUMENT_TYPE_SENT -> {
-                    context.getString(R.string.doc_sent_permission) + hEndString
+                  hEndString
                 }
                 MyAppSchemas.H_IMAGE_TYPE_SENT -> {
-                    context.getString(R.string.image_sent_permission) + hEndString
+                    hEndString
                 }
                 MyAppSchemas.H_VIDEO_TYPE -> {
-                    context.getString(R.string.video_permission) + hEndString
+                    hEndString
                 }
                 MyAppSchemas.H_VIDEO_TYPE_SENT -> {
-                    context.getString(R.string.video_sent_permission) + hEndString
+                    hEndString
                 }
                 MyAppSchemas.H_AUDIO_TYPE -> {
-                    context.getString(R.string.audio_permission) + hEndString
+                   hEndString
                 }
                 MyAppSchemas.H_AUDIO_TYPE_SENT -> {
-                    context.getString(R.string.audio_sent_permission) + hEndString
+                  hEndString
                 }
                 MyAppSchemas.H_VOICE_TYPE -> {
-                    context.getString(R.string.voice_permission) + hEndString
+                   hEndString
                 }
                 MyAppSchemas.H_VOICE_TYPE_SENT -> {
-                    context.getString(R.string.voice_sent_permission) + hEndString
+                    hEndString
                 }
                 MyAppSchemas.H_WALLPAPER_TYPE -> {
-                    context.getString(R.string.wallpaper_permission) + hEndString
+                   hEndString
                 }
                 MyAppSchemas.H_WALLPAPER_SENT_TYPE -> {
-                    context.getString(R.string.wallpaper_sent_permission) + hEndString
+                   hEndString
                 }
                 MyAppSchemas.H_GIFS_TYPE -> {
-                    context.getString(R.string.gif_permission) + hEndString
+                   hEndString
                 }
                 MyAppSchemas.H_GIFS_SENT_TYPE -> {
-                    context.getString(R.string.gif_sent_permission) + hEndString
+                    hEndString
                 }
             }
 
         }
 
-        fun hGetAllSchemes(): List<MyAppSchemas> {
-            val hList = mutableListOf<MyAppSchemas>()
-            hList.apply {
-                add(MyAppSchemas.H_STATUS_TYPE)
-                add(MyAppSchemas.H_DOCUMENT_TYPE)
-                add(MyAppSchemas.H_DOCUMENT_TYPE_SENT)
-                add(MyAppSchemas.H_IMAGE_TYPE_SENT)
-                add(MyAppSchemas.H_IMAGE_TYPE)
-                add(MyAppSchemas.H_VIDEO_TYPE)
-                add(MyAppSchemas.H_VIDEO_TYPE_SENT)
-                add(MyAppSchemas.H_AUDIO_TYPE)
-                add(MyAppSchemas.H_AUDIO_TYPE_SENT)
-                add(MyAppSchemas.H_VOICE_TYPE)
-                add(MyAppSchemas.H_VOICE_TYPE_SENT)
-                add(MyAppSchemas.H_WALLPAPER_TYPE)
-                add(MyAppSchemas.H_WALLPAPER_SENT_TYPE)
-                add(MyAppSchemas.H_GIFS_TYPE)
-                add(MyAppSchemas.H_GIFS_SENT_TYPE)
-            }
-            return hList.toList()
-
-        }
 
 
         private val H_DOC_PATH = "${MyAppUtils.whatsappPath}/Media/WhatsApp Documents"

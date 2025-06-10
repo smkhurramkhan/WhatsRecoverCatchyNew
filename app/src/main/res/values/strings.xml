@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">WA Recovery &amp; Tools</string>
+    <string name="app_name" translatable="false">WhatsDelete</string>
     <string name="home" translatable="false">Home</string>
 
 
@@ -19,98 +19,6 @@
     <string name="facebook_native_banner_id" translatable="false">729641902896689_729647109562835</string>
     <string name="facebook_native_ads_id" translatable="false">729641902896689_729646999562846</string>
 
-
-    <string name="status_permission" translatable="false">
-            <![CDATA[ Please provide permission for  <b>"Whatsapp Status"</b> folder to view/edit/delete whatsapp statuses. This is
-        only required once.<br> ]]>
-    </string>
-
-    <string name="doc_permission" translatable="false">
-            <![CDATA[Please provide permission for  <b>"Whatsapp Media"</b> folder to view/edit/delete whatsapp media. This is
-        only required once.<br>]]>
-    </string>
-
-    <string name="doc_permission_dialog" translatable="false">
-           Please provide permission for "Whatsapp Media Folder" folder to view/edit/delete whatsapp data. This is
-        only required once.
-    </string>
-
-
-    <string name="doc_sent_permission" translatable="false">
-         <![CDATA[Please provide permission for  <b>"Whatsapp Documnets/Sent"</b> folder to view/edit/delete whatsapp
-        documents. This is only required once.<br>]]>
-    </string>
-
-    <string name="image_permission" translatable="false">
-        <![CDATA[Please provide permission for <b>"Whatsapp Image"</b> folder to view/edit/delete whatsapp images. This is
-        only required once.<br>]]>
-    </string>
-
-
-    <string name="image_sent_permission" translatable="false">
-         <![CDATA[ Please provide permission for  <b>"Whatsapp Image/Sent"</b> folder to view/edit/delete whatsapp
-        images. This is only required once.<br>]]>
-    </string>
-
-
-    <string name="video_permission" translatable="false">
-         <![CDATA[Please provide permission for <b>"Whatsapp Video"</b> folder to view/edit/delete whatsapp videos. This is
-        only required once.<br>]]>
-    </string>
-
-
-    <string name="video_sent_permission" translatable="false">
-         <![CDATA[ Please provide permission for  <b>"Whatsapp Video/Sent"</b> folder to view/edit/delete whatsapp
-        videos. This is only required once.<br>]]>
-    </string>
-
-
-    <string name="audio_permission" translatable="false">
-         <![CDATA[Please provide permission for <b>"Whatsapp Audio"</b> folder to view/edit/delete whatsapp audio files. This
-        is only required once.<br>]]>
-    </string>
-
-
-    <string name="audio_sent_permission" translatable="false">
-         <![CDATA[Please provide permission for  <b>"Whatsapp Audio/Sent"</b> folder to view/edit/delete whatsapp audio
-        files. This is only required once.<br>]]>
-    </string>
-
-
-    <string name="voice_permission" translatable="false">
-         <![CDATA[Please provide permission for <b>"Whatsapp Voice"</b> folder to view/edit/delete whatsapp voice notes. This is
-        only required once. <br>]]>
-    </string>
-
-
-    <string name="voice_sent_permission" translatable="false">
-         <![CDATA[Please provide permission for  <b>"Whatsapp Voice/Sent"</b> folder to view/edit/delete whatsapp
-        voice notes. This is only required once.<br>]]>
-    </string>
-
-
-    <string name="wallpaper_permission" translatable="false">
-         <![CDATA[ Please provide permission for <b>"Whatsapp Wallpaper"</b> folder to view/edit/delete whatsapp wallpapers. This
-        is only required once.<br>]]>
-    </string>
-
-
-    <string name="wallpaper_sent_permission" translatable="false">
-         <![CDATA[ Please provide permission for  <b>"Whatsapp Wallpaper/Sent"</b> folder to view/edit/delete whatsapp
-        wallpapers. This is only required once.<br>]]>
-    </string>
-
-
-    <string name="gif_permission" translatable="false">
-         <![CDATA[ Please provide permission for <b>"Whatsapp Gif"</b> folder to view/edit/delete whatsapp gifs. This is
-        only required once.<br> ]]>
-    </string>
-
-
-    <string name="gif_sent_permission" translatable="false">
-         <![CDATA[Please provide permission for  <b>"Whatsapp Gif/Sent"</b> folder to view/edit/delete whatsapp
-        gifs. This is only required once.<br>]]>
-        </string>
 
 
     <string name="action_settings">Settings</string>
@@ -310,14 +218,14 @@
     <string name="image_status">Image\nStatus</string>
     <string name="video_status">Video\nStatus</string>
     <string name="saved_status">Saved\nStatus</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Stylish\nText</string>
     <string name="text_repeater_">Text\nRepeater</string>
-    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="whats_cleaner">Cleaner</string>
     <string name="direct_chat_">Direct\nChat</string>
     <string name="famous_quotes">Famous\nQuotes</string>
     <string name="text_to_emoji_">Text to\nEmoji</string>
-    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nFaces</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="screenshot_saved">Screenshot Saved</string>
@@ -364,7 +272,7 @@
     <string name="saved">Saved</string>
     <string name="only_tab_clicked">only tab clicked</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">If you don\'t save statuses they will disappear after 24 hours</string>
-    <string name="whatsapp_status">WhatsApp Status</string>
+    <string name="whatsapp_status">Status</string>
     <string name="share_status">Share Status</string>
     <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Are you sure you want to share this status on WhatsApp?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Couldn't find app that open this file "</string>
@@ -382,10 +290,10 @@
     <string name="sent_voice">Sent Voice</string>
     <string name="sent_wallpapers">Sent Wallpapers</string>
     <string name="sent_gifs">Sent GIFs</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">Web</string>
     <string name="change_language">Change Language</string>
     <string name="privacy_settings">Privacy Settings</string>
-    <string name="check_this_app" translatable="false">Hey Check out this amazing WhatsApp deleted messages recovery app: \n</string>
+    <string name="check_this_app" translatable="false">Hey Check out this amazing WhatsDelete messages recovery app: \n</string>
     <string name="play_url" translatable="false">https://play.google.com/store/apps/details?id=%1$s</string>
 
     <string name="cp_file" translatable="false">Audio Recovery <font size='10'>(Ad)</font></string>
@@ -401,13 +309,13 @@
     <string name="type_you_message_here">Type you message here</string>
     <string name="_92">+971</string>
     <string name="unlimited_messages_recovery">Unlimited Messages Recovery</string>
-    <string name="pay_once_enjoye_lifetime">Pay Once Enjoye lifetime</string>
+    <string name="pay_once_enjoye_lifetime">Pay Once Enjoy lifetime</string>
     <string name="unlock_now">Unlock Now</string>
-    <string name="ulimited_access_for_all_features">Ulimited Access for All Features.</string>
+    <string name="ulimited_access_for_all_features">Unlimited Access for All Features.</string>
     <string name="unlimited_media_recovery">Unlimited Media Recovery</string>
     <string name="features">Recovery Features</string>
-    <string name="whatsapp_direct_message">WhatsApp Direct Message</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="whatsapp_direct_message">Direct Message</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="regular">Regular</string>
     <string name="new_line">New Line</string>

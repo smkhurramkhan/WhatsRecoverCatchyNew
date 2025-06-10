@@ -21,15 +21,15 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.appactivities.activityhome.MainActivity
+import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils.Companion.drawableToBitmap
+import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
 import com.catchyapps.whatsdelete.roomdb.AppHelperDb
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityChats
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityMessages
-import com.catchyapps.whatsdelete.appactivities.activitychat.ActivityChat
-import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
-import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,7 +38,7 @@ import timber.log.Timber
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
-import java.util.*
+import java.util.Objects
 
 class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
@@ -60,7 +60,8 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         val pm = getSystemService(POWER_SERVICE) as PowerManager
         wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "PARTIAL_WAKE_LOCK_TAG")
         createNotificationChannel()
-        val intent = Intent(context, MainRecoverActivity::class.java)
+        val intent = Intent(context, MainActivity::class.java)
+        intent.putExtra("fromNotification", true)
         val pendIntent = PendingIntent.getActivity(
             context,
             0,
@@ -71,7 +72,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(
                 resources.getString(R.string.app_name)
             )
-            .setContentText("Managing your WhatsApp deleted messages").setContentIntent(pendIntent)
+            .setContentText("Managing your deleted messages").setContentIntent(pendIntent)
             .build()
 
         startForeground(1001, notification)
@@ -142,17 +143,15 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
                 var bitmap: Bitmap? = null
                 var byteArray = ByteArray(0)
                 try {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if (extras[Notification.EXTRA_LARGE_ICON] is Icon) {
-                            val icon = extras[Notification.EXTRA_LARGE_ICON] as Icon?
-                            if (icon != null) {
-                                val drawable = icon.loadDrawable(context)
-                                bitmap = drawable?.let { drawableToBitmap(it) }
-                            }
-                        } else {
-                            bitmap = extras[Notification.EXTRA_LARGE_ICON] as Bitmap?
+                    if (extras[Notification.EXTRA_LARGE_ICON] is Icon) {
+                        val icon = extras[Notification.EXTRA_LARGE_ICON] as Icon?
+                        if (icon != null) {
+                            val drawable = icon.loadDrawable(context)
+                            bitmap = drawable?.let { drawableToBitmap(it) }
                         }
-                    } else bitmap = extras[Notification.EXTRA_LARGE_ICON] as Bitmap?
+                    } else {
+                        bitmap = extras[Notification.EXTRA_LARGE_ICON] as Bitmap?
+                    }
                     if (bitmap != null) {
                         val stream = ByteArrayOutputStream()
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
@@ -184,7 +183,6 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.M)
     suspend fun doInBackground(
         finalText: String,
         finalTitle: String,
@@ -217,21 +215,27 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             message.contains("\uD83D\uDCF7") -> { // Image
                 messageType = MyAppUtils.IMAGE
             }
+
             message.contains("\uD83C\uDFA5") -> { // Video
                 messageType = MyAppUtils.VIDEO
             }
+
             message.contains("\uD83C\uDFA4") -> {  // Voice
                 messageType = MyAppUtils.VOICE
             }
+
             message.contains("\uD83D\uDCCC") -> {  // Location
                 messageType = MyAppUtils.LOCATION
             }
+
             message.contains("\uD83D\uDCC4") -> {   // Document
                 messageType = MyAppUtils.DOCUMENT
             }
+
             message.contains("\uD83C\uDFB5") -> {   // Audio
                 messageType = MyAppUtils.AUDIO
             }
+
             message.contains("\uD83D\uDC64") -> {    // Contact
                 messageType = MyAppUtils.CONTACT
             }
@@ -283,10 +287,9 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     fun createDeletedMessageNotification(title: String?, message: String?) {
         val hNotificationChannelId = "10001"
-        val resultIntent = Intent(this, ActivityChat::class.java)
+        val resultIntent = Intent(this, MainRecoverActivity::class.java)
         resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val resultPendingIntent = PendingIntent.getActivity(
             this,
@@ -331,7 +334,8 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             override fun onEvent(event: Int, path: String?) {
                 if (event == CREATE || event == CLOSE_WRITE || event == MODIFY || event == MOVED_TO) { // check that it's not equal to .probe because thats created every time camera is launched
                     Timber.d("path > $path")
-                    val destinationPath = MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_IMAGES
+                    val destinationPath =
+                        MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_IMAGES
                     copyAttachmentFile(imagePath + path, destinationPath)
                 }
             }
@@ -343,7 +347,8 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             override fun onEvent(event: Int, path: String?) {
                 if (event == CREATE || event == CLOSE_WRITE || event == MODIFY || event == MOVED_TO) { // check that it's not equal to .probe because thats created every time camera is launched
                     Timber.d("path > $path")
-                    val destinationPath = MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_VIDEOS
+                    val destinationPath =
+                        MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_VIDEOS
                     copyAttachmentFile(videoPath + path, destinationPath)
                 }
             }

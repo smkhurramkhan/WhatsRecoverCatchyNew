@@ -118,12 +118,15 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
         }
     }
 
+    private var fromNotification: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ScreenHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         appSharedPreferences = MyAppSharedPrefs(this)
+
+        fromNotification = intent.getBooleanExtra("fromNotification", false)
 
         googleMobileAdsConsentManager = GoogleMobileAdsConsentManager.getInstance(this)
 
@@ -161,6 +164,10 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
         navigationClickListener()
         binding.navView.itemIconTintList = null
+
+        if (fromNotification) {
+            startActivity(Intent(this, MainRecoverActivity::class.java))
+        }
     }
 
     private fun loadAds() {
@@ -378,7 +385,7 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
 
     private fun showPremium() {
-        if (appSharedPreferences?.isPremium == false) {
+        if (appSharedPreferences?.isPremium == false && !fromNotification) {
             goToPremium()
         }
     }

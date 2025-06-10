@@ -103,7 +103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_6sdp"
-                            android:text="@string/doc_permission_dialog"
+                            android:text="@string/permission_needed"
                             android:textAlignment="center"
                             android:textColor="@color/colorPrimary"
                             android:textSize="16sp"

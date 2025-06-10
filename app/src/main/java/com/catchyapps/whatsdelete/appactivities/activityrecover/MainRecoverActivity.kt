@@ -73,6 +73,9 @@ class MainRecoverActivity : com.catchyapps.whatsdelete.appactivities.BaseActivit
             "video"->{
                 replaceFragment(RecoverMediaFragment())
             }
+            else -> {
+                replaceFragment(FragmentChatRecover())
+            }
         }
 
 
