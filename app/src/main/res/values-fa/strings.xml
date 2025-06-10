@@ -13,7 +13,7 @@
 
     <string name="enable_permission">اجازه فعال</string>
     <string name="we_need_your_permission">به اجازه شما نیاز داریم</string>
-    <string name="we_need_your_permission_desc">برای اینکه پیام‌های حذف شده WhatsApp خود را به صورت محلی ذخیره کنید، باید مجوز \"دسترسی به اعلان\" را به این برنامه بدهید. برنامه <b>WA Recover</b> را در قسمت بعدی برای فعال کردن مجوز</string> انتخاب کنید
+    <string name="we_need_your_permission_desc">برای اینکه پیام‌های حذف شده WApp خود را به صورت محلی ذخیره کنید، باید مجوز \"دسترسی به اعلان\" را به این برنامه بدهید. برنامه <b>WA Recover</b> را در قسمت بعدی برای فعال کردن مجوز</string> انتخاب کنید
     <string name="no_deleted_chat_detected_yet">هنوز گپ حذف شده ای شناسایی نشده است</string>
 
     <string name="select_all">همه را انتخاب کنید</string>
@@ -64,9 +64,9 @@
         </item>
     </array>
     <string name="how_it_work_desc">
-       <![CDATA[ 1) \'WhatsApp Messenger\' را باز کنید<br><br>
-         <b><font color=\'#cc0029\'> 2) Imp*: تنظیم بارگیری خودکار رسانه را از \'WhatsApp Messenger\' روشن کنید تا WA Recover بهتر کار کند.</font></b><br><br><br><br> br>
-         3) فایل های رسانه ای WhatsApp (تصویر، فیلم ها، یادداشت های صوتی، صداها، اسناد) را ذخیره کنید.<br><br>
+       <![CDATA[ 1) \'WApp Messenger\' را باز کنید<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: تنظیم بارگیری خودکار رسانه را از \'WApp Messenger\' روشن کنید تا WA Recover بهتر کار کند.</font></b><br><br><br><br> br>
+         3) فایل های رسانه ای WApp (تصویر، فیلم ها، یادداشت های صوتی، صداها، اسناد) را ذخیره کنید.<br><br>
          4) در صورت حذف هر پیامی از طرف فرستنده به شما اطلاع داده می شود.<br><br>
          5) برای صرفه جویی در فضای ذخیره سازی، موارد تکراری را روشن/خاموش کنید.<br><br>
          6) برگه ها را از تنظیمات علامت بزنید یا علامت آن را بردارید تا آن فایل رسانه ای حذف شده ذخیره شود.<br><br>
@@ -119,9 +119,9 @@
     <string name="whatsapp">واتساپ</string>
     <string name="rename">RENAME</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">این ویژگی از WhatsApp Public API برای باز کردن چت با هر شماره ای که وارد می کنید بدون ذخیره هیچ شماره ای استفاده می کند</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">این ویژگی از WApp Public API برای باز کردن چت با هر شماره ای که وارد می کنید بدون ذخیره هیچ شماره ای استفاده می کند</string>
     <string name="eg_1234567890">به عنوان مثال: 1234567890</string>
-    <string name="open_in_whatsapp_chat">باز کردن در چت WhatsApp</string>
+    <string name="open_in_whatsapp_chat">باز کردن در چت WApp</string>
 
 
     <!-- پاک کننده-->
@@ -175,7 +175,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">لطفاً متنی را که می خواهید تکرار کنید وارد کنید.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">لطفاً تعداد دفعاتی را که می خواهید متن را تکرار کنید وارد کنید</string>
     <string name="text_copied">متن کپی شد</string>
-    <string name="whatsapp_not_found">WhatsApp یافت نشد</string>
+    <string name="whatsapp_not_found">WApp یافت نشد</string>
 
     <string name="favourites">Favourites</string>
     <string name="text_to_emoji">Text To Emoji</string>
@@ -188,23 +188,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Are you sure you want to clear all the data?</string>
     <string name="select_country_code">Select Country Code</string>
     <string name="enter_number">Enter Number</string>
-    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="whatsapp_cleaner">WApp Cleaner</string>
     <string name="permission_needed">Permission needed</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Storage permission is needed to read WhatsApp Media. Press OK to enable in settings.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Storage permission is needed to read WhatsApp Media</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Storage permission is needed to read WApp Media. Press OK to enable in settings.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Storage permission is needed to read WApp Media</string>
     <string name="chat">Chat</string>
     <string name="voice">Voice</string>
     <string name="image_status">Image\nStatus</string>
     <string name="video_status">Video\nStatus</string>
     <string name="saved_status">Saved\nStatus</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Stylish\nText</string>
     <string name="text_repeater_">Text\nRepeater</string>
-    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="whats_cleaner">Cleaner</string>
     <string name="direct_chat_">Direct\nChat</string>
     <string name="famous_quotes">Famous\nQuotes</string>
     <string name="text_to_emoji_">Text to\nEmoji</string>
-    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nFaces</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="screenshot_saved">Screenshot Saved</string>
@@ -251,7 +251,7 @@
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">اگر وضعیت ها را ذخیره نکنید، پس از 24 ساعت ناپدید می شوند</string>
     <string name="whatsapp_status">وضعیت واتساپ</string>
     <string name="share_status">وضعیت اشتراک</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">آیا مطمئن هستید که می‌خواهید این وضعیت را در WhatsApp به اشتراک بگذارید؟</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">آیا مطمئن هستید که می‌خواهید این وضعیت را در WApp به اشتراک بگذارید؟</string>
     <string name="couldn_t_find_app_that_open_this_file">"برنامه ای که این فایل را باز می کند پیدا نشد"</string>
     <string name="received_images">تصاویر دریافت شده</string>
     <string name="received_videos">ویدیوهای دریافتی</string>

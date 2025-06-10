@@ -12,7 +12,7 @@
 
     <string name="enable_permission">권한 사용</string>
     <string name="we_need_your_permission">권한이 필요합니다</string>
-    <string name="we_need_your_permission_desc">WhatsApp 삭제된 메시지를 로컬로 저장하려면 이 앱에 "알림 액세스" 권한을 허용해야 합니다. 다음에 나오는 "WA Recover" 애플리케이션을 선택하여 권한을 활성화하세요.</string>
+    <string name="we_need_your_permission_desc">WApp 삭제된 메시지를 로컬로 저장하려면 이 앱에 "알림 액세스" 권한을 허용해야 합니다. 다음에 나오는 "WA Recover" 애플리케이션을 선택하여 권한을 활성화하세요.</string>
     <string name="no_deleted_chat_detected_yet">아직 삭제된 채팅이 감지되지 않았습니다</string>
 
     <string name="select_all">전체 선택</string>
@@ -44,13 +44,13 @@
         <item>수락을 클릭하면 광고 정책을 수락하고 다른 응용 프로그램의 이용 약관을 위반하지 않습니다.</item>
     </array>
     <string name="how_it_work_desc">
-  <![CDATA[1) \'WhatsApp Messenger\'를 엽니다<br><br>
-    <b><font color=\'#cc0029\'> 2) 주의*: \'WhatsApp Messenger\'에서 자동 다운로드 미디어 설정을 켜십시오. WA Recover 작동이 개선됩니다.</font></b><br><br>
-    3) WhatsApp 미디어 파일(이미지, 비디오, 음성 노트, 오디오, 문서)을 저장합니다<br><br>
+  <![CDATA[1) \'WApp Messenger\'를 엽니다<br><br>
+    <b><font color=\'#cc0029\'> 2) 주의*: \'WApp Messenger\'에서 자동 다운로드 미디어 설정을 켜십시오. WA Recover 작동이 개선됩니다.</font></b><br><br>
+    3) WApp 미디어 파일(이미지, 비디오, 음성 노트, 오디오, 문서)을 저장합니다<br><br>
     4) 송신자가 메시지를 삭제하면 알림이 표시됩니다<br><br>
     5) 저장 공간을 절약하기 위해 중복을 켜거나 끕니다<br><br>
     6) 삭제된 미디어 파일을 저장할 탭을 설정에서 확인 또는 선택 취소합니다<br><br>
-    7) 삭제된 텍스트 메시지를 받으려면 WhatsApp 알림을 켜둘 필요가 있습니다
+    7) 삭제된 텍스트 메시지를 받으려면 WApp 알림을 켜둘 필요가 있습니다
 ]]></string>
     <string name="accept">수락</string>
     <string name="media_file_backup_list">미디어 파일 백업 목록</string>
@@ -84,7 +84,7 @@
     <string name="customize_tabs">탭 사용자 정의</string>
     <string name="apply">적용</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">WhatsApp 열기</string>
+    <string name="open_whatsapp">WApp 열기</string>
     <string name="view_the_status_you_want_to_download">상태 보기</string>
     <string name="come_back_again">다시 오세요</string>
     <string name="noimagestatus">이미지 상태를 찾을 수 없습니다</string>
@@ -95,12 +95,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">이름 바꾸기</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">이 기능은 WhatsApp 공개 API를 사용하여 입력한 번호를 저장하지 않고 채팅을 엽니다</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">이 기능은 WApp 공개 API를 사용하여 입력한 번호를 저장하지 않고 채팅을 엽니다</string>
     <string name="eg_1234567890">예: 1234567890</string>
-    <string name="open_in_whatsapp_chat">WhatsApp 채팅에서 열기</string>
+    <string name="open_in_whatsapp_chat">WApp 채팅에서 열기</string>
 
     <!-- Cleaner-->
     <string name="delete_items_blank">선택한 파일 지우기 (0B)</string>
@@ -164,23 +164,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">모든 데이터를 지우시겠습니까?</string>
     <string name="select_country_code">국가 코드 선택</string>
     <string name="enter_number">번호 입력</string>
-    <string name="whatsapp_cleaner">WhatsApp 클리너</string>
+    <string name="whatsapp_cleaner">WApp 클리너</string>
     <string name="permission_needed">권한 필요</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">WhatsApp 미디어를 읽으려면 저장소 권한이 필요합니다. 설정에서 활성화하려면 확인을 누르세요.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">WhatsApp 미디어를 읽으려면 저장소 권한이 필요합니다</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">WApp 미디어를 읽으려면 저장소 권한이 필요합니다. 설정에서 활성화하려면 확인을 누르세요.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">WApp 미디어를 읽으려면 저장소 권한이 필요합니다</string>
     <string name="chat">채팅</string>
     <string name="voice">음성</string>
     <string name="image_status">이미지\n상태</string>
     <string name="video_status">비디오\n상태</string>
     <string name="saved_status">저장된\n상태</string>
-    <string name="whatsapp_web">WhatsApp\n웹</string>
+    <string name="whatsapp_web">웹</string>
     <string name="stylish_text_">세련된\n텍스트</string>
     <string name="text_repeater_">텍스트\n반복기</string>
-    <string name="whats_cleaner">WhatsApp\n클리너</string>
+    <string name="whats_cleaner">WApp\n클리너</string>
     <string name="direct_chat_">직접\n채팅</string>
     <string name="famous_quotes">유명한\n인용구</string>
     <string name="text_to_emoji_">텍스트에서\n이모지</string>
-    <string name="whatsapp_stickers">WhatsApp\n스티커</string>
+    <string name="whatsapp_stickers">스티커</string>
     <string name="ascii_faces">ASCII\n표정</string>
     <string name="something_went_wrong">문제가 발생했습니다</string>
     <string name="screenshot_saved">스크린샷이 저장되었습니다</string>
@@ -225,7 +225,7 @@
     <string name="saved">저장됨</string>
     <string name="only_tab_clicked">탭만 클릭되었습니다</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">상태를 저장하지 않으면 24시간 후에 사라집니다</string>
-    <string name="whatsapp_status">WhatsApp 상태</string>
+    <string name="whatsapp_status">WApp 상태</string>
     <string name="share_status">상태 공유</string>
     <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">이 상태를 WhatsApp에서 공유하시겠습니까?</string>
     <string name="couldn_t_find_app_that_open_this_file">이 파일을 열 수 있는 앱을 찾을 수 없습니다</string>
@@ -243,7 +243,7 @@
     <string name="sent_voice">보낸 음성</string>
     <string name="sent_wallpapers">보낸 배경화면</string>
     <string name="sent_gifs">보낸 GIF</string>
-    <string name="whatsapp_web_">WhatsApp 웹</string>
+    <string name="whatsapp_web_">WApp 웹</string>
     <string name="change_language">언어 변경</string>
   <string name="privacy_settings">개인정보 설정</string>
 
@@ -264,7 +264,7 @@
   <string name="ulimited_access_for_all_features">모든 기능 무제한 액세스.</string>
   <string name="unlimited_media_recovery">무제한 미디어 복구</string>
   <string name="features">복구 기능</string>
-  <string name="whatsapp_direct_message">WhatsApp 직접 메시지</string>
+  <string name="whatsapp_direct_message">WApp 직접 메시지</string>
   <string name="hello_blank_fragment">빈 프래그먼트 안녕하세요</string>
   <string name="regular">일반</string>
   <string name="new_line">새 줄</string>

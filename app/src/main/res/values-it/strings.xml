@@ -12,7 +12,7 @@
 
     <string name="enable_permission">ABILITA PERMESSO</string>
     <string name="we_need_your_permission">Abbiamo bisogno del tuo permesso</string>
-    <string name="we_need_your_permission_desc">Per memorizzare i tuoi messaggi eliminati di WhatsApp localmente, devi permettere l\'accesso alle notifiche a questa app. Seleziona l\'applicazione <b>WA Recover</b> nella prossima schermata per abilitare il permesso.</string>
+    <string name="we_need_your_permission_desc">Per memorizzare i tuoi messaggi eliminati di WApp localmente, devi permettere l\'accesso alle notifiche a questa app. Seleziona l\'applicazione <b>WA Recover</b> nella prossima schermata per abilitare il permesso.</string>
     <string name="no_deleted_chat_detected_yet">Nessuna chat eliminata rilevata ancora</string>
 
     <string name="select_all">Seleziona tutto</string>
@@ -45,13 +45,13 @@
     </array>
 
     <string name="how_it_work_desc">
-    <![CDATA[1) Apri \'WhatsApp Messenger\'<br><br>
-    <b><font color=\'#cc0029\'>2) Importante: Attiva l\'impostazione di download automatico dei media da \'WhatsApp Messenger\' per un miglior funzionamento di WA Recover.</font></b><br><br>
-    3) Salva i file multimediali di WhatsApp (immagini, video, note vocali, audio, documenti).<br><br>
+    <![CDATA[1) Apri \'WApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'>2) Importante: Attiva l\'impostazione di download automatico dei media da \'WApp Messenger\' per un miglior funzionamento di WA Recover.</font></b><br><br>
+    3) Salva i file multimediali di WApp (immagini, video, note vocali, audio, documenti).<br><br>
     4) Riceverai una notifica se un messaggio viene eliminato dal mittente.<br><br>
     5) Attiva/Disattiva le duplicazioni per risparmiare spazio di archiviazione.<br><br>
     6) Seleziona o deseleziona le schede dalle impostazioni per salvare i file multimediali eliminati.<br><br>
-    7) Le notifiche di WhatsApp devono essere attivate per ricevere messaggi di testo eliminati.]]>
+    7) Le notifiche di WApp devono essere attivate per ricevere messaggi di testo eliminati.]]>
 </string>
     <string name="accept">Accetta</string>
     <string name="media_file_backup_list">Elenco dei file multimediali di backup</string>
@@ -85,7 +85,7 @@
     <string name="customize_tabs">Personalizza le schede</string>
     <string name="apply">Applica</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">Apri WhatsApp</string>
+    <string name="open_whatsapp">Apri WApp</string>
     <string name="view_the_status_you_want_to_download">Visualizza stato</string>
     <string name="come_back_again">Torna di nuovo</string>
     <string name="noimagestatus">Nessuna immagine di stato trovata</string>
@@ -96,12 +96,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">RENA</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Questa funzione utilizza l\'API pubblica di WhatsApp per aprire una chat con qualsiasi numero tu inserisca senza salvarlo.</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Questa funzione utilizza l\'API pubblica di WApp per aprire una chat con qualsiasi numero tu inserisca senza salvarlo.</string>
     <string name="eg_1234567890">Esempio: 1234567890</string>
-    <string name="open_in_whatsapp_chat">Apri in chat WhatsApp</string>
+    <string name="open_in_whatsapp_chat">Apri in chat WApp</string>
 
     <!-- Cleaner-->
     <string name="delete_items_blank">Cancella i file selezionati (0B)</string>
@@ -135,7 +135,7 @@
     <string name="restore_unlimited_messages_instantly">Ripristina messaggi illimitati istantaneamente</string>
 
     <string name="or">O</string>
-    <string name="direct_whats_chat">Chat diretta con WhatsApp</string>
+    <string name="direct_whats_chat">Chat diretta con WApp</string>
     <string name="write_your_text">Scrivi il tuo testo</string>
     <string name="font_styles">Stili del carattere</string>
     <string name="stylish_text">Testo elegante</string>
@@ -152,7 +152,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">Inserisci il testo che vuoi ripetere.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Inserisci il numero di volte che vuoi ripetere il testo</string>
     <string name="text_copied">Testo copiato</string>
-    <string name="whatsapp_not_found">WhatsApp non trovato</string>
+    <string name="whatsapp_not_found">WApp non trovato</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="favourites">Preferiti</string>
@@ -166,23 +166,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Sei sicuro di voler cancellare tutti i dati?</string>
     <string name="select_country_code">Seleziona il codice del paese</string>
     <string name="enter_number">Inserisci il numero</string>
-    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="whatsapp_cleaner">WApp Cleaner</string>
     <string name="permission_needed">Permesso necessario</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Il permesso di archiviazione è necessario per leggere i media di WhatsApp. Premi OK per abilitarlo nelle impostazioni.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Il permesso di archiviazione è necessario per leggere i media di WhatsApp</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Il permesso di archiviazione è necessario per leggere i media di WApp. Premi OK per abilitarlo nelle impostazioni.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Il permesso di archiviazione è necessario per leggere i media di WApp</string>
     <string name="chat">Chat</string>
     <string name="voice">Voce</string>
     <string name="image_status">Immagine\nStato</string>
     <string name="video_status">Video\nStato</string>
     <string name="saved_status">Stato\nSalvato</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Testo\nElegante</string>
     <string name="text_repeater_">Ripetitore\ndi testo</string>
-    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="whats_cleaner">Cleaner</string>
     <string name="direct_chat_">Chat\nDiretta</string>
     <string name="famous_quotes">Citazioni\nFamose</string>
     <string name="text_to_emoji_">Testo in\nEmoji</string>
-    <string name="whatsapp_stickers">Adesivi\nWhatsApp</string>
+    <string name="whatsapp_stickers">Adesivi</string>
 
     <string name="ascii_faces">Facce ASCII</string>
     <string name="something_went_wrong">Qualcosa è andato storto</string>
@@ -228,9 +228,9 @@
     <string name="saved">Salvato</string>
     <string name="only_tab_clicked">solo scheda cliccata</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Se non salvi gli stati, scompariranno dopo 24 ore</string>
-    <string name="whatsapp_status">Stato WhatsApp</string>
+    <string name="whatsapp_status">Stato WApp</string>
     <string name="share_status">Condividi Stato</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Sei sicuro di voler condividere questo stato su WhatsApp?</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Sei sicuro di voler condividere questo stato su WApp?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Impossibile trovare l'app che apre questo file "</string>
     <string name="received_images">Immagini ricevute</string>
     <string name="received_videos">Video ricevuti</string>
@@ -246,7 +246,7 @@
     <string name="sent_voice">Messaggi vocali inviati</string>
     <string name="sent_wallpapers">Sfondi inviati</string>
     <string name="sent_gifs">GIF inviate</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">WApp Web</string>
     <string name="change_language">Cambia Lingua</string>
     <string name="privacy_settings">Impostazioni sulla privacy</string>
 
@@ -266,7 +266,7 @@
     <string name="ulimited_access_for_all_features">Accesso illimitato a tutte le funzionalità.</string>
     <string name="unlimited_media_recovery">Recupero illimitato dei media</string>
     <string name="features">Funzionalità di recupero</string>
-    <string name="whatsapp_direct_message">Messaggio diretto WhatsApp</string>
+    <string name="whatsapp_direct_message">Messaggio diretto WApp</string>
 
     <string name="hello_blank_fragment">Ciao frammento vuoto</string>
     <string name="regular">Regolare</string>

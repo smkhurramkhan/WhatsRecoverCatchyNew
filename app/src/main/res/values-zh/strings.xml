@@ -12,7 +12,7 @@
 
     <string name="enable_permission">启用权限</string>
     <string name="we_need_your_permission">我们需要您的许可</string>
-    <string name="we_need_your_permission_desc">为了在本地存储您的 WhatsApp 已删除消息，您需要允许此应用的“通知访问”权限。 选择下一个看到的<b>WA Recover</b>应用程序以启用权限</string>
+    <string name="we_need_your_permission_desc">为了在本地存储您的 WApp 已删除消息，您需要允许此应用的“通知访问”权限。 选择下一个看到的<b>WA Recover</b>应用程序以启用权限</string>
     <string name="no_deleted_chat_detected_yet">尚未检测到已删除的聊天记录</string>
 
     <string name="select_all">全选</string>
@@ -64,13 +64,13 @@
     </array>
 
     <string name="how_it_work_desc">
-    <![CDATA[ 1) 打开\'WhatsApp Messenger\'<br><br>
-         <b><font color=\'#cc0029\'> 2) Imp*：打开“WhatsApp Messenger”自动下载媒体设置，以更好地恢复 WA 工作。</font></b><br>< br>
-         3) 保存 WhatsApp 媒体文件（图像、视频、语音注释、音频、文档）。<br><br>
+    <![CDATA[ 1) 打开\'WApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*：打开“WApp Messenger”自动下载媒体设置，以更好地恢复 WA 工作。</font></b><br>< br>
+         3) 保存 WApp 媒体文件（图像、视频、语音注释、音频、文档）。<br><br>
          4) 如果发件人删除任何消息，您将收到通知。<br><br>
          5) 打开/关闭复制以节省存储空间。<br><br>
          6) 在设置中选中或取消选中选项卡以保存已删除的媒体文件。<br><br>
-         7) 您必须打开 WhatsApp 通知才能获取已删除的短信。
+         7) 您必须打开 WApp 通知才能获取已删除的短信。
      ]]></string>
     <string name="accept">接受</string>
     <string name="media_file_backup_list">媒体文件备份列表</string>
@@ -104,7 +104,7 @@
     <string name="customize_tabs">自定义选项卡</string>
     <string name="apply">应用</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">打开 WhatsApp</string>
+    <string name="open_whatsapp">打开 WApp</string>
     <string name="view_the_status_you_want_to_download">查看状态</string>
     <string name="come_back_again">再次回来</string>
     <string name="noimagestatus">未找到图像状态</string>
@@ -115,12 +115,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">重命名</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">此功能使用 WhatsApp Public API 与您输入的任何号码打开聊天，而不保存任何号码</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">此功能使用 WApp Public API 与您输入的任何号码打开聊天，而不保存任何号码</string>
     <string name="eg_1234567890">例如：1234567890</string>
-    <string name="open_in_whatsapp_chat">在 WhatsApp 聊天中打开</string>
+    <string name="open_in_whatsapp_chat">在 WApp 聊天中打开</string>
 
 
     <!-- 清洁剂-->
@@ -174,7 +174,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">请输入您要重复的文字。</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">请输入您想要重复文本的次数</string>
     <string name="text_copied">文本已复制</string>
-    <string name="whatsapp_not_found">未找到 WhatsApp</string><!-- 用于导航片段的字符串 -->
+    <string name="whatsapp_not_found">未找到 WApp</string><!-- 用于导航片段的字符串 -->
     <string name="favourites">收藏夹</string>
     <string name="text_to_emoji">文字转表情符号</string>
     <string name="stickers">贴纸</string>
@@ -186,23 +186,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">您确定要清除所有数据吗？</string>
     <string name="select_country_code">选择国家/地区代码</string>
     <string name="enter_number">输入号码</string>
-    <string name="whatsapp_cleaner">WhatsApp 清理器</string>
+    <string name="whatsapp_cleaner">清理器</string>
     <string name="permission_needed">需要权限</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">读取 WhatsApp 媒体 需要存储权限。 按“确定”以在设置中启用。</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">读取 WhatsApp 媒体 需要存储权限</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">读取 WApp 媒体 需要存储权限。 按“确定”以在设置中启用。</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">读取 WApp 媒体 需要存储权限</string>
     <string name="chat">聊天</string>
     <string name="voice">语音</string>
     <string name="image_status">图像\n状态</string>
     <string name="video_status">视频\n状态</string>
     <string name="saved_status">已保存\n状态</string>
-    <string name="whatsapp_web">WhatsApp\n网页</string>
+    <string name="whatsapp_web">网页</string>
     <string name="stylish_text_">时尚\n文本</string>
     <string name="text_repeater_">文本\n中继器</string>
-    <string name="whats_cleaner">WhatsApp\n清理器</string>
+    <string name="whats_cleaner">清理器</string>
     <string name="direct_chat_">直接\n聊天</string>
     <string name="famous_quotes">著名\n名言</string>
     <string name="text_to_emoji_">文本到\n表情符号</string>
-    <string name="whatsapp_stickers">WhatsApp\n贴纸</string>
+    <string name="whatsapp_stickers">贴纸</string>
     <string name="ascii_faces">Ascii\n面孔</string>
     <string name="something_went_wrong">出了点问题</string>
     <string name="screenshot_saved">屏幕截图已保存</string>
@@ -247,9 +247,9 @@
     <string name="saved">已保存</string>
     <string name="only_tab_clicked">仅单击标签</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">如果您不保存状态，它们将在 24 小时后消失</string>
-    <string name="whatsapp_status">WhatsApp 状态</string>
+    <string name="whatsapp_status">状态</string>
     <string name="share_status">共享状态</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">您确定要在 WhatsApp 上分享此状态吗？</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">您确定要在 WApp 上分享此状态吗？</string>
     <string name="couldn_t_find_app_that_open_this_file">“找不到打开此文件的应用程序”</string>
     <string name="received_images">收到的图像</string>
     <string name="received_videos">收到的视频</string>
@@ -265,7 +265,7 @@
     <string name="sent_voice">发送语音</string>
     <string name="sent_wallpapers">发送壁纸</string>
     <string name="sent_gifs">发送 GIF</string>
-    <string name="whatsapp_web_">WhatsApp 网页版</string>
+    <string name="whatsapp_web_">网页版</string>
     <string name="change_language">更改语言</string>
     <string name="privacy_settings">隐私设置</string>
 
@@ -285,7 +285,7 @@
     <string name="ulimited_access_for_all_features">所有功能无限制访问。</string>
     <string name="unlimited_media_recovery">无限制媒体恢复</string>
     <string name="features">恢复功能</string>
-    <string name="whatsapp_direct_message">WhatsApp 直接消息</string>
+    <string name="whatsapp_direct_message">直接消息</string>
     <string name="hello_blank_fragment">你好，空白片段</string>
     <string name="regular">常规</string>
     <string name="new_line">新行</string>

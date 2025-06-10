@@ -12,7 +12,7 @@
 
     <string name="enable_permission">BẬT QUYỀN</string>
     <string name="we_need_your_permission">Chúng tôi cần sự cho phép của bạn</string>
-    <string name="we_need_your_permission_desc">Để lưu trữ cục bộ các tin nhắn đã xóa WhatsApp của bạn, bạn cần cấp quyền \"Truy cập thông báo\" cho ứng dụng này. Chọn ứng dụng <b>WA Recover</b> trong lần xem tiếp theo để bật quyền</string>
+    <string name="we_need_your_permission_desc">Để lưu trữ cục bộ các tin nhắn đã xóa WApp của bạn, bạn cần cấp quyền \"Truy cập thông báo\" cho ứng dụng này. Chọn ứng dụng <b>WA Recover</b> trong lần xem tiếp theo để bật quyền</string>
     <string name="no_deleted_chat_detected_yet">Chưa phát hiện cuộc trò chuyện nào bị xóa</string>
 
     <string name="select_all">Chọn tất cả</string>
@@ -63,13 +63,13 @@
         </item>
     </array>
     <string name="how_it_work_desc">
-       <![CDATA[ 1) Mở \'WhatsApp Messenger\'<br><br>
-         <b><font color=\'#cc0029\'> 2) Imp*: Bật cài đặt phương tiện tự động tải xuống từ \'WhatsApp Messenger\' để WA Recover hoạt động tốt hơn.</font></b><br>< br>
-         3) Lưu tệp phương tiện WhatsApp (Hình ảnh, Video, Ghi chú thoại, Âm thanh, Tài liệu).<br><br>
+       <![CDATA[ 1) Mở \'WApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: Bật cài đặt phương tiện tự động tải xuống từ \'WApp Messenger\' để WA Recover hoạt động tốt hơn.</font></b><br>< br>
+         3) Lưu tệp phương tiện WApp (Hình ảnh, Video, Ghi chú thoại, Âm thanh, Tài liệu).<br><br>
          4) Bạn sẽ được thông báo nếu có bất kỳ tin nhắn nào bị xóa từ phía người gửi.<br><br>
          5) BẬT/TẮT tính năng sao chép để tiết kiệm dung lượng.<br><br>
          6) Chọn hoặc bỏ chọn Tab trong cài đặt để lưu tệp phương tiện đã xóa đó.<br><br>
-         7) Thông báo WhatsApp của bạn phải được bật để nhận tin nhắn văn bản đã xóa.
+         7) Thông báo WApp của bạn phải được bật để nhận tin nhắn văn bản đã xóa.
      ]]></string>
     <string name="accept">Chấp nhận</string>
     <string name="media_file_backup_list">Danh sách sao lưu tập tin media</string>
@@ -105,7 +105,7 @@
     <string name="customize_tabs">Tùy chỉnh tab</string>
     <string name="apply">Áp dụng</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">Mở WhatsApp</string>
+    <string name="open_whatsapp">Mở WApp</string>
     <string name="view_the_status_you_want_to_download">Xem trạng thái</string>
     <string name="come_back_again">Trở lại lần nữa</string>
     <string name="noimagestatus">Không tìm thấy trạng thái hình ảnh</string>
@@ -117,12 +117,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">ĐỔI TÊN</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Tính năng này sử dụng API công khai của WhatsApp để mở cuộc trò chuyện với bất kỳ số nào bạn nhập mà không lưu bất kỳ số nào</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Tính năng này sử dụng API công khai của WApp để mở cuộc trò chuyện với bất kỳ số nào bạn nhập mà không lưu bất kỳ số nào</string>
     <string name="eg_1234567890">Ví dụ: 1234567890</string>
-    <string name="open_in_whatsapp_chat">Mở trong Trò chuyện WhatsApp</string>
+    <string name="open_in_whatsapp_chat">Mở trong Trò chuyện WApp</string>
 
 
     <!-- Dọn dẹp-->
@@ -176,7 +176,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">Vui lòng nhập văn bản bạn muốn lặp lại.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Vui lòng nhập số lần bạn muốn lặp lại văn bản</string>
     <string name="text_copied">Đã sao chép văn bản</string>
-    <string name="whatsapp_not_found">Không tìm thấy WhatsApp</string>
+    <string name="whatsapp_not_found">Không tìm thấy WApp</string>
     <!-- Các chuỗi được sử dụng cho các đoạn để điều hướng -->
     <string name="favourites">Yêu thích</string>
     <string name="text_to_emoji">Chuyển văn bản thành biểu tượng cảm xúc</string>
@@ -190,23 +190,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Bạn có chắc chắn muốn xóa tất cả dữ liệu không?</string>
     <string name="select_country_code">Chọn mã quốc gia</string>
     <string name="enter_number">Nhập số</string>
-    <string name="whatsapp_cleaner">Trình dọn dẹp WhatsApp</string>
+    <string name="whatsapp_cleaner">Trình dọn dẹp</string>
     <string name="permission_needed">Cần có quyền</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Cần có quyền lưu trữ để đọc WhatsApp Media. Nhấn OK để bật trong cài đặt.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Cần có quyền lưu trữ để đọc WhatsApp Media</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Cần có quyền lưu trữ để đọc WApp Media. Nhấn OK để bật trong cài đặt.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Cần có quyền lưu trữ để đọc WApp Media</string>
     <string name="chat">Trò chuyện</string>
     <string name="voice">Giọng nói</string>
     <string name="image_status">Hình ảnh\nTrạng thái</string>
     <string name="video_status">Trạng thái video</string>
     <string name="saved_status">Đã lưu\nTrạng thái</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Sành điệu\nVăn bản</string>
     <string name="text_repeater_">Văn bản\nRepeater</string>
-    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="whats_cleaner">Cleaner</string>
     <string name="direct_chat_">Trực tiếp\nTrò chuyện</string>
     <string name="famous_quotes">Những câu trích dẫn nổi tiếng</string>
     <string name="text_to_emoji_">Nhắn tin tới\nEmoji</string>
-    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nKhuôn mặt</string>
     <string name="something_went_wrong">Đã xảy ra lỗi</string>
     <string name="screenshot_saved">Đã lưu ảnh chụp màn hình</string>
@@ -252,10 +252,10 @@
     <string name="saved">Đã lưu</string>
     <string name="only_tab_clicked">chỉ nhấp vào tab</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Nếu bạn không lưu trạng thái, chúng sẽ biến mất sau 24 giờ</string>
-    <string name="whatsapp_status">Trạng thái WhatsApp</string>
+    <string name="whatsapp_status">Trạng thái</string>
     <string name="share_status">Trạng thái chia sẻ</string>
 
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Bạn có chắc chắn muốn chia sẻ trạng thái này trên WhatsApp không?</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Bạn có chắc chắn muốn chia sẻ trạng thái này trên WApp không?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Không thể tìm thấy ứng dụng mở tệp này "</string>
     <string name="received_images">Hình ảnh đã nhận được</string>
     <string name="received_videos">Video đã nhận được</string>
@@ -271,7 +271,7 @@
     <string name="sent_voice">Giọng nói đã gửi</string>
     <string name="sent_wallpapers">Đã gửi hình nền</string>
     <string name="sent_gifs">Đã gửi GIF</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">Web</string>
     <string name="change_language">Thay đổi ngôn ngữ</string>
     <string name="privacy_settings">Cài đặt quyền riêng tư</string>
 
@@ -291,7 +291,7 @@
     <string name="ulimited_access_for_all_features">Truy cập không giới hạn tất cả tính năng.</string>
     <string name="unlimited_media_recovery">Phục hồi phương tiện không giới hạn</string>
     <string name="features">Tính năng phục hồi</string>
-    <string name="whatsapp_direct_message">Tin nhắn trực tiếp WhatsApp</string>
+    <string name="whatsapp_direct_message">Tin nhắn trực tiếp</string>
     <string name="hello_blank_fragment">Xin chào đoạn trống</string>
     <string name="regular">Thường</string>
     <string name="new_line">Dòng mới</string>

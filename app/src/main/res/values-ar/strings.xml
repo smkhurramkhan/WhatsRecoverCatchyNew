@@ -13,7 +13,7 @@
 
     <string name="enable_permission">تمكين الإذن</string>
     <string name="we_need_your_permission">نحتاج إلى إذنك</string>
-    <string name="we_need_your_permission_desc">لتخزين رسائل WhatsApp المحذوفة محليًا، يلزمك السماح بإذن \"الوصول إلى الإشعارات\" لهذا التطبيق. حدد تطبيق <b>WA Recover</b> في المرة التالية لتمكين الإذن</string>
+    <string name="we_need_your_permission_desc">لتخزين رسائل WApp المحذوفة محليًا، يلزمك السماح بإذن \"الوصول إلى الإشعارات\" لهذا التطبيق. حدد تطبيق <b>WA Recover</b> في المرة التالية لتمكين الإذن</string>
     <string name="no_deleted_chat_detected_yet">لم يتم اكتشاف أي دردشة محذوفة حتى الآن</string>
 
     <string name="select_all">حدد الكل</string>
@@ -65,13 +65,13 @@
     </array>
 
     <string name="how_it_work_desc">
-        <![CDATA[ 1) افتح \'WhatsApp Messenger\'<br><br>
-         <b><font color=\'#cc0029\'> 2) Imp*: تشغيل إعداد وسائط التنزيل التلقائي من \'WhatsApp Messenger\' لتحسين عمل استرداد WA.</font></b><br>< ر>
-         3) حفظ ملفات وسائط WhatsApp (الصور ومقاطع الفيديو والملاحظات الصوتية والتسجيلات الصوتية والمستندات).<br><br>
+        <![CDATA[ 1) افتح \'WApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: تشغيل إعداد وسائط التنزيل التلقائي من \'WApp Messenger\' لتحسين عمل استرداد WA.</font></b><br>< ر>
+         3) حفظ ملفات وسائط WApp (الصور ومقاطع الفيديو والملاحظات الصوتية والتسجيلات الصوتية والمستندات).<br><br>
          4) سيتم إعلامك في حالة حذف أي رسالة من جانب المرسل.<br><br>
          5) قم بتشغيل/إيقاف التكرارات من أجل توفير مساحة التخزين.<br><br>
          6) قم بتحديد أو إلغاء تحديد علامات التبويب من الإعدادات لحفظ ملف الوسائط المحذوف.<br><br>
-         7) يجب تشغيل إشعار WhatsApp الخاص بك للحصول على الرسائل النصية المحذوفة.
+         7) يجب تشغيل إشعار WApp الخاص بك للحصول على الرسائل النصية المحذوفة.
      ]]></string>
     <string name="accept">قبول</string>
     <string name="media_file_backup_list">قائمة النسخ الاحتياطي لملفات الوسائط</string>
@@ -117,12 +117,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">إعادة التسمية</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">تستخدم هذه الميزة WhatsApp Public API لفتح محادثة مع أي رقم تدخله دون حفظ أي رقم</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">تستخدم هذه الميزة WApp Public API لفتح محادثة مع أي رقم تدخله دون حفظ أي رقم</string>
     <string name="eg_1234567890">مثال: 1234567890</string>
-    <string name="open_in_whatsapp_chat">فتح في دردشة WhatsApp</string>
+    <string name="open_in_whatsapp_chat">فتح في دردشة WApp</string>
 
 
     <!--منظف-->
@@ -176,7 +176,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">الرجاء إدخال النص الذي تريد تكراره.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">الرجاء إدخال عدد المرات التي تريد فيها تكرار النص</string>
     <string name="text_copied">تم نسخ النص</string>
-    <string name="whatsapp_not_found">لم يتم العثور على WhatsApp</string>
+    <string name="whatsapp_not_found">لم يتم العثور على WApp</string>
     <!-- السلاسل المستخدمة للأجزاء للتنقل -->
     <string name="favourites">المفضلة</string>
     <string name="text_to_emoji">إرسال رسالة نصية إلى Emoji</string>
@@ -191,22 +191,22 @@
     <string name="enter_number">أدخل الرقم</string>
     <string name="whatsapp_cleaner">منظف الواتساب</string>
     <string name="permission_needed">الإذن مطلوب</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">يلزم الحصول على إذن التخزين لقراءة وسائط WhatsApp. اضغط على "موافق" للتمكين في الإعدادات.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">يلزم الحصول على إذن التخزين لقراءة وسائط WhatsApp</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">يلزم الحصول على إذن التخزين لقراءة وسائط WApp. اضغط على "موافق" للتمكين في الإعدادات.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">يلزم الحصول على إذن التخزين لقراءة وسائط WApp</string>
     <string name="chat">الدردشة</string>
     <string name="voice">الصوت</string>
 
     <string name="image_status">حالة\nالصورة</string>
     <string name="video_status">حالة\nالفيديو</string>
     <string name="saved_status">الحالة\nالمحفوظة</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">نص\nأنيق</string>
     <string name="text_repeater_">مكرر\nالنص</string>
-    <string name="whats_cleaner">منظف\nWhatsApp</string>
+    <string name="whats_cleaner">منظف</string>
     <string name="direct_chat_">الدردشة\nالمباشرة</string>
     <string name="famous_quotes">اقتباسات\nمشهورة</string>
-    <string name="text_to_emoji_">أرسل رسالة نصية إلى\nEmoji</string>
-    <string name="whatsapp_stickers">ملصقات\nWhatsApp</string>
+    <string name="text_to_emoji_">أرسل رسالة نصية إلى</string>
+    <string name="whatsapp_stickers">ملصقات</string>
     <string name="ascii_faces">Ascii\nالوجوه</string>
     <string name="something_went_wrong">حدث خطأ ما</string>
     <string name="screenshot_saved">تم حفظ لقطة الشاشة</string>
@@ -254,7 +254,7 @@
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">إذا لم تقم بحفظ الحالات فسوف تختفي بعد 24 ساعة</string>
     <string name="whatsapp_status">حالة الواتساب</string>
     <string name="share_status">حالة المشاركة</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">هل أنت متأكد من رغبتك في مشاركة هذه الحالة على WhatsApp؟</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">هل أنت متأكد من رغبتك في مشاركة هذه الحالة على WApp؟</string>
     <string name="couldn_t_find_app_that_open_this_file">"تعذر العثور على التطبيق الذي يفتح هذا الملف"</string>
     <string name="received_images">الصور المستلمة</string>
     <string name="received_videos">مقاطع الفيديو المستلمة</string>

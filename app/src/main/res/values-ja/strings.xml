@@ -44,8 +44,8 @@
         <item>受け入れをクリックすると、広告ポリシーに同意し、他のアプリの利用規約に違反しません。</item>
     </array>
     <string name="how_it_work_desc">
-  <![CDATA[1) \'WhatsApp Messenger\'を開きます<br><br>
-    <b><font color=\'#cc0029\'> 2) 注意*: \'WhatsApp Messenger\'で自動ダウンロードメディア設定をオンにしてください。WA Recoverの動作が向上します。</font></b><br><br>
+  <![CDATA[1) \'WApp Messenger\'を開きます<br><br>
+    <b><font color=\'#cc0029\'> 2) 注意*: \'WApp Messenger\'で自動ダウンロードメディア設定をオンにしてください。WA Recoverの動作が向上します。</font></b><br><br>
     3) WhatsAppメディアファイル（画像、ビデオ、ボイスメモ、オーディオ、ドキュメント）を保存します<br><br>
     4) 送信者がメッセージを削除した場合、通知されます<br><br>
     5) ストレージを節約するために重複をON / OFFにします<br><br>
@@ -95,7 +95,7 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">名前を変更</string>
 
     <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">この機能はWhatsApp Public APIを使用して、保存せずに入力した任意の番号でチャットを開くものです</string>
@@ -173,14 +173,14 @@
     <string name="image_status">画像\nステータス</string>
     <string name="video_status">ビデオ\nステータス</string>
     <string name="saved_status">保存された\nステータス</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">WApp\nWeb</string>
     <string name="stylish_text_">スタイリッシュ\nテキスト</string>
     <string name="text_repeater_">テキスト\nリピーター</string>
-    <string name="whats_cleaner">WhatsApp\nクリーナー</string>
+    <string name="whats_cleaner">クリーナー</string>
     <string name="direct_chat_">ダイレクト\nチャット</string>
     <string name="famous_quotes">有名な\n引用</string>
     <string name="text_to_emoji_">テキストから\n絵文字</string>
-    <string name="whatsapp_stickers">WhatsApp\nステッカー</string>
+    <string name="whatsapp_stickers">ステッカー</string>
     <string name="ascii_faces">ASCII\n顔</string>
     <string name="something_went_wrong">何かがうまくいきませんでした</string>
     <string name="screenshot_saved">スクリーンショットが保存されました</string>
@@ -243,7 +243,7 @@
     <string name="sent_voice">送信したボイス</string>
     <string name="sent_wallpapers">送信した壁紙</string>
     <string name="sent_gifs">送信したGIF</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">WApp Web</string>
     <string name="change_language">言語を変更</string>
   <string name="privacy_settings">プライバシー設定</string>
 
@@ -265,7 +265,7 @@
   <string name="unlimited_media_recovery">無制限のメディア復元</string>
   <string name="features">回復機能</string>
 
-  <string name="whatsapp_direct_message">WhatsApp 直接メッセージ</string>
+  <string name="whatsapp_direct_message">WApp 直接メッセージ</string>
   <string name="hello_blank_fragment">空のフラグメントへようこそ</string>
   <string name="regular">通常</string>
   <string name="new_line">改行</string>

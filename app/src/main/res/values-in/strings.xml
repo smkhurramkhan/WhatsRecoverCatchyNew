@@ -12,7 +12,7 @@
 
     <string name="enable_permission">AKTIFKAN IZIN</string>
     <string name="we_need_your_permission">Kami membutuhkan izin Anda</string>
-    <string name="we_need_your_permission_desc">Untuk menyimpan pesan WhatsApp yang dihapus secara lokal, Anda perlu memberikan izin "Akses Pemberitahuan" kepada aplikasi ini. Pilih aplikasi <b>WA Recover</b> pada tampilan selanjutnya untuk mengaktifkan izin tersebut.</string>
+    <string name="we_need_your_permission_desc">Untuk menyimpan pesan WApp yang dihapus secara lokal, Anda perlu memberikan izin "Akses Pemberitahuan" kepada aplikasi ini. Pilih aplikasi <b>WA Recover</b> pada tampilan selanjutnya untuk mengaktifkan izin tersebut.</string>
     <string name="no_deleted_chat_detected_yet">Belum ada obrolan yang dihapus terdeteksi</string>
 
     <string name="select_all">Pilih Semua</string>
@@ -45,13 +45,13 @@
     </array>
 
     <string name="how_it_work_desc"><![CDATA[
-    1) Buka \'WhatsApp Messenger\'<br><br>
-    <b><font color=\'#cc0029\'>2) Penting*: Aktifkan pengaturan unduhan otomatis media dari \'WhatsApp Messenger\' untuk kinerja WA Recover yang lebih baik.</font></b><br><br>
-    3) Simpan file media WhatsApp (Gambar, Video, Catatan Suara, Audio, Dokumen).<br><br>
+    1) Buka \'WApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'>2) Penting*: Aktifkan pengaturan unduhan otomatis media dari \'WApp Messenger\' untuk kinerja WA Recover yang lebih baik.</font></b><br><br>
+    3) Simpan file media WApp (Gambar, Video, Catatan Suara, Audio, Dokumen).<br><br>
     4) Anda akan diberi tahu jika ada pesan yang dihapus dari sisi pengirim.<br><br>
     5) Aktifkan/Nonaktifkan duplikasi untuk menghemat penyimpanan.<br><br>
     6) Periksa atau tidak centang tab dari pengaturan untuk menyimpan file media yang dihapus.<br><br>
-    7) Notifikasi WhatsApp Anda harus aktif untuk mendapatkan pesan teks yang dihapus.
+    7) Notifikasi WApp Anda harus aktif untuk mendapatkan pesan teks yang dihapus.
 ]]></string>
     <string name="accept">Terima</string>
     <string name="media_file_backup_list">Daftar Backup File Media</string>
@@ -85,7 +85,7 @@
     <string name="customize_tabs">Kustomisasi Tab</string>
     <string name="apply">Terapkan</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">Buka WhatsApp</string>
+    <string name="open_whatsapp">Buka WApp</string>
     <string name="view_the_status_you_want_to_download">Lihat Status</string>
     <string name="come_back_again">Kembali Lagi</string>
     <string name="noimagestatus">Tidak Ada Status Gambar Ditemukan</string>
@@ -96,12 +96,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">GANTI NAMA</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Fitur ini menggunakan WhatsApp Public API untuk membuka obrolan dengan nomor apa pun yang Anda masukkan tanpa menyimpan nomor tersebut.</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Fitur ini menggunakan WApp Public API untuk membuka obrolan dengan nomor apa pun yang Anda masukkan tanpa menyimpan nomor tersebut.</string>
     <string name="eg_1234567890">Contoh: 1234567890</string>
-    <string name="open_in_whatsapp_chat">Buka di WhatsApp Chat</string>
+    <string name="open_in_whatsapp_chat">Buka di WApp Chat</string>
 
     <!-- Cleaner-->
     <string name="delete_items_blank">Hapus File yang Dipilih (0B)</string>
@@ -135,7 +135,7 @@
     <string name="restore_unlimited_messages_instantly">Pulihkan Pesan Tanpa Batas Secara Instan</string>
 
     <string name="or">ATAU</string>
-    <string name="direct_whats_chat">Obrolan WhatsApp Langsung</string>
+    <string name="direct_whats_chat">Obrolan WApp Langsung</string>
     <string name="write_your_text">Tulis teks Anda</string>
     <string name="font_styles">Gaya Font</string>
     <string name="stylish_text">Teks Stylish</string>
@@ -152,7 +152,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">Silakan masukkan teks yang ingin Anda ulangi.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Silakan masukkan jumlah kali Anda ingin mengulangi teks</string>
     <string name="text_copied">Teks disalin</string>
-    <string name="whatsapp_not_found">WhatsApp Tidak Ditemukan</string>
+    <string name="whatsapp_not_found">WApp Tidak Ditemukan</string>
     <!-- Strings used for fragments for navigation -->
     <string name="favourites">Favorit</string>
     <string name="text_to_emoji">Teks ke Emoji</string>
@@ -165,23 +165,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Apakah Anda yakin ingin menghapus semua data?</string>
     <string name="select_country_code">Pilih Kode Negara</string>
     <string name="enter_number">Masukkan Nomor</string>
-    <string name="whatsapp_cleaner">Pembersih WhatsApp</string>
+    <string name="whatsapp_cleaner">Pembersih WApp</string>
     <string name="permission_needed">Izin diperlukan</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Izin penyimpanan diperlukan untuk membaca Media WhatsApp. Tekan OK untuk mengaktifkannya di pengaturan.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Izin penyimpanan diperlukan untuk membaca Media WhatsApp</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Izin penyimpanan diperlukan untuk membaca Media WApp. Tekan OK untuk mengaktifkannya di pengaturan.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Izin penyimpanan diperlukan untuk membaca Media WApp</string>
     <string name="chat">Obrolan</string>
     <string name="voice">Suara</string>
     <string name="image_status">Gambar\nStatus</string>
     <string name="video_status">Video\nStatus</string>
     <string name="saved_status">Status\nTersimpan</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Teks\nStylish</string>
     <string name="text_repeater_">Pengulang\nTeks</string>
-    <string name="whats_cleaner">Pembersih WhatsApp</string>
+    <string name="whats_cleaner">Pembersih WApp</string>
     <string name="direct_chat_">Obrolan\nLangsung</string>
     <string name="famous_quotes">Kutipan\nTerkenal</string>
     <string name="text_to_emoji_">Teks ke\nEmoji</string>
-    <string name="whatsapp_stickers">Stiker\nWhatsApp</string>
+    <string name="whatsapp_stickers">Stikers</string>
     <string name="ascii_faces">Wajah\nASCII</string>
     <string name="something_went_wrong">Ada yang salah</string>
     <string name="screenshot_saved">Screenshot Tersimpan</string>
@@ -226,9 +226,9 @@
     <string name="saved">Tersimpan</string>
     <string name="only_tab_clicked">hanya tab yang diklik</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Jika Anda tidak menyimpan status, mereka akan menghilang setelah 24 jam</string>
-    <string name="whatsapp_status">Status WhatsApp</string>
+    <string name="whatsapp_status">Status WApp</string>
     <string name="share_status">Bagikan Status</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Apakah Anda yakin ingin membagikan status ini di WhatsApp?</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Apakah Anda yakin ingin membagikan status ini di WApp?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Tidak dapat menemukan aplikasi yang membuka file ini "</string>
     <string name="received_images">Gambar yang Diterima</string>
     <string name="received_videos">Video yang Diterima</string>
@@ -244,7 +244,7 @@
     <string name="sent_voice">Voice yang Dikirim</string>
     <string name="sent_wallpapers">Wallpaper yang Dikirim</string>
     <string name="sent_gifs">GIF yang Dikirim</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">WApp Web</string>
     <string name="change_language">Ganti Bahasa</string>
     <string name="privacy_settings">Pengaturan Privasi</string>
 
@@ -264,7 +264,7 @@
     <string name="ulimited_access_for_all_features">Akses Tak Terbatas ke Semua Fitur.</string>
     <string name="unlimited_media_recovery">Pemulihan Media Tak Terbatas</string>
     <string name="features">Fitur Pemulihan</string>
-    <string name="whatsapp_direct_message">Pesan Langsung WhatsApp</string>
+    <string name="whatsapp_direct_message">Pesan Langsung WApp</string>
     <string name="hello_blank_fragment">Halo fragmen kosong</string>
     <string name="regular">Reguler</string>
     <string name="new_line">Baris Baru</string>

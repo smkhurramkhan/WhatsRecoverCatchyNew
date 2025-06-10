@@ -12,7 +12,7 @@
 
     <string name="enable_permission">AKTIVER TILLATELSE</string>
     <string name="we_need_your_permission">Vi trenger din tillatelse</string>
-    <string name="we_need_your_permission_desc">For å lagre WhatsApp-slettede meldinger lokalt, må du tillate "Notification Access" -tillatelsen til denne appen. Velg <b>WA Recover</b>-applikasjonen i neste visning for å aktivere tillatelsen</string>
+    <string name="we_need_your_permission_desc">For å lagre WApp-slettede meldinger lokalt, må du tillate "Notification Access" -tillatelsen til denne appen. Velg <b>WA Recover</b>-applikasjonen i neste visning for å aktivere tillatelsen</string>
     <string name="no_deleted_chat_detected_yet">Ingen slettede samtaler oppdaget ennå</string>
 
     <string name="select_all">Velg alle</string>
@@ -61,13 +61,13 @@
         </item>
     </array>
 
-    <string name="how_it_work_desc"><![CDATA[1) Åpne \'WhatsApp Messenger\'<br><br>
-<b><font color=\'#cc0029\'>2) Viktig*: Slå på innstillingen for automatisk nedlasting av media fra \'WhatsApp Messenger\' for bedre WA Recover-funksjon.</font></b><br><br>
-3) Lagre WhatsApp-mediefiler (bilde, videoer, talenotater, lyd, dokumenter).<br><br>
+    <string name="how_it_work_desc"><![CDATA[1) Åpne \'WApp Messenger\'<br><br>
+<b><font color=\'#cc0029\'>2) Viktig*: Slå på innstillingen for automatisk nedlasting av media fra \'WApp Messenger\' for bedre WA Recover-funksjon.</font></b><br><br>
+3) Lagre WApp-mediefiler (bilde, videoer, talenotater, lyd, dokumenter).<br><br>
 4) Du vil bli varslet hvis meldinger slettes fra avsenderens side.<br><br>
 5) Slå AV/PA duplisering for å spare lagringsplass.<br><br>
 6) Merk eller fjern merkingen av faner fra innstillingene for å lagre slettede mediefiler.<br><br>
-7) WhatsApp-varslingen din må være slått på for å motta slettede tekstmeldinger.]]></string>
+7) WApp-varslingen din må være slått på for å motta slettede tekstmeldinger.]]></string>
     <string name="accept">Aksepter</string>
     <string name="media_file_backup_list">Sikkerhetskopieringsliste for mediefiler</string>
     <string name="erase_all_messages">Slett alle meldinger</string>
@@ -100,7 +100,7 @@
     <string name="customize_tabs">Tilpass faner</string>
     <string name="apply">Bruk</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">Åpne WhatsApp</string>
+    <string name="open_whatsapp">Åpne WApp</string>
     <string name="view_the_status_you_want_to_download">Vis status</string>
     <string name="come_back_again">Kom tilbake igjen</string>
     <string name="noimagestatus">Ingen bildestatus funnet</string>
@@ -111,12 +111,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">GI NAVN</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Denne funksjonen bruker WhatsApp Public API for å åpne en chat med hvilket som helst nummer du skriver inn uten å lagre det.</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Denne funksjonen bruker WApp Public API for å åpne en chat med hvilket som helst nummer du skriver inn uten å lagre det.</string>
     <string name="eg_1234567890">Eks: 1234567890</string>
-    <string name="open_in_whatsapp_chat">Åpne i WhatsApp Chat</string>
+    <string name="open_in_whatsapp_chat">Åpne i WApp Chat</string>
 
     <!-- Cleaner-->
     <string name="delete_items_blank">Slett valgte filer (0B)</string>
@@ -167,7 +167,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">Vennligst skriv inn teksten du vil gjenta.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Vennligst skriv inn antall ganger du vil gjenta teksten</string>
     <string name="text_copied">Tekst kopiert</string>
-    <string name="whatsapp_not_found">WhatsApp ikke funnet</string>
+    <string name="whatsapp_not_found">WApp ikke funnet</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="favourites">Favoritter</string>
@@ -181,24 +181,24 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Er du sikker på at du vil fjerne all data?</string>
     <string name="select_country_code">Velg landskode</string>
     <string name="enter_number">Skriv inn nummeret</string>
-    <string name="whatsapp_cleaner">WhatsApp-renser</string>
+    <string name="whatsapp_cleaner">WApp-renser</string>
     <string name="permission_needed">Tillatelse nødvendig</string>
 
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Lagringsrettigheter er nødvendig for å lese WhatsApp Media. Trykk OK for å aktivere i innstillinger.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Lagringsrettigheter er nødvendig for å lese WhatsApp Media</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Lagringsrettigheter er nødvendig for å lese WApp Media. Trykk OK for å aktivere i innstillinger.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Lagringsrettigheter er nødvendig for å lese WApp Media</string>
     <string name="chat">Chat</string>
     <string name="voice">Lyd</string>
     <string name="image_status">Bilde\nStatus</string>
     <string name="video_status">Video\nStatus</string>
     <string name="saved_status">Lagret\nStatus</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Stilig\nTekst</string>
     <string name="text_repeater_">Tekst\nRepeater</string>
-    <string name="whats_cleaner">WhatsApp\nRengjører</string>
+    <string name="whats_cleaner">Rengjører</string>
     <string name="direct_chat_">Direkte\nChat</string>
     <string name="famous_quotes">Berømte\nSitater</string>
     <string name="text_to_emoji_">Tekst til\nEmoji</string>
-    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nFjes</string>
     <string name="something_went_wrong">Noe gikk galt</string>
     <string name="screenshot_saved">Skjermbilde lagret</string>
@@ -243,9 +243,9 @@
     <string name="saved">Lagret</string>
     <string name="only_tab_clicked">bare tab klikket</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Hvis du ikke lagrer statusene, vil de forsvinne etter 24 timer</string>
-    <string name="whatsapp_status">WhatsApp Status</string>
+    <string name="whatsapp_status">WApp Status</string>
     <string name="share_status">Del status</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Er du sikker på at du vil dele denne statusen på WhatsApp?</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Er du sikker på at du vil dele denne statusen på WApp?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Finner ingen app som kan åpne denne filen "</string>
     <string name="received_images">Mottatte bilder</string>
     <string name="received_videos">Mottatte videoer</string>
@@ -261,7 +261,7 @@
     <string name="sent_voice">Sendt stemme</string>
     <string name="sent_wallpapers">Sendte bakgrunnsbilder</string>
     <string name="sent_gifs">Sendte GIF-er</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">Web</string>
     <string name="change_language">Bytt språk</string>
     <string name="privacy_settings">Personverninnstillinger</string>
 
@@ -281,7 +281,7 @@
     <string name="ulimited_access_for_all_features">Ubegrenset tilgang til alle funksjoner.</string>
     <string name="unlimited_media_recovery">Ubegrenset mediegjenoppretting</string>
     <string name="features">Gjenopprettingsfunksjoner</string>
-    <string name="whatsapp_direct_message">WhatsApp direktemelding</string>
+    <string name="whatsapp_direct_message">Direktemelding</string>
     <string name="hello_blank_fragment">Hei tomt fragment</string>
     <string name="regular">Vanlig</string>
     <string name="new_line">Ny linje</string>

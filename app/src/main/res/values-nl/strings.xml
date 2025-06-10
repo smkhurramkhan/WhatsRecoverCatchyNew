@@ -12,7 +12,7 @@
 
     <string name="enable_permission">Machtiging inschakelen</string>
     <string name="we_need_your_permission">We hebben uw toestemming nodig</string>
-    <string name="we_need_your_permission_desc">Om uw WhatsApp verwijderde berichten lokaal op te slaan, moet u toestemming geven voor "Meldings-toegang" aan deze app. Selecteer de <b>WA Recover</b>-toepassing in het volgende scherm om de toestemming in te schakelen</string>
+    <string name="we_need_your_permission_desc">Om uw WApp verwijderde berichten lokaal op te slaan, moet u toestemming geven voor "Meldings-toegang" aan deze app. Selecteer de <b>WA Recover</b>-toepassing in het volgende scherm om de toestemming in te schakelen</string>
     <string name="no_deleted_chat_detected_yet">Nog geen verwijderde chat gedetecteerd</string>
 
     <string name="select_all">Alles selecteren</string>
@@ -45,13 +45,13 @@
         <item>Door op accepteren te klikken, accepteert u ons advertentiebeleid en overtreedt u niet de gebruiksvoorwaarden van andere applicaties.</item>
     </array>
     <string name="how_it_work_desc">
-  <![CDATA[  1) Open \'WhatsApp Messenger\'<br><br>
-    <b><font color=\'#cc0029\'> 2) Belangrijk*: Zet de automatische downloadmedia-instelling aan in \'WhatsApp Messenger\' voor een betere WA Recover-werking.</font></b><br><br>
-    3) Sla WhatsApp-mediabestanden op (afbeeldingen, video\'s, spraaknotities, audio, documenten).<br><br>
+  <![CDATA[  1) Open \'WApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'> 2) Belangrijk*: Zet de automatische downloadmedia-instelling aan in \'WApp Messenger\' voor een betere WA Recover-werking.</font></b><br><br>
+    3) Sla WApp-mediabestanden op (afbeeldingen, video\'s, spraaknotities, audio, documenten).<br><br>
     4) U wordt op de hoogte gebracht als een bericht is verwijderd aan de kant van de afzender.<br><br>
     5) Zet duplicaties AAN/UIT om opslagruimte te besparen.<br><br>
     6) Vink tabbladen aan of uit in de instellingen om dat verwijderde mediabestand op te slaan.<br><br>
-    7) Uw WhatsApp-meldingen moeten zijn ingeschakeld om verwijderde tekstberichten te ontvangen.
+    7) Uw WApp-meldingen moeten zijn ingeschakeld om verwijderde tekstberichten te ontvangen.
 ]]>
 </string>
     <string name="accept">Accepteren</string>
@@ -86,7 +86,7 @@
     <string name="customize_tabs">Tabbladen aanpassen</string>
     <string name="apply">Toepassen</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">WhatsApp openen</string>
+    <string name="open_whatsapp">WApp openen</string>
     <string name="view_the_status_you_want_to_download">Status bekijken</string>
     <string name="come_back_again">Kom weer terug</string>
     <string name="noimagestatus">Geen afbeeldingsstatus gevonden</string>
@@ -97,12 +97,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">HERNOEMEN</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Deze functie maakt gebruik van de WhatsApp Public API om een chat te openen met elk nummer dat u invoert zonder enig nummer op te slaan</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Deze functie maakt gebruik van de WApp Public API om een chat te openen met elk nummer dat u invoert zonder enig nummer op te slaan</string>
     <string name="eg_1234567890">Bijv: 1234567890</string>
-    <string name="open_in_whatsapp_chat">Openen in WhatsApp-chat</string>
+    <string name="open_in_whatsapp_chat">Openen in WApp-chat</string>
 
     <!-- Cleaner-->
     <string name="delete_items_blank">Geselecteerde bestanden wissen (0B)</string>
@@ -136,7 +136,7 @@
     <string name="restore_unlimited_messages_instantly">Herstel onbeperkt berichten direct</string>
 
     <string name="or">OF</string>
-    <string name="direct_whats_chat">Directe WhatsApp-chat</string>
+    <string name="direct_whats_chat">Directe WApp-chat</string>
     <string name="write_your_text">Schrijf je tekst</string>
     <string name="font_styles">Lettertypen</string>
     <string name="stylish_text">Stijlvolle tekst</string>
@@ -153,7 +153,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">Voer de tekst in die u wilt herhalen.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Voer het aantal keren in dat u de tekst wilt herhalen</string>
     <string name="text_copied">Tekst gekopieerd</string>
-    <string name="whatsapp_not_found">WhatsApp niet gevonden</string>
+    <string name="whatsapp_not_found">WApp niet gevonden</string>
     <!-- Strings used for fragments for navigation -->
     <string name="favourites">Favorieten</string>
     <string name="text_to_emoji">Tekst naar Emoji</string>
@@ -166,24 +166,24 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Weet u zeker dat u alle gegevens wilt wissen?</string>
     <string name="select_country_code">Selecteer landcode</string>
     <string name="enter_number">Voer nummer in</string>
-    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="whatsapp_cleaner">Cleaner</string>
     <string name="permission_needed">Toestemming nodig</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Opslagtoestemming is nodig om WhatsApp-media te lezen. Druk op OK om in instellingen in te schakelen.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Opslagtoestemming is nodig om WhatsApp-media te lezen</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Opslagtoestemming is nodig om WApp-media te lezen. Druk op OK om in instellingen in te schakelen.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Opslagtoestemming is nodig om WApp-media te lezen</string>
     <string name="chat">Chat</string>
     <string name="voice">Stem</string>
     <string name="image_status">Afbeelding\nStatus</string>
     <string name="video_status">Video\nStatus</string>
     <string name="saved_status">Opgeslagen\nStatus</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Stijlvolle\nTekst</string>
     <string name="text_repeater_">Tekst\nHerhaling</string>
-    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="whats_cleaner">Cleaner</string>
     <string name="direct_chat_">Directe\nChat</string>
     <string name="famous_quotes">Beroemde\nCitaten</string>
     <string name="text_to_emoji_">Tekst naar\nEmoji</string>
 
-    <string name="whatsapp_stickers">WhatsApp\nStickers</string>
+    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nGezichten</string>
     <string name="something_went_wrong">Er is iets misgegaan</string>
     <string name="screenshot_saved">Screenshot Opgeslagen</string>
@@ -229,9 +229,9 @@
     <string name="saved">Opgeslagen</string>
     <string name="only_tab_clicked">Alleen tabblad geklikt</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Als je statussen niet opslaat, verdwijnen ze na 24 uur</string>
-    <string name="whatsapp_status">WhatsApp-status</string>
+    <string name="whatsapp_status">Status</string>
     <string name="share_status">Deel status</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Weet je zeker dat je deze status op WhatsApp wilt delen?</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Weet je zeker dat je deze status op WApp wilt delen?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Kan geen app vinden die dit bestand kan openen "</string>
     <string name="received_images">Ontvangen Afbeeldingen</string>
     <string name="received_videos">Ontvangen Video\'s</string>
@@ -247,7 +247,7 @@
     <string name="sent_voice">Verzonden Spraak</string>
     <string name="sent_wallpapers">Verzonden Wallpapers</string>
     <string name="sent_gifs">Verzonden GIFs</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">Web</string>
     <string name="change_language">Taal wijzigen</string>
     <string name="privacy_settings">Privacy-instellingen</string>
 
@@ -267,7 +267,7 @@
     <string name="ulimited_access_for_all_features">Onbeperkte toegang tot alle functies.</string>
     <string name="unlimited_media_recovery">Onbeperkt mediabestand herstellen</string>
     <string name="features">Herstelfuncties</string>
-    <string name="whatsapp_direct_message">WhatsApp directe boodschap</string>
+    <string name="whatsapp_direct_message">Directe boodschap</string>
     <string name="hello_blank_fragment">Hallo leeg fragment</string>
     <string name="regular">Normaal</string>
     <string name="new_line">Nieuwe regel</string>

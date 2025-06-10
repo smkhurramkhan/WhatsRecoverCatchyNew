@@ -12,7 +12,7 @@
 
     <string name="enable_permission">AKTIVERA BEHÖRIGHET</string>
     <string name="we_need_your_permission">Vi behöver din tillåtelse</string>
-    <string name="we_need_your_permission_desc">För att lagra dina raderade meddelanden från WhatsApp lokalt måste du tillåta "Åtkomst till aviseringar" för den här appen. Välj <b>WA Recover</b>-appen i nästa vy för att aktivera behörigheten</string>
+    <string name="we_need_your_permission_desc">För att lagra dina raderade meddelanden från WApp lokalt måste du tillåta "Åtkomst till aviseringar" för den här appen. Välj <b>WA Recover</b>-appen i nästa vy för att aktivera behörigheten</string>
     <string name="no_deleted_chat_detected_yet">Inget raderat chatt upptäckt ännu</string>
 
     <string name="select_all">Välj Alla</string>
@@ -45,13 +45,13 @@
     </array>
     <string name="how_it_work_desc">
   <![CDATA[
-    1) Öppna \'WhatsApp Messenger\'<br><br>
-    <b><font color=\'#cc0029\'>2) Viktigt*: Slå på automatisk nedladdning av media från \'WhatsApp Messenger\' för bättre WA Recover-funktion.</font></b><br><br>
-    3) Spara WhatsApp-mediafiler (Bilder, Videor, Röstmeddelanden, Ljud, Dokument).<br><br>
+    1) Öppna \'WApp Messenger\'<br><br>
+    <b><font color=\'#cc0029\'>2) Viktigt*: Slå på automatisk nedladdning av media från \'WApp Messenger\' för bättre WA Recover-funktion.</font></b><br><br>
+    3) Spara WApp-mediafiler (Bilder, Videor, Röstmeddelanden, Ljud, Dokument).<br><br>
     4) Du kommer att bli notifierad om något meddelande raderas från avsändarens sida.<br><br>
     5) Slå AV/PAÅ dubbletter för att spara lagringsutrymme.<br><br>
     6) Markera eller avmarkera flikar från inställningarna för att spara den raderade mediafilen.<br><br>
-    7) Dina WhatsApp-aviseringar måste vara påslagna för att få raderade textmeddelanden.
+    7) Dina WApp-aviseringar måste vara påslagna för att få raderade textmeddelanden.
   ]]></string>
     <string name="accept">Acceptera</string>
     <string name="media_file_backup_list">Backuplista för mediefiler</string>
@@ -85,7 +85,7 @@
     <string name="customize_tabs">Anpassa flikar</string>
     <string name="apply">Tillämpa</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">Öppna WhatsApp</string>
+    <string name="open_whatsapp">Öppna WApp</string>
     <string name="view_the_status_you_want_to_download">Visa status</string>
     <string name="come_back_again">Kom tillbaka igen</string>
     <string name="noimagestatus">Ingen bildstatus hittad</string>
@@ -96,12 +96,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">Ändra namn</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Den här funktionen använder WhatsApps offentliga API för att öppna en chatt med vilket nummer du än anger utan att spara det.</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">Den här funktionen använder WApp offentliga API för att öppna en chatt med vilket nummer du än anger utan att spara det.</string>
     <string name="eg_1234567890">Exempel: 1234567890</string>
-    <string name="open_in_whatsapp_chat">Öppna i WhatsApp-chatt</string>
+    <string name="open_in_whatsapp_chat">Öppna i WApp-chatt</string>
 
     <!-- Cleaner-->
     <string name="delete_items_blank">Rensa valda filer (0B)</string>
@@ -135,7 +135,7 @@
     <string name="restore_unlimited_messages_instantly">Återställ obegränsat meddelanden omedelbart</string>
 
     <string name="or">ELLER</string>
-    <string name="direct_whats_chat">Direkt WhatsApp-chatt</string>
+    <string name="direct_whats_chat">Direkt WApp-chatt</string>
     <string name="write_your_text">Skriv din text</string>
     <string name="font_styles">Teckensnittsstilar</string>
     <string name="stylish_text">Stilig text</string>
@@ -152,7 +152,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">Ange den text du vill upprepa.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Ange antalet gånger du vill upprepa texten</string>
     <string name="text_copied">Text kopierad</string>
-    <string name="whatsapp_not_found">WhatsApp hittades inte</string>
+    <string name="whatsapp_not_found">WApp hittades inte</string>
     <!-- Strings used for fragments for navigation -->
   <string name="favourites">Favoriter</string>
     <string name="text_to_emoji">Text till Emoji</string>
@@ -166,23 +166,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">Är du säker på att du vill rensa all data?</string>
     <string name="select_country_code">Välj landskod</string>
     <string name="enter_number">Ange nummer</string>
-    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="whatsapp_cleaner">Cleaner</string>
     <string name="permission_needed">Behörighet behövs</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Lagringsbehörighet krävs för att läsa WhatsApp Media. Tryck på OK för att aktivera i inställningarna.</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">Lagringsbehörighet krävs för att läsa WhatsApp Media</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">Lagringsbehörighet krävs för att läsa WApp Media. Tryck på OK för att aktivera i inställningarna.</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">Lagringsbehörighet krävs för att läsa WApp Media</string>
     <string name="chat">Chatta</string>
     <string name="voice">Röst</string>
     <string name="image_status">Bild\nStatus</string>
     <string name="video_status">Video\nStatus</string>
     <string name="saved_status">Sparad\nStatus</string>
-    <string name="whatsapp_web">WhatsApp\nWeb</string>
+    <string name="whatsapp_web">Web</string>
     <string name="stylish_text_">Snygg\nText</string>
     <string name="text_repeater_">Text\nRepeater</string>
-    <string name="whats_cleaner">WhatsApp\nRenare</string>
+    <string name="whats_cleaner">Renare</string>
     <string name="direct_chat_">Direkt\nChatt</string>
     <string name="famous_quotes">Kända\nCitat</string>
     <string name="text_to_emoji_">Text till\nEmoji</string>
-    <string name="whatsapp_stickers">WhatsApp\nKlistermärken</string>
+    <string name="whatsapp_stickers">Klistermärken</string>
     <string name="ascii_faces">Ascii\nAnsikten</string>
     <string name="something_went_wrong">Något gick fel</string>
     <string name="screenshot_saved">Skärmdump sparad</string>
@@ -228,9 +228,9 @@
     <string name="saved">Sparat</string>
     <string name="only_tab_clicked">endast klickade på flik</string>
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">Om du inte sparar statusar försvinner de efter 24 timmar</string>
-    <string name="whatsapp_status">WhatsApp-status</string>
+    <string name="whatsapp_status">Status</string>
     <string name="share_status">Dela status</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Är du säker på att du vill dela denna status på WhatsApp?</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">Är du säker på att du vill dela denna status på WApp?</string>
     <string name="couldn_t_find_app_that_open_this_file">"Det gick inte att hitta appen som öppnar den här filen"</string>
     <string name="received_images">Mottagna bilder</string>
     <string name="received_videos">Mottagna videoklipp</string>
@@ -246,7 +246,7 @@
     <string name="sent_voice">Skickad röst</string>
     <string name="sent_wallpapers">Skickade bakgrunder</string>
     <string name="sent_gifs">Skickade GIF-filer</string>
-    <string name="whatsapp_web_">WhatsApp Web</string>
+    <string name="whatsapp_web_">Web</string>
     <string name="change_language">Ändra språk</string>
   <string name="privacy_settings">Sekretessinställningar</string>
 
@@ -266,7 +266,7 @@
   <string name="ulimited_access_for_all_features">Obegränsad tillgång till alla funktioner.</string>
   <string name="unlimited_media_recovery">Obegränsad mediaåterställning</string>
   <string name="features">Återställningsfunktioner</string>
-  <string name="whatsapp_direct_message">WhatsApp direktmeddelande</string>
+  <string name="whatsapp_direct_message">Direktmeddelande</string>
   <string name="hello_blank_fragment">Hej tom fragment</string>
   <string name="regular">Vanlig</string>
   <string name="new_line">Ny rad</string>

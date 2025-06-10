@@ -12,7 +12,7 @@
 
     <string name="enable_permission">เปิดใช้งานการอนุญาต</string>
     <string name="we_need_your_permission">เราต้องการการอนุญาตจากคุณ</string>
-    <string name="we_need_your_permission_desc">เพื่อที่จะจัดเก็บข้อความที่ถูกลบ WhatsApp ของคุณไว้ในเครื่อง คุณจะต้องอนุญาต \"การเข้าถึงการแจ้งเตือน\" ให้กับแอปนี้ เลือกแอปพลิเคชัน <b>WA Recover</b> ที่เห็นถัดไปเพื่อเปิดใช้งานการอนุญาต</string>
+    <string name="we_need_your_permission_desc">เพื่อที่จะจัดเก็บข้อความที่ถูกลบ WApp ของคุณไว้ในเครื่อง คุณจะต้องอนุญาต \"การเข้าถึงการแจ้งเตือน\" ให้กับแอปนี้ เลือกแอปพลิเคชัน <b>WA Recover</b> ที่เห็นถัดไปเพื่อเปิดใช้งานการอนุญาต</string>
     <string name="no_deleted_chat_detected_yet">ยังไม่ตรวจพบแชทที่ถูกลบ</string>
 
     <string name="select_all">เลือกทั้งหมด</string>
@@ -68,13 +68,13 @@
     </array>
 
     <string name="how_it_work_desc">
-       <![CDATA[ 1) เปิด \'WhatsApp Messenger\'<br><br>
-         <b><font color=\'#cc0029\'> 2) Imp*: เปิดการตั้งค่าสื่อดาวน์โหลดอัตโนมัติจาก \'WhatsApp Messenger\' เพื่อการกู้คืน WA ที่ดียิ่งขึ้น</font></b><br>< br>
-         3) บันทึกไฟล์สื่อ WhatsApp (รูปภาพ วิดีโอ บันทึกเสียง ไฟล์เสียง เอกสาร)<br><br>
+       <![CDATA[ 1) เปิด \'WApp Messenger\'<br><br>
+         <b><font color=\'#cc0029\'> 2) Imp*: เปิดการตั้งค่าสื่อดาวน์โหลดอัตโนมัติจาก \'WApp Messenger\' เพื่อการกู้คืน WA ที่ดียิ่งขึ้น</font></b><br>< br>
+         3) บันทึกไฟล์สื่อ WApp (รูปภาพ วิดีโอ บันทึกเสียง ไฟล์เสียง เอกสาร)<br><br>
          4) คุณจะได้รับแจ้งหากมีข้อความถูกลบออกจากฝั่งผู้ส่ง<br><br>
          5) เปิด/ปิดการทำสำเนาเพื่อประหยัดพื้นที่เก็บข้อมูล<br><br>
          6) เลือกหรือยกเลิกการเลือก Tabs จากการตั้งค่าเพื่อบันทึกไฟล์สื่อที่ถูกลบ<br><br>
-         7) จะต้องเปิดการแจ้งเตือน WhatsApp ของคุณเพื่อรับข้อความที่ถูกลบ
+         7) จะต้องเปิดการแจ้งเตือน WApp ของคุณเพื่อรับข้อความที่ถูกลบ
      ]]></string>
     <string name="accept">ยอมรับ</string>
     <string name="media_file_backup_list">รายการสำรองไฟล์มีเดีย</string>
@@ -111,7 +111,7 @@
     <string name="customize_tabs">ปรับแต่งแท็บ</string>
     <string name="apply">นำไปใช้</string>
     <string name="mCursorDrawableRes">mCursorDrawableRes</string>
-    <string name="open_whatsapp">เปิด WhatsApp</string>
+    <string name="open_whatsapp">เปิด WApp</string>
     <string name="view_the_status_you_want_to_download">ดูสถานะ</string>
     <string name="come_back_again">กลับมาอีกครั้ง</string>
     <string name="noimagestatus">ไม่พบสถานะรูปภาพ</string>
@@ -123,12 +123,12 @@
 
     <string name="drawablessd">mCursorDrawableRes</string>
 
-    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp">WApp</string>
     <string name="rename">เปลี่ยนชื่อใหม่</string>
 
-    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">ฟีเจอร์นี้ใช้ WhatsApp Public API เพื่อเปิดแชทด้วยหมายเลขใดๆ ที่คุณป้อนโดยไม่บันทึกหมายเลขใดๆ</string>
+    <string name="this_feature_uses_whatsapp_public_api_to_open_a_chat_with_any_number_you_enter_without_saving_any_number">ฟีเจอร์นี้ใช้ WApp Public API เพื่อเปิดแชทด้วยหมายเลขใดๆ ที่คุณป้อนโดยไม่บันทึกหมายเลขใดๆ</string>
     <string name="eg_1234567890">เช่น: 1234567890</string>
-    <string name="open_in_whatsapp_chat">เปิดใน WhatsApp Chat</string>
+    <string name="open_in_whatsapp_chat">เปิดใน WApp Chat</string>
 
 
     <!-- ทำความสะอาด-->
@@ -182,7 +182,7 @@
     <string name="please_enter_the_text_you_want_to_repeat">กรุณากรอกข้อความที่คุณต้องการทำซ้ำ</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">โปรดป้อนจำนวนครั้งที่คุณต้องการทำซ้ำข้อความ</string>
     <string name="text_copied">คัดลอกข้อความแล้ว</string>
-    <string name="whatsapp_not_found">ไม่พบ WhatsApp</string>
+    <string name="whatsapp_not_found">ไม่พบ WApp</string>
     <!-- สตริงที่ใช้สำหรับส่วนย่อยสำหรับการนำทาง -->
     <string name="favourites">รายการโปรด</string>
     <string name="text_to_emoji">ส่งข้อความเป็นอิโมจิ</string>
@@ -196,23 +196,23 @@
     <string name="are_you_sure_you_want_to_clear_all_the_data">คุณแน่ใจหรือไม่ว่าต้องการล้างข้อมูลทั้งหมด</string>
     <string name="select_country_code">เลือกรหัสประเทศ</string>
     <string name="enter_number">กรอกหมายเลข</string>
-    <string name="whatsapp_cleaner">WhatsApp Cleaner</string>
+    <string name="whatsapp_cleaner">Cleaner</string>
     <string name="permission_needed">ต้องได้รับอนุญาต</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">จำเป็นต้องได้รับอนุญาตในการจัดเก็บเพื่ออ่าน WhatsApp Media กดตกลงเพื่อเปิดใช้งานในการตั้งค่า</string>
-    <string name="storage_permission_is_needed_to_read_whatsapp_media">จำเป็นต้องได้รับอนุญาตในการจัดเก็บเพื่ออ่าน WhatsApp Media</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media_press_ok_to_enable_in_settings">จำเป็นต้องได้รับอนุญาตในการจัดเก็บเพื่ออ่าน WApp Media กดตกลงเพื่อเปิดใช้งานในการตั้งค่า</string>
+    <string name="storage_permission_is_needed_to_read_whatsapp_media">จำเป็นต้องได้รับอนุญาตในการจัดเก็บเพื่ออ่าน WApp Media</string>
     <string name="chat">แชท</string>
     <string name="voice">เสียง</string>
     <string name="image_status">รูปภาพ\nสถานะ</string>
     <string name="video_status">วิดีโอ\nสถานะ</string>
     <string name="saved_status">บันทึก\nสถานะ</string>
-    <string name="whatsapp_web">WhatsApp\nเว็บ</string>
+    <string name="whatsapp_web">เว็บ</string>
     <string name="stylish_text_">มีสไตล์\nข้อความ</string>
     <string name="text_repeater_">ข้อความ\nRepeater</string>
-    <string name="whats_cleaner">WhatsApp\nCleaner</string>
+    <string name="whats_cleaner">Cleaner</string>
     <string name="direct_chat_">โดยตรง\nแชท</string>
     <string name="famous_quotes">มีชื่อเสียง\nคำคม</string>
     <string name="text_to_emoji_">ส่งข้อความถึง\nอีโมจิ</string>
-    <string name="whatsapp_stickers">WhatsApp\nสติ๊กเกอร์</string>
+    <string name="whatsapp_stickers">สติ๊กเกอร์</string>
     <string name="ascii_faces">Ascii\nใบหน้า</string>
     <string name="something_went_wrong">มีบางอย่างผิดพลาด</string>
     <string name="screenshot_saved">บันทึกภาพหน้าจอแล้ว</string>
@@ -259,9 +259,9 @@
     <string name="only_tab_clicked">เฉพาะแท็บที่คลิก</string>
 
     <string name="if_you_don_t_save_statuses_they_will_disappear_after_24_hours">หากคุณไม่บันทึกสถานะ สถานะเหล่านั้นจะหายไปหลังจาก 24 ชั่วโมง</string>
-    <string name="whatsapp_status">สถานะ WhatsApp</string>
+    <string name="whatsapp_status">สถานะ WApp</string>
     <string name="share_status">แชร์สถานะ</string>
-    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">คุณแน่ใจหรือไม่ว่าต้องการแชร์สถานะนี้บน WhatsApp</string>
+    <string name="are_you_sure_you_want_to_share_this_status_on_whatsapp">คุณแน่ใจหรือไม่ว่าต้องการแชร์สถานะนี้บน WApp</string>
     <string name="couldn_t_find_app_that_open_this_file">"ไม่พบแอปที่เปิดไฟล์นี้"</string>
     <string name="received_images">รูปภาพที่ได้รับ</string>
     <string name="received_videos">วิดีโอที่ได้รับ</string>
@@ -277,7 +277,7 @@
     <string name="sent_voice">เสียงที่ส่ง</string>
     <string name="sent_wallpapers">ส่งวอลเปเปอร์แล้ว</string>
     <string name="sent_gifs">ส่ง GIF แล้ว</string>
-    <string name="whatsapp_web_">WhatsApp เว็บ</string>
+    <string name="whatsapp_web_">เว็บ</string>
     <string name="change_language">เปลี่ยนภาษา</string>
     <string name="privacy_settings">การตั้งค่าความเป็นส่วนตัว</string>
 
@@ -297,7 +297,7 @@
     <string name="ulimited_access_for_all_features">เข้าถึงทุกฟีเจอร์ได้ไม่จำกัด</string>
     <string name="unlimited_media_recovery">กู้คืนสื่อได้ไม่จำกัด</string>
     <string name="features">คุณสมบัติการกู้คืน</string>
-    <string name="whatsapp_direct_message">ส่งข้อความตรง WhatsApp</string>
+    <string name="whatsapp_direct_message">ส่งข้อความตรง</string>
     <string name="hello_blank_fragment">สวัสดีส่วนว่าง</string>
     <string name="regular">ปกติ</string>
     <string name="new_line">บรรทัดใหม่</string>
