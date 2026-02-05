@@ -200,7 +200,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         }
 
 
-        var chatEntity = AppHelperDb.hGetChatByTitle(hFinalTitle)
+        var chatEntity = AppHelperDb.getChatByTitle(hFinalTitle)
         val message = hFinalText
         val chatType: String
         if (hUserName != null) {
@@ -243,7 +243,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         if (chatEntity != null) {
             if (chatEntity.lastMessage != hFinalText) {
                 isNewMessage = true
-                AppHelperDb.hUpdateChatRow(
+                AppHelperDb.updateChatRow(
                     chatEntity.unSeenCount + 1,
                     System.currentTimeMillis().toString(),
                     hFinalText,
@@ -263,7 +263,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             chatEntity.lastMessageType = messageType
             chatEntity.profilePic = dpPath
 
-            chatEntity.id = AppHelperDb.hInsertChatRow(chatEntity)
+            chatEntity.id = AppHelperDb.insertChatRow(chatEntity)
         }
         if (isNewMessage) {
             val messagesEntity = EntityMessages()
@@ -274,7 +274,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             messagesEntity.messageType = messageType
             messagesEntity.title = hUserName
             messagesEntity.ticker = finalTicker
-            val notificationId = AppHelperDb.hInsertChildNotification(messagesEntity)
+            val notificationId = AppHelperDb.insertChildNotification(messagesEntity)
 
             messagesEntity.id = notificationId
             if (message == "This message was deleted") {

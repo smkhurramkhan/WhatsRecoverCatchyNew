@@ -32,10 +32,14 @@ import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import com.catchyapps.whatsdelete.appclasseshelpers.RVTouchListener
 import com.catchyapps.whatsdelete.appactivities.activitypreview.PreviewScreen
-import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
+import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
+import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reovervoice.VoiceMediaFragment
 import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
+import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
+import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.ImagesFragmentLayoutBinding
 import timber.log.Timber
 import java.io.File
@@ -82,29 +86,47 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
 
 
         if (checkPermission()) {
-            hFragmentImagesBinding!!.hProgressbar.visibility = View.VISIBLE
-            hFragmentMediaViewModel!!.hSetFragmentType(arguments)
+            hFragmentImagesBinding?.hProgressbar?.show()
+            hFragmentMediaViewModel?.hSetFragmentType(arguments)
         }
     }
 
     private fun hSubscribeObservers() {
-        hFragmentMediaViewModel!!.hVideoFileListLd.observe(viewLifecycleOwner) { videoList: List<EntityFiles>? ->
-            hFragmentImagesBinding!!.hProgressbar.visibility = View.GONE
-            hFragmentImagesBinding!!.hMainCard.visibility = View.VISIBLE
-            if (videoList == null) {
-                Timber.d("Video list null")
+        hFragmentMediaViewModel?.hVideoFileListLd?.observe(viewLifecycleOwner) { videoList: List<EntityFiles>? ->
+            hFragmentImagesBinding?.hProgressbar?.hide()
+            if (videoList == null || videoList.isEmpty()) {
+                Timber.d("Video list null or empty")
+                hFragmentImagesBinding?.recyclerView?.hide()
+                hFragmentImagesBinding?.tvNoImageVideo?.show()
+                hFragmentImagesBinding?.tvNoImageVideo
+                    ?.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        R.drawable.nofiles_img,
+                        0,
+                        0
+                    )
             } else {
-                Timber.d("NOt null")
+                Timber.d("Not null")
+                hFragmentImagesBinding?.hMainCard?.show()
                 hSetViewsData(videoList)
             }
         }
-        hFragmentMediaViewModel!!.hImagesListld.observe(viewLifecycleOwner) { imageList: List<EntityFiles>? ->
-            hFragmentImagesBinding!!.hProgressbar.visibility = View.GONE
-            hFragmentImagesBinding!!.hMainCard.visibility = View.VISIBLE
-            if (imageList == null) {
-                Timber.d("image list null")
+        hFragmentMediaViewModel?.hImagesListld?.observe(viewLifecycleOwner) { imageList: List<EntityFiles>? ->
+            hFragmentImagesBinding?.hProgressbar?.hide()
+            if (imageList == null || imageList.isEmpty()) {
+                Timber.d("Image list null or empty")
+                hFragmentImagesBinding?.recyclerView?.hide()
+                hFragmentImagesBinding?.tvNoImageVideo?.show()
+                hFragmentImagesBinding?.tvNoImageVideo
+                    ?.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        R.drawable.nofiles_img,
+                        0,
+                        0
+                    )
             } else {
-                Timber.d("NOt null")
+                Timber.d("Not null")
+                hFragmentImagesBinding?.hMainCard?.show()
                 hSetViewsData(imageList)
             }
         }
@@ -114,18 +136,18 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
 
         loading = false
         if (list.isNotEmpty()) {
-            hFragmentImagesBinding!!.recyclerView.visibility = View.VISIBLE
-            hFragmentImagesBinding!!.tvNoImageVideo.visibility = View.GONE
-            hAdapterMedia!!.hAddItems(list)
-            val fileEntities = hAdapterMedia!!.hGetLists()
-            Timber.d("List size  %s", fileEntities.size)
+            hFragmentImagesBinding?.recyclerView?.show()
+            hFragmentImagesBinding?.tvNoImageVideo?.hide()
+            hAdapterMedia?.hAddItems(list)
+            val fileEntities = hAdapterMedia?.hGetLists()
+            Timber.d("List size  %s", fileEntities?.size?:0)
             hAdapterFiles = fileEntities as ArrayList<EntityFiles?>
         } else {
 
-            hFragmentImagesBinding!!.recyclerView.visibility = View.GONE
-            hFragmentImagesBinding!!.tvNoImageVideo.visibility = View.VISIBLE
-            hFragmentImagesBinding!!.tvNoImageVideo
-                .setCompoundDrawablesWithIntrinsicBounds(
+            hFragmentImagesBinding?.recyclerView?.hide()
+            hFragmentImagesBinding?.tvNoImageVideo?.show()
+            hFragmentImagesBinding?.tvNoImageVideo
+                ?.setCompoundDrawablesWithIntrinsicBounds(
                     0,
                     R.drawable.nofiles_img,
                     0,
@@ -134,38 +156,33 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        Timber.d("On resume")
-    }
-
     private fun hSetupItemTouchListener() {
-        hFragmentImagesBinding!!.recyclerView.addOnItemTouchListener(
+        hFragmentImagesBinding?.recyclerView?.addOnItemTouchListener(
             RVTouchListener(
                 requireActivity(),
-                hFragmentImagesBinding!!.recyclerView,
+                hFragmentImagesBinding?.recyclerView,
                 object :
                     RVTouchListener.ClickListener {
                     override fun onClick(view: View, position: Int) {
-                        if (position < hAdapterFiles!!.size) {
-                            if (hAdapterFiles!![position] != null) {
+                        if (position < hAdapterFiles?.size!!) {
+                            if (hAdapterFiles?.get(position) != null) {
                                 val layoutParent: ConstraintLayout = view.findViewById(R.id.layoutParent)
                                 val ivOp = view.findViewById<ImageView>(R.id.ivOption)
                                 layoutParent.setOnClickListener { view1: View? ->
                                     if (isMultiSelect) {
-                                        ivOp.visibility = View.GONE
+                                        ivOp.hide()
                                         multiSelect(position)
                                     } else {
                                         if (position < hAdapterFiles!!.size) {
                                             try {
-                                                if (hAdapterFiles!![position] != null) {
+                                                if (hAdapterFiles?.get(position)!= null) {
                                                     val intent = Intent(
                                                         requireContext(),
                                                         PreviewScreen::class.java
                                                     )
                                                     intent.putExtra(
                                                         "file_path",
-                                                        hAdapterFiles!![position]!!.filePath
+                                                        hAdapterFiles?.get(position)?.filePath
                                                     )
                                                     startActivity(intent)
                                                 }
@@ -180,15 +197,15 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
                     }
 
                     override fun onLongClick(view: View, position: Int) {
-                        if (position < hAdapterFiles!!.size) {
-                            if (hAdapterFiles!![position] != null) {
+                        if (position < hAdapterFiles?.size!!) {
+                            if (hAdapterFiles?.get(position) != null) {
                                 val ivOp = view.findViewById<ImageView>(R.id.ivOption)
                                 if (!isMultiSelect) {
                                     selectedIds = SparseArray()
                                     isMultiSelect = true
                                     if (actionMode == null) {
                                         try {
-                                            ivOp.visibility = View.GONE
+                                            ivOp.hide()
                                             actionMode = (requireActivity() as MainRecoverActivity)
                                                 .startSupportActionMode(this@RecoverMediaFragment)
                                         } catch (e: Exception) {
@@ -205,19 +222,19 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
     }
 
     private fun hSetUpLoadMoreListener() {
-        hFragmentImagesBinding!!.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        hFragmentImagesBinding?.recyclerView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(
                 recyclerView: RecyclerView,
                 dx: Int, dy: Int,
             ) {
                 super.onScrolled(recyclerView, dx, dy)
-                totalItemCount = layoutManager!!.itemCount
+                totalItemCount = layoutManager?.itemCount!!
                 lastVisibleItem = layoutManager!!
                     .findLastCompletelyVisibleItemPosition()
                 if (!loading && lastVisibleItem == totalItemCount - 1) {
                     pageNumber++
                     loading = true
-                    hFragmentMediaViewModel!!.hLoadMoreItems(pageNumber)
+                    hFragmentMediaViewModel?.hLoadMoreItems(pageNumber)
                 }
             }
         })
@@ -229,21 +246,22 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
             container,
             false
         )
-        return hFragmentImagesBinding!!.root
+        return hFragmentImagesBinding?.root
     }
 
     private fun multiSelect(position: Int) {
         if (position > -1) {
             val data = hAdapterMedia!!.getItem(position)
             if (actionMode != null) {
-                if (selectedIds.indexOfKey(position) > -1) selectedIds.remove(position) else selectedIds.put(position, data.title)
-                if (selectedIds.size() > 0) actionMode!!.title =
+                if (selectedIds.indexOfKey(position) > -1)
+                    selectedIds.remove(position) else selectedIds.put(position, data.title)
+                if (selectedIds.size() > 0) actionMode?.title =
                     selectedIds.size().toString() + "  Selected" //show selected item count on action mode.
                 else {
-                    actionMode!!.title = "" //remove item count from action mode.
-                    actionMode!!.finish() //hide action mode.
+                    actionMode?.title = "" //remove item count from action mode.
+                    actionMode?.finish() //hide action mode.
                 }
-                hAdapterMedia!!.setSelectedIds(selectedIds)
+                hAdapterMedia?.setSelectedIds(selectedIds)
             }
         }
     }
@@ -278,10 +296,6 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
         hAdapterMedia!!.setSelectedIds(selectedIds)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Timber.d("Ondestroy")
-    }
 
     private fun alertDeleteConfirmation() {
         val builder = AlertDialog.Builder(requireActivity())
@@ -291,67 +305,31 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
             try {
                 for (i in 0 until selectedIds.size()) {
                     val fileEntity = hAdapterFiles!![selectedIds.keyAt(i)]
-                    val fdelete = File(fileEntity?.filePath)
-                    if (fdelete.exists()) {
-                        val del = fdelete.delete()
+                    val fDelete = File(fileEntity?.filePath?:"")
+                    if (fDelete.exists()) {
+                        val del = fDelete.delete()
                         Timber.d("del-res is$del")
                     }
-                    hAdapterFiles!!.removeAt(selectedIds.keyAt(i))
+                    hAdapterFiles?.removeAt(selectedIds.keyAt(i))
                 }
-                if (hAdapterFiles!!.size > 0) {
-                    hAdapterMedia!!.notifyDataSetChanged()
-                } else {
-                    hFragmentImagesBinding!!.recyclerView.visibility = View.GONE
-                    hFragmentImagesBinding!!.tvNoImageVideo.visibility = View.VISIBLE
+                hAdapterFiles?.size?.let {
+                    if (it > 0) {
+                        hAdapterMedia?.notifyDataSetChanged()
+                    } else {
+                        hFragmentImagesBinding?.recyclerView?.hide()
+                        hFragmentImagesBinding?.tvNoImageVideo?.show()
+                    }
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
             dialog.cancel()
-            actionMode!!.title = ""
-            actionMode!!.finish() //
+            actionMode?.title = ""
+            actionMode?.finish() //
         }.setNegativeButton("CANCEL") { dialog: DialogInterface, which: Int -> dialog.cancel() }
         builder.create().show()
     }
 
-    private fun checkPermission(): Boolean {
-        val currentAPIVersion = Build.VERSION.SDK_INT
-        return if (currentAPIVersion >= Build.VERSION_CODES.M && currentAPIVersion <= Build.VERSION_CODES.Q) {
-            if (ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    val alertBuilder = androidx.appcompat.app.AlertDialog.Builder(requireActivity())
-                    alertBuilder.setCancelable(true)
-                    alertBuilder.setTitle(getString(R.string.permission_necessary))
-                    alertBuilder.setMessage(getString(R.string.storage_permission_is_necessary_to_status_media_files))
-                    alertBuilder.setPositiveButton(
-                        android.R.string.ok
-                    ) { dialog: DialogInterface?, which: Int ->
-                        ActivityCompat.requestPermissions(
-                            requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                            MY_PERMISSIONS_REQUEST_WRITE_STORAGE
-                        )
-                    }
-                    val alert = alertBuilder.create()
-                    alert.show()
-                } else {
-                    ActivityCompat.requestPermissions(
-                        requireActivity(),
-                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                        MY_PERMISSIONS_REQUEST_WRITE_STORAGE
-                    )
-                }
-                false
-            } else {
-                true
-            }
-        } else {
-            true
-        }
-    }
 
     @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
@@ -363,6 +341,22 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (checkPermission()) {
+            hFragmentImagesBinding?.permissionDialoge?.hide()
+            if (hAdapterFiles?.isNotEmpty() == true) {
+                hFragmentImagesBinding?.hProgressbar?.hide()
+                hFragmentImagesBinding?.recyclerView?.show()
+                hFragmentImagesBinding?.tvNoImageVideo?.hide()
+            } else {
+                // Data not loaded yet, keep showing loader or wait for observer
+                hFragmentImagesBinding?.tvNoImageVideo?.hide()
+            }
+        }
+    }
+
 
     private fun checkAgain() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -389,11 +383,11 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
     }
 
     private fun hSetUpRecyclerView() {
-        hFragmentImagesBinding!!.recyclerView.setHasFixedSize(true)
+        hFragmentImagesBinding?.recyclerView?.setHasFixedSize(true)
         layoutManager = GridLayoutManager(requireActivity(), 3)
-        hFragmentImagesBinding!!.recyclerView.layoutManager = layoutManager
+        hFragmentImagesBinding?.recyclerView?.layoutManager = layoutManager
         hAdapterMedia = RecoverMediaAdapter(requireActivity(), hAdapterFiles?.toList() as List<EntityFiles>, requireActivity())
-        hFragmentImagesBinding!!.recyclerView.adapter = hAdapterMedia
+        hFragmentImagesBinding?.recyclerView?.adapter = hAdapterMedia
     }
 
     private fun shareMultipleFiles() {
@@ -432,9 +426,9 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
         val mSearchView = mSearch.actionView as SearchView
         mSearchView.queryHint = getString(R.string.search)
         mSearchView.isSubmitButtonEnabled = false
-        @SuppressLint("CutPasteId") val txtSearch = mSearchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        @SuppressLint("CutPasteId") val txtSearch = mSearchView.findViewById<EditText>(R.id.search_src_text)
         txtSearch.setTextColor(Color.WHITE)
-        @SuppressLint("CutPasteId") val searchTextView = mSearchView.findViewById<AutoCompleteTextView>(androidx.appcompat.R.id.search_src_text)
+        @SuppressLint("CutPasteId") val searchTextView = mSearchView.findViewById<AutoCompleteTextView>(R.id.search_src_text)
         try {
             val mCursorDrawableRes = TextView::class.java.getDeclaredField(getString(R.string.drawablessd))
             mCursorDrawableRes.isAccessible = true
@@ -479,6 +473,68 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
         }
         return false
     }
+
+
+    private fun checkPermission(): Boolean {
+        val currentAPIVersion = Build.VERSION.SDK_INT
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+            if (MyAppPermissionUtils.hasPermissionPost10(requireContext())) {
+                true
+            } else {
+                Timber.d("Permission not Granted")
+                hFragmentImagesBinding?.hProgressbar?.hide()
+                hFragmentImagesBinding?.recyclerView?.hide()
+                hFragmentImagesBinding?.tvNoImageVideo?.hide()
+                hFragmentImagesBinding?.permissionDialoge?.show()
+                hFragmentImagesBinding?.btnPositive?.setOnClickListener {
+                    Timber.d("button clicked")
+                    hSharedVM.hLaunchIntent(TypesIntent.H_URI)
+                }
+                false
+            }
+
+        } else if (currentAPIVersion >= Build.VERSION_CODES.M && currentAPIVersion <= Build.VERSION_CODES.Q) {
+            if (ContextCompat.checkSelfPermission(
+                    Objects.requireNonNull(requireContext()),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(
+                        Objects.requireNonNull(requireActivity()),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    )
+                ) {
+                    val alertBuilder = androidx.appcompat.app.AlertDialog.Builder(requireActivity())
+                    alertBuilder.setCancelable(true)
+                    alertBuilder.setTitle("Permission necessary")
+                    alertBuilder.setMessage("Storage permission is necessary to Download Images and Videos!!!")
+                    alertBuilder.setPositiveButton(
+                        R.string.ok
+                    ) { _: DialogInterface?, _: Int ->
+                        ActivityCompat.requestPermissions(
+                            Objects.requireNonNull(requireActivity()),
+                            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                            MY_PERMISSIONS_REQUEST_WRITE_STORAGE
+                        )
+                    }
+                    val alert = alertBuilder.create()
+                    alert.show()
+                } else {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        MY_PERMISSIONS_REQUEST_WRITE_STORAGE
+                    )
+                }
+                false
+            } else {
+                true
+            }
+        } else {
+            true
+        }
+    }
+
 
     companion object {
         private const val MY_PERMISSIONS_REQUEST_WRITE_STORAGE = 123

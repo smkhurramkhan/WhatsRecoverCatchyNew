@@ -17,6 +17,8 @@ import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.roomdb.AppHelperDb
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityFolders
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
+import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.FragmentSavedScreenBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,34 +32,34 @@ class StatusSaveFragment : Fragment(),
 
     private var isLoadFirstTime = true
     private var folderList: MutableList<Any>? = null
-    private var hFolderAdapter: SavedFolderAdapter? = null
+    private var folderAdapter: SavedFolderAdapter? = null
     private var actionModeCallback: ActionModeCallback? = null
     private var actionMode: ActionMode? = null
     private var prefs: MyAppSharedPrefs? = null
 
-    private lateinit var hSavedFragmentBinding: FragmentSavedScreenBinding
+    private lateinit var savedFragmentBinding: FragmentSavedScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        hSavedFragmentBinding = FragmentSavedScreenBinding.inflate(
+        savedFragmentBinding = FragmentSavedScreenBinding.inflate(
             layoutInflater,
             container,
             false
         )
-        return hSavedFragmentBinding.root
+        return savedFragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        hInitVar()
-        hInitRecyclerView()
+        initVariables()
+        initRecyclerView()
     }
 
-    private fun hInitRecyclerView() {
-        hFolderAdapter = folderList?.let {
+    private fun initRecyclerView() {
+        folderAdapter = folderList?.let {
             SavedFolderAdapter(
                 it,
                 requireActivity(),
@@ -65,8 +67,8 @@ class StatusSaveFragment : Fragment(),
                 requireActivity()
             )
         }
-        hSavedFragmentBinding.recyclerView.apply {
-            adapter = hFolderAdapter
+        savedFragmentBinding.recyclerView.apply {
+            adapter = folderAdapter
             layoutManager = GridLayoutManager(requireActivity(), 2)
             addOnItemTouchListener(
                 RVTouchListener(
@@ -75,7 +77,7 @@ class StatusSaveFragment : Fragment(),
                     object :
                         RVTouchListener.ClickListener {
                         override fun onClick(view: View, position: Int) {
-                            if (hFolderAdapter!!.selectedItemCount > 0) {
+                            if (folderAdapter!!.selectedItemCount > 0) {
                                 enableActionMode(position)
                             }
                         }
@@ -88,7 +90,7 @@ class StatusSaveFragment : Fragment(),
         }
     }
 
-    private fun hInitVar() {
+    private fun initVariables() {
         actionModeCallback = ActionModeCallback()
         prefs = MyAppSharedPrefs(requireActivity())
         folderList = ArrayList()
@@ -100,21 +102,23 @@ class StatusSaveFragment : Fragment(),
         lifecycleScope.launch {
             try {
                 isLoadFirstTime = true
-                folderList!!.clear()
+                folderList?.clear()
 
-                AppHelperDb.hGetAllFolders()?.let {
-                    folderList!!.addAll(it)
+                AppHelperDb.getAllFolders()?.let {
+                    folderList?.addAll(it)
                     Timber.d("Data returened ${it.size}")
                 }
 
 
-                if (folderList!!.size > 0) {
-                    hFolderAdapter?.notifyDataSetChanged()
-                    hSavedFragmentBinding.layoutNotfound.visibility = View.GONE
-                    hSavedFragmentBinding.recyclerView.visibility = View.VISIBLE
-                } else {
-                    hSavedFragmentBinding.layoutNotfound.visibility = View.VISIBLE
-                    hSavedFragmentBinding.recyclerView.visibility = View.GONE
+                folderList?.size?.let {
+                    if (it > 0) {
+                        folderAdapter?.notifyDataSetChanged()
+                        savedFragmentBinding.layoutNotfound.visibility = View.GONE
+                        savedFragmentBinding.recyclerView.visibility = View.VISIBLE
+                    } else {
+                        savedFragmentBinding.layoutNotfound.visibility = View.VISIBLE
+                        savedFragmentBinding.recyclerView.visibility = View.GONE
+                    }
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -123,11 +127,11 @@ class StatusSaveFragment : Fragment(),
     }
 
     override fun folderDeleted() {
-        if (hFolderAdapter!!.itemCount == 0) {
-            hSavedFragmentBinding.layoutNotfound.visibility = View.VISIBLE
-            hSavedFragmentBinding.recyclerView.visibility = View.GONE
+        if (folderAdapter!!.itemCount == 0) {
+            savedFragmentBinding.layoutNotfound.visibility = View.VISIBLE
+            savedFragmentBinding.recyclerView.visibility = View.GONE
         } else {
-            hSavedFragmentBinding.layoutNotfound.visibility = View.GONE
+            savedFragmentBinding.layoutNotfound.visibility = View.GONE
         }
     }
 
@@ -165,7 +169,7 @@ class StatusSaveFragment : Fragment(),
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
-            hFolderAdapter!!.clearSelections()
+            folderAdapter?.clearSelections()
             actionMode = null
         }
     }
@@ -186,8 +190,8 @@ class StatusSaveFragment : Fragment(),
 
     private fun toggleSelection(position: Int) {
         try {      /// fix no 4.........................
-            hFolderAdapter!!.toggleSelection(position)
-            val count = hFolderAdapter!!.selectedItemCount
+            folderAdapter!!.toggleSelection(position)
+            val count = folderAdapter!!.selectedItemCount
             if (count == 0) {
                 actionMode!!.finish()
             } else {
@@ -201,12 +205,12 @@ class StatusSaveFragment : Fragment(),
 
     private fun deleteSelectedFolders() {
         try {
-            val selectedItemPositions = hFolderAdapter!!.selectedItems
+            val selectedItemPositions = folderAdapter!!.selectedItems
             for (i in selectedItemPositions.indices.reversed()) {
                 Timber.d(selectedItemPositions.size.toString() + "size of the selected items")
                 deleteFolder(selectedItemPositions[i])
             }
-            hFolderAdapter?.notifyDataSetChanged()
+            folderAdapter?.notifyDataSetChanged()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -216,7 +220,7 @@ class StatusSaveFragment : Fragment(),
     private fun deleteFolder(position: Int) {
         val entity = folderList!![position] as EntityFolders
         lifecycleScope.launch(Dispatchers.Main) {
-            val tempList = AppHelperDb.hGetfolderById(entity.id.toString())
+            val tempList = AppHelperDb.getFolderById(entity.id.toString())
             try {
                 if (tempList?.isNotEmpty() == true) {
                     for (i in tempList.indices) {
@@ -237,33 +241,33 @@ class StatusSaveFragment : Fragment(),
                                     })
                             }
                             if (del && i == tempList.size - 1) {
-                                AppHelperDb.hRemoveFolder(entity.id)
-                                folderList!!.removeAt(position)
+                                AppHelperDb.removeFolder(entity.id)
+                                folderList?.removeAt(position)
                                 withContext(Dispatchers.Main) {
-                                    hFolderAdapter!!.notifyDataSetChanged()
+                                    folderAdapter?.notifyDataSetChanged()
                                 }
                             }
                         } else {
                             if (i == tempList.size - 1) {
-                                AppHelperDb.hRemoveFolder(entity.id)
-                                folderList!!.removeAt(position)
+                                AppHelperDb.removeFolder(entity.id)
+                                folderList?.removeAt(position)
 
                                 withContext(Dispatchers.Main) {
-                                    hFolderAdapter!!.notifyDataSetChanged()
+                                    folderAdapter?.notifyDataSetChanged()
                                 }
                             }
                         }
                     }
-                    if (folderList!!.size > 0) {
-                        hSavedFragmentBinding.recyclerView.visibility = View.GONE
+                    if (folderList?.isEmpty() == true) {
+                        savedFragmentBinding.recyclerView.hide()
                     } else {
-                        hSavedFragmentBinding.layoutNotfound.visibility = View.VISIBLE
+                        savedFragmentBinding.layoutNotfound.show()
                     }
                 } else {
-                    AppHelperDb.hRemoveFolder(entity.id)
-                    folderList!!.removeAt(position)
+                    AppHelperDb.removeFolder(entity.id)
+                    folderList?.removeAt(position)
                     withContext(Dispatchers.Main) {
-                        hFolderAdapter!!.notifyDataSetChanged()
+                        folderAdapter?.notifyDataSetChanged()
                     }
                 }
             } catch (e: Exception) {
@@ -276,7 +280,7 @@ class StatusSaveFragment : Fragment(),
     override fun onPause() {
         super.onPause()
         if (actionMode != null) {
-            actionMode!!.finish()
+            actionMode?.finish()
         }
     }
 }

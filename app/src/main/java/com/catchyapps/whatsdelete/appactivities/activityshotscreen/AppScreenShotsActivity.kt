@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.roomdb.AppHelperDb
-import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import kotlinx.coroutines.launch
 
 class AppScreenShotsActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
@@ -32,7 +31,7 @@ class AppScreenShotsActivity : com.catchyapps.whatsdelete.appactivities.BaseActi
         }
 
         lifecycleScope.launch {
-            AppHelperDb.hGetAllScreenShots()?.toMutableList()
+            AppHelperDb.getAllScreenShots()?.toMutableList()
                 ?.let { screenShotsEntityList?.addAll(it) }
         }
         setUpRecyclerView()

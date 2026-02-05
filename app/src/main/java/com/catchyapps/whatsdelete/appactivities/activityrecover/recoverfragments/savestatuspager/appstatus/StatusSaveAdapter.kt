@@ -246,7 +246,7 @@ class StatusSaveAdapter(
                 val playlistName = etPlayListName!!.text.toString()
                 var foldersEntityList: List<EntityFolders>? = null
 
-                foldersEntityList = AppHelperDb.hGetfolderByName(playlistName)
+                foldersEntityList = AppHelperDb.getFolderByName(playlistName)
                 if (playlistName.isEmpty()) MyAppUtils.snackBar(
                     context,
                     context.getString(R.string.folder_name_can_t_be_empty)
@@ -262,7 +262,7 @@ class StatusSaveAdapter(
                     foldersEntity.noOfItems = 0
                     foldersEntity.playlistName = playlistName
 
-                    folderId = AppHelperDb.hInsertFolder(foldersEntity)
+                    folderId = AppHelperDb.insertFolder(foldersEntity)
                     foldersEntity.id = folderId.toInt()
                     if (folderId > 0) {
                         hShowPlaylistDialog(hStatusesEntity)
@@ -300,7 +300,7 @@ class StatusSaveAdapter(
         val recyclerViewPlayList: RecyclerView = sheetView.findViewById(R.id.recycler_view_playlist)
         var playListEntities: List<EntityFolders>? = null
 
-        playListEntities = AppHelperDb.hGetAllFolders()
+        playListEntities = AppHelperDb.getAllFolders()
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
         recyclerViewPlayList.layoutManager = mLayoutManager
         recyclerViewPlayList.itemAnimator = DefaultItemAnimator()
@@ -323,7 +323,7 @@ class StatusSaveAdapter(
                             folderId = folderEntity.id.toLong()
                             val list: List<EntityStatuses>? = null
 
-                            AppHelperDb.hGetfolderById(
+                            AppHelperDb.getFolderById(
                                 folderEntity.id.toString()
                             )
 
@@ -418,8 +418,8 @@ class StatusSaveAdapter(
             foldersEntity.playListLogo = hStatusesEntity.savedPath
             hStatusesEntity.folderId = fid.toString()
 
-            AppHelperDb.hInsertSattus(hStatusesEntity)
-            AppHelperDb.hUpdateFolderById(
+            AppHelperDb.insertStatus(hStatusesEntity)
+            AppHelperDb.updateFolderById(
                 foldersEntity.playListLogo,
                 foldersEntity.noOfItems,
                 folderId.toInt()
@@ -438,8 +438,8 @@ class StatusSaveAdapter(
             statusesEntity.savedPath = hStatusesEntity.savedPath
             statusesEntity.sharedPath = hStatusesEntity.sharedPath
 
-            AppHelperDb.hInsertSattus(statusesEntity)
-            AppHelperDb.hUpdateFolderById(
+            AppHelperDb.insertStatus(statusesEntity)
+            AppHelperDb.updateFolderById(
                 foldersEntity.playListLogo,
                 foldersEntity.noOfItems,
                 fid

@@ -92,6 +92,13 @@
         6) Check or uncheck Tabs from settings to save that deleted media file.<br><br>
         7) Your WhatsApp notification must be turned on for getting deleted text messages.
     ]]></string>
+
+    <string name="doc_permission" translatable="false">
+            <![CDATA[Please provide permission for  <b>"Whatsapp Media"</b> folder to view/edit/delete whatsapp media. This is
+        only required once.<br>]]>
+    </string>
+
+
     <string name="accept">Accept</string>
     <string name="media_file_backup_list">Media file backup list</string>
     <string name="erase_all_messages">Erase All Messages</string>

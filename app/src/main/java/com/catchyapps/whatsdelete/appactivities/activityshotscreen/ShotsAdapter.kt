@@ -241,16 +241,16 @@ class ShotsAdapter(
             val file = File(screenShotsEntity.path)
             if (file.exists()) {
                 if (file.delete()) {
-                    AppHelperDb.hDeleteScreenShotById(screenShotsEntity.id)
+                    AppHelperDb.deleteScreenShotById(screenShotsEntity.id)
                     list.removeAt(position)
                     //  notifyDataSetChanged();
                 } else {
-                    AppHelperDb.hDeleteScreenShotById(screenShotsEntity.id)
+                    AppHelperDb.deleteScreenShotById(screenShotsEntity.id)
                     list.removeAt(position)
                     // notifyDataSetChanged();
                 }
             } else {
-                AppHelperDb.hDeleteScreenShotById(screenShotsEntity.id)
+                AppHelperDb.deleteScreenShotById(screenShotsEntity.id)
                 list.removeAt(position)
                 //notifyDataSetChanged();
             }

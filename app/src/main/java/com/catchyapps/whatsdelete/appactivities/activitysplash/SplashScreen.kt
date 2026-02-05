@@ -56,12 +56,12 @@ class SplashScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
 
     private fun initVariables() {
         lifecycleScope.launch {
-            if (AppHelperDb.hGetAllFolders()?.isEmpty() == true) {
+            if (AppHelperDb.getAllFolders()?.isEmpty() == true) {
                 val foldersEntity =
                     EntityFolders()
                 foldersEntity.playlistName = "My Collections"
                 foldersEntity.noOfItems = 0
-                AppHelperDb.hInsertFolder(foldersEntity)
+                AppHelperDb.insertFolder(foldersEntity)
             }
         }
     }

@@ -432,49 +432,49 @@ class CleanerConstans {
             val hEndString = context.getString(R.string.rest_assured_permission_text)
             return when (schemas) {
                 MyAppSchemas.H_IMAGE_TYPE -> {
-                     hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_STATUS_TYPE -> {
-                    hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_DOCUMENT_TYPE -> {
-                     hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_DOCUMENT_TYPE_SENT -> {
-                  hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_IMAGE_TYPE_SENT -> {
-                    hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_VIDEO_TYPE -> {
-                    hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_VIDEO_TYPE_SENT -> {
-                    hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_AUDIO_TYPE -> {
-                   hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_AUDIO_TYPE_SENT -> {
-                  hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_VOICE_TYPE -> {
-                   hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_VOICE_TYPE_SENT -> {
-                    hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_WALLPAPER_TYPE -> {
-                   hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_WALLPAPER_SENT_TYPE -> {
-                   hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_GIFS_TYPE -> {
-                   hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
                 MyAppSchemas.H_GIFS_SENT_TYPE -> {
-                    hEndString
+                    context.getString(R.string.doc_permission)+ hEndString
                 }
             }
 

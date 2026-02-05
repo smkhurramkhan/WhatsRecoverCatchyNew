@@ -8,6 +8,7 @@ import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClientStateListener
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.PendingPurchasesParams
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.QueryProductDetailsParams
@@ -15,6 +16,8 @@ import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.appadsmanager.GoogleMobileAdsConsentManager
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
+import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.PremiumScreenBinding
 import timber.log.Timber
 
@@ -53,8 +56,13 @@ class ActivityPremium : AppCompatActivity() {
 
 
     private fun setupBillingClient() {
+        activityPremiumBinding.hProgressbar.show()
         billingClient = BillingClient.newBuilder(this)
-            .enablePendingPurchases() // Required for one-time purchases
+            .enablePendingPurchases(
+                PendingPurchasesParams.newBuilder()
+                    .enableOneTimeProducts()
+                    .build()
+            )
             .setListener { billingResult, purchases ->
                 handlePurchases(billingResult, purchases)
             }
@@ -79,7 +87,7 @@ class ActivityPremium : AppCompatActivity() {
     private fun queryProductDetails() {
         val productList = listOf(
             QueryProductDetailsParams.Product.newBuilder()
-                .setProductId(PRODUCT_ID)
+                .setProductId(PRODUCT_ID) // Replace with your product ID
                 .setProductType(BillingClient.ProductType.INAPP)
                 .build()
         )
@@ -88,23 +96,27 @@ class ActivityPremium : AppCompatActivity() {
             .setProductList(productList)
             .build()
 
-        billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
-            when (billingResult.responseCode) {
-                BillingClient.BillingResponseCode.OK -> {
-                    productDetailsList?.firstOrNull()?.let { details ->
-                        productDetails = details
-                        updatePriceUI(details)
-                    } ?: showPriceErrorFallback()
-                }
+        billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsResult ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                val details = productDetailsResult.productDetailsList.firstOrNull()
 
-                else -> showPriceErrorFallback()
+                details?.let {
+                    productDetails = details
+                    updatePriceUI(details)
+                } ?: run {
+                    showPriceErrorFallback()
+                }
+            } else {
+                showPriceErrorFallback()
             }
         }
+
     }
 
     private fun updatePriceUI(productDetails: ProductDetails) {
         val price = productDetails.oneTimePurchaseOfferDetails?.formattedPrice ?: ""
         runOnUiThread {
+            activityPremiumBinding.hProgressbar.hide()
             activityPremiumBinding.tvPrice.text =
                 getString(R.string.premium_package_price_format, price)
         }
@@ -112,6 +124,7 @@ class ActivityPremium : AppCompatActivity() {
 
     private fun showPriceErrorFallback() {
         runOnUiThread {
+            activityPremiumBinding.hProgressbar.hide()
             activityPremiumBinding.tvPrice.text =
                 getString(R.string.premium_package_default_price)
         }

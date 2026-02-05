@@ -10,7 +10,7 @@ import com.catchyapps.whatsdelete.roomdb.AppHelperDb
 class ChatViewModel(application: Application) : AndroidViewModel(application) {
     var messageId: Long = 0
 
-    private val messagesDao = AppHelperDb.hGetMessagesDao()
+    private val messagesDao = AppHelperDb.getMessagesDao()
 
     val hItems = Pager(
         PagingConfig(

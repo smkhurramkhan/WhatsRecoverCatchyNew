@@ -161,7 +161,7 @@ class ActivityChat : BaseActivity(), ActionMode.Callback {
             screenShotsEntity.path = imageFile.absolutePath
             screenShotsEntity.name = "$now.jpg"
             lifecycleScope.launch {
-                AppHelperDb.hSaveScreenShot(screenShotsEntity)
+                AppHelperDb.saveScreenShot(screenShotsEntity)
             }
             Toast.makeText(this, getString(R.string.screenshot_saved), Toast.LENGTH_LONG).show()
             val intent = Intent(this, MediaPreviewScreen::class.java)
@@ -213,10 +213,10 @@ class ActivityChat : BaseActivity(), ActionMode.Callback {
         builder.setMessage(getString(R.string.are_you_sure_you_want_to_clear_all_messages_in_this_chat))
             .setPositiveButton(getString(R.string.clear_all_messages)) { _: DialogInterface?, _: Int ->
                 lifecycleScope.launch(Dispatchers.Main) {
-                    AppHelperDb.hClearAllChatNotifications(messageId)
-                    val chatEntity = AppHelperDb.hGetSingleChat(messageId)
+                    AppHelperDb.clearAllChatNotifications(messageId)
+                    val chatEntity = AppHelperDb.getSingleChat(messageId)
                     if (chatEntity != null) {
-                        AppHelperDb.hUpdateChatRow(
+                        AppHelperDb.updateChatRow(
                             0,
                             chatEntity.lastMessageTime!!,
                             "",
@@ -293,7 +293,7 @@ class ActivityChat : BaseActivity(), ActionMode.Callback {
                 if (chatScreenAdapter.itemCount > selectedIds.keyAt(i)) {
                     chatScreenAdapter.hGetItem(selectedIds.keyAt(i))?.id?.let {
                         lifecycleScope.launch(Dispatchers.Main) {
-                            AppHelperDb.hRemoveSingleMessage(it)
+                            AppHelperDb.removeSingleMessage(it)
                         }
                     }
                 }

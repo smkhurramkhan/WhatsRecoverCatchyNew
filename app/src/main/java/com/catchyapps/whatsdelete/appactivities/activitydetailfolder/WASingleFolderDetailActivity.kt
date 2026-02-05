@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.view.ActionMode
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -149,7 +148,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                     folderList?.clear()
                     title = foldersEntity?.playlistName
                     val templist =
-                        AppHelperDb.hGetfolderById(foldersEntity!!.id.toString())?.toMutableList()
+                        AppHelperDb.getFolderById(foldersEntity!!.id.toString())?.toMutableList()
 
                     templist?.reverse()
                     templist?.let { folderList?.addAll(it) }
@@ -262,7 +261,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
         if (foldersEntity != null) {
 
             folderList?.get(position)?.id?.let {
-                AppHelperDb.hDeleteStatus(
+                AppHelperDb.deleteStatus(
                     it
                 )
             }
@@ -271,10 +270,10 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
             foldersEntity?.noOfItems = foldersEntity?.noOfItems!! - 1
 
 
-            val temp = AppHelperDb.hGetfolderById(foldersEntity?.id.toString())
+            val temp = AppHelperDb.getFolderById(foldersEntity?.id.toString())
             if (temp?.isNotEmpty() == true) {
                 foldersEntity?.playListLogo = temp[temp.size - 1].savedPath
-                AppHelperDb.hUpdateFolderById(
+                AppHelperDb.updateFolderById(
                     foldersEntity?.playListLogo,
                     foldersEntity?.noOfItems!!,
                     foldersEntity?.id!!
@@ -283,7 +282,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                     statusAdapter?.notifyDataSetChanged()
                 }
             } else {
-                AppHelperDb.hUpdateFolderById(
+                AppHelperDb.updateFolderById(
                     "",
                     0,
                     foldersEntity!!.id

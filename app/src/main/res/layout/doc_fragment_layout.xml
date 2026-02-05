@@ -12,6 +12,7 @@
         >
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/hMainCard"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="6dp"
@@ -136,11 +137,25 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/button_root" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </RelativeLayout>
+
+
         </androidx.cardview.widget.CardView>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/hProgressbar"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:visibility="visible"
+            app:lottie_rawRes="@raw/loading_anim"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

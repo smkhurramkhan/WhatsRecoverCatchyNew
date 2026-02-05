@@ -99,7 +99,12 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
         fragmentAudioBinding.playButton.setOnClickListener { playPauseAudio() }
         hSubscribeObservers()
         hSetUpLoadMoreListener()
-        if (checkPermission()) fragmentVoiceViewModel!!.hSetFragmentType(arguments)
+        if (checkPermission()) {
+            fragmentAudioBinding.hProgressbar.visibility = View.VISIBLE
+            fragmentAudioBinding.recyclerView.visibility = View.GONE
+            fragmentAudioBinding.tvNoAudioVoice.visibility = View.GONE
+            fragmentVoiceViewModel!!.hSetFragmentType(arguments)
+        }
     }
 
     private fun hSetUpLoadMoreListener() {
@@ -169,11 +174,15 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     override fun onResume() {
         super.onResume()
         if (checkPermission()) {
+            fragmentAudioBinding.permissionDialoge.visibility = View.GONE
             if (tempList.isNotEmpty()) {
                 fragmentAudioBinding.hProgressbar.visibility = View.GONE
+                fragmentAudioBinding.recyclerView.visibility = View.VISIBLE
+                fragmentAudioBinding.tvNoAudioVoice.visibility = View.GONE
+            } else {
+                // Data not loaded yet, keep showing loader or wait for observer
+                fragmentAudioBinding.tvNoAudioVoice.visibility = View.GONE
             }
-            fragmentAudioBinding.recyclerView.visibility = View.VISIBLE
-            fragmentAudioBinding.permissionDialoge.visibility = View.GONE
         }
     }
 
@@ -190,6 +199,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 Timber.d("Permission not Granted")
                 fragmentAudioBinding.hProgressbar.visibility = View.GONE
                 fragmentAudioBinding.recyclerView.visibility = View.GONE
+                fragmentAudioBinding.tvNoAudioVoice.visibility = View.GONE
                 fragmentAudioBinding.permissionDialoge.visibility = View.VISIBLE
                 fragmentAudioBinding.btnPositive.setOnClickListener {
                     sharedVM.hLaunchIntent(TypesIntent.H_URI)

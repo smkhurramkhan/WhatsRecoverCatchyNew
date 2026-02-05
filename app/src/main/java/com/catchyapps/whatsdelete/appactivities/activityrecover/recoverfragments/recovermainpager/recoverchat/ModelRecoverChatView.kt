@@ -31,9 +31,9 @@ class ModelRecoverChatView(application: Application) : AndroidViewModel(applicat
 
     suspend fun deleteSingleChat(title: String?) {
         if (title != null) {
-            val chatEntity = AppHelperDb.hGetChatByTitle(title)
-            if (chatEntity != null) AppHelperDb.hClearAllChatNotifications(chatEntity.id)
-            AppHelperDb.hDeleteSingleChat(title)
+            val chatEntity = AppHelperDb.getChatByTitle(title)
+            if (chatEntity != null) AppHelperDb.clearAllChatNotifications(chatEntity.id)
+            AppHelperDb.deleteSingleChat(title)
         }
     }
 
@@ -45,13 +45,13 @@ class ModelRecoverChatView(application: Application) : AndroidViewModel(applicat
             enablePlaceholders = true
         )
     ) {
-        AppHelperDb.hGetAllPagedChatHeads()!!
+        AppHelperDb.getAllPagedChatHeads()!!
     }.flow
 
 
     suspend fun deleteAllChat() {
-        AppHelperDb.hClearAllChat()
-        AppHelperDb.hClearAlMessages()
+        AppHelperDb.clearAllChat()
+        AppHelperDb.clearAlMessages()
     }
 
 
@@ -61,7 +61,7 @@ class ModelRecoverChatView(application: Application) : AndroidViewModel(applicat
                 hIsRestoreList = false
                 hLastSearchQuery = searchQuery
                 viewModelScope.launch {
-                    val hGetSearchItems = AppHelperDb.hGetSearchItems(hLastSearchQuery!!)
+                    val hGetSearchItems = AppHelperDb.getSearchItems(hLastSearchQuery!!)
                     hSearchedChatListMLD.postValue(hGetSearchItems!!)
                 }
             }

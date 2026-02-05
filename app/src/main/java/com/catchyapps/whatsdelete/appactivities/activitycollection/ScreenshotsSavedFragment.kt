@@ -57,7 +57,7 @@ class ScreenshotsSavedFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            AppHelperDb.hGetAllScreenShots()?.toMutableList()?.let {
+            AppHelperDb.getAllScreenShots()?.toMutableList()?.let {
                 screenShotsEntityList?.clear()
                 screenShotsEntityList?.addAll(it)
                 Timber.d("${it.size }")

@@ -3,13 +3,11 @@ package com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragment
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.MediaScannerConnection
-import android.net.Uri
 import android.util.SparseBooleanArray
 import android.view.*
 import android.widget.EditText
@@ -34,7 +32,6 @@ import com.catchyapps.whatsdelete.databinding.PlaylistItemVideoBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import java.io.File
 import java.util.*
 
@@ -129,7 +126,7 @@ class SavedFolderAdapter(
             val entity = list[position] as EntityFolders
             var tempList: List<EntityStatuses>? = null
 
-            tempList = AppHelperDb.hGetfolderById(entity.id.toString())
+            tempList = AppHelperDb.getFolderById(entity.id.toString())
 
             AlertDialog.Builder(context)
                 .setTitle(context.getString(R.string.delete_folder))
@@ -155,20 +152,20 @@ class SavedFolderAdapter(
                                             )
                                         }
                                         if (del && i == tempList.lastIndex) {
-                                            AppHelperDb.hRemoveFolder(entity.id)
+                                            AppHelperDb.removeFolder(entity.id)
                                             list.removeAt(position)
                                             notifyDataSetChanged()
                                         }
                                     } else {
                                         if (i == tempList.lastIndex) {
-                                            AppHelperDb.hRemoveFolder(entity.id)
+                                            AppHelperDb.removeFolder(entity.id)
                                             list.removeAt(position)
                                             notifyDataSetChanged()
                                         }
                                     }
                                 }
                             } else {
-                                AppHelperDb.hRemoveFolder(entity.id)
+                                AppHelperDb.removeFolder(entity.id)
                                 list.removeAt(position)
                                 notifyDataSetChanged()
                             }
@@ -205,7 +202,7 @@ class SavedFolderAdapter(
             } else {
                 entity.playlistName = etCollectionUpdate.text.toString().trim { it <= ' ' }
                 CoroutineScope(Dispatchers.Main).launch {
-                    AppHelperDb.hUpdateFolderByName(
+                    AppHelperDb.updateFolderByName(
                         entity.playlistName!!,
                         entity.id
                     )

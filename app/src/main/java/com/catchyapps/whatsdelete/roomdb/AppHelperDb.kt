@@ -3,7 +3,6 @@ package com.catchyapps.whatsdelete.roomdb
 import android.content.Context
 import androidx.paging.PagingSource
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityFolders
-import com.catchyapps.whatsdelete.roomdb.appdao.DaoChats
 import com.catchyapps.whatsdelete.roomdb.appdao.DaoMessages
 import com.catchyapps.whatsdelete.roomdb.appdatabase.DatabaseRecover
 import com.catchyapps.whatsdelete.roomdb.appentities.EntityChats
@@ -15,19 +14,19 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 object AppHelperDb {
-    private lateinit var hRecoverDatabase: DatabaseRecover
+    private lateinit var recoverDatabase: DatabaseRecover
 
     fun initializeDb(context: Context) {
-        hRecoverDatabase = DatabaseRecover.getDbInstance(context)!!
+        recoverDatabase = DatabaseRecover.getDbInstance(context)!!
     }
 
-    suspend fun hGetChatByTitle(finalTitle: String): EntityChats? {
+    suspend fun getChatByTitle(finalTitle: String): EntityChats? {
         return withContext(Dispatchers.IO) {
-            return@withContext hRecoverDatabase.chatsDao.hGetChatByTitle(finalTitle)
+            return@withContext recoverDatabase.chatsDao.hGetChatByTitle(finalTitle)
         }
     }
 
-    suspend fun hUpdateChatRow(
+    suspend fun updateChatRow(
         count: Int,
         time: String,
         finalText: String,
@@ -35,7 +34,7 @@ object AppHelperDb {
         id: Long
     ) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.chatsDao.hUpdateChatRow(
+            recoverDatabase.chatsDao.hUpdateChatRow(
                 count,
                 time,
                 finalText,
@@ -45,82 +44,82 @@ object AppHelperDb {
         }
     }
 
-    suspend fun hInsertChatRow(chatsEntity: EntityChats): Long {
+    suspend fun insertChatRow(chatsEntity: EntityChats): Long {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.chatsDao.hInsertChatRow(chatsEntity)
+            recoverDatabase.chatsDao.hInsertChatRow(chatsEntity)
         }
     }
 
-    suspend fun hInsertChildNotification(messagesEntity: EntityMessages): Long {
+    suspend fun insertChildNotification(messagesEntity: EntityMessages): Long {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.messagesDao.insertChildNotification(messagesEntity)
+            recoverDatabase.messagesDao.insertChildNotification(messagesEntity)
         }
     }
 
-    suspend fun hSaveScreenShot(screenShotsEntity: EntityScreenShots) {
+    suspend fun saveScreenShot(screenShotsEntity: EntityScreenShots) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.screenshotsDao.hSaveScreenShot(screenShotsEntity)
+            recoverDatabase.screenshotsDao.hSaveScreenShot(screenShotsEntity)
         }
     }
 
-    suspend fun hClearAllChatNotifications(hMessageId: Long) {
+    suspend fun clearAllChatNotifications(hMessageId: Long) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.messagesDao.clearAllSingleChatNotification(hMessageId)
+            recoverDatabase.messagesDao.clearAllSingleChatNotification(hMessageId)
         }
     }
 
-    suspend fun hGetSingleChat(hMessageId: Long): EntityChats? {
+    suspend fun getSingleChat(hMessageId: Long): EntityChats? {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.chatsDao.hGetSingleChat(hMessageId)
+            recoverDatabase.chatsDao.hGetSingleChat(hMessageId)
         }
     }
 
-    suspend fun hRemoveSingleMessage(id: Long) {
+    suspend fun removeSingleMessage(id: Long) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.messagesDao.removeSingleMessage(id)
+            recoverDatabase.messagesDao.removeSingleMessage(id)
         }
     }
 
-    fun hGetMessagesDao(): DaoMessages {
+    fun getMessagesDao(): DaoMessages {
 
-        return hRecoverDatabase.messagesDao
+        return recoverDatabase.messagesDao
 
     }
 
-    suspend fun hGetAllScreenShots(): List<EntityScreenShots>? {
+    suspend fun getAllScreenShots(): List<EntityScreenShots>? {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.screenshotsDao.hGetAllScreenShots()
+            recoverDatabase.screenshotsDao.hGetAllScreenShots()
         }
     }
 
-    suspend fun hGetAllFolders(): List<EntityFolders>? {
+    suspend fun getAllFolders(): List<EntityFolders>? {
         Timber.d("Getting data")
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesFolderDao.hGetAllFolders()
+            recoverDatabase.statusesFolderDao.hGetAllFolders()
         }
     }
 
-    suspend fun hGetfolderById(id: String): List<EntityStatuses>? {
+    suspend fun getFolderById(id: String): List<EntityStatuses>? {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesDao.hGetFolderById(id)
+            recoverDatabase.statusesDao.hGetFolderById(id)
         }
     }
 
-    suspend fun hRemoveFolder(id: Int) {
+    suspend fun removeFolder(id: Int) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesFolderDao.hRemoveFolder(id)
+            recoverDatabase.statusesFolderDao.hRemoveFolder(id)
         }
     }
 
-    suspend fun hDeleteStatus(id: Int) {
+    suspend fun deleteStatus(id: Int) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesDao.hDeleteStatus((id))
+            recoverDatabase.statusesDao.hDeleteStatus((id))
         }
     }
 
-    suspend fun hUpdateFolderById(playListLogo: String?, noOfItems: Int, id: Int) {
+    suspend fun updateFolderById(playListLogo: String?, noOfItems: Int, id: Int) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesFolderDao.hUpdateFolderById(
+            recoverDatabase.statusesFolderDao.hUpdateFolderById(
                 playListLogo,
                 noOfItems,
                 id
@@ -128,68 +127,63 @@ object AppHelperDb {
         }
     }
 
-    suspend fun hGetfolderByName(playlistName: String): List<EntityFolders>? {
+    suspend fun getFolderByName(playlistName: String): List<EntityFolders>? {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesFolderDao.hGetFoldersByName(playlistName)
+            recoverDatabase.statusesFolderDao.hGetFoldersByName(playlistName)
         }
     }
 
-    suspend fun hInsertFolder(foldersEntity: EntityFolders): Long {
+    suspend fun insertFolder(foldersEntity: EntityFolders): Long {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesFolderDao.hInsertFolder(foldersEntity)
+            recoverDatabase.statusesFolderDao.hInsertFolder(foldersEntity)
         }
     }
 
-    suspend fun hDeleteScreenShotById(id: Int): Int {
+    suspend fun deleteScreenShotById(id: Int): Int {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.screenshotsDao.hDeleteScreenShotById(id)
+            recoverDatabase.screenshotsDao.hDeleteScreenShotById(id)
         }
     }
 
-        suspend fun hClearAlMessages() {
+        suspend fun clearAlMessages() {
             return withContext(Dispatchers.IO) {
-                hRecoverDatabase.messagesDao.clearAllMessages()
+                recoverDatabase.messagesDao.clearAllMessages()
             }
         }
 
-    suspend fun hClearAllChat() {
+    suspend fun clearAllChat() {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.chatsDao.hClearAllChat()
+            recoverDatabase.chatsDao.hClearAllChat()
         }
 
     }
 
-    fun hGetChatDao(): DaoChats {
-        return hRecoverDatabase.chatsDao
-    }
-
-    suspend fun hInsertSattus(hStatusesEntity: EntityStatuses) {
-        Timber.d("hInsertSattus")
+    suspend fun insertStatus(hStatusesEntity: EntityStatuses) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesDao.hInsertStatus(hStatusesEntity)
+            recoverDatabase.statusesDao.hInsertStatus(hStatusesEntity)
         }
     }
 
-    suspend fun hUpdateFolderByName(playlistName: String, id: Int) {
+    suspend fun updateFolderByName(playlistName: String, id: Int) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.statusesFolderDao.hUpdateFolderName(playlistName, id)
+            recoverDatabase.statusesFolderDao.hUpdateFolderName(playlistName, id)
         }
     }
 
-    suspend fun hDeleteSingleChat(title: String) {
+    suspend fun deleteSingleChat(title: String) {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.chatsDao.hDeleteSingleChat(title)
+            recoverDatabase.chatsDao.hDeleteSingleChat(title)
         }
     }
 
-    suspend fun hGetSearchItems(query: String):List<EntityChats>? {
+    suspend fun getSearchItems(query: String):List<EntityChats>? {
         return withContext(Dispatchers.IO) {
-            hRecoverDatabase.chatsDao.hGetSearchItems(query)
+            recoverDatabase.chatsDao.hGetSearchItems(query)
         }
     }
 
-    fun hGetAllPagedChatHeads(): PagingSource<Int, EntityChats>? {
-        return hRecoverDatabase.chatsDao.hGetAllPagedChatHeads()
+    fun getAllPagedChatHeads(): PagingSource<Int, EntityChats>? {
+        return recoverDatabase.chatsDao.hGetAllPagedChatHeads()
     }
 
 

@@ -27,11 +27,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.appactivities.activitycollection.ActivityStatusSavedCollections
 import com.catchyapps.whatsdelete.appactivities.activitydirectchat.DirectChatScreenActivity
+import com.catchyapps.whatsdelete.appactivities.activitydirectchat.namesetlistener.SetMyName
 import com.catchyapps.whatsdelete.appactivities.activityhome.homeadapter.HomeMenuAdapter
 import com.catchyapps.whatsdelete.appactivities.activityhome.homeadapter.StatuseMenuAdapter
 import com.catchyapps.whatsdelete.appactivities.activityhome.homeadapter.ToolsMenuAdapter
@@ -62,8 +64,7 @@ import timber.log.Timber
 import java.io.File
 import java.util.Locale
 
-class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
-    com.catchyapps.whatsdelete.appactivities.activitydirectchat.namesetlistener.SetMyName {
+class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), SetMyName {
     private var appSharedPreferences: MyAppSharedPrefs? = null
     private var number: String? = null
     var message: String? = null
@@ -114,7 +115,11 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(),
 
     private val backPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
-            exitAlertDialog()
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                exitAlertDialog()
+            }
         }
     }
 

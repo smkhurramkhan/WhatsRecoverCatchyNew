@@ -2,7 +2,6 @@ package com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragment
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.content.*
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -46,27 +45,31 @@ import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
 import com.catchyapps.whatsdelete.appactivities.activityrecover.ViewStateShared
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reoverdoc.RecoverDocsAdapter.DocsAdapterCallbacks
 import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
+import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.DocFragmentLayoutBinding
 import timber.log.Timber
 import java.io.*
 import java.util.*
+import androidx.core.util.isNotEmpty
+import androidx.core.util.size
 
 
 class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks {
-    private var hRecoverDocsAdapter: RecoverDocsAdapter? = null
+    private var recoverDocsAdapter: RecoverDocsAdapter? = null
     private var objectList: MutableList<EntityFiles> = ArrayList()
     private var actionMode: ActionMode? = null
     private var isMultiSelect = false
     private var selectedIds = SparseArray<String>()
-    private lateinit var hFragmentDocBinding: DocFragmentLayoutBinding
-    private var hFragmentDocViewModel: VMFragmentDoc? = null
+    private lateinit var fragmentDocBinding: DocFragmentLayoutBinding
+    private var fragmentDocViewModel: VMFragmentDoc? = null
     private var totalItemCount = 0
     private var lastVisibleItem = 0
     private var layoutManager: LinearLayoutManager? = null
     private var loading = true
     private var pageNumber = 1
-    private var hPrefs: MyAppSharedPrefs? = null
-    private val hSharedVM by activityViewModels<SharedVM>()
+    private var myAppSharedPrefs: MyAppSharedPrefs? = null
+    private val sharedVM by activityViewModels<SharedVM>()
 
 
 
@@ -75,12 +78,12 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         savedInstanceState: Bundle?,
     ): View {
         setHasOptionsMenu(true)
-        hFragmentDocBinding = DocFragmentLayoutBinding.inflate(
+        fragmentDocBinding = DocFragmentLayoutBinding.inflate(
             layoutInflater,
             container,
             false
         )
-        return hFragmentDocBinding.root
+        return fragmentDocBinding.root
     }
 
     override fun onViewCreated(
@@ -88,18 +91,23 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        hFragmentDocViewModel = ViewModelProvider(this)[VMFragmentDoc::class.java]
-        hPrefs = MyAppSharedPrefs(
+        fragmentDocViewModel = ViewModelProvider(this)[VMFragmentDoc::class.java]
+        myAppSharedPrefs = MyAppSharedPrefs(
             requireContext()
         )
-        hSetupRecyclerView()
-        hSubscribeObservers()
-        hSetupLoadMoreListener()
+        
+        // Show loader initially and hide other views
+        fragmentDocBinding.hProgressbar.show()
+        fragmentDocBinding.hMainCard.hide()
+        
+        setupRecyclerView()
+        subscribeObservers()
+        setupLoadMoreListener()
 
     }
 
-    private fun hSetupLoadMoreListener() {
-        hFragmentDocBinding.recyclerView.addOnScrollListener(
+    private fun setupLoadMoreListener() {
+        fragmentDocBinding.recyclerView.addOnScrollListener(
             object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(
                     recyclerView: RecyclerView,
@@ -112,44 +120,46 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
                     if (!loading && lastVisibleItem == totalItemCount - 1) {
                         pageNumber++
                         loading = true
-                        hFragmentDocViewModel?.hLoadMoreItems(pageNumber)
+                        fragmentDocViewModel?.hLoadMoreItems(pageNumber)
                     }
                 }
             }
         )
     }
 
-    private fun hSubscribeObservers() {
-        hFragmentDocViewModel?.hDocsListLD?.observe(
+    private fun subscribeObservers() {
+        fragmentDocViewModel?.hDocsListLD?.observe(
             viewLifecycleOwner
         ) { docsList ->
-            docsList?.let { hSetViewsData(it) }
+            docsList?.let { setViewsData(it) }
         }
 
-        hSharedVM.hSharedViewStateLD.observe(viewLifecycleOwner) {
+        sharedVM.hSharedViewStateLD.observe(viewLifecycleOwner) {
             when (it) {
                 is ViewStateShared.OnUpdateDocs ->
-                    hFragmentDocViewModel?.hLoadMoreItems(pageNumber)
+                    fragmentDocViewModel?.hLoadMoreItems(pageNumber)
 
                 else -> Unit
             }
         }
     }
 
-    private fun hSetViewsData(docsList: List<EntityFiles>) {
+    private fun setViewsData(docsList: List<EntityFiles>) {
         loading = false
+        fragmentDocBinding.hProgressbar.hide()
+        fragmentDocBinding.hMainCard.show()
         if (docsList.isNotEmpty()) {
-            hFragmentDocBinding.recyclerView.visibility = View.VISIBLE
-            hFragmentDocBinding.layoutNotfound.visibility = View.GONE
-            hRecoverDocsAdapter!!.hAddItems(docsList.toMutableList())
-            objectList = hRecoverDocsAdapter!!.hGetLists() as ArrayList<EntityFiles>
+            fragmentDocBinding.recyclerView.show()
+            fragmentDocBinding.layoutNotfound.hide()
+            recoverDocsAdapter?.hAddItems(docsList.toMutableList())
+            objectList = recoverDocsAdapter?.hGetLists() as ArrayList<EntityFiles>
         } else {
-            hFragmentDocBinding.recyclerView.visibility = View.GONE
-            hFragmentDocBinding.layoutNotfound.visibility = View.VISIBLE
+            fragmentDocBinding.recyclerView.hide()
+            fragmentDocBinding.layoutNotfound.show()
         }
     }
 
-    private fun hHandleLongClick(position: Int) {
+    private fun handleLongClick(position: Int) {
         if (!isMultiSelect) {
             selectedIds = SparseArray()
             isMultiSelect = true
@@ -165,7 +175,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         multiSelect(position)
     }
 
-    private fun hHandleSingleClick(view: View, position: Int) {
+    private fun handleSingleClick(view: View, position: Int) {
         if (isMultiSelect) {
             multiSelect(position)
         } else {
@@ -249,7 +259,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
 
                 Timber.d("Permission not Granted")
 
-                if (hPrefs?.getPermissionDialogFirstTime() == false) {
+                if (myAppSharedPrefs?.getPermissionDialogFirstTime() == false) {
                     MyAppPermissionUtils.hShowUriPermissionDialog(
                         context = requireContext(),
                         description = CleanerConstans.hGetDialogText(
@@ -257,21 +267,24 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
                             requireContext()
                         ),
                     ) {
-                        hSharedVM.hLaunchIntent(TypesIntent.H_URI)
+                        sharedVM.hLaunchIntent(TypesIntent.H_URI)
                     }
-                    hPrefs?.setPermissionDialogFirstTime(true)
+                    myAppSharedPrefs?.setPermissionDialogFirstTime(true)
                 } else {
-                    hFragmentDocBinding.recyclerView.visibility = View.GONE
-                    hFragmentDocBinding.permissionDialoge.visibility = View.VISIBLE
-                    hFragmentDocBinding.btnPositive.setOnClickListener {
-                        hSharedVM.hLaunchIntent(TypesIntent.H_URI)
+                    fragmentDocBinding.hProgressbar.hide()
+                    fragmentDocBinding.hMainCard.show()
+                    fragmentDocBinding.recyclerView.hide()
+                    fragmentDocBinding.layoutNotfound.hide()
+                    fragmentDocBinding.permissionDialoge.show()
+                    fragmentDocBinding.btnPositive.setOnClickListener {
+                        sharedVM.hLaunchIntent(TypesIntent.H_URI)
                     }
                 }
 
                 false
 
             }
-        } else if (currentAPIVersion >= Build.VERSION_CODES.M && currentAPIVersion <= Build.VERSION_CODES.Q) {
+        } else if (currentAPIVersion >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
                     Objects.requireNonNull(requireContext()),
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -315,9 +328,15 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
     override fun onResume() {
         super.onResume()
         if (checkPermission()) {
-            hFragmentDocBinding.permissionDialoge.visibility = View.GONE
-            hFragmentDocBinding.recyclerView.visibility = View.VISIBLE
-            hFragmentDocViewModel?.hLoadMoreItems(pageNumber)
+            fragmentDocBinding.permissionDialoge.hide()
+            if (objectList.isEmpty()) {
+                fragmentDocBinding.hProgressbar.show()
+                fragmentDocBinding.hMainCard.hide()
+            } else {
+                fragmentDocBinding.hProgressbar.hide()
+                fragmentDocBinding.hMainCard.show()
+            }
+            fragmentDocViewModel?.hLoadMoreItems(pageNumber)
         }
     }
 
@@ -329,7 +348,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
     ) {
         if (requestCode == MY_PERMISSIONS_REQUEST_WRITE_STORAGE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                hFragmentDocViewModel?.hLoadMoreItems(pageNumber)
+                fragmentDocViewModel?.hLoadMoreItems(pageNumber)
             } else {
                 checkAgain()
             }
@@ -365,31 +384,29 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         }
     }
 
-    private fun hSetupRecyclerView() {
-        hRecoverDocsAdapter = RecoverDocsAdapter(requireActivity(), objectList)
-        hFragmentDocBinding.recyclerView.setHasFixedSize(true)
-        hRecoverDocsAdapter!!.hSetItemCallbacks(this)
+    private fun setupRecyclerView() {
+        recoverDocsAdapter = RecoverDocsAdapter(requireActivity(), objectList)
+        fragmentDocBinding.recyclerView.setHasFixedSize(true)
+        recoverDocsAdapter!!.hSetItemCallbacks(this)
         layoutManager = GridLayoutManager(requireContext(), 3)
-        hFragmentDocBinding.recyclerView.layoutManager = layoutManager
-        hFragmentDocBinding.recyclerView.adapter = hRecoverDocsAdapter
+        fragmentDocBinding.recyclerView.layoutManager = layoutManager
+        fragmentDocBinding.recyclerView.adapter = recoverDocsAdapter
     }
 
     private fun multiSelect(position: Int) {
         if (position > -1) {
-            val data = hRecoverDocsAdapter!!.getItem(position)
+            val data = recoverDocsAdapter!!.getItem(position)
             if (actionMode != null) {
                 if (selectedIds.indexOfKey(position) > -1) selectedIds.remove(position) else selectedIds.put(
                     position,
                     data.title
                 )
-                if (selectedIds.size() > 0) actionMode!!.title =
-                    selectedIds.size()
-                        .toString() + getString(R.string.items_selected) //show selected item count on action mode.
+                if (selectedIds.isNotEmpty()) actionMode?.title = selectedIds.size().toString() + getString(R.string.items_selected) //show selected item count on action mode.
                 else {
                     actionMode?.title = "" //remove item count from action mode.
                     actionMode?.finish() //hide action mode.
                 }
-                hRecoverDocsAdapter?.setSelectedIds(selectedIds)
+                recoverDocsAdapter?.setSelectedIds(selectedIds)
             }
         }
     }
@@ -421,19 +438,19 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         mActionMode = null
         isMultiSelect = false
         selectedIds = SparseArray()
-        hRecoverDocsAdapter!!.setSelectedIds(selectedIds)
+        recoverDocsAdapter!!.setSelectedIds(selectedIds)
     }
 
     private fun alertDeleteConfirmation() {
         val builder = android.app.AlertDialog.Builder(requireActivity())
-        if (selectedIds.size() > 1)
-            builder.setMessage(getString(R.string.delete)  + selectedIds.size() + getString(R.string.document) + "?")
+        if (selectedIds.size > 1)
+            builder.setMessage(getString(R.string.delete)  + selectedIds.size + getString(R.string.document) + "?")
         else builder.setMessage(
             getString(R.string.delete_selected_documents)
         )
         builder.setPositiveButton(getString(R.string.delete)) { dialog: DialogInterface, which: Int ->
             try {
-                for (i in 0 until selectedIds.size()) {
+                for (i in 0 until selectedIds.size) {
                     val fileEntity = objectList[selectedIds.keyAt(i)]
                     val fDelete = File(fileEntity.filePath!!)
                     if (fDelete.exists()) {
@@ -442,10 +459,10 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
                     objectList.removeAt(selectedIds.keyAt(i))
                 }
                 if (objectList.size > 0) {
-                    hRecoverDocsAdapter?.notifyDataSetChanged()
+                    recoverDocsAdapter?.notifyDataSetChanged()
                 } else {
-                    hFragmentDocBinding.recyclerView.visibility = View.GONE
-                    hFragmentDocBinding.layoutNotfound.visibility = View.VISIBLE
+                    fragmentDocBinding.recyclerView.hide()
+                    fragmentDocBinding.layoutNotfound.show()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -486,15 +503,15 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
     }
 
     fun hExecuteSearch(newText: String?) {
-        hRecoverDocsAdapter?.filter?.filter(newText)
+        recoverDocsAdapter?.filter?.filter(newText)
     }
 
     override fun hSingleClick(v: View?, position: Int, files: EntityFiles?) {
-        v?.let { hHandleSingleClick(it, position) }
+        v?.let { handleSingleClick(it, position) }
     }
 
     override fun hLongClick(v: View?, position: Int, files: EntityFiles?) {
-        hHandleLongClick(position)
+        handleLongClick(position)
     }
 
     override fun hMoreClick(v: View?, position: Int, files: EntityFiles?) {
@@ -504,17 +521,17 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
             popup?.menuInflater?.inflate(R.menu.popup_audio_menu, popup.menu)
 
             popup?.menu?.getItem(0)?.setOnMenuItemClickListener {
-                val name = files?.filePath!!.substring(files.filePath?.lastIndexOf("/")!! + 1)
-                files.setIsfav(true)
+                val name = files?.filePath?.substring(files.filePath?.lastIndexOf("/")!! + 1)
+                files?.setIsfav(true)
                 checkDocFolder()
 
-                Timber.d("files path is ${files.filePath}")
+                Timber.d("files path is ${files?.filePath}")
 
                 val cw = ContextWrapper(context)
                 val directory = cw.getDir(MyAppConstants.ROOT_FOLDER, Context.MODE_PRIVATE)
                 val dir = File(directory, MyAppConstants.WA_FAV_DOC)
 
-                copyFile(files.filePath, dir.absolutePath + "/" + name)
+                copyFile(files?.filePath, dir.absolutePath + "/" + name)
                 Toast.makeText(requireContext(),
                     getString(R.string.added_to_favourites), Toast.LENGTH_LONG).show()
                 true
@@ -618,7 +635,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
                     )?.delete()
                     Timber.d("Deleted $delete")
                     if (delete == true) {
-                        hRecoverDocsAdapter!!.removeItem(position)
+                        recoverDocsAdapter!!.removeItem(position)
                     }
                 } catch (e: Exception) {
                     Timber.d("Exception ${e.message}")
@@ -656,7 +673,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
                     MyAppUtils.showToast(requireContext(), getString(R.string.something_went_wrong))
                 }
             }
-            hRecoverDocsAdapter!!.removeItem(position)
+            recoverDocsAdapter!!.removeItem(position)
         } catch (e: Exception) {
             Timber.d("Exception : $e")
             e.printStackTrace()

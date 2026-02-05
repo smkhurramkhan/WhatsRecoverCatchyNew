@@ -155,8 +155,8 @@ class SettingsScreen : BaseActivity(),
         builder.setMessage(getString(R.string.are_you_sure_you_want_to_status_all_chat_history))
         builder.setPositiveButton(getString(R.string.yes)) { _: DialogInterface?, _: Int ->
             lifecycleScope.launch {
-                AppHelperDb.hClearAllChat()
-                AppHelperDb.hClearAlMessages()
+                AppHelperDb.clearAllChat()
+                AppHelperDb.clearAlMessages()
             }
             showToast(this@SettingsScreen, getString(R.string.all_chat_cleared))
         }

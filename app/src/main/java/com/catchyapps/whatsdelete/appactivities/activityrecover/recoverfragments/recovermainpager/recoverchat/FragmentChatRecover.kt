@@ -26,6 +26,8 @@ import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
 import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
+import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.ChatFragmentScreenBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -81,7 +83,7 @@ class FragmentChatRecover : Fragment(), ActionMode.Callback {
         hSetupListeners()
         if (isNotificationListenerEnable) {
             stopAnimation()
-            hFragmentChatBinding.layoutNoPermission.visibility = View.GONE
+            hFragmentChatBinding.layoutNoPermission.hide()
         }
         hSubscribeObservers()
 
@@ -112,10 +114,10 @@ class FragmentChatRecover : Fragment(), ActionMode.Callback {
 
     private fun hSetupViews() {
         if (hChatAdapter.snapshot().items.isNotEmpty()) {
-            hFragmentChatBinding.tvNoChat.visibility = View.GONE
+            hFragmentChatBinding.tvNoChat.hide()
             hFragmentChatBinding.rvNotification.visibility = View.VISIBLE
         } else {
-            hFragmentChatBinding.rvNotification.visibility = View.GONE
+            hFragmentChatBinding.rvNotification.hide()
             if (hFragmentChatBinding.layoutNoPermission.visibility != View.VISIBLE) {
                 hFragmentChatBinding.tvNoChat.visibility = View.VISIBLE
             }
@@ -187,15 +189,15 @@ class FragmentChatRecover : Fragment(), ActionMode.Callback {
         super.onActivityResult(requestCode, resultCode, data)
         if (isNotificationListenerEnable) {
             stopAnimation()
-            hInitAdapter()
-            hFragmentChatBinding.layoutNoPermission.visibility = View.GONE
+            hFragmentChatBinding.layoutNoPermission.hide()
+            hFragmentChatBinding.tvNoChat.show()
         }
     }
 
     private fun stopAnimation() {
-        hFragmentChatBinding.tvEnableNotification.visibility = View.GONE
-        hFragmentChatBinding.layoutNoPermission.visibility = View.GONE
-        hFragmentChatBinding.animationView.visibility = View.GONE
+        hFragmentChatBinding.tvEnableNotification.hide()
+        hFragmentChatBinding.layoutNoPermission.hide()
+        hFragmentChatBinding.animationView.hide()
         hFragmentChatBinding.animationView.pauseAnimation()
         hFragmentChatBinding.animationView.clearAnimation()
     }

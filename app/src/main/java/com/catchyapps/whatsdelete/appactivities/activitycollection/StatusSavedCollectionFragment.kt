@@ -93,7 +93,7 @@ class StatusSavedCollectionFragment : Fragment(),
                 isLoadFirstTime = true
                 folderList?.clear()
 
-                AppHelperDb.hGetAllFolders()?.toMutableList()?.let {
+                AppHelperDb.getAllFolders()?.toMutableList()?.let {
                     folderList?.addAll(it)
                 }
 
@@ -207,7 +207,7 @@ class StatusSavedCollectionFragment : Fragment(),
         val entity = folderList!![position] as EntityFolders
 
         lifecycleScope.launch {
-            val tempList = AppHelperDb.hGetfolderById(entity.id.toString())
+            val tempList = AppHelperDb.getFolderById(entity.id.toString())
             try {
                 if (tempList != null) {
                     if (tempList.isNotEmpty()) {
@@ -230,7 +230,7 @@ class StatusSavedCollectionFragment : Fragment(),
                                         })
                                 }
                                 if (del && i == tempList.size - 1) {
-                                    AppHelperDb.hRemoveFolder(entity.id)
+                                    AppHelperDb.removeFolder(entity.id)
                                     folderList!!.removeAt(position)
                                     withContext(Dispatchers.Main) {
                                         folderAdapter!!.notifyDataSetChanged()
@@ -238,7 +238,7 @@ class StatusSavedCollectionFragment : Fragment(),
                                 }
                             } else {
                                 if (i == tempList.size - 1) {
-                                    AppHelperDb.hRemoveFolder(entity.id)
+                                    AppHelperDb.removeFolder(entity.id)
                                     folderList!!.removeAt(position)
                                     withContext(Dispatchers.Main) {
                                         folderAdapter!!.notifyDataSetChanged()
@@ -252,7 +252,7 @@ class StatusSavedCollectionFragment : Fragment(),
                             savedFragmentBinding.layoutNotfound.visibility = View.VISIBLE
                         }
                     } else {
-                        AppHelperDb.hRemoveFolder(entity.id)
+                        AppHelperDb.removeFolder(entity.id)
                         folderList!!.removeAt(position)
                         withContext(Dispatchers.Main) {
                             folderAdapter!!.notifyDataSetChanged()
