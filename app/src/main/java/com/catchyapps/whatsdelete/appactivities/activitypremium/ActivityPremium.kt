@@ -17,6 +17,7 @@ import com.catchyapps.whatsdelete.appadsmanager.GoogleMobileAdsConsentManager
 import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.safeGet
 import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.PremiumScreenBinding
 import timber.log.Timber
@@ -114,11 +115,10 @@ class ActivityPremium : AppCompatActivity() {
     }
 
     private fun updatePriceUI(productDetails: ProductDetails) {
-        val price = productDetails.oneTimePurchaseOfferDetails?.formattedPrice ?: ""
+        val price = productDetails.oneTimePurchaseOfferDetails?.formattedPrice.safeGet()
         runOnUiThread {
             activityPremiumBinding.hProgressbar.hide()
-            activityPremiumBinding.tvPrice.text =
-                getString(R.string.premium_package_price_format, price)
+            activityPremiumBinding.tvPrice.text = price
         }
     }
 

@@ -13,8 +13,8 @@ android {
         applicationId "com.catchyapps.whatsdelete"
         minSdk 25
         targetSdk 35
-        versionCode 3
-        versionName "1.3"
+        versionCode 4
+        versionName "1.4"
 
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -33,9 +33,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             resValue 'string', 'admobAppId', '"ca-app-pub-1440070764432562~9246900012"'
-            resValue 'string', 'admobBannerAdUnitId', '"ca-app-pub-1440070764432562/9039888592"'
-            resValue 'string', 'admobInterstitialId', '"ca-app-pub-1440070764432562/3099497908"'
-            resValue 'string', 'admobNativeAdvanced', '"ca-app-pub-1440070764432562/6467011788"'
+            resValue 'string', 'admobBannerAdUnitId', '"ca-app-pub-1440070764432562/8981487266"'
+            resValue 'string', 'admobInterstitialId', '"ca-app-pub-1440070764432562/8654184202"'
+            resValue 'string', 'admobNativeAdvanced', '"ca-app-pub-1440070764432562/6028020864"'
 
             signingConfig signingConfigs.debug
 

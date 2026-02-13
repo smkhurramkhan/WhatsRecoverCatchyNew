@@ -66,7 +66,6 @@ import java.util.Locale
 
 class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), SetMyName {
     private var appSharedPreferences: MyAppSharedPrefs? = null
-    private var number: String? = null
     var message: String? = null
 
 
