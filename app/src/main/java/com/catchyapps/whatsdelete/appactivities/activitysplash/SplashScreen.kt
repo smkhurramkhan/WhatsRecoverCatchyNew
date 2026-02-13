@@ -30,16 +30,14 @@ class SplashScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        loadInterstitial()
 
         splashBinding = SplashScreenBinding.inflate(layoutInflater)
         setContentView(splashBinding.root)
 
-
         appSharedPreferences = MyAppSharedPrefs(this)
 
         initImages()
-
-        loadInterstitial()
 
         initVariables()
 

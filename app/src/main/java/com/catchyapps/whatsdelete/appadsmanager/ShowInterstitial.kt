@@ -8,25 +8,31 @@ import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 
 object ShowInterstitial {
+
+    /** Show FB-only interstitial via the "please wait" screen. */
     @JvmStatic
     fun showInter(activity: Activity) {
-        if (BaseApplication.isFbInterstitialAvailable()) {
-            activity.startActivity(Intent(activity, PleaseWaitAdScreen::class.java)
-                .putExtra("admob", false))
-        }
+        if (!BaseApplication.isFbInterstitialAvailable()) return
+        activity.startActivity(
+            Intent(activity, PleaseWaitAdScreen::class.java)
+                .putExtra(PleaseWaitAdScreen.EXTRA_AD_TYPE, PleaseWaitAdScreen.AD_TYPE_FB)
+        )
     }
 
+    /** Show priority-based interstitial (AdMob + FB fallback) via the "please wait" screen. */
     @JvmStatic
     fun showAdmobInter(activity: Activity) {
-        if (BaseApplication.isInterstitialAvailable()) {
-            activity.startActivity(Intent(activity, PleaseWaitAdScreen::class.java)
-                .putExtra("admob", true))
-        }
+        if (!BaseApplication.isInterstitialAvailable()) return
+        activity.startActivity(
+            Intent(activity, PleaseWaitAdScreen::class.java)
+                .putExtra(PleaseWaitAdScreen.EXTRA_AD_TYPE, PleaseWaitAdScreen.AD_TYPE_ADMOB)
+        )
     }
+
+    /** Hide native/banner container if user is premium. */
     @JvmStatic
     fun hideNativeAndBanner(view: ViewGroup, activity: Activity) {
-        val appPrefs = MyAppSharedPrefs(activity)
-        if (appPrefs.isPremium) {
+        if (MyAppSharedPrefs(activity).isPremium) {
             view.visibility = View.GONE
         }
     }

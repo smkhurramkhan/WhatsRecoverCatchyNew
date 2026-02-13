@@ -1,7 +1,6 @@
 package com.catchyapps.whatsdelete
 
 import android.app.Activity
-import android.os.StrictMode
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -39,12 +38,7 @@ class BaseApplication : LocaleAwareApplication() {
         val appSharedPrefs = MyAppSharedPrefs(this)
         isPremium = appSharedPrefs.isPremium
 
-        MobileAds.initialize(this) {/* initializationStatus: InitializationStatus ->
-            val statusMap = initializationStatus.adapterStatusMap
-            for (adapterClass in statusMap.keys) {
-                val status = statusMap[adapterClass]
-            }*/
-        }
+        MobileAds.initialize(this)
 
 
         adsFacebookManger =
@@ -80,161 +74,154 @@ class BaseApplication : LocaleAwareApplication() {
         var adPriority = 1
         private var isPremium = false
 
+        // ── Helper functions ──
+
+        private fun canShowAds(): Boolean =
+            !isPremium && !MyAppDetectorConnection.isNotConnectedToInternet()
+
+        private fun isFbAdLoaded(): Boolean =
+            adsFacebookManger?.fbInterstitialAd?.isAdLoaded == true
+
+        private fun isAdmobAdLoaded(): Boolean =
+            adMobManager?.interstitialAd != null
+
+        private fun reloadFbIfNeeded() {
+            if (!isFbAdLoaded()) adsFacebookManger?.loadFbInterstitial()
+        }
+
+        private fun reloadAdmobIfNeeded() {
+            if (!isAdmobAdLoaded()) adMobManager?.loadAdMobInterstitialAd()
+        }
+
+        // ── Interstitial: Load ──
+
         @JvmStatic
         fun loadInterstitial() {
             adMobManager?.loadAdMobInterstitialAd()
             adsFacebookManger?.loadFbInterstitial()
         }
 
+        // ── Interstitial: Availability checks ──
+
         @JvmStatic
         fun isFbInterstitialAvailable(): Boolean {
-            if (isPremium) return false
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return false
-
-            if (adsFacebookManger?.fbInterstitialAd != null && adsFacebookManger?.fbInterstitialAd?.isAdLoaded!!) {
-                return true
-            } else adsFacebookManger?.loadFbInterstitial()
-
+            if (!canShowAds()) return false
+            if (isFbAdLoaded()) return true
+            reloadFbIfNeeded()
             return false
         }
 
         @JvmStatic
         fun isInterstitialAvailable(): Boolean {
-            if (isPremium) return false
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return false
-            when (adPriority) {
-                1 -> {
-                    if (adMobManager?.interstitialAd != null) {
-                        return true
-                    } else adMobManager?.loadAdMobInterstitialAd()
-                    if (adsFacebookManger?.fbInterstitialAd != null
-                        && adsFacebookManger?.fbInterstitialAd?.isAdLoaded!!
-                    ) {
-                        return false
-                    } else adsFacebookManger?.loadFbInterstitial()
-
-                }
-                2 -> {
-                    if (adsFacebookManger?.fbInterstitialAd != null && adsFacebookManger?.fbInterstitialAd?.isAdLoaded!!) {
-                        return true
-                    } else adsFacebookManger?.loadFbInterstitial()
-
-                    if (adMobManager?.interstitialAd != null) {
-                        return true
-                    } else adMobManager?.loadAdMobInterstitialAd()
-
-                }
+            if (!canShowAds()) return false
+            return when (adPriority) {
+                1 -> checkAdmobThenFb()
+                2 -> checkFbThenAdmob()
+                else -> false
             }
+        }
+
+        private fun checkAdmobThenFb(): Boolean {
+            if (isAdmobAdLoaded()) return true
+            reloadAdmobIfNeeded()
+            if (isFbAdLoaded()) return true
+            reloadFbIfNeeded()
             return false
         }
 
-        //ads
-        @JvmStatic
-        fun showInterstitial(activity: Activity?) {
-            if (isPremium) return
-
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
-            // Facebook Inter
-            if (adsFacebookManger?.fbInterstitialAd != null && adsFacebookManger?.fbInterstitialAd!!.isAdLoaded) {
-                adsFacebookManger?.fbInterstitialAd!!.show()
-                return
-            } else adsFacebookManger?.loadFbInterstitial()
-
-
+        private fun checkFbThenAdmob(): Boolean {
+            if (isFbAdLoaded()) return true
+            reloadFbIfNeeded()
+            if (isAdmobAdLoaded()) return true
+            reloadAdmobIfNeeded()
+            return false
         }
 
+        // ── Interstitial: Show ──
+
+        /** Show FB interstitial only (intentional - no AdMob fallback) */
         @JvmStatic
-        fun showInterstitialAdmobOnly(activity: Activity?) {
-            if (isPremium) return
-
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
-            when (adPriority) {
-                1 -> {
-                    // Admob Inter
-                    if (adMobManager?.interstitialAd != null) {
-                        adMobManager?.interstitialAd!!.show(activity!!)
-                        return
-                    } else adMobManager?.loadAdMobInterstitialAd()
-
-                    // Facebook Inter
-                    if (adsFacebookManger?.fbInterstitialAd != null && adsFacebookManger?.fbInterstitialAd!!.isAdLoaded) {
-                        adsFacebookManger?.fbInterstitialAd!!.show()
-                        return
-                    } else adsFacebookManger?.loadFbInterstitial()
-
-
-                }
-                2 -> {
-                    // Facebook Inter
-                    if (adsFacebookManger?.fbInterstitialAd != null && adsFacebookManger?.fbInterstitialAd!!.isAdLoaded) {
-                        adsFacebookManger?.fbInterstitialAd!!.show()
-                        return
-                    } else adsFacebookManger?.loadFbInterstitial()
-
-
-                    // Admob Inter
-                    if (adMobManager?.interstitialAd != null) {
-                        adMobManager?.interstitialAd!!.show(activity!!)
-                        return
-                    } else adMobManager?.loadAdMobInterstitialAd()
-
-
-                }
+        fun showInterstitial(activity: Activity?) {
+            if (!canShowAds()) return
+            if (isFbAdLoaded()) {
+                adsFacebookManger?.fbInterstitialAd?.show()
+            } else {
+                reloadFbIfNeeded()
             }
         }
 
+        /** Show interstitial with priority-based fallback (AdMob + FB) */
+        @JvmStatic
+        fun showInterstitialAdmobOnly(activity: Activity?) {
+            if (!canShowAds()) return
+            when (adPriority) {
+                1 -> showAdmobThenFb(activity)
+                2 -> showFbThenAdmob(activity)
+            }
+        }
+
+        private fun showAdmobThenFb(activity: Activity?) {
+            if (isAdmobAdLoaded() && activity != null) {
+                adMobManager?.interstitialAd?.show(activity)
+                return
+            }
+            reloadAdmobIfNeeded()
+
+            if (isFbAdLoaded()) {
+                adsFacebookManger?.fbInterstitialAd?.show()
+                return
+            }
+            reloadFbIfNeeded()
+        }
+
+        private fun showFbThenAdmob(activity: Activity?) {
+            if (isFbAdLoaded()) {
+                adsFacebookManger?.fbInterstitialAd?.show()
+                return
+            }
+            reloadFbIfNeeded()
+
+            if (isAdmobAdLoaded() && activity != null) {
+                adMobManager?.interstitialAd?.show(activity)
+                return
+            }
+            reloadAdmobIfNeeded()
+        }
+
+        // ── Banner ads ──
 
         @JvmStatic
         fun showBanner(bannerAdContainer: FrameLayout?) {
-            if (isPremium) return
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
-
-            when (adPriority) {
-                1, 2 ->
-                    adsFacebookManger?.fbBannerAdView(bannerAdContainer)
-
-            }
+            if (!canShowAds()) return
+            adsFacebookManger?.fbBannerAdView(bannerAdContainer)
         }
-
 
         @JvmStatic
         fun showNativeBanner(bannerAdContainer: ViewGroup?, alternateView: View?) {
-            if (isPremium) return
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
-            when (adPriority) {
-                1,2 -> adsFacebookManger?.fbNativeBanner(bannerAdContainer)
-            }
+            if (!canShowAds()) return
+            adsFacebookManger?.fbNativeBanner(bannerAdContainer)
         }
 
         @JvmStatic
         fun showNativeBannerAdmobOnly(bannerAdContainer: ViewGroup?, alternateView: View?) {
-            if (isPremium) return
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
-
-            when (adPriority) {
-                1,2 -> adMobManager?.admobNativeBanner(bannerAdContainer, alternateView)
-            }
+            if (!canShowAds()) return
+            adMobManager?.admobNativeBanner(bannerAdContainer, alternateView)
         }
+
+        // ── Native ads ──
 
         @JvmStatic
         fun showDefaultNativeAd(bannerAdContainer: FrameLayout?, alternateView: View?) {
-            if (isPremium) return
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
-            when (adPriority) {
-                1, 2 -> adsFacebookManger?.showFbNativeAds(bannerAdContainer, alternateView)
-
-            }
+            if (!canShowAds()) return
+            adsFacebookManger?.showFbNativeAds(bannerAdContainer, alternateView)
         }
-
 
         @JvmStatic
         fun showDefaultNativeAdAdmobOnly(bannerAdContainer: FrameLayout?, alternateView: View?) {
-            if (isPremium) return
-            if (MyAppDetectorConnection.isNotConnectedToInternet()) return
+            if (!canShowAds()) return
             when (adPriority) {
                 1 -> adMobManager?.customNativeAd(bannerAdContainer, alternateView)
                 2 -> adsFacebookManger?.showFbNativeAds(bannerAdContainer, alternateView)
-
             }
         }
 

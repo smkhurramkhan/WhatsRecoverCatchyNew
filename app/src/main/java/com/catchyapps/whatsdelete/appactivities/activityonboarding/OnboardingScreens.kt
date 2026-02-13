@@ -20,15 +20,17 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
-import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
-import com.catchyapps.whatsdelete.basicapputils.MyAppSchemas
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
-import com.catchyapps.whatsdelete.databinding.LayoutHintStartBinding
 import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appactivities.activityhome.MainActivity
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.uri
+import com.catchyapps.whatsdelete.appadsmanager.ShowInterstitial
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
+import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
+import com.catchyapps.whatsdelete.basicapputils.MyAppSchemas
+import com.catchyapps.whatsdelete.databinding.LayoutHintStartBinding
 import com.catchyapps.whatsdelete.databinding.ScreensOnboardingBinding
 import com.rd.animation.type.AnimationType
 
@@ -53,7 +55,8 @@ class OnboardingScreens : BaseActivity() {
             mContentResolver.takePersistableUriPermission(
                 directoryUri,
                 Intent.FLAG_GRANT_READ_URI_PERMISSION or
-                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            )
             viewPager?.currentItem = 2
 
         }
@@ -63,6 +66,8 @@ class OnboardingScreens : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ScreensOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadAds()
 
 
         prefs = MyAppSharedPrefs(this)
@@ -133,7 +138,7 @@ class OnboardingScreens : BaseActivity() {
                             )
                         }
 
-                    }else viewPager?.currentItem = 2
+                    } else viewPager?.currentItem = 2
 
                 } else viewPager?.currentItem = 2
 
@@ -154,6 +159,13 @@ class OnboardingScreens : BaseActivity() {
             } else {
                 Toast.makeText(this, "You are at the first page", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun loadAds() {
+        binding.apply {
+            ShowInterstitial.hideNativeAndBanner(topAdsLayout, this@OnboardingScreens)
+            BaseApplication.showNativeBannerAdmobOnly(nativebanner, shimmerViewContainer)
         }
     }
 

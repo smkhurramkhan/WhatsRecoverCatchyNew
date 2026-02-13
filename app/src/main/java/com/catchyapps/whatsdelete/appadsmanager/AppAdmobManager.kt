@@ -1,305 +1,288 @@
-package com.catchyapps.whatsdelete.appadsmanager;
+package com.catchyapps.whatsdelete.appadsmanager
 
-import android.annotation.SuppressLint;
-import android.app.Application;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.annotation.SuppressLint
+import android.app.Application
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.os.Handler
+import android.os.Looper
+import android.util.DisplayMetrics
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.catchyapps.whatsdelete.BaseApplication
+import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.basicapputils.hide
+import com.catchyapps.whatsdelete.basicapputils.show
+import com.google.android.ads.nativetemplates.NativeTemplateStyle
+import com.google.android.ads.nativetemplates.TemplateView
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdLoader
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.nativead.NativeAd
+import timber.log.Timber
 
-import androidx.annotation.NonNull;
+class AppAdmobManager(
+    private val baseApplication: BaseApplication,
+    var adPriority: Int
+) {
 
-import com.catchyapps.whatsdelete.BaseApplication;
-import com.catchyapps.whatsdelete.R;
-import com.google.android.ads.nativetemplates.NativeTemplateStyle;
-import com.google.android.ads.nativetemplates.TemplateView;
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdLoader;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+    companion object {
+        private const val TAG = "AppAdmobManager"
+        private const val RETRY_DELAY_MS = 30_000L
+        private const val MAX_RETRY_COUNT = 3
 
-import java.util.Objects;
-
-import timber.log.Timber;
-
-
-public class AppAdmobManager {
-
-    private InterstitialAd interstitialAd;
-    private final BaseApplication baseApplication;
-    int adPriority;
-    private AdView bannerAdView;
-    private final FBAdsManger adsFacebookManger;
-
-    /**
-     * Constructor
-     */
-    public AppAdmobManager(BaseApplication baseApplication, int adPriority) {
-        this.baseApplication = baseApplication;
-        this.adPriority = adPriority;
-        MobileAds.initialize(baseApplication, initializationStatus -> {
-        });
-        adsFacebookManger = new FBAdsManger(baseApplication, adPriority);
+        @JvmStatic
+        fun getPixelFromDp(application: Application, dp: Int): Int {
+            val display =
+                (application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
+            val outMetrics = DisplayMetrics()
+            display.getMetrics(outMetrics)
+            val scale = outMetrics.density
+            return (dp * scale + 0.5f).toInt()
+        }
     }
 
-    public boolean checkConnection() {
-        final ConnectivityManager connMgr = (ConnectivityManager) baseApplication.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connMgr != null) {
-            NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
-            if (activeNetworkInfo != null) { // connected to the internet
-                // connected to the mobile provider's data plan
-                if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-                    // connected to wifi
-                    return true;
-                } else return activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+    var interstitialAd: InterstitialAd? = null
+        private set
+
+    private var bannerAdView: AdView? = null
+    private val adsFacebookManger = FBAdsManger(baseApplication, adPriority)
+    private val retryHandler = Handler(Looper.getMainLooper())
+    private var interstitialRetryCount = 0
+    private var isLoadingInterstitial = false
+
+    // ── Interstitial ──
+
+    fun loadAdMobInterstitialAd() {
+        if (MyAppDetectorConnection.isNotConnectedToInternet()) return
+
+        if (isLoadingInterstitial) {
+            Timber.tag(TAG).d("AdMob interstitial already loading, skipping duplicate request")
+            return
+        }
+
+        isLoadingInterstitial = true
+        Timber.tag(TAG).d("Loading AdMob interstitial (attempt %d/%d)",
+            interstitialRetryCount + 1, MAX_RETRY_COUNT)
+
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(
+            baseApplication,
+            baseApplication.resources.getString(R.string.interstitial_id),
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdLoaded(ad: InterstitialAd) {
+                    Timber.tag(TAG).d("AdMob interstitial loaded successfully")
+                    interstitialAd = ad
+                    ad.fullScreenContentCallback = fullScreenContentCallback
+                    isLoadingInterstitial = false
+                    interstitialRetryCount = 0
+                }
+
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    Timber.tag(TAG).w("AdMob interstitial load failed: code=%d msg=%s",
+                        loadAdError.code, loadAdError.message)
+                    interstitialAd = null
+                    isLoadingInterstitial = false
+                    scheduleRetryIfNeeded()
+                }
             }
-        }
-        return false;
+        )
     }
 
+    private val fullScreenContentCallback = object : FullScreenContentCallback() {
+        override fun onAdDismissedFullScreenContent() {
+            Timber.tag(TAG).d("AdMob interstitial dismissed, reloading fresh ad")
+            interstitialRetryCount = 0
+            isLoadingInterstitial = false
+            loadAdMobInterstitialAd()
+        }
 
-    public InterstitialAd getInterstitialAd() {
-        return interstitialAd;
+        override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+            Timber.tag(TAG).w("AdMob interstitial failed to show: %s", adError.message)
+        }
+
+        override fun onAdShowedFullScreenContent() {
+            Timber.tag(TAG).d("AdMob interstitial shown")
+            interstitialAd = null
+        }
     }
 
-    //  Load admob interstitial
-    public void loadAdMobInterstitialAd() {
-        if (!checkConnection())
-            return;
-        AdRequest adRequest = new AdRequest.Builder().build();
-        InterstitialAd.load(baseApplication, baseApplication.getResources().getString(R.string.interstitial_id), adRequest, new InterstitialAdLoadCallback() {
-            @Override
-            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                // The mInterstitialAd reference will be null until
-                // an ad is loaded.
-                AppAdmobManager.this.interstitialAd = interstitialAd;
-                interstitialAd.setFullScreenContentCallback(fullScreenContentCallback);
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                // Handle the error
-                Timber.d(loadAdError.getMessage());
-                interstitialAd = null;
-            }
-        });
+    private fun scheduleRetryIfNeeded() {
+        interstitialRetryCount++
+        if (interstitialRetryCount < MAX_RETRY_COUNT) {
+            Timber.tag(TAG).d("Scheduling AdMob interstitial retry in %dms (attempt %d/%d)",
+                RETRY_DELAY_MS, interstitialRetryCount + 1, MAX_RETRY_COUNT)
+            retryHandler.postDelayed({ loadAdMobInterstitialAd() }, RETRY_DELAY_MS)
+        } else {
+            Timber.tag(TAG).w("AdMob interstitial max retries (%d) reached, giving up", MAX_RETRY_COUNT)
+            interstitialRetryCount = 0
+        }
     }
 
-    FullScreenContentCallback fullScreenContentCallback = new FullScreenContentCallback() {
-        @Override
-        public void onAdDismissedFullScreenContent() {
-            // Called when fullscreen content is dismissed.
-            Timber.d("The ad was dismissed.");
-            loadAdMobInterstitialAd();
-        }
+    // ── Native Banner ──
 
-        @Override
-        public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
-            // Called when fullscreen content failed to show.
-            Timber.d("The ad failed to show.");
-        }
-
-        @Override
-        public void onAdShowedFullScreenContent() {
-            interstitialAd = null;
-            Timber.d("The ad was shown.");
-        }
-    };
-
-    // for admob custom native ads
-    public void admobNativeBanner(ViewGroup mNativeAdContainer, View alternateView) {
-        mNativeAdContainer.getLayoutParams().height = getPixelFromDp(baseApplication, 64);
+    fun admobNativeBanner(mNativeAdContainer: ViewGroup?, alternateView: View?) {
+        mNativeAdContainer?.layoutParams?.height = getPixelFromDp(baseApplication, 64)
         try {
-            AdLoader adLoader = new AdLoader.Builder(baseApplication, baseApplication.getResources().getString(R.string.native_advanced))
-                    .forNativeAd(NativeAd -> {
+            val adLoader = AdLoader.Builder(
+                baseApplication,
+                baseApplication.resources.getString(R.string.native_advanced)
+            )
+                .forNativeAd { nativeAd: NativeAd? ->
+                    Timber.tag(TAG).d("AdMob native banner loaded")
+                    val cd = ColorDrawable()
+                    val styles = NativeTemplateStyle.Builder()
+                        .withMainBackgroundColor(cd).build()
+                    val layoutInflater =
+                        baseApplication.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                    @SuppressLint("InflateParams")
+                    val cardView = layoutInflater
+                        .inflate(R.layout.custom_native_ad_view_layout, null) as LinearLayout
 
-                        ColorDrawable cd = new ColorDrawable();
-                        NativeTemplateStyle styles = new NativeTemplateStyle.Builder()
-                                .withMainBackgroundColor(cd).build();
-                        LayoutInflater layoutInflater = (LayoutInflater)
-                                baseApplication.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                        @SuppressLint("InflateParams")
-                        LinearLayout cardView = (LinearLayout) layoutInflater
-                                .inflate(R.layout.custom_native_ad_view_layout, null);
+                    val templateView = cardView.findViewById<TemplateView>(R.id.my_template)
+                    templateView.show()
+                    templateView.setStyles(styles)
+                    templateView.setNativeAd(nativeAd)
 
-
-                        TemplateView templateView = cardView.findViewById(R.id.my_template);
-                        templateView.setVisibility(View.VISIBLE);
-                        templateView.setStyles(styles);
-                        templateView.setNativeAd(NativeAd);
-
-                        mNativeAdContainer.removeAllViews();
-                        mNativeAdContainer.addView(cardView);
-                        mNativeAdContainer.setVisibility(View.VISIBLE);
-
-                        if (alternateView != null) {
-                            alternateView.setVisibility(View.GONE);
-                        }
-
-
-                    }).withAdListener(new AdListener() {
-                        @Override
-                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                            super.onAdFailedToLoad(loadAdError);
-                            if (adPriority == 1) {
-                                adsFacebookManger.customNativeBanner(mNativeAdContainer, alternateView);
-                            } else {
-                                alternateView.setVisibility(View.VISIBLE);
-                            }
-
-                        }
-                    })
-                    .build();
-            adLoader.loadAd(new AdRequest.Builder().build());
-        } catch (Resources.NotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    private AdSize getAdSize() {
-        // Step 2 - Determine the screen width (less decorations) to use for the ad width.
-        Display display = ((WindowManager) baseApplication.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        display.getMetrics(outMetrics);
-
-        float widthPixels = outMetrics.widthPixels;
-        float density = outMetrics.density;
-
-        int adWidth = (int) (widthPixels / density);
-
-        // Step 3 - Get adaptive ad size and return for setting on the ad view.
-        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(baseApplication, adWidth);
-    }
-
-
-    //admob adaptive banner
-    public void adMobAdaptiveBanner(ViewGroup adContainerView) {
-
-        try {
-            if (baseApplication != null) {
-                bannerAdView = new AdView(baseApplication);
-                bannerAdView.setAdUnitId(baseApplication.getResources().getString(R.string.banner_ad_unit_id));
-
-                AdSize adSize = getAdSize();
-                adContainerView.getLayoutParams().height = getPixelFromDp(baseApplication, 60);
-                addPlaceHolderTextView(adContainerView);
-
-                bannerAdView.setAdSize(adSize);
-                bannerAdView.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdLoaded() {
-                        adContainerView.removeAllViews();
-                        adContainerView.addView(bannerAdView);
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        super.onAdFailedToLoad(loadAdError);
-                        Timber.d(loadAdError.getMessage());
-                        adsFacebookManger.fbBannerAdView(adContainerView);
-                    }
-
-                    @Override
-                    public void onAdClosed() {
-                    }
-                });
-
-                AdRequest adRequest = new AdRequest.Builder().build();
-                // Start loading the ad in the background.
-                bannerAdView.loadAd(adRequest);
-            }
-        } catch (Resources.NotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void addPlaceHolderTextView(ViewGroup adContainerView) {
-        TextView valueTV = new TextView(baseApplication);
-        valueTV.setText(R.string.ad_loading);
-        valueTV.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
-
-        valueTV.setGravity(Gravity.CENTER);
-        adContainerView.addView(valueTV);
-    }
-
-
-    // admob native ads
-    public void customNativeAd(ViewGroup nativeAdLayout, View itemPicker) {
-
-        if (itemPicker == null) {
-            nativeAdLayout.getLayoutParams().height = getPixelFromDp(baseApplication, 240);
-            //addPlaceHolderTextView(nativeAdLayout);
-        }
-
-        @SuppressLint("InflateParams") AdLoader adLoader = new AdLoader.Builder(baseApplication, baseApplication.getResources().getString(R.string.native_advanced))
-                .forNativeAd(unifiedNativeAd -> {
-
-                    ColorDrawable cd = new ColorDrawable();
-                    NativeTemplateStyle styles = new NativeTemplateStyle.Builder().withMainBackgroundColor(cd).build();
-                    LayoutInflater layoutInflater = (LayoutInflater) baseApplication.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    FrameLayout cardView;
-                    cardView = (FrameLayout) layoutInflater.inflate(R.layout.layout_native_ad_, null);
-                    TemplateView templateView = cardView.findViewById(R.id.my_template);
-                    templateView.setVisibility(View.VISIBLE);
-                    templateView.setStyles(styles);
-                    templateView.setNativeAd(unifiedNativeAd);
-
-
-                    if (nativeAdLayout != null) {
-                        nativeAdLayout.removeAllViews();
-                        nativeAdLayout.addView(cardView);
-                        nativeAdLayout.setVisibility(View.VISIBLE);
-                        if (itemPicker != null)
-                            itemPicker.setVisibility(View.GONE);
-                    }
-
-
-                }).withAdListener(new AdListener() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        super.onAdFailedToLoad(loadAdError);
-                        Timber.d(loadAdError.getMessage());
+                    mNativeAdContainer?.removeAllViews()
+                    mNativeAdContainer?.addView(cardView)
+                    mNativeAdContainer?.show()
+                    alternateView?.hide()
+                }
+                .withAdListener(object : AdListener() {
+                    override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                        super.onAdFailedToLoad(loadAdError)
+                        Timber.tag(TAG).w("AdMob native banner failed: code=%d msg=%s",
+                            loadAdError.code, loadAdError.message)
                         if (adPriority == 1) {
-                            adsFacebookManger.showFbNativeAds(nativeAdLayout, itemPicker);
+                            adsFacebookManger.customNativeBanner(mNativeAdContainer, alternateView)
                         } else {
-                            Objects.requireNonNull(itemPicker).setVisibility(View.VISIBLE);
+                            alternateView?.show()
                         }
                     }
                 })
-                .build();
-
-
-        adLoader.loadAd(new AdRequest.Builder().build());
+                .build()
+            adLoader.loadAd(AdRequest.Builder().build())
+        } catch (e: Exception) {
+            Timber.tag(TAG).e(e, "AdMob native banner exception")
+        }
     }
 
+    // ── Adaptive Banner ──
 
-    public static int getPixelFromDp(Application application, int dp) {
-        Display display = ((WindowManager) application.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        display.getMetrics(outMetrics);
-        final float scale = outMetrics.density;
-        return (int) (dp * scale + 0.5f);
+    private val adSize: AdSize
+        get() {
+            val display =
+                (baseApplication.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
+            val outMetrics = DisplayMetrics()
+            display.getMetrics(outMetrics)
+            val widthPixels = outMetrics.widthPixels.toFloat()
+            val density = outMetrics.density
+            val adWidth = (widthPixels / density).toInt()
+            return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(baseApplication, adWidth)
+        }
+
+    fun adMobAdaptiveBanner(adContainerView: ViewGroup) {
+        try {
+            bannerAdView = AdView(baseApplication).apply {
+                setAdUnitId(baseApplication.resources.getString(R.string.banner_ad_unit_id))
+            }
+
+            adContainerView.layoutParams.height = getPixelFromDp(baseApplication, 60)
+            addPlaceHolderTextView(adContainerView)
+
+            bannerAdView?.setAdSize(adSize)
+            bannerAdView?.adListener = object : AdListener() {
+                override fun onAdLoaded() {
+                    Timber.tag(TAG).d("AdMob adaptive banner loaded")
+                    adContainerView.removeAllViews()
+                    adContainerView.addView(bannerAdView)
+                }
+
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    super.onAdFailedToLoad(loadAdError)
+                    Timber.tag(TAG).w("AdMob adaptive banner failed: %s", loadAdError.message)
+                    adsFacebookManger.fbBannerAdView(adContainerView)
+                }
+            }
+
+            bannerAdView?.loadAd(AdRequest.Builder().build())
+        } catch (e: Exception) {
+            Timber.tag(TAG).e(e, "AdMob adaptive banner exception")
+        }
+    }
+
+    private fun addPlaceHolderTextView(adContainerView: ViewGroup) {
+        val valueTV = TextView(baseApplication).apply {
+            setText(R.string.ad_loading)
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+            )
+            gravity = Gravity.CENTER
+        }
+        adContainerView.addView(valueTV)
+    }
+
+    // ── Native Ad (Full) ──
+
+    fun customNativeAd(nativeAdLayout: ViewGroup?, itemPicker: View?) {
+        if (itemPicker == null) {
+            nativeAdLayout?.layoutParams?.height = getPixelFromDp(baseApplication, 240)
+        }
+
+        @SuppressLint("InflateParams")
+        val adLoader = AdLoader.Builder(
+            baseApplication,
+            baseApplication.resources.getString(R.string.native_advanced)
+        )
+            .forNativeAd { unifiedNativeAd: NativeAd? ->
+                Timber.tag(TAG).d("AdMob native ad loaded")
+                val cd = ColorDrawable()
+                val styles = NativeTemplateStyle.Builder().withMainBackgroundColor(cd).build()
+                val layoutInflater =
+                    baseApplication.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                val cardView =
+                    layoutInflater.inflate(R.layout.layout_native_ad_, null) as FrameLayout
+                val templateView = cardView.findViewById<TemplateView>(R.id.my_template)
+                templateView.show()
+                templateView.setStyles(styles)
+                templateView.setNativeAd(unifiedNativeAd)
+                if (nativeAdLayout != null) {
+                    nativeAdLayout.removeAllViews()
+                    nativeAdLayout.addView(cardView)
+                    nativeAdLayout.show()
+                    itemPicker?.hide()
+                }
+            }
+            .withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    super.onAdFailedToLoad(loadAdError)
+                    Timber.tag(TAG).w("AdMob native ad failed: code=%d msg=%s",
+                        loadAdError.code, loadAdError.message)
+                    if (adPriority == 1) {
+                        adsFacebookManger.showFbNativeAds(nativeAdLayout, itemPicker)
+                    } else {
+                        itemPicker?.show()
+                    }
+                }
+            })
+            .build()
+
+        adLoader.loadAd(AdRequest.Builder().build())
     }
 }
-

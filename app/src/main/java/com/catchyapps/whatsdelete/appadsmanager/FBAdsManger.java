@@ -41,6 +41,9 @@ import com.facebook.ads.NativeAdViewAttributes;
 import com.facebook.ads.NativeBannerAd;
 import com.facebook.ads.NativeBannerAdView;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,18 +52,23 @@ import timber.log.Timber;
 
 public class FBAdsManger {
 
-    //todo for native banner facebook
+    private static final String TAG = "FBAdsManger";
+    private static final long RETRY_DELAY_MS = 30_000L; // 30 seconds
+    private static final int MAX_RETRY_COUNT = 3;
+
     private NativeBannerAd mNativeBannerAd;
     private final NativeBannerAdView.Type mViewType = NativeBannerAdView.Type.HEIGHT_50;
     private static final int COLOR_LIGHT_GRAY = 0xff90949c;
     private static final int COLOR_CTA_BLUE_BG = 0xff4080ff;
 
-
     private InterstitialAd fbInterstitialAd;
     private static NativeAd nativeAd;
     private static AdOptionsView adOptionsView;
-    //facebook banner ads
     private AdView bannerAdView;
+    private final Handler retryHandler = new Handler(Looper.getMainLooper());
+    private int interstitialRetryCount = 0;
+    private boolean isLoadingInterstitial = false;
+
     BaseApplication baseApplication;
     int adPriority;
 
@@ -79,77 +87,99 @@ public class FBAdsManger {
     }
 
     /**
-     * Load Facebook Interstitial
+     * Load Facebook Interstitial with automatic retry on failure.
      */
     public void loadFbInterstitial() {
+        if (isLoadingInterstitial) {
+            Timber.tag(TAG).d("FB interstitial already loading, skipping duplicate request");
+            return;
+        }
+
         if (fbInterstitialAd != null) {
             fbInterstitialAd.destroy();
             fbInterstitialAd = null;
         }
 
-        InterstitialAdExtendedListener interstitialAdExtendedListener = new InterstitialAdExtendedListener() {
+        isLoadingInterstitial = true;
+        Timber.tag(TAG).d("Loading FB interstitial (attempt %d/%d)", interstitialRetryCount + 1, MAX_RETRY_COUNT);
+
+        InterstitialAdExtendedListener listener = new InterstitialAdExtendedListener() {
             @Override
             public void onInterstitialActivityDestroyed() {
-
+                Timber.tag(TAG).d("FB interstitial activity destroyed");
             }
 
             @Override
             public void onInterstitialDisplayed(Ad ad) {
-
+                Timber.tag(TAG).d("FB interstitial displayed");
             }
 
             @Override
             public void onInterstitialDismissed(Ad ad) {
+                Timber.tag(TAG).d("FB interstitial dismissed, reloading fresh ad");
+                interstitialRetryCount = 0;
+                isLoadingInterstitial = false;
                 loadFbInterstitial();
             }
 
             @Override
             public void onError(Ad ad, AdError adError) {
-                //  Utilit.logCat("loadFbInterstitial: " + adError.getErrorMessage());
+                Timber.tag(TAG).w("FB interstitial load error: code=%d msg=%s",
+                        adError.getErrorCode(), adError.getErrorMessage());
+                isLoadingInterstitial = false;
+                scheduleRetryIfNeeded();
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
+                Timber.tag(TAG).d("FB interstitial loaded successfully");
+                isLoadingInterstitial = false;
+                interstitialRetryCount = 0;
             }
 
             @Override
             public void onAdClicked(Ad ad) {
-
+                Timber.tag(TAG).d("FB interstitial clicked");
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
-
+                Timber.tag(TAG).d("FB interstitial impression logged");
             }
 
             @Override
-            public void onRewardedAdCompleted() {
-
-            }
+            public void onRewardedAdCompleted() { }
 
             @Override
-            public void onRewardedAdServerSucceeded() {
-
-            }
+            public void onRewardedAdServerSucceeded() { }
 
             @Override
-            public void onRewardedAdServerFailed() {
-
-            }
+            public void onRewardedAdServerFailed() { }
         };
 
         fbInterstitialAd = new InterstitialAd(baseApplication, baseApplication.getResources()
                 .getString(R.string.facebook_interstitial_id));
-        // Load a new interstitial.
+
         InterstitialAd.InterstitialLoadAdConfig loadAdConfig = fbInterstitialAd
                 .buildLoadAdConfig()
-                // Set a listener to get notified on changes
-                // or when the user interact with the ad.
-                .withAdListener(interstitialAdExtendedListener)
-                // .withCacheFlags(EnumSet.of(CacheFlag.VIDEO))
-                //.withRewardData(new RewardData("YOUR_USER_ID", "YOUR_REWARD", 10))
+                .withAdListener(listener)
                 .build();
         fbInterstitialAd.loadAd(loadAdConfig);
+    }
+
+    /**
+     * Schedule a retry for interstitial load if we haven't exceeded max attempts.
+     */
+    private void scheduleRetryIfNeeded() {
+        interstitialRetryCount++;
+        if (interstitialRetryCount < MAX_RETRY_COUNT) {
+            Timber.tag(TAG).d("Scheduling FB interstitial retry in %dms (attempt %d/%d)",
+                    RETRY_DELAY_MS, interstitialRetryCount + 1, MAX_RETRY_COUNT);
+            retryHandler.postDelayed(this::loadFbInterstitial, RETRY_DELAY_MS);
+        } else {
+            Timber.tag(TAG).w("FB interstitial max retries (%d) reached, giving up", MAX_RETRY_COUNT);
+            interstitialRetryCount = 0;
+        }
     }
 
     /**
@@ -173,29 +203,27 @@ public class FBAdsManger {
         AdListener adListener = new AdListener() {
             @Override
             public void onError(Ad ad, AdError adError) {
-                //adMobManager.adMobAdaptiveBanner(adContainerView);
-                //   Utility.logCat("fbBannerAdView: " + adError.getErrorMessage());
+                Timber.tag(TAG).w("FB banner load error: code=%d msg=%s",
+                        adError.getErrorCode(), adError.getErrorMessage());
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
-                // Reposition the ad and add it to the view hierarchy.
-/*                adContainerView.removeAllViews();
-                adContainerView.addView(bannerAdView);*/
+                Timber.tag(TAG).d("FB banner loaded successfully");
                 if (bannerAdView.getParent() != null) {
-                    ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView); // <- fix
+                    ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
                 }
                 adContainerView.addView(bannerAdView);
             }
 
             @Override
             public void onAdClicked(Ad ad) {
-
+                Timber.tag(TAG).d("FB banner clicked");
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
-
+                Timber.tag(TAG).d("FB banner impression logged");
             }
         };
         // app settings). Use different ID for each ad placement in your app.
@@ -216,7 +244,6 @@ public class FBAdsManger {
         adContainerView.addView(valueTV);
     }
 
-    //  facebook Native Banner
     public void fbNativeBanner(ViewGroup mNativeAdContainer) {
         try {
             NativeAdListener nativeAdListener = new NativeAdListener() {
@@ -226,7 +253,8 @@ public class FBAdsManger {
 
                 @Override
                 public void onError(Ad ad, AdError adError) {
-                    //   Utility.logCat("fbNativeBanner: " + adError.getErrorMessage());
+                    Timber.tag(TAG).w("FB native banner error: code=%d msg=%s",
+                            adError.getErrorCode(), adError.getErrorMessage());
                 }
 
                 @Override
@@ -270,10 +298,6 @@ public class FBAdsManger {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Inflagte  Facebook Native Ad
-     */
 
     private void inflateFacbookNativeAd(NativeAd nativeAd, View adView) {
 
@@ -326,10 +350,10 @@ public class FBAdsManger {
 
             @Override
             public void onError(Ad ad, AdError adError) {
+                Timber.tag(TAG).w("FB native ad error: code=%d msg=%s",
+                        adError.getErrorCode(), adError.getErrorMessage());
                 if (alternateView != null)
                     alternateView.setVisibility(View.VISIBLE);
-
-
             }
 
             @Override
@@ -393,9 +417,7 @@ public class FBAdsManger {
     }
 
     public void customNativeBanner(ViewGroup mNativeAdContainer, View alternateView) {
-
         mNativeAdContainer.getLayoutParams().height = getPixelFromDp(baseApplication, 60);
-
 
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
@@ -404,6 +426,8 @@ public class FBAdsManger {
 
             @Override
             public void onError(Ad ad, AdError adError) {
+                Timber.tag(TAG).w("FB custom native banner error: code=%d msg=%s",
+                        adError.getErrorCode(), adError.getErrorMessage());
                 if (alternateView != null)
                     alternateView.setVisibility(View.VISIBLE);
             }
