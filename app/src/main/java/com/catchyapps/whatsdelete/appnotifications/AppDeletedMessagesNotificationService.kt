@@ -44,7 +44,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     var context: Context? = null
     private var wakeLock: PowerManager.WakeLock? = null
-    var appSharedPrefs: MyAppSharedPrefs? = null
+   private var appSharedPrefs: MyAppSharedPrefs? = null
     private var WA_PATH = ""
 
     @SuppressLint("InvalidWakeLockTag")
@@ -58,7 +58,9 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             WA_PATH = MyAppConstants.hWhatsAppNewFilePath.absolutePath
         }
         val pm = getSystemService(POWER_SERVICE) as PowerManager
-        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "PARTIAL_WAKE_LOCK_TAG")
+        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "whatsdelete:notification_wakelock")
+        wakeLock?.acquire(10 * 60 * 1000L) // 10 minutes max, re-acquired in onStartCommand
+
         createNotificationChannel()
         val intent = Intent(context, MainActivity::class.java)
         intent.putExtra("fromNotification", true)
@@ -66,23 +68,33 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             context,
             0,
             intent,
-            PendingIntent.FLAG_CANCEL_CURRENT xor PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         val notification = NotificationCompat.Builder(this, "NOTIFICATION_CHANNEL")
-            .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(
-                resources.getString(R.string.app_name)
-            )
-            .setContentText("Managing your deleted messages").setContentIntent(pendIntent)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle(resources.getString(R.string.app_name))
+            .setContentText("Managing your deleted messages")
+            .setContentIntent(pendIntent)
+            .setOngoing(true)
             .build()
 
         startForeground(1001, notification)
+        Timber.d("Service onCreate - foreground started")
     }
 
     override fun onDestroy() {
-        super.onDestroy()
-        if (wakeLock!!.isHeld) {
-            wakeLock!!.release()
+        Timber.d("Service onDestroy called")
+        imageFileObserver?.stopWatching()
+        videoFileObserver?.stopWatching()
+        if (wakeLock?.isHeld == true) {
+            wakeLock?.release()
         }
+        super.onDestroy()
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        Timber.d("Service onTaskRemoved - app swiped away")
+        super.onTaskRemoved(rootIntent)
     }
 
     private fun createNotificationChannel() {
@@ -326,35 +338,52 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     private var imageFileObserver: FileObserver? = null
     private var videoFileObserver: FileObserver? = null
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Timber.d("Service onStartCommand - flags=%d startId=%d", flags, startId)
+
+        // Re-acquire wakelock on each start command (service may have been restarted)
+        if (wakeLock?.isHeld != true) {
+            wakeLock?.acquire(10 * 60 * 1000L)
+        }
+
+        // Stop old observers before creating new ones (prevents leaking watchers)
+        imageFileObserver?.stopWatching()
+        videoFileObserver?.stopWatching()
 
         val imagePath = WA_PATH + "/Media/" + MyAppUtils.WA + " Images/"
         val srcDir = File(imagePath)
-        imageFileObserver = object : FileObserver(srcDir.absolutePath) {
-            override fun onEvent(event: Int, path: String?) {
-                if (event == CREATE || event == CLOSE_WRITE || event == MODIFY || event == MOVED_TO) { // check that it's not equal to .probe because thats created every time camera is launched
-                    Timber.d("path > $path")
-                    val destinationPath =
-                        MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_IMAGES
-                    copyAttachmentFile(imagePath + path, destinationPath)
+        if (srcDir.exists()) {
+            imageFileObserver = object : FileObserver(srcDir.absolutePath) {
+                override fun onEvent(event: Int, path: String?) {
+                    if (event == CREATE || event == CLOSE_WRITE || event == MODIFY || event == MOVED_TO) {
+                        Timber.d("Image file event: path=%s", path)
+                        val destinationPath =
+                            MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_IMAGES
+                        copyAttachmentFile(imagePath + path, destinationPath)
+                    }
                 }
             }
+            imageFileObserver?.startWatching()
         }
-        imageFileObserver!!.startWatching() // The FileObserver starts watching
+
         val videoPath = WA_PATH + "/Media/" + MyAppUtils.WA + " Video/"
         val videoDir = File(videoPath)
-        videoFileObserver = object : FileObserver(videoDir.absolutePath) {
-            override fun onEvent(event: Int, path: String?) {
-                if (event == CREATE || event == CLOSE_WRITE || event == MODIFY || event == MOVED_TO) { // check that it's not equal to .probe because thats created every time camera is launched
-                    Timber.d("path > $path")
-                    val destinationPath =
-                        MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_VIDEOS
-                    copyAttachmentFile(videoPath + path, destinationPath)
+        if (videoDir.exists()) {
+            videoFileObserver = object : FileObserver(videoDir.absolutePath) {
+                override fun onEvent(event: Int, path: String?) {
+                    if (event == CREATE || event == CLOSE_WRITE || event == MODIFY || event == MOVED_TO) {
+                        Timber.d("Video file event: path=%s", path)
+                        val destinationPath =
+                            MyAppUtils.ROOT_FOLDER + "/" + MyAppUtils.WA_RECOVER_VIDEOS
+                        copyAttachmentFile(videoPath + path, destinationPath)
+                    }
                 }
             }
+            videoFileObserver?.startWatching()
         }
-        videoFileObserver!!.startWatching() // The FileObserver starts watching
-        return START_NOT_STICKY
+
+        // START_STICKY: system will restart this service if it gets killed
+        return START_STICKY
     }
 
     private fun copyAttachmentFile(srcPath: String, destPath: String) {

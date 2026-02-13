@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatDelegate
 import com.catchyapps.whatsdelete.appadsmanager.AppAdmobManager
-import com.catchyapps.whatsdelete.appadsmanager.MyAppDetectorConnection
 import com.catchyapps.whatsdelete.appadsmanager.FBAdsManger
-import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
+import com.catchyapps.whatsdelete.appadsmanager.MyAppDetectorConnection
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
+import com.catchyapps.whatsdelete.appnotifications.ServiceRestartWorker
+import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
 import com.catchyapps.whatsdelete.roomdb.AppHelperDb
-import com.catchyapps.whatsdelete.BuildConfig
 import com.google.android.gms.ads.MobileAds
 import com.zeugmasolutions.localehelper.LocaleAwareApplication
 import timber.log.Timber
@@ -51,6 +51,9 @@ class BaseApplication : LocaleAwareApplication() {
                 this,
                 adPriority
             )
+
+        // Schedule periodic worker to keep the notification listener service alive
+        ServiceRestartWorker.schedule(this)
     }
 
 
