@@ -31,6 +31,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.catchyapps.whatsdelete.BaseApplication
 import com.catchyapps.whatsdelete.R
+import com.catchyapps.whatsdelete.appactivities.BaseActivity
 import com.catchyapps.whatsdelete.appactivities.activitycollection.ActivityStatusSavedCollections
 import com.catchyapps.whatsdelete.appactivities.activitydirectchat.DirectChatScreenActivity
 import com.catchyapps.whatsdelete.appactivities.activitydirectchat.namesetlistener.SetMyName
@@ -56,6 +57,7 @@ import com.catchyapps.whatsdelete.appclasseshelpers.MyAppSharedPrefs
 import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
 import com.catchyapps.whatsdelete.basicapputils.MyAppDataUtils
 import com.catchyapps.whatsdelete.basicapputils.MyAppExcelUtils
+import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
 import com.catchyapps.whatsdelete.databinding.ScreenHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import com.nabinbhandari.android.permissions.PermissionHandler
@@ -64,7 +66,7 @@ import timber.log.Timber
 import java.io.File
 import java.util.Locale
 
-class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), SetMyName {
+class MainActivity : BaseActivity() {
     private var appSharedPreferences: MyAppSharedPrefs? = null
     var message: String? = null
 
@@ -84,13 +86,6 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Se
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
-    var storagePermission33 = arrayOf(
-        Manifest.permission.READ_MEDIA_IMAGES,
-        Manifest.permission.READ_MEDIA_VIDEO,
-        Manifest.permission.READ_MEDIA_AUDIO
-    )
 
     private lateinit var googleMobileAdsConsentManager: GoogleMobileAdsConsentManager
 
@@ -150,7 +145,6 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Se
         setupRecoveryRecycler()
         setupStatusRecycler()
         setupToolsCardRecycler()
-        initClickListeners()
 
 
 
@@ -292,51 +286,46 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Se
         startActivity(sendIntent)
     }
 
+    private fun startIntentForRecover(type: String) {
+        if (isNotificationListenerEnable) {
+            appSharedPreferences?.hSetFirstTime(false)
+            val intent = Intent(this@MainActivity, MainRecoverActivity::class.java)
+            intent.putExtra("tab", type)
+            startActivity(intent)
+            ShowInterstitial.showAdmobInter(this)
+        } else {
+            showNotificationListenerDialog()
+        }
+
+    }
+
     private fun setupRecoveryRecycler() {
         homeMenuAdapter = HomeMenuAdapter(
             recoveryList,
             onClick = { menuItem ->
                 when (menuItem.id) {
                     "chat" -> {
-                        startActivity(
-                            Intent(this, MainRecoverActivity::class.java)
-                                .putExtra("tab", "Chat")
-                        )
+                        startIntentForRecover(type= "Chat")
                     }
 
                     "documents" -> {
-                        startActivity(
-                            Intent(this, MainRecoverActivity::class.java)
-                                .putExtra("tab", "documents")
-                        )
+                        startIntentForRecover(type= "documents")
                     }
 
                     "images" -> {
-                        startActivity(
-                            Intent(this, MainRecoverActivity::class.java)
-                                .putExtra("tab", "images")
-                        )
+                        startIntentForRecover(type= "images")
                     }
 
                     "video" -> {
-                        startActivity(
-                            Intent(this, MainRecoverActivity::class.java)
-                                .putExtra("tab", "video")
-                        )
+                        startIntentForRecover(type= "video")
                     }
 
                     "audio" -> {
-                        startActivity(
-                            Intent(this, MainRecoverActivity::class.java)
-                                .putExtra("tab", "audio")
-                        )
+                        startIntentForRecover(type= "audio")
                     }
 
                     "voice" -> {
-                        startActivity(
-                            Intent(this, MainRecoverActivity::class.java)
-                                .putExtra("tab", "voice")
-                        )
+                        startIntentForRecover(type= "voice")
                     }
 
                 }
@@ -565,20 +554,10 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Se
     }
 
     private fun checkStatusSaverPermissions(position: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            Permissions.check(
-                this, storagePermission33,
-                null /*rationale*/, null /*options*/, object : PermissionHandler() {
-                    override fun onGranted() {
-                        val intent = Intent(
-                            this@MainActivity,
-                            ActivityStatusMain::class.java
-                        )
-                        intent.putExtra("tab", position)
-                        startActivity(intent)
-                        ShowInterstitial.showAdmobInter(this@MainActivity)
-                    }
-                })
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (!MyAppPermissionUtils.hasPermissionPost10(this)) {
+                goToStatus(position)
+            }
         } else {
             Permissions.check(
                 this /*context*/,
@@ -587,32 +566,23 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Se
                 null /*options*/,
                 object : PermissionHandler() {
                     override fun onGranted() {
-                        val intent = Intent(
-                            this@MainActivity,
-                            ActivityStatusMain::class.java
-                        )
-                        intent.putExtra("tab", position)
-                        startActivity(intent)
-                        ShowInterstitial.showAdmobInter(this@MainActivity)
+                        goToStatus(position)
                     }
                 })
         }
 
     }
-
-
-    private fun startIntentForRecover(name: String) {
-        if (isNotificationListenerEnable) {
-            appSharedPreferences?.hSetFirstTime(false)
-            val intent = Intent(this@MainActivity, MainRecoverActivity::class.java)
-            intent.putExtra("tab", name)
-            startActivity(intent)
-            ShowInterstitial.showAdmobInter(this)
-        } else {
-            showNotificationListenerDialog()
-        }
-
+    private fun goToStatus(position: Int){
+        val intent = Intent(
+            this@MainActivity,
+            ActivityStatusMain::class.java
+        )
+        intent.putExtra("tab", position)
+        startActivity(intent)
+        ShowInterstitial.showAdmobInter(this@MainActivity)
     }
+
+
 
     private fun goToTextRepeater() {
         startActivity(Intent(this@MainActivity, TextRepeaterScreen::class.java))
@@ -670,95 +640,6 @@ class MainActivity : com.catchyapps.whatsdelete.appactivities.BaseActivity(), Se
     }
 
 
-    private fun initClickListeners() {
-
-        /*   binding.appbarHome.dirChat.etnumber.addTextChangedListener(object : TextWatcher {
-               override fun beforeTextChanged(
-                   charSequence: CharSequence?,
-                   start: Int,
-                   count: Int,
-                   after: Int
-               ) {
-               }
-
-               override fun onTextChanged(
-                   charSequence: CharSequence?,
-                   start: Int,
-                   before: Int,
-                   count: Int
-               ) {
-               }
-
-               override fun afterTextChanged(editable: Editable?) {
-                   if (editable.toString().isNotEmpty()) {
-                       binding.appbarHome.dirChat.btnDirectChat.isEnabled = true
-                       binding.appbarHome.dirChat.btnDirectChat.setBackgroundResource(R.drawable.btn_direct_chat_background)
-                   } else {
-
-                       binding.appbarHome.dirChat.btnDirectChat.setBackgroundResource(R.drawable.gray_btn_background)
-                   }
-               }
-           })
-
-           binding.appbarHome.dirChat.tvcountrycode.setOnClickListener {
-               val fragment = FragmentCountryCodeSelection.newInstance()
-               fragment.show(supportFragmentManager, "dialog")
-           }
-           binding.appbarHome.dirChat.btnDirectChat.setOnClickListener {
-               when {
-                   binding.appbarHome.dirChat.etnumber.text.toString().isEmpty() -> {
-                       binding.appbarHome.dirChat.etnumber.error = getString(R.string.enter_number)
-
-                   }
-
-                   binding.appbarHome.dirChat.tvcountrycode.text.toString().isEmpty() -> {
-                       binding.appbarHome.dirChat.tvcountrycode.error = getString(R.string.select_country_code)
-                   }
-
-                   else -> {
-                       number =
-                           binding.appbarHome.dirChat.tvcountrycode.text.toString()
-                               .plus(binding.appbarHome.dirChat.etnumber.text.toString())
-                       openWhatsApp(number)
-                   }
-               }
-           }
-           if (countryZipCode().isNotEmpty())  binding.appbarHome.dirChat.tvcountrycode.text =
-               countryZipCode() else  binding.appbarHome.dirChat.tvcountrycode.setText(R.string._922)*/
-    }
-
-    private fun countryZipCode(): String {
-        val countryID: String
-        var countryZipCode = ""
-        val manager = this.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
-
-        countryID = manager.simCountryIso.uppercase(Locale.getDefault())
-        val rl = this.resources.getStringArray(R.array.CountryCodes)
-        for (s in rl) {
-            val g = s.split(",").toTypedArray()
-            if (g[1].trim { it <= ' ' } == countryID.trim { it <= ' ' }) {
-                countryZipCode = g[0]
-                break
-            }
-        }
-        return countryZipCode
-    }
-
-    private fun openWhatsApp(smsNumber: String?) {
-        val i = Intent(Intent.ACTION_VIEW)
-        try {
-            val url = "https://wa.me/$smsNumber"
-            i.data = Uri.parse(url)
-            startActivity(i)
-        } catch (e: Exception) {
-            Toast.makeText(this, getString(R.string.whatsapp_not_found), Toast.LENGTH_LONG).show()
-            e.printStackTrace()
-        }
-    }
-
-    override fun setMyName(string: String?) {
-        // binding.appbarHome.dirChat.tvcountrycode.text = string
-    }
 
     private fun askNotificationPermission() {
         // This is only necessary for API level >= 33 (TIRAMISU)

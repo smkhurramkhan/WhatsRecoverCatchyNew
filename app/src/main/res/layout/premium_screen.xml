@@ -171,7 +171,7 @@
                 app:strokeWidth="2dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical"
@@ -181,7 +181,7 @@
                     app:layout_constraintStart_toStartOf="parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/montserrat"
                         android:gravity="center"
@@ -196,10 +196,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
+                        android:layout_marginHorizontal="@dimen/_8dp"
                         android:fontFamily="@font/inter_semibold"
                         android:gravity="center"
                         android:textColor="@color/redishColor"
-                        android:textSize="52sp"
+                        android:textSize="40sp"
                         android:textStyle="bold" />
 
 

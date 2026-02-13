@@ -20,7 +20,7 @@ import com.catchyapps.whatsdelete.basicapputils.MyAppConstants.getMimeType
 import com.catchyapps.whatsdelete.basicapputils.MyAppConstants.logCat
 import com.catchyapps.whatsdelete.basicapputils.MyAppConstants.showToast
 import com.catchyapps.whatsdelete.databinding.DocsFavouriteLayoutBinding
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.comparator.LastModifiedFileComparator
+import org.apache.commons.io.comparator.LastModifiedFileComparator
 import timber.log.Timber
 import java.io.File
 import java.util.*

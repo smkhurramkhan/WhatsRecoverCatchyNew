@@ -24,7 +24,7 @@ import com.catchyapps.whatsdelete.appactivities.activityfavourite.ActivityFavori
 import com.catchyapps.whatsdelete.appactivities.activityfavourite.favadapters.FavoriteMediaAdapter
 import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
 import com.catchyapps.whatsdelete.databinding.MediaFavouriteBinding
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.comparator.LastModifiedFileComparator
+import org.apache.commons.io.comparator.LastModifiedFileComparator
 import timber.log.Timber
 import java.io.File
 import java.util.*

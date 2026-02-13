@@ -28,7 +28,7 @@ import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerCons
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.Details
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.CleanerDetailsFile
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.cleanerdata.CleanerTypeFilter
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.FilenameUtils
+import org.apache.commons.io.FilenameUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
