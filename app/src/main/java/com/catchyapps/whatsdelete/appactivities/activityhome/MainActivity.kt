@@ -3,6 +3,7 @@ package com.catchyapps.whatsdelete.appactivities.activityhome
 import android.Manifest
 import android.app.Activity
 import android.content.ActivityNotFoundException
+import android.content.ContentResolver
 import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import android.content.Intent
@@ -13,6 +14,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.provider.DocumentsContract
 import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.util.Log
@@ -49,6 +51,8 @@ import com.catchyapps.whatsdelete.appactivities.activitystylishtext.StylishTextA
 import com.catchyapps.whatsdelete.appactivities.activitytextrepeater.TextRepeaterScreen
 import com.catchyapps.whatsdelete.appactivities.activitytexttoemoji.TextToEmojiScreen
 import com.catchyapps.whatsdelete.appactivities.activitywhatsappweb.WhatsWebScreen
+import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans
+import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.uri
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.WACleanerScreen
 import com.catchyapps.whatsdelete.appactivities.myapplanguage.ChangeLanguageActivity
 import com.catchyapps.whatsdelete.appadsmanager.GoogleMobileAdsConsentManager
@@ -58,6 +62,7 @@ import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
 import com.catchyapps.whatsdelete.basicapputils.MyAppDataUtils
 import com.catchyapps.whatsdelete.basicapputils.MyAppExcelUtils
 import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
+import com.catchyapps.whatsdelete.basicapputils.MyAppSchemas
 import com.catchyapps.whatsdelete.databinding.ScreenHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import com.nabinbhandari.android.permissions.PermissionHandler
@@ -86,6 +91,7 @@ class MainActivity : BaseActivity() {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
+
 
     private lateinit var googleMobileAdsConsentManager: GoogleMobileAdsConsentManager
 
@@ -555,9 +561,7 @@ class MainActivity : BaseActivity() {
 
     private fun checkStatusSaverPermissions(position: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            if (!MyAppPermissionUtils.hasPermissionPost10(this)) {
-                goToStatus(position)
-            }
+            goToStatus(position)
         } else {
             Permissions.check(
                 this /*context*/,

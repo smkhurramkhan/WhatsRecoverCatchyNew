@@ -75,7 +75,6 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             .setContentTitle(resources.getString(R.string.app_name))
             .setContentText("Managing your deleted messages")
             .setContentIntent(pendIntent)
-            .setOngoing(true)
             .build()
 
         startForeground(1001, notification)
