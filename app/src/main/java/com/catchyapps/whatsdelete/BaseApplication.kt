@@ -100,6 +100,7 @@ class BaseApplication : LocaleAwareApplication() {
 
         @JvmStatic
         fun loadInterstitial() {
+            if (isPremium) return
             adMobManager?.loadAdMobInterstitialAd()
             adsFacebookManger?.loadFbInterstitial()
         }

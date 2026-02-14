@@ -114,11 +114,6 @@ class MyAppSharedPrefs(context: Context?) {
         editor?.commit()
     }
 
-
-    fun hGetAllWhatsAppPermissons(): MutableMap<String, Boolean>? {
-        return hIsWhatsAppPermissionMap
-    }
-
     private val hIsWhatsAppPermissionMap: MutableMap<String, Boolean>?
         get() {
             val string = sharedPreferences?.getString(H_WHATSAPP_PERMISSION_MAP, null)
@@ -130,10 +125,6 @@ class MyAppSharedPrefs(context: Context?) {
                 return gson.fromJson(string, type)
             }
         }
-
-    fun hGetWhatsAppPermission(schemas: MyAppSchemas): Boolean {
-        return hIsWhatsAppPermissionMap?.get(schemas.toString()) == true
-    }
 
     fun hSetWhatsAppPermission(schemas: MyAppSchemas, value: Boolean) {
         var hMap = hIsWhatsAppPermissionMap

@@ -72,22 +72,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         wakeLock?.acquire(10 * 60 * 1000L) // 10 minutes max, re-acquired in onStartCommand
 
         createNotificationChannel()
-        val intent = Intent(context, MainActivity::class.java)
-        intent.putExtra("fromNotification", true)
-        val pendIntent = PendingIntent.getActivity(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-        val notification = NotificationCompat.Builder(this, "NOTIFICATION_CHANNEL")
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle(resources.getString(R.string.app_name))
-            .setContentText("Managing your deleted messages")
-            .setContentIntent(pendIntent)
-            .build()
-
-        startForeground(1001, notification)
+        showForegroundNotification()
         Timber.d("Service onCreate - foreground started")
     }
 
@@ -106,6 +91,24 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         super.onTaskRemoved(rootIntent)
     }
 
+    private fun showForegroundNotification() {
+        val intent = Intent(context, MainActivity::class.java)
+        intent.putExtra("fromNotification", true)
+        val pendIntent = PendingIntent.getActivity(
+            context,
+            0,
+            intent,
+            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        val notification = NotificationCompat.Builder(this, "NOTIFICATION_CHANNEL")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle(resources.getString(R.string.app_name))
+            .setContentText("Managing your deleted messages")
+            .setContentIntent(pendIntent)
+            .build()
+        startForeground(1001, notification)
+    }
+
     private fun createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -121,16 +124,9 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onNotificationPosted(sbn: StatusBarNotification) {
         val pack = sbn.packageName
         if (pack != "com.whatsapp") return
-
-        // Skip group summary notifications (WhatsApp posts both individual + summary)
-        if (sbn.notification.flags and Notification.FLAG_GROUP_SUMMARY != 0) {
-            Timber.d("Skipping group summary notification")
-            return
-        }
 
         var ticker = ""
         val title: String
@@ -375,6 +371,11 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Timber.d("Service onStartCommand - flags=%d startId=%d", flags, startId)
+
+        // Show foreground notification (needed when WorkManager restarts the service
+        // while it's already running -- onCreate won't be called again)
+        createNotificationChannel()
+        showForegroundNotification()
 
         // Re-acquire wakelock on each start command (service may have been restarted)
         if (wakeLock?.isHeld != true) {
