@@ -33,6 +33,8 @@ import com.catchyapps.whatsdelete.roomdb.appentities.EntityMessages
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import org.apache.commons.io.FileUtils
 import timber.log.Timber
 import java.io.ByteArrayOutputStream
@@ -44,8 +46,16 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     var context: Context? = null
     private var wakeLock: PowerManager.WakeLock? = null
-   private var appSharedPrefs: MyAppSharedPrefs? = null
+    private var appSharedPrefs: MyAppSharedPrefs? = null
     private var WA_PATH = ""
+
+    // Prevents duplicate processing from concurrent coroutines
+    private val dbMutex = Mutex()
+    // Tracks recently processed notification keys to skip duplicates
+    private val recentNotificationKeys = LinkedHashSet<String>()
+    private companion object {
+        const val MAX_RECENT_KEYS = 50
+    }
 
     @SuppressLint("InvalidWakeLockTag")
     override fun onCreate() {
@@ -114,6 +124,14 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onNotificationPosted(sbn: StatusBarNotification) {
         val pack = sbn.packageName
+        if (pack != "com.whatsapp") return
+
+        // Skip group summary notifications (WhatsApp posts both individual + summary)
+        if (sbn.notification.flags and Notification.FLAG_GROUP_SUMMARY != 0) {
+            Timber.d("Skipping group summary notification")
+            return
+        }
+
         var ticker = ""
         val title: String
         var text = ""
@@ -125,68 +143,86 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         if (sbn.notification.tickerText != null) {
             ticker = sbn.notification.tickerText.toString()
         }
-        Timber.d("title > $title, ticker > $ticker, text > $text")
-        if (pack == "com.whatsapp")
-            if (
-                (
-                        ticker != "WhatsApp" &&
-                                ticker != "WhatsApp Web" &&
-                                !ticker.contains("@") &&
-                                ticker != "Backup in progress" &&
-                                ticker != "Finished backup"
-                        )
-                &&
-                !title.contains("WhatsApp") &&
-                !title.contains("new messages") &&
-                !ticker.contains("missed voice call") &&
-                !ticker.contains("missed video call") &&
-                !text.contains("You have new messages") &&
-                !text.contains("new messages") &&
-                !text.contains("messages from") &&
-                !title.contains("Backup paused") &&
-                !title.contains("Missed") &&
-                !title.contains("missed calls") &&
-                !title.contains("Deleting") &&
-                !title.contains("Backup in progress") &&
-                !title.contains("Finished backup") &&
-                !title.contains("Couldn't complete")
-            ) {
-                var bitmap: Bitmap? = null
-                var byteArray = ByteArray(0)
-                try {
-                    if (extras[Notification.EXTRA_LARGE_ICON] is Icon) {
-                        val icon = extras[Notification.EXTRA_LARGE_ICON] as Icon?
-                        if (icon != null) {
-                            val drawable = icon.loadDrawable(context)
-                            bitmap = drawable?.let { drawableToBitmap(it) }
-                        }
-                    } else {
-                        bitmap = extras[Notification.EXTRA_LARGE_ICON] as Bitmap?
-                    }
-                    if (bitmap != null) {
-                        val stream = ByteArrayOutputStream()
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-                        byteArray = stream.toByteArray()
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-                CoroutineScope(Dispatchers.Main).launch {
-                    doInBackground(text, title, ticker, pack, byteArray)
-                }
 
-                val msgrcv = Intent("Msg")
-                msgrcv.putExtra("package", pack)
-                msgrcv.putExtra("ticker", ticker)
-                msgrcv.putExtra("title", title)
-                msgrcv.putExtra("text", text)
+        // Deduplicate: skip if we already processed this exact title+text combo recently
+        val dedupeKey = "$title|$text"
+        synchronized(recentNotificationKeys) {
+            if (recentNotificationKeys.contains(dedupeKey)) {
+                Timber.d("Skipping duplicate notification: title=%s, text=%s", title, text)
+                return
+            }
+            recentNotificationKeys.add(dedupeKey)
+            // Keep the set bounded
+            if (recentNotificationKeys.size > MAX_RECENT_KEYS) {
+                recentNotificationKeys.remove(recentNotificationKeys.first())
+            }
+        }
+
+        Timber.d("title > $title, ticker > $ticker, text > $text")
+        if (
+            (
+                    ticker != "WhatsApp" &&
+                            ticker != "WhatsApp Web" &&
+                            !ticker.contains("@") &&
+                            ticker != "Backup in progress" &&
+                            ticker != "Finished backup"
+                    )
+            &&
+            title != "You" &&
+            !title.contains("WhatsApp") &&
+            !title.contains("new messages") &&
+            !ticker.contains("missed voice call") &&
+            !ticker.contains("missed video call") &&
+            !text.contains("You have new messages") &&
+            !text.contains("new messages") &&
+            !text.contains("messages from") &&
+            !title.contains("Backup paused") &&
+            !title.contains("Missed") &&
+            !title.contains("missed calls") &&
+            !title.contains("Deleting") &&
+            !title.contains("Backup in progress") &&
+            !title.contains("Finished backup") &&
+            !title.contains("Couldn't complete")
+        ) {
+            var bitmap: Bitmap? = null
+            var byteArray = ByteArray(0)
+            try {
+                if (extras[Notification.EXTRA_LARGE_ICON] is Icon) {
+                    val icon = extras[Notification.EXTRA_LARGE_ICON] as Icon?
+                    if (icon != null) {
+                        val drawable = icon.loadDrawable(context)
+                        bitmap = drawable?.let { drawableToBitmap(it) }
+                    }
+                } else {
+                    bitmap = extras[Notification.EXTRA_LARGE_ICON] as Bitmap?
+                }
                 if (bitmap != null) {
                     val stream = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-                    msgrcv.putExtra("icon", byteArray)
+                    byteArray = stream.toByteArray()
                 }
-                LocalBroadcastManager.getInstance(context!!).sendBroadcast(msgrcv)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
+            // Use Mutex to serialize DB writes -- prevents race condition on first install
+            CoroutineScope(Dispatchers.Main).launch {
+                dbMutex.withLock {
+                    doInBackground(text, title, ticker, pack, byteArray)
+                }
+            }
+
+            val msgrcv = Intent("Msg")
+            msgrcv.putExtra("package", pack)
+            msgrcv.putExtra("ticker", ticker)
+            msgrcv.putExtra("title", title)
+            msgrcv.putExtra("text", text)
+            if (bitmap != null) {
+                val stream = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                msgrcv.putExtra("icon", byteArray)
+            }
+            LocalBroadcastManager.getInstance(context!!).sendBroadcast(msgrcv)
+        }
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification) {
