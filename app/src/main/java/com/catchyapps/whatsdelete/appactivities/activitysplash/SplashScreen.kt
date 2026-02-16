@@ -17,6 +17,7 @@ import com.catchyapps.whatsdelete.appactivities.myapplanguage.ChangeLanguageActi
 import com.catchyapps.whatsdelete.appactivities.activityhome.MainActivity
 import com.catchyapps.whatsdelete.databinding.SplashScreenBinding
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 
 @SuppressLint("CustomSplashScreen")
@@ -30,6 +31,8 @@ class SplashScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        Timber.d("Splash")
         loadInterstitial()
 
         splashBinding = SplashScreenBinding.inflate(layoutInflater)

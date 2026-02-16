@@ -109,11 +109,11 @@ class AdapterChat(
         } else {
             holder.binding.cvChatDate.visibility = View.GONE
         }
-        if (messageEntity?.title == null) holder.binding.tvMessageUsername.visibility =
-            View.GONE else {
-            holder.binding.tvMessageUsername.visibility = View.VISIBLE
-            holder.binding.tvMessageUsername.text = messageEntity.title
+
+        messageEntity?.title?.let {
+            holder.binding.tvMessageUsername.text = it
         }
+
         holder.binding.textChatMessage.setOnClickListener { v: View? ->
             if (
                 messageEntity?.body?.startsWith("http") == true ||

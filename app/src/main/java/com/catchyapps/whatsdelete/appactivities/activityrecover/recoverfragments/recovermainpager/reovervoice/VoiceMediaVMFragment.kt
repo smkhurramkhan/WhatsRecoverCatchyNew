@@ -1,9 +1,7 @@
 package com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reovervoice
 
 import android.app.Application
-import android.content.ContentResolver
 import android.content.Context
-import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,22 +11,20 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.catchyapps.whatsdelete.BaseApplication
-import com.catchyapps.whatsdelete.basicapputils.AppPathUtil
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
-import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.EXTERNAL_STORAGE_PROVIDER_AUTHORITY
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.MIME_TYPE_IS_DIRECTORY
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.NO_MEDIA_DIRECTORY
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hGetAudioPath
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hGetVoicePath
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hWhatAppMainUri
-import com.catchyapps.whatsdelete.basicapputils.MyAppConstants.H_IS_AUDIO
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
+import com.catchyapps.whatsdelete.appnotifications.MediaBackupHelper
+import com.catchyapps.whatsdelete.basicapputils.AppPathUtil
+import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
-import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 
@@ -132,108 +128,17 @@ class VoiceMediaVMFragment(application: Application) : AndroidViewModel(applicat
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun fetchFilesForPost10(voice: Boolean) {
-
-        var filesUri: String? = null
-
-        filesUri = if (voice) {
-
-            "primary:Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Voice Notes"
-
-        } else {
-
-            "primary:Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Audio"
-
-        }
-
-        Timber.d("Uri: $filesUri")
-
-        val tempList = mutableListOf<EntityFiles>()
-        val resolver: ContentResolver = getApplication<BaseApplication>().contentResolver
-
-        val childrenUri: Uri = DocumentsContract.buildChildDocumentsUriUsingTree(
-            treeUri,
-            filesUri
+        // Only show recovered deleted audio from app-private storage
+        // Both voice and audio tabs use the same audio bucket
+        val recoveredAudio = MediaBackupHelper.getRevealedFilesAsEntities(
+            getApplication(), MediaBackupHelper.TYPE_AUDIO
         )
 
-        var cursor: Cursor? = null
-
-        try {
-
-            cursor = resolver.query(
-                childrenUri, arrayOf(
-                    DocumentsContract.Document.COLUMN_DOCUMENT_ID,
-                    DocumentsContract.Document.COLUMN_DISPLAY_NAME,
-                    DocumentsContract.Document.COLUMN_SIZE,
-                    DocumentsContract.Document.COLUMN_LAST_MODIFIED,
-                    DocumentsContract.Document.COLUMN_MIME_TYPE,
-                ), null, null, null
-            )
-
-            while (cursor?.moveToNext() == true) {
-
-                val hDocIdCol = cursor.getColumnIndexOrThrow(
-                    DocumentsContract.Document.COLUMN_DOCUMENT_ID
-                )
-                val hDocNameCol = cursor.getColumnIndexOrThrow(
-                    DocumentsContract.Document.COLUMN_DISPLAY_NAME
-                )
-                val hDocSizeCol = cursor.getColumnIndexOrThrow(
-                    DocumentsContract.Document.COLUMN_SIZE
-                )
-                val hDocLastModifiedCol = cursor.getColumnIndexOrThrow(
-                    DocumentsContract.Document.COLUMN_LAST_MODIFIED
-                )
-                val hDocMimeType = cursor.getColumnIndexOrThrow(
-                    DocumentsContract.Document.COLUMN_MIME_TYPE
-                )
-
-                val path = cursor.getString(hDocIdCol)
-
-                val hName = cursor.getString(hDocNameCol)
-
-                val hLastModified = cursor.getLong(hDocLastModifiedCol)
-
-                val hSize = cursor.getLong(hDocSizeCol)
-
-                val fileMime = cursor.getString(hDocMimeType)
-
-                val hDocUri: Uri = DocumentsContract.buildDocumentUriUsingTree(
-                    treeUri,
-                    path
-                )
-
-                if (fileMime == MIME_TYPE_IS_DIRECTORY) {
-
-
-                    val fileFromSpecificFolder = getFileFromSpecificFolder(
-                        hName,
-                        getApplication(),
-                        treeUri,
-                        "$filesUri/$hName"
-                    )
-
-                    tempList.addAll(fileFromSpecificFolder)
-
-                }
-            }
-
-            Timber.d("List Size : ${tempList.size}")
-
-
-            if (voice) {
-                hVoiceListMLD.postValue(tempList)
-            } else {
-                hAudioListMLD.postValue(tempList)
-            }
-
-        } catch (e: java.lang.Exception) {
-            Timber.d("Failed query: $e")
-            Timber.d("Uri: $filesUri")
-        } finally {
-            cursor?.close()
+        if (voice) {
+            hVoiceListMLD.postValue(recoveredAudio)
+        } else {
+            hAudioListMLD.postValue(recoveredAudio)
         }
-
-
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)

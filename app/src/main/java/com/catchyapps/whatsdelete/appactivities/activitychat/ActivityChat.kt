@@ -66,11 +66,13 @@ class ActivityChat : BaseActivity(), ActionMode.Callback {
     private fun subscribeObservers() {
         chatViewModel.messageId = messageId
         lifecycleScope.launch {
+            AppHelperDb.resetUnseenCount(messageId)
+        }
+        lifecycleScope.launch {
             chatViewModel.hItems.collectLatest {
                 chatScreenAdapter.submitData(it)
             }
         }
-
     }
 
 

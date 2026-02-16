@@ -133,6 +133,14 @@ class MainActivity : BaseActivity() {
 
         fromNotification = intent.getBooleanExtra("fromNotification", false)
 
+        // Start the notification listener service immediately so media caching works
+        val serviceIntent = Intent(this, com.catchyapps.whatsdelete.appnotifications.AppDeletedMessagesNotificationService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ContextCompat.startForegroundService(this, serviceIntent)
+        } else {
+            startService(serviceIntent)
+        }
+
         googleMobileAdsConsentManager = GoogleMobileAdsConsentManager.getInstance(this)
 
         createDirectory()

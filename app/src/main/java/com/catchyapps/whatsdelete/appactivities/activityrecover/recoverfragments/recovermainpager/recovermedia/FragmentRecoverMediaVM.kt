@@ -9,17 +9,15 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.catchyapps.whatsdelete.basicapputils.MyAppFetcherFile
-import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
-import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hGetImagesPath
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.hGetVideoPath
-import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
+import com.catchyapps.whatsdelete.appclasseshelpers.MyAppUtils
+import com.catchyapps.whatsdelete.appnotifications.MediaBackupHelper
+import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
-import java.util.*
 
 
 class FragmentRecoverMediaVM(application: Application) : AndroidViewModel(application) {
@@ -78,13 +76,11 @@ class FragmentRecoverMediaVM(application: Application) : AndroidViewModel(applic
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun fetchVideosForPost10() {
-
-        val fileUri = "primary:Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Video"
-
-        val files = MyAppFetcherFile.fetchFilesForPost10(fileUri, getApplication())
-
-        hVideoFileListMld.postValue(files)
-
+        // Only show recovered deleted videos from app-private storage
+        val recoveredVideos = MediaBackupHelper.getRevealedFilesAsEntities(
+            getApplication(), MediaBackupHelper.TYPE_VIDEOS
+        )
+        hVideoFileListMld.postValue(recoveredVideos)
     }
 
     private fun fetchVideosForPre10() {
@@ -152,12 +148,11 @@ class FragmentRecoverMediaVM(application: Application) : AndroidViewModel(applic
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun fetchImagesForPost10() {
-
-        val fileUri = "primary:Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images"
-
-        val files = MyAppFetcherFile.fetchFilesForPost10(fileUri, getApplication())
-
-        hImagesListMld.postValue(files)
+        // Only show recovered deleted images from app-private storage
+        val recoveredImages = MediaBackupHelper.getRevealedFilesAsEntities(
+            getApplication(), MediaBackupHelper.TYPE_IMAGES
+        )
+        hImagesListMld.postValue(recoveredImages)
     }
 
     private fun fetchImagesForPre10() {

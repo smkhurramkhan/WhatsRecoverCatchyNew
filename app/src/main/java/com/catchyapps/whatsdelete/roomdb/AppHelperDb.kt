@@ -68,6 +68,12 @@ object AppHelperDb {
         }
     }
 
+    suspend fun resetUnseenCount(chatId: Long) {
+        return withContext(Dispatchers.IO) {
+            recoverDatabase.chatsDao.hUpdateChatCount(0, chatId)
+        }
+    }
+
     suspend fun getSingleChat(hMessageId: Long): EntityChats? {
         return withContext(Dispatchers.IO) {
             recoverDatabase.chatsDao.hGetSingleChat(hMessageId)

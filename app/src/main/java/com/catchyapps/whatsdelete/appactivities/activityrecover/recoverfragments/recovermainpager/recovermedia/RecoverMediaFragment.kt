@@ -11,7 +11,12 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.SparseArray
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.ImageView
@@ -29,21 +34,20 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
-import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
-import com.catchyapps.whatsdelete.appclasseshelpers.RVTouchListener
 import com.catchyapps.whatsdelete.appactivities.activitypreview.PreviewScreen
 import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
 import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
-import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reovervoice.VoiceMediaFragment
 import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
+import com.catchyapps.whatsdelete.appclasseshelpers.RVTouchListener
 import com.catchyapps.whatsdelete.basicapputils.MyAppPermissionUtils
 import com.catchyapps.whatsdelete.basicapputils.hide
 import com.catchyapps.whatsdelete.basicapputils.show
 import com.catchyapps.whatsdelete.databinding.ImagesFragmentLayoutBinding
+import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import timber.log.Timber
 import java.io.File
-import java.util.*
+import java.util.Objects
 
 class RecoverMediaFragment : Fragment(), ActionMode.Callback {
     private var hAdapterMedia: RecoverMediaAdapter? = null
@@ -94,9 +98,11 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
     private fun hSubscribeObservers() {
         hFragmentMediaViewModel?.hVideoFileListLd?.observe(viewLifecycleOwner) { videoList: List<EntityFiles>? ->
             hFragmentImagesBinding?.hProgressbar?.hide()
+            hFragmentImagesBinding?.hMainCard?.show()
             if (videoList == null || videoList.isEmpty()) {
                 Timber.d("Video list null or empty")
                 hFragmentImagesBinding?.recyclerView?.hide()
+                hFragmentImagesBinding?.tvNoImageVideo?.text = getString(R.string.no_video_detected_yet)
                 hFragmentImagesBinding?.tvNoImageVideo?.show()
                 hFragmentImagesBinding?.tvNoImageVideo
                     ?.setCompoundDrawablesWithIntrinsicBounds(
@@ -107,12 +113,12 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
                     )
             } else {
                 Timber.d("Not null")
-                hFragmentImagesBinding?.hMainCard?.show()
                 hSetViewsData(videoList)
             }
         }
         hFragmentMediaViewModel?.hImagesListld?.observe(viewLifecycleOwner) { imageList: List<EntityFiles>? ->
             hFragmentImagesBinding?.hProgressbar?.hide()
+            hFragmentImagesBinding?.hMainCard?.show()
             if (imageList == null || imageList.isEmpty()) {
                 Timber.d("Image list null or empty")
                 hFragmentImagesBinding?.recyclerView?.hide()
@@ -126,7 +132,6 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
                     )
             } else {
                 Timber.d("Not null")
-                hFragmentImagesBinding?.hMainCard?.show()
                 hSetViewsData(imageList)
             }
         }
