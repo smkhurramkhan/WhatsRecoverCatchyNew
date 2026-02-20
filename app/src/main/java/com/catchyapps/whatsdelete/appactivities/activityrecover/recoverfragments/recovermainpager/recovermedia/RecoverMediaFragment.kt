@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
@@ -116,7 +117,7 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
                 hSetViewsData(videoList)
             }
         }
-        hFragmentMediaViewModel?.hImagesListld?.observe(viewLifecycleOwner) { imageList: List<EntityFiles>? ->
+        hFragmentMediaViewModel?.hImagesListLd?.observe(viewLifecycleOwner) { imageList: List<EntityFiles>? ->
             hFragmentImagesBinding?.hProgressbar?.hide()
             hFragmentImagesBinding?.hMainCard?.show()
             if (imageList == null || imageList.isEmpty()) {
@@ -166,64 +167,74 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
             RVTouchListener(
                 requireActivity(),
                 hFragmentImagesBinding?.recyclerView,
-                object :
-                    RVTouchListener.ClickListener {
-                    override fun onClick(view: View, position: Int) {
-                        if (position < hAdapterFiles?.size!!) {
-                            if (hAdapterFiles?.get(position) != null) {
-                                val layoutParent: ConstraintLayout = view.findViewById(R.id.layoutParent)
-                                val ivOp = view.findViewById<ImageView>(R.id.ivOption)
-                                layoutParent.setOnClickListener { view1: View? ->
-                                    if (isMultiSelect) {
-                                        ivOp.hide()
-                                        multiSelect(position)
-                                    } else {
-                                        if (position < hAdapterFiles!!.size) {
-                                            try {
-                                                if (hAdapterFiles?.get(position)!= null) {
-                                                    val intent = Intent(
-                                                        requireContext(),
-                                                        PreviewScreen::class.java
-                                                    )
-                                                    intent.putExtra(
-                                                        "file_path",
-                                                        hAdapterFiles?.get(position)?.filePath
-                                                    )
-                                                    startActivity(intent)
-                                                }
-                                            } catch (e: Exception) {
-                                                e.printStackTrace()
-                                            }
-                                        }
-                                    }
+                object : RVTouchListener.ClickListener {
+                    override fun shouldHandleClick(view: View, position: Int, e: MotionEvent): Boolean {
+                        // Don't handle when user tapped share or delete — let those icon clicks work only.
+                        val ivShare = view.findViewById<View>(R.id.ivShare)
+                        val ivDelete = view.findViewById<View>(R.id.ivDelete)
+                        if (ivShare != null && isTouchInsideView(view, ivShare, e)) return false
+                        if (ivDelete != null && isTouchInsideView(view, ivDelete, e)) return false
+                        return true
+                    }
+
+                    override fun onClick(view: View, position: Int, e: MotionEvent) {
+                        if (position < 0 || position >= (hAdapterMedia?.itemCount ?: 0)) return
+                        if (hAdapterMedia?.getItem(position) == null) return
+                        if (isMultiSelect) {
+                            multiSelect(position)
+                        } else {
+                            // Open preview only when tap is on the image, not on name or elsewhere
+                            val mainImage = view.findViewById<View>(R.id.mainImageView)
+                            if (mainImage == null || !isTouchInsideView(view, mainImage, e)) return
+                            try {
+                                val filePath = hAdapterMedia?.getItem(position)?.filePath
+                                if (filePath != null) {
+                                    val intent = Intent(requireContext(), PreviewScreen::class.java)
+                                    intent.putExtra("file_path", filePath)
+                                    startActivity(intent)
                                 }
+                            } catch (ex: Exception) {
+                                ex.printStackTrace()
                             }
                         }
                     }
 
-                    override fun onLongClick(view: View, position: Int) {
-                        if (position < hAdapterFiles?.size!!) {
-                            if (hAdapterFiles?.get(position) != null) {
-                                val ivOp = view.findViewById<ImageView>(R.id.ivOption)
-                                if (!isMultiSelect) {
-                                    selectedIds = SparseArray()
-                                    isMultiSelect = true
-                                    if (actionMode == null) {
-                                        try {
-                                            ivOp.hide()
-                                            actionMode = (requireActivity() as MainRecoverActivity)
-                                                .startSupportActionMode(this@RecoverMediaFragment)
-                                        } catch (e: Exception) {
-                                            e.printStackTrace()
-                                        }
-                                    }
+                    override fun onLongClick(view: View, position: Int, e: MotionEvent) {
+                        if (position < 0 || position >= (hAdapterMedia?.itemCount ?: 0)) return
+                        if (hAdapterMedia?.getItem(position) == null) return
+                        // Only start multi-select when long-press is on the image
+                        val mainImage = view.findViewById<View>(R.id.mainImageView)
+                        if (mainImage != null && !isTouchInsideView(view, mainImage, e)) return
+                        if (!isMultiSelect) {
+                            selectedIds = SparseArray()
+                            isMultiSelect = true
+                            if (actionMode == null) {
+                                try {
+                                    actionMode = (requireActivity() as MainRecoverActivity)
+                                        .startSupportActionMode(this@RecoverMediaFragment)
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
                                 }
-                                multiSelect(position)
                             }
                         }
+                        multiSelect(position)
                     }
-                })
+                }
+            )
         )
+    }
+
+    private fun isTouchInsideView(rowView: View, childView: View, e: MotionEvent): Boolean {
+        val rowLoc = IntArray(2)
+        rowView.getLocationInWindow(rowLoc)
+        val childLoc = IntArray(2)
+        childView.getLocationInWindow(childLoc)
+        val x = e.rawX - rowLoc[0]
+        val y = e.rawY - rowLoc[1]
+        val left = childLoc[0] - rowLoc[0]
+        val top = childLoc[1] - rowLoc[1]
+        return x >= left && x <= left + childView.width &&
+                y >= top && y <= top + childView.height
     }
 
     private fun hSetUpLoadMoreListener() {
@@ -309,21 +320,22 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
         builder.setPositiveButton("DELETE") { dialog: DialogInterface, which: Int ->
             try {
                 for (i in 0 until selectedIds.size()) {
-                    val fileEntity = hAdapterFiles!![selectedIds.keyAt(i)]
-                    val fDelete = File(fileEntity?.filePath?:"")
+                    val fileEntity = hAdapterMedia!!.getItem(selectedIds.keyAt(i))
+                    val fDelete = File(fileEntity.filePath ?: "")
                     if (fDelete.exists()) {
                         val del = fDelete.delete()
                         Timber.d("del-res is$del")
                     }
-                    hAdapterFiles?.removeAt(selectedIds.keyAt(i))
+                    hAdapterFiles?.remove(fileEntity)
                 }
-                hAdapterFiles?.size?.let {
-                    if (it > 0) {
-                        hAdapterMedia?.notifyDataSetChanged()
-                    } else {
-                        hFragmentImagesBinding?.recyclerView?.hide()
-                        hFragmentImagesBinding?.tvNoImageVideo?.show()
-                    }
+                val list = hAdapterFiles?.filterNotNull()?.toList() ?: emptyList()
+                hAdapterMedia?.hAddItems(list)
+                if (list.isNotEmpty()) {
+                    hFragmentImagesBinding?.recyclerView?.show()
+                    hFragmentImagesBinding?.tvNoImageVideo?.hide()
+                } else {
+                    hFragmentImagesBinding?.recyclerView?.hide()
+                    hFragmentImagesBinding?.tvNoImageVideo?.show()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -389,7 +401,7 @@ class RecoverMediaFragment : Fragment(), ActionMode.Callback {
 
     private fun hSetUpRecyclerView() {
         hFragmentImagesBinding?.recyclerView?.setHasFixedSize(true)
-        layoutManager = GridLayoutManager(requireActivity(), 3)
+        layoutManager = GridLayoutManager(requireActivity(), 2)
         hFragmentImagesBinding?.recyclerView?.layoutManager = layoutManager
         hAdapterMedia = RecoverMediaAdapter(requireActivity(), hAdapterFiles?.toList() as List<EntityFiles>, requireActivity())
         hFragmentImagesBinding?.recyclerView?.adapter = hAdapterMedia

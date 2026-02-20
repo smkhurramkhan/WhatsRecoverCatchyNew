@@ -388,7 +388,7 @@ class FragmentRecoverDoc : Fragment(), ActionMode.Callback, DocsAdapterCallbacks
         recoverDocsAdapter = RecoverDocsAdapter(requireActivity(), objectList)
         fragmentDocBinding.recyclerView.setHasFixedSize(true)
         recoverDocsAdapter!!.hSetItemCallbacks(this)
-        layoutManager = GridLayoutManager(requireContext(), 3)
+        layoutManager = GridLayoutManager(requireContext(), 2)
         fragmentDocBinding.recyclerView.layoutManager = layoutManager
         fragmentDocBinding.recyclerView.adapter = recoverDocsAdapter
     }

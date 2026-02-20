@@ -36,7 +36,7 @@ class BaseApplication : LocaleAwareApplication() {
 
         instance = this
         val appSharedPrefs = MyAppSharedPrefs(this)
-        isPremium = appSharedPrefs.isPremium
+        isPremium = appSharedPrefs.isPremium == true
 
         MobileAds.initialize(this)
 

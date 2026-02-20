@@ -150,7 +150,7 @@ class MainRecoverActivity : com.catchyapps.whatsdelete.appactivities.BaseActivit
 
 
      //   loadFragment(FragmentReoverMainPager())
-        if (!appSharedPrefs!!.isShowHowWorkDialog) PopUpDialogHowToUseRecoverFeature(
+        if (appSharedPrefs?.isShowHowWorkDialog==false) PopUpDialogHowToUseRecoverFeature(
             this@MainRecoverActivity
         )
 

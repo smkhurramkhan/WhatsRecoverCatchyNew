@@ -13,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.ParcelFileDescriptor
 import android.util.SparseArray
 import android.view.*
 import android.widget.*
@@ -34,8 +35,10 @@ import com.catchyapps.whatsdelete.roomdb.appentities.EntityFiles
 import com.catchyapps.whatsdelete.appactivities.activitypremium.ActivityPremium
 import com.catchyapps.whatsdelete.appactivities.activityrecover.SharedVM
 import com.catchyapps.whatsdelete.appactivities.activityrecover.TypesIntent
+import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActivity
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reovervoice.AudioMediaAdapter.CallBack
 import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
+import com.catchyapps.whatsdelete.appclasseshelpers.RVTouchListener
 import com.catchyapps.whatsdelete.databinding.AudioMediaFragmentBinding
 import timber.log.Timber
 import java.io.File
@@ -301,6 +304,62 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
         recyclerViewAdapter = AudioMediaAdapter(requireActivity(), objectList, this, requireActivity())
         fragmentAudioBinding.recyclerView.adapter = recyclerViewAdapter
         recyclerViewAdapter?.notifyDataSetChanged()
+        setupItemTouchListener()
+    }
+
+    private fun setupItemTouchListener() {
+        fragmentAudioBinding.recyclerView.addOnItemTouchListener(
+            RVTouchListener(
+                requireActivity(),
+                fragmentAudioBinding.recyclerView,
+                object : RVTouchListener.ClickListener {
+                    override fun shouldHandleClick(view: View, position: Int, e: MotionEvent): Boolean {
+                        // Don't handle when user tapped play icon or more — let those work.
+                        val iconPlayer = view.findViewById<View>(R.id.icon_player)
+                        val ivMore = view.findViewById<View>(R.id.ivMore)
+                        if (iconPlayer != null && isTouchInsideView(view, iconPlayer, e)) return false
+                        if (ivMore != null && isTouchInsideView(view, ivMore, e)) return false
+                        return true
+                    }
+
+                    override fun onClick(view: View, position: Int, e: MotionEvent) {
+                        if (position < 0 || position >= (recyclerViewAdapter?.itemCount ?: 0)) return
+                        if (recyclerViewAdapter?.getItem(position) == null) return
+                        if (actionMode != null) {
+                            multiSelect(position)
+                        }
+                    }
+
+                    override fun onLongClick(view: View, position: Int, e: MotionEvent) {
+                        if (position < 0 || position >= (recyclerViewAdapter?.itemCount ?: 0)) return
+                        if (recyclerViewAdapter?.getItem(position) == null) return
+                        if (actionMode == null) {
+                            selectedIds = SparseArray()
+                            try {
+                                actionMode = (requireActivity() as MainRecoverActivity)
+                                    .startSupportActionMode(this@VoiceMediaFragment)
+                            } catch (e: Exception) {
+                                Timber.w(e, "Failed to start action mode")
+                            }
+                        }
+                        multiSelect(position)
+                    }
+                }
+            )
+        )
+    }
+
+    private fun isTouchInsideView(rowView: View, childView: View, e: MotionEvent): Boolean {
+        val rowLoc = IntArray(2)
+        rowView.getLocationInWindow(rowLoc)
+        val childLoc = IntArray(2)
+        childView.getLocationInWindow(childLoc)
+        val x = e.rawX - rowLoc[0]
+        val y = e.rawY - rowLoc[1]
+        val left = childLoc[0] - rowLoc[0]
+        val top = childLoc[1] - rowLoc[1]
+        return x >= left && x <= left + childView.width &&
+                y >= top && y <= top + childView.height
     }
 
     @SuppressLint("SetTextI18n")
@@ -335,12 +394,14 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
             mediaPlayer = MediaPlayer()
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                audioLengthInSec = data.fileUri?.let { getLengthPost10(it) }!!
+                audioLengthInSec = data.fileUri?.let { getLengthPost10(it) } ?: 0
                 mediaPlayer!!.reset()
-                context?.contentResolver?.openFileDescriptor(data.fileUri!!.toUri(), "r")?.use {
-                    mediaPlayer!!.setDataSource(it.fileDescriptor)
+                openFileDescriptorForPath(data.fileUri ?: return)?.use { pfd ->
+                    mediaPlayer!!.setDataSource(pfd.fileDescriptor)
+                } ?: run {
+                    Timber.w("Could not open audio: %s", data.fileUri)
+                    return
                 }
-
             } else {
                 data.filePath?.let { getLength(it) }!!
                 val tempFile = File(data.filePath)
@@ -415,11 +476,10 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     }
 
     private fun getLengthPost10(path: String): Int? {
-
-        path.let {
-            context?.contentResolver?.openFileDescriptor(it.toUri(), "r")?.use {
+        return try {
+            openFileDescriptorForPath(path)?.use { pfd ->
                 MediaMetadataRetriever().apply {
-                    setDataSource(it.fileDescriptor)
+                    setDataSource(pfd.fileDescriptor)
                     val hDurationLong =
                         extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
                     return hDurationLong?.let { it1 ->
@@ -427,8 +487,11 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                     }
                 }
             }
+            null
+        } catch (e: Exception) {
+            Timber.w(e, "getLengthPost10 failed for %s", path)
+            null
         }
-        return null
     }
 
     private fun getLength(path: String) {
@@ -457,21 +520,31 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     }
 
     fun getDurationAbove10(audioFilePath: String): String? {
-
-        audioFilePath.let {
-            context?.contentResolver?.openFileDescriptor(it.toUri(), "r")?.use {
+        return try {
+            openFileDescriptorForPath(audioFilePath)?.use { pfd ->
                 MediaMetadataRetriever().apply {
-                    setDataSource(it.fileDescriptor)
+                    setDataSource(pfd.fileDescriptor)
                     val hDurationLong =
                         extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
                     if (hDurationLong != null) {
-                        return@let getCurrentDuration(hDurationLong)
+                        return getCurrentDuration(hDurationLong)
                     }
                 }
             }
+            null
+        } catch (e: Exception) {
+            Timber.w(e, "getDurationAbove10 failed for %s", audioFilePath)
+            null
         }
+    }
 
-        return null
+    /** Opens path as content URI or as app-private file path. */
+    private fun openFileDescriptorForPath(path: String): ParcelFileDescriptor? {
+        return when {
+            path.startsWith("content://") -> context?.contentResolver?.openFileDescriptor(Uri.parse(path), "r")
+            path.startsWith("/") && File(path).exists() -> ParcelFileDescriptor.open(File(path), ParcelFileDescriptor.MODE_READ_ONLY)
+            else -> null
+        }
     }
 
     private fun updateCurrentDuration() {

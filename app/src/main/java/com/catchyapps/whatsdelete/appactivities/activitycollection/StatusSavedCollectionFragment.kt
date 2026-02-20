@@ -71,13 +71,13 @@ class StatusSavedCollectionFragment : Fragment(),
                     savedFragmentBinding.recyclerView,
                     object :
                         RVTouchListener.ClickListener {
-                        override fun onClick(view: View, position: Int) {
+                        override fun onClick(view: View, position: Int, e: android.view.MotionEvent) {
                             if (folderAdapter?.selectedItemCount!! > 0) {
                                 enableActionMode(position)
                             }
                         }
 
-                        override fun onLongClick(view: View, position: Int) {
+                        override fun onLongClick(view: View, position: Int, e: android.view.MotionEvent) {
                             enableActionMode(position)
                         }
                     }

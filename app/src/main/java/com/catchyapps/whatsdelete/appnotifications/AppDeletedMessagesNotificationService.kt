@@ -299,6 +299,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             !ticker.contains("missed voice call") &&
             !ticker.contains("missed video call") &&
             !text.contains("You have new messages") &&
+            !text.contains("Ringing") &&
             !text.contains("new messages") &&
             !text.contains("messages from") &&
             !title.contains("Backup paused") &&
@@ -367,23 +368,34 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         var hUserName: String? = null
 
         // Group format: "GroupName (N messages): SenderName"
+        // Group name may itself contain parentheses (e.g. "CAOTG (TU-I/R 3)"), so we must
+        // match the "(N messages):" suffix specifically, not the first '('.
         var isGroupByTitle = false
-        val firstParen = hFinalTitle.indexOf('(')
-        if (firstParen > 0) {
-            val insideParen = hFinalTitle.substring(firstParen + 1).trimStart()
-            if (insideParen.firstOrNull()?.isDigit() == true) {
-                isGroupByTitle = true
-                // Sender is after the first ":" that comes after "("
-                val colonAfterParen = hFinalTitle.indexOf(':', firstParen)
-                if (colonAfterParen > firstParen) {
-                    hUserName = hFinalTitle.substring(colonAfterParen + 1).trim()
+        val messagesSuffixRegex = Regex("""\s+\(\d+\s+messages\)\s*:\s*(.*)$""")
+        val messagesMatch = messagesSuffixRegex.find(hFinalTitle)
+        if (messagesMatch != null) {
+            isGroupByTitle = true
+            hUserName = messagesMatch.groupValues[1].trim().takeIf { it.isNotEmpty() }
+            hFinalTitle = hFinalTitle.substring(0, messagesMatch.range.first).trim()
+        }
+
+        // Fallback: title without "(N messages)" but with "GroupName (something): Sender" (digit after first paren)
+        if (!isGroupByTitle) {
+            val firstParen = hFinalTitle.indexOf('(')
+            if (firstParen > 0) {
+                val insideParen = hFinalTitle.substring(firstParen + 1).trimStart()
+                if (insideParen.firstOrNull()?.isDigit() == true) {
+                    isGroupByTitle = true
+                    val colonAfterParen = hFinalTitle.indexOf(':', firstParen)
+                    if (colonAfterParen > firstParen) {
+                        hUserName = hFinalTitle.substring(colonAfterParen + 1).trim()
+                    }
+                    hFinalTitle = hFinalTitle.take(firstParen).trim()
                 }
-                // Group name is everything before "("
-                hFinalTitle = hFinalTitle.substring(0, firstParen).trim()
             }
         }
 
-        // Other group formats
+        // Other group formats (ticker/text based)
         if (!isGroupByTitle) {
             if (hFinalText.startsWith("~ ")) {
                 val colonIdx = hFinalText.indexOf(":", 2)

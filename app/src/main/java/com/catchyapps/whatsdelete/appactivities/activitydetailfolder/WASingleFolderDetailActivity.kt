@@ -92,7 +92,7 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                     this,
                     object :
                         RVTouchListener.ClickListener {
-                        override fun onClick(view: View, position: Int) {
+                        override fun onClick(view: View, position: Int, e: android.view.MotionEvent) {
                             try {
                                 if (folderList?.get(position) is EntityStatuses) {
                                     if (statusAdapter!!.selectedItemCount > 0) {
@@ -101,12 +101,12 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                                         //  startPreviewIntnet(position)
                                     }
                                 }
-                            } catch (e: IndexOutOfBoundsException) {
-                                e.printStackTrace()
+                            } catch (ex: IndexOutOfBoundsException) {
+                                ex.printStackTrace()
                             }
                         }
 
-                        override fun onLongClick(view: View, position: Int) {
+                        override fun onLongClick(view: View, position: Int, e: android.view.MotionEvent) {
                             enableActionMode(position)
                         }
                     }

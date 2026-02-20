@@ -24,7 +24,7 @@ public class RVTouchListener implements RecyclerView.OnItemTouchListener {
             public void onLongPress(MotionEvent e) {
                 View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
                 if (child != null && clickListener != null) {
-                    clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                    clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child), e);
                 }
             }
         });
@@ -32,10 +32,15 @@ public class RVTouchListener implements RecyclerView.OnItemTouchListener {
 
     @Override
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
         View child = rv.findChildViewUnder(e.getX(), e.getY());
         if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-            clickListener.onClick(child, rv.getChildPosition(child));
+            int position = rv.getChildAdapterPosition(child);
+            // If we should not handle (e.g. tap on share/delete), don't call onClick and don't consume
+            if (!clickListener.shouldHandleClick(child, position, e)) {
+                return false;
+            }
+            clickListener.onClick(child, position, e);
+            return true;
         }
         return false;
     }
@@ -50,7 +55,11 @@ public class RVTouchListener implements RecyclerView.OnItemTouchListener {
     }
 
     public interface ClickListener {
-        void onClick(View view, int position);
-        void onLongClick(View view, int position);
+        void onClick(View view, int position, MotionEvent e);
+        void onLongClick(View view, int position, MotionEvent e);
+        /** Return false to let the event go to children (e.g. share/delete icons). Default true. */
+        default boolean shouldHandleClick(View view, int position, MotionEvent e) {
+            return true;
+        }
     }
 }

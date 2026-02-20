@@ -336,7 +336,7 @@ class AudioMediaAdapter(
     }
 
     fun getItem(position: Int): EntityFiles {
-        return getItem(position)
+        return filterList[position]!!
     }
 
     fun setSelectedIds(selectedIds: SparseArray<String>) {

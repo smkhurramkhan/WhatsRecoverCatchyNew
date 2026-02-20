@@ -27,7 +27,7 @@ class FragmentRecoverMediaVM(application: Application) : AndroidViewModel(applic
         get() = hVideoFileListMld
 
     private var hImagesListMld = MutableLiveData<MutableList<EntityFiles>?>()
-    val hImagesListld: LiveData<MutableList<EntityFiles>?>
+    val hImagesListLd: LiveData<MutableList<EntityFiles>?>
         get() = hImagesListMld
 
 
@@ -133,17 +133,11 @@ class FragmentRecoverMediaVM(application: Application) : AndroidViewModel(applic
 
 
     private fun hGetImageList() {
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-
             fetchImagesForPost10()
-
         } else {
-
             fetchImagesForPre10()
-
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
