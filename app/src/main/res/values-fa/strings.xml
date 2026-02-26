@@ -3,7 +3,6 @@
 
     <string name="action_settings">تنظیمات</string>
     <string name="premium">حق بیمه</string>
-    <string name="upgrade_to_premium">ارتقا به Premium</string>
     <string name="family_apps">برنامه های خانوادگی</string>
     <string name="how_to_use">نحوه استفاده از</string>
     <string name="share">اشتراک گذاری</string>
@@ -81,7 +80,6 @@
     <string name="are_you_sure_you_want_to_exit">آیا مطمئن هستید که می خواهید خارج شوید؟</string>
     <string name="yes">بله</string>
     <string name="no">خیر</string>
-    <string name="upgrade_to_enjoy_premium">برای لذت بردن از حق بیمه ارتقا دهید</string>
 
     <string name="no_status_found">وضعیت یافت نشد</string>
     <string name="restatus">وضعیت مجدد</string>
@@ -132,7 +130,6 @@
     <string name="date">تاریخ</string>
     <string name="name">نام</string>
     <string name="size">اندازه</string>
-    <string name="clear_all_data">پاک کردن همه داده ها</string>
 
 
     <string name="_922">92+</string>
@@ -146,23 +143,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">هنوز ویدیویی شناسایی نشده است</string>
 
-    <string name="life_time"><b> اشتراک</b></string>
     <string name="subscribe_now">اکنون مشترک شوید</string>
     <string name="continue_with_ads">ادامه با تبلیغات</string>
 
-    <string name="recovery">بازیابی</string>
-    <string name="direct_chat">چت مستقیم</string>
     <string name="status">وضعیت</string>
     <string name="more_tools">ابزارهای بیشتر</string>
     <string name="enjoyee_ads_free_application">تجربه رایگان آگهی</string>
-    <string name="restore_unlimited_messages_instantly">بازیابی فوری پیام‌های نامحدود</string>
 
-    <string name="or">OR</string>
     <string name="direct_whats_chat">چت مستقیم Whats</string>
-    <string name="write_your_text">متن خود را بنویسید</string>
-    <string name="font_styles">سبک‌های قلم</string>
     <string name="stylish_text">متن شیک</string>
-    <string name="quatations_text">نقل‌ها</string>
     <string name="text_repeater">تکرارکننده متن</string>
     <string name="enter_message">پیام را وارد کنید</string>
     <string name="enter_repeat_number">شماره تکراری را وارد کنید</string>
@@ -171,7 +160,6 @@
     <string name="note_number_of_repeater_text_limit_999">توجه: تعداد محدودیت نوشتاری تکرارکننده 999</string>
     <string name="repeat">تکرار</string>
     <string name="new_line_on">خط جدید روشن</string>
-    <string name="clear">پاک کردن</string>
     <string name="please_enter_the_text_you_want_to_repeat">لطفاً متنی را که می خواهید تکرار کنید وارد کنید.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">لطفاً تعداد دفعاتی را که می خواهید متن را تکرار کنید وارد کنید</string>
     <string name="text_copied">متن کپی شد</string>
@@ -181,8 +169,6 @@
     <string name="text_to_emoji">Text To Emoji</string>
     <string name="stickers">Stickers</string>
     <string name="unlock_premium_version">Unlock Premium Version</string>
-    <string name="_5_99">$5.99</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Recover Data for WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Error loading stickers</string>
     <string name="clear_all">Clear All</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Are you sure you want to clear all the data?</string>
@@ -204,7 +190,6 @@
     <string name="direct_chat_">Direct\nChat</string>
     <string name="famous_quotes">Famous\nQuotes</string>
     <string name="text_to_emoji_">Text to\nEmoji</string>
-    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nFaces</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="screenshot_saved">Screenshot Saved</string>
@@ -287,13 +272,10 @@
     <string name="ulimited_access_for_all_features">دسترسی نامحدود به تمام امکانات.</string>
     <string name="unlimited_media_recovery">بازیابی نامحدود رسانه‌ها</string>
     <string name="features">قابلیت‌های بازیابی</string>
-    <string name="whatsapp_direct_message">پیام مستقیم واتساپ</string>
-    <string name="hello_blank_fragment">سلام بخش خالی</string>
     <string name="regular">عادی</string>
     <string name="new_line">خط جدید</string>
     <string name="space">فاصله</string>
     <string name="reset">تنظیم مجدد</string>
-    <string name="quick_scan">اسکن سریع</string>
     <string name="quick_clean">پاک‌سازی سریع</string>
 
 </resources>

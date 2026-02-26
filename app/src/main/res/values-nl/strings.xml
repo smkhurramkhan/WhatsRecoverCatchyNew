@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Instellingen</string>
     <string name="premium">Premium</string>
-    <string name="upgrade_to_premium">Upgrade naar premium</string>
     <string name="family_apps">Familie-apps</string>
     <string name="how_to_use">Hoe te gebruiken</string>
     <string name="share">Delen</string>
@@ -63,7 +62,6 @@
     <string name="are_you_sure_you_want_to_exit">Weet u zeker dat u wilt afsluiten?</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
-    <string name="upgrade_to_enjoy_premium">Upgrade om premium te genieten</string>
 
     <string name="no_status_found">Geen status gevonden</string>
     <string name="restatus">Herstelstatus</string>
@@ -112,7 +110,6 @@
     <string name="date">Datum</string>
     <string name="name">Naam</string>
     <string name="size">Grootte</string>
-    <string name="clear_all_data">Alle gegevens wissen</string>
 
     <string name="_922">+92</string>
 
@@ -124,23 +121,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Nog geen video\'s gedetecteerd</string>
 
-    <string name="life_time"><b> Abonnement</b></string>
     <string name="subscribe_now">Abonneer nu</string>
     <string name="continue_with_ads">Doorgaan met advertenties</string>
 
-    <string name="recovery">Herstel</string>
-    <string name="direct_chat">Directe chat</string>
     <string name="status">Status</string>
     <string name="more_tools">Meer tools</string>
     <string name="enjoyee_ads_free_application">Advertentievrije ervaring</string>
-    <string name="restore_unlimited_messages_instantly">Herstel onbeperkt berichten direct</string>
 
-    <string name="or">OF</string>
     <string name="direct_whats_chat">Directe WApp-chat</string>
-    <string name="write_your_text">Schrijf je tekst</string>
-    <string name="font_styles">Lettertypen</string>
     <string name="stylish_text">Stijlvolle tekst</string>
-    <string name="quatations_text">Citaten</string>
     <string name="text_repeater">Tekstherhaling</string>
     <string name="enter_message">Voer bericht in</string>
     <string name="enter_repeat_number">Voer herhalingsnummer in</string>
@@ -149,7 +138,6 @@
     <string name="note_number_of_repeater_text_limit_999">Let op: Aantal herhalingsberichten beperkt tot 999</string>
     <string name="repeat">Herhalen</string>
     <string name="new_line_on">Nieuwe regel aan</string>
-    <string name="clear">Wissen</string>
     <string name="please_enter_the_text_you_want_to_repeat">Voer de tekst in die u wilt herhalen.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Voer het aantal keren in dat u de tekst wilt herhalen</string>
     <string name="text_copied">Tekst gekopieerd</string>
@@ -159,8 +147,6 @@
     <string name="text_to_emoji">Tekst naar Emoji</string>
     <string name="stickers">Stickers</string>
     <string name="unlock_premium_version">Ontgrendel Premium-versie</string>
-    <string name="_5_99">$6.99/levenslang</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Herstel gegevens voor WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Fout bij laden van stickers</string>
     <string name="clear_all">Alles wissen</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Weet u zeker dat u alle gegevens wilt wissen?</string>
@@ -183,7 +169,6 @@
     <string name="famous_quotes">Beroemde\nCitaten</string>
     <string name="text_to_emoji_">Tekst naar\nEmoji</string>
 
-    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nGezichten</string>
     <string name="something_went_wrong">Er is iets misgegaan</string>
     <string name="screenshot_saved">Screenshot Opgeslagen</string>
@@ -267,13 +252,10 @@
     <string name="ulimited_access_for_all_features">Onbeperkte toegang tot alle functies.</string>
     <string name="unlimited_media_recovery">Onbeperkt mediabestand herstellen</string>
     <string name="features">Herstelfuncties</string>
-    <string name="whatsapp_direct_message">Directe boodschap</string>
-    <string name="hello_blank_fragment">Hallo leeg fragment</string>
     <string name="regular">Normaal</string>
     <string name="new_line">Nieuwe regel</string>
     <string name="space">Spatie</string>
     <string name="reset">Resetten</string>
-    <string name="quick_scan">Snelle scan</string>
     <string name="quick_clean">Snelle schoonmaak</string>
 
 </resources>

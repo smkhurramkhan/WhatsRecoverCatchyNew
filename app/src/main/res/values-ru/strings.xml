@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Настройки</string>
     <string name="premium">Премиум</string>
-    <string name="upgrade_to_premium">Повысить до премиума</string>
     <string name="family_apps">Семейные приложения</string>
     <string name="how_to_use">Как использовать</string>
     <string name="share">Поделиться</string>
@@ -62,7 +61,6 @@
     <string name="are_you_sure_you_want_to_exit">Вы уверены, что хотите выйти?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
-    <string name="upgrade_to_enjoy_premium">Повысьте до премиума для полного воспользования</string>
 
     <string name="no_status_found">Статус не найден</string>
     <string name="restatus">Повторный статус</string>
@@ -111,7 +109,6 @@
     <string name="date">Дата</string>
     <string name="name">Имя</string>
     <string name="size">Размер</string>
-    <string name="clear_all_data">Очистить все данные</string>
 
     <string name="_922">+92</string>
 
@@ -123,24 +120,16 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Видео не обнаружено</string>
 
-    <string name="life_time"><b> Подписка</b></string>
     <string name="subscribe_now">Подписаться сейчас</string>
     <string name="continue_with_ads">Продолжить с рекламой</string>
 
-    <string name="recovery">Восстановление</string>
-    <string name="direct_chat">Прямой чат</string>
     <string name="status">Статус</string>
     <string name="more_tools">Дополнительные инструменты</string>
     <string name="enjoyee_ads_free_application">Без рекламы</string>
-    <string name="restore_unlimited_messages_instantly">Мгновенное восстановление неограниченного количества сообщений</string>
 
-    <string name="or">ИЛИ</string>
     <string name="direct_whats_chat">Прямой чат в WApp</string>
-    <string name="write_your_text">Напишите свой текст</string>
-    <string name="font_styles">Стили шрифта</string>
     <string name="stylish_text">Стильный текст</string>
 
-    <string name="quatations_text">Цитаты</string>
     <string name="text_repeater">Повторитель текста</string>
     <string name="enter_message">Введите сообщение</string>
     <string name="enter_repeat_number">Введите номер повтора</string>
@@ -149,7 +138,6 @@
     <string name="note_number_of_repeater_text_limit_999">Примечание: максимальное количество повторителей текста – 999</string>
     <string name="repeat">Повторить</string>
     <string name="new_line_on">Новая строка</string>
-    <string name="clear">Очистить</string>
     <string name="please_enter_the_text_you_want_to_repeat">Введите текст, который хотите повторить.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Пожалуйста, введите количество раз, которое вы хотите повторить текст</string>
     <string name="text_copied">Текст скопирован</string>
@@ -159,8 +147,6 @@
     <string name="text_to_emoji">Отправить текст в эмодзи</string>
     <string name="stickers">Стикеры</string>
     <string name="unlock_premium_version">Разблокировать премиум-версию</string>
-    <string name="_5_99">6,99 доллара США/пожизненно</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Восстановить данные для WA и WAB]]></string>
     <string name="error_adding_sticker_pack">Ошибка при загрузке стикеров</string>
     <string name="clear_all">Очистить все</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Вы уверены, что хотите удалить все данные?</string>
@@ -182,7 +168,6 @@
     <string name="direct_chat_">Прямой\nЧат</string>
     <string name="famous_quotes">Известные\nЦитаты</string>
     <string name="text_to_emoji_">Отправьте текст в\nEmoji</string>
-    <string name="whatsapp_stickers">Стикеры</string>
     <string name="ascii_faces">Ascii\nFaces</string>
     <string name="something_went_wrong">Что-то пошло не так</string>
     <string name="screenshot_saved">Скриншот сохранен</string>
@@ -267,13 +252,10 @@
     <string name="unlimited_media_recovery">Безлимитное восстановление медиа</string>
     <string name="features">Функции восстановления</string>
 
-    <string name="whatsapp_direct_message">Прямое сообщение</string>
-    <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
     <string name="regular">Обычный</string>
     <string name="new_line">Новая строка</string>
     <string name="space">Пробел</string>
     <string name="reset">Сбросить</string>
-    <string name="quick_scan">Быстрое сканирование</string>
     <string name="quick_clean">Быстрая очистка</string>
 
 </resources>

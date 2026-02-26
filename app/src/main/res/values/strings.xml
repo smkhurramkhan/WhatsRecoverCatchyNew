@@ -23,7 +23,6 @@
 
     <string name="action_settings">Settings</string>
     <string name="premium">Premium</string>
-    <string name="upgrade_to_premium">Upgrade to premium</string>
     <string name="family_apps">Family apps</string>
     <string name="how_to_use">How to use</string>
     <string name="share">Share</string>
@@ -108,7 +107,6 @@
     <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit ?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="upgrade_to_enjoy_premium">Upgrade to enjoy premium</string>
 
 
     <string name="no_status_found">No Status Found</string>
@@ -160,7 +158,6 @@
     <string name="date">Date</string>
     <string name="name">Name</string>
     <string name="size">Size</string>
-    <string name="clear_all_data">Clear All Data</string>
 
 
     <string name="_922">+92</string>
@@ -174,23 +171,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">No Videos detected yet</string>
 
-    <string name="life_time"><b> Subscription</b></string>
     <string name="subscribe_now">Subscribe</string>
     <string name="continue_with_ads">Continue With Ads</string>
 
-    <string name="recovery">Recovery</string>
-    <string name="direct_chat">Direct Chat</string>
     <string name="status">Status</string>
     <string name="more_tools">More Tools</string>
     <string name="enjoyee_ads_free_application">AD Free Experience</string>
-    <string name="restore_unlimited_messages_instantly">Restore Unlimited Messages Instantly</string>
 
-    <string name="or">OR</string>
     <string name="direct_whats_chat">Direct Whats Chat</string>
-    <string name="write_your_text">Write your text</string>
-    <string name="font_styles">Font Styles</string>
     <string name="stylish_text">Stylish Text</string>
-    <string name="quatations_text">Quotations</string>
     <string name="text_repeater">Text Repeater</string>
     <string name="enter_message">Enter Message</string>
     <string name="enter_repeat_number">Enter Repeat Number</string>
@@ -199,7 +188,6 @@
     <string name="note_number_of_repeater_text_limit_999">Note: Number of Repeater Text Limit 999</string>
     <string name="repeat">Repeat</string>
     <string name="new_line_on">New Line on</string>
-    <string name="clear">Clear</string>
     <string name="please_enter_the_text_you_want_to_repeat">Please enter the text you want to repeat.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Please enter the number of times you want to repeat the text</string>
     <string name="text_copied">Text copied</string>
@@ -209,8 +197,6 @@
     <string name="text_to_emoji">Text To Emoji</string>
     <string name="stickers">Stickers</string>
     <string name="unlock_premium_version">Unlock Premium Version</string>
-    <string name="_5_99">$5.99</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Recover Data for WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Error loading stickers</string>
     <string name="clear_all">Clear All</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Are you sure you want to clear all the data?</string>
@@ -232,7 +218,6 @@
     <string name="direct_chat_">Direct\nChat</string>
     <string name="famous_quotes">Famous\nQuotes</string>
     <string name="text_to_emoji_">Text to\nEmoji</string>
-    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nFaces</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="screenshot_saved">Screenshot Saved</string>
@@ -321,16 +306,12 @@
     <string name="ulimited_access_for_all_features">Unlimited Access for All Features.</string>
     <string name="unlimited_media_recovery">Unlimited Media Recovery</string>
     <string name="features">Recovery Features</string>
-    <string name="whatsapp_direct_message">Direct Message</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="regular">Regular</string>
     <string name="new_line">New Line</string>
     <string name="space">Space</string>
     <string name="reset">Reset</string>
-    <string name="quick_scan">Quick Scan</string>
     <string name="quick_clean">Quick Clean</string>
 
-    <string name="premium_package_price_format" translatable="false">Lifetime subscription - %s</string>
     <string name="premium_package_default_price" translatable="false">$5.99</string>
 </resources>

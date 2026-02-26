@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Innstillinger</string>
     <string name="premium">Premium</string>
-    <string name="upgrade_to_premium">Oppgrader til premium</string>
     <string name="family_apps">Familie-apper</string>
     <string name="how_to_use">Hvordan bruke</string>
     <string name="share">Del</string>
@@ -77,7 +76,6 @@
     <string name="are_you_sure_you_want_to_exit">Er du sikker på at du vil avslutte?</string>
     <string name="yes">Ja</string>
     <string name="no">Nei</string>
-    <string name="upgrade_to_enjoy_premium">Oppgrader for å nyte premium</string>
 
     <string name="no_status_found">Ingen status funnet</string>
     <string name="restatus">Gjenoppretting</string>
@@ -126,7 +124,6 @@
     <string name="date">Dato</string>
     <string name="name">Navn</string>
     <string name="size">Størrelse</string>
-    <string name="clear_all_data">Fjern all data</string>
 
     <string name="_922">+92</string>
 
@@ -138,23 +135,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Ingen videoer oppdaget ennå</string>
 
-    <string name="life_time"><b> Abonnement</b></string>
     <string name="subscribe_now">Abonner nå</string>
     <string name="continue_with_ads">Fortsett med annonser</string>
 
-    <string name="recovery">Gjenoppretting</string>
-    <string name="direct_chat">Direkte chat</string>
     <string name="status">Status</string>
     <string name="more_tools">Flere verktøy</string>
     <string name="enjoyee_ads_free_application">Opplevelse uten annonser</string>
-    <string name="restore_unlimited_messages_instantly">Gjenopprett ubegrensede meldinger umiddelbart</string>
 
-    <string name="or">ELLER</string>
     <string name="direct_whats_chat">Direkte Whats-chat</string>
-    <string name="write_your_text">Skriv teksten din</string>
-    <string name="font_styles">Skriftstiler</string>
     <string name="stylish_text">Stilig tekst</string>
-    <string name="quatations_text">Sitater</string>
     <string name="text_repeater">Tekstgjentaker</string>
     <string name="enter_message">Skriv melding</string>
     <string name="enter_repeat_number">Skriv inn gjentakelsesnummer</string>
@@ -163,7 +152,6 @@
     <string name="note_number_of_repeater_text_limit_999">Merk: Antall gjentaker tekstgrense 999</string>
     <string name="repeat">Gjenta</string>
     <string name="new_line_on">Ny linje på</string>
-    <string name="clear">Tøm</string>
     <string name="please_enter_the_text_you_want_to_repeat">Vennligst skriv inn teksten du vil gjenta.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Vennligst skriv inn antall ganger du vil gjenta teksten</string>
     <string name="text_copied">Tekst kopiert</string>
@@ -174,8 +162,6 @@
     <string name="text_to_emoji">Tekst til Emoji</string>
     <string name="stickers">Stickers</string>
     <string name="unlock_premium_version">Lås opp Premium-versjonen</string>
-    <string name="_5_99">$6.99/livstid</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Gjenopprett data for WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Feil ved lasting av stickers</string>
     <string name="clear_all">Fjern alle</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Er du sikker på at du vil fjerne all data?</string>
@@ -198,7 +184,6 @@
     <string name="direct_chat_">Direkte\nChat</string>
     <string name="famous_quotes">Berømte\nSitater</string>
     <string name="text_to_emoji_">Tekst til\nEmoji</string>
-    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nFjes</string>
     <string name="something_went_wrong">Noe gikk galt</string>
     <string name="screenshot_saved">Skjermbilde lagret</string>
@@ -281,13 +266,10 @@
     <string name="ulimited_access_for_all_features">Ubegrenset tilgang til alle funksjoner.</string>
     <string name="unlimited_media_recovery">Ubegrenset mediegjenoppretting</string>
     <string name="features">Gjenopprettingsfunksjoner</string>
-    <string name="whatsapp_direct_message">Direktemelding</string>
-    <string name="hello_blank_fragment">Hei tomt fragment</string>
     <string name="regular">Vanlig</string>
     <string name="new_line">Ny linje</string>
     <string name="space">Mellomrom</string>
     <string name="reset">Tilbakestill</string>
-    <string name="quick_scan">Rask skanning</string>
     <string name="quick_clean">Rask rengjøring</string>
 
 </resources>

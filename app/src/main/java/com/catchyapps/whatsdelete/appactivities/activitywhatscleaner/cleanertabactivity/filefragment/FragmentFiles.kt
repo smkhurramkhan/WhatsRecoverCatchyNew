@@ -196,9 +196,9 @@ class FragmentFiles : Fragment() {
             if (hLayoutManager is GridLayoutManager) {
                 addItemDecoration(
                     GridSpacingItemDecoration(
-                        3,
-                        12,
-                        12
+                        spanCount = 3,
+                        spacing = 12,
+                        spacing_top = 12
                     )
                 )
             }

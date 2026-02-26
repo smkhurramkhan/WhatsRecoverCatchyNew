@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">设置</string>
     <string name="premium">高级版</string>
-    <string name="upgrade_to_premium">升级到高级版</string>
     <string name="family_apps">家庭应用</string>
     <string name="how_to_use">如何使用</string>
     <string name="share">分享</string>
@@ -81,7 +80,6 @@
     <string name="are_you_sure_you_want_to_exit">您确定要退出吗？</string>
     <string name="yes">是</string>
     <string name="no">否</string>
-    <string name="upgrade_to_enjoy_premium">升级享受高级版</string>
 
     <string name="no_status_found">未找到状态</string>
     <string name="restatus">恢复状态</string>
@@ -131,7 +129,6 @@
     <string name="date">日期</string>
     <string name="name">名称</string>
     <string name="size">尺寸</string>
-    <string name="clear_all_data">清除所有数据</string>
 
 
     <string name="_922">+92</string>
@@ -145,23 +142,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">尚未检测到视频</string>
 
-    <string name="life_time"><b>订阅</b></string>
     <string name="subscribe_now">立即订阅</string>
     <string name="continue_with_ads">继续投放广告</string>
 
-    <string name="recovery">恢复</string>
-    <string name="direct_chat">直接聊天</string>
     <string name="status">状态</string>
     <string name="more_tools">更多工具</string>
     <string name="enjoyee_ads_free_application">无广告体验</string>
-    <string name="restore_unlimited_messages_instantly">立即恢复无限消息</string>
 
-    <string name="or">或</string>
     <string name="direct_whats_chat">直接聊天</string>
-    <string name="write_your_text">写下您的文字</string>
-    <string name="font_styles">字体样式</string>
     <string name="stylish_text">时尚文本</string>
-    <string name="quatations_text">引文</string>
     <string name="text_repeater">文本重复器</string>
     <string name="enter_message">输入消息</string>
     <string name="enter_repeat_number">输入重复号码</string>
@@ -170,7 +159,6 @@
     <string name="note_number_of_repeater_text_limit_999">注意：重复文本数量限制 999</string>
     <string name="repeat">重复</string>
     <string name="new_line_on">新行</string>
-    <string name="clear">清除</string>
     <string name="please_enter_the_text_you_want_to_repeat">请输入您要重复的文字。</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">请输入您想要重复文本的次数</string>
     <string name="text_copied">文本已复制</string>
@@ -179,8 +167,6 @@
     <string name="text_to_emoji">文字转表情符号</string>
     <string name="stickers">贴纸</string>
     <string name="unlock_premium_version">解锁高级版本</string>
-    <string name="_5_99">$6.99/终身</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[恢复 WA 和 WAB 的数据]]></string>
     <string name="error_adding_sticker_pack">加载贴纸时出错</string>
     <string name="clear_all">全部清除</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">您确定要清除所有数据吗？</string>
@@ -202,7 +188,6 @@
     <string name="direct_chat_">直接\n聊天</string>
     <string name="famous_quotes">著名\n名言</string>
     <string name="text_to_emoji_">文本到\n表情符号</string>
-    <string name="whatsapp_stickers">贴纸</string>
     <string name="ascii_faces">Ascii\n面孔</string>
     <string name="something_went_wrong">出了点问题</string>
     <string name="screenshot_saved">屏幕截图已保存</string>
@@ -285,13 +270,10 @@
     <string name="ulimited_access_for_all_features">所有功能无限制访问。</string>
     <string name="unlimited_media_recovery">无限制媒体恢复</string>
     <string name="features">恢复功能</string>
-    <string name="whatsapp_direct_message">直接消息</string>
-    <string name="hello_blank_fragment">你好，空白片段</string>
     <string name="regular">常规</string>
     <string name="new_line">新行</string>
     <string name="space">空格</string>
     <string name="reset">重置</string>
-    <string name="quick_scan">快速扫描</string>
     <string name="quick_clean">快速清理</string>
 
 </resources>

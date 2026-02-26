@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Pengaturan</string>
     <string name="premium">Premium</string>
-    <string name="upgrade_to_premium">Upgrade ke premium</string>
     <string name="family_apps">Aplikasi Keluarga</string>
     <string name="how_to_use">Cara Penggunaan</string>
     <string name="share">Bagikan</string>
@@ -62,7 +61,6 @@
     <string name="are_you_sure_you_want_to_exit">Apakah Anda yakin ingin keluar?</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
-    <string name="upgrade_to_enjoy_premium">Upgrade untuk menikmati premium</string>
 
     <string name="no_status_found">Tidak Ada Status Ditemukan</string>
     <string name="restatus">Ulang Status</string>
@@ -111,7 +109,6 @@
     <string name="date">Tanggal</string>
     <string name="name">Nama</string>
     <string name="size">Ukuran</string>
-    <string name="clear_all_data">Hapus Semua Data</string>
 
     <string name="_922">+92</string>
 
@@ -123,23 +120,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Belum ada video terdeteksi</string>
 
-    <string name="life_time"><b> Berlangganan</b></string>
     <string name="subscribe_now">Berlangganan Sekarang</string>
     <string name="continue_with_ads">Lanjutkan dengan Iklan</string>
 
-    <string name="recovery">Pemulihan</string>
-    <string name="direct_chat">Obrolan Langsung</string>
     <string name="status">Status</string>
     <string name="more_tools">Alat Lainnya</string>
     <string name="enjoyee_ads_free_application">Pengalaman Tanpa Iklan</string>
-    <string name="restore_unlimited_messages_instantly">Pulihkan Pesan Tanpa Batas Secara Instan</string>
 
-    <string name="or">ATAU</string>
     <string name="direct_whats_chat">Obrolan WApp Langsung</string>
-    <string name="write_your_text">Tulis teks Anda</string>
-    <string name="font_styles">Gaya Font</string>
     <string name="stylish_text">Teks Stylish</string>
-    <string name="quatations_text">Teks Kutipan</string>
     <string name="text_repeater">Pengulang Teks</string>
     <string name="enter_message">Masukkan Pesan</string>
     <string name="enter_repeat_number">Masukkan Angka Pengulangan</string>
@@ -148,7 +137,6 @@
     <string name="note_number_of_repeater_text_limit_999">Catatan: Batas Teks Pengulang hingga 999</string>
     <string name="repeat">Ulangi</string>
     <string name="new_line_on">Baris Baru pada</string>
-    <string name="clear">Hapus</string>
     <string name="please_enter_the_text_you_want_to_repeat">Silakan masukkan teks yang ingin Anda ulangi.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Silakan masukkan jumlah kali Anda ingin mengulangi teks</string>
     <string name="text_copied">Teks disalin</string>
@@ -158,8 +146,6 @@
     <string name="text_to_emoji">Teks ke Emoji</string>
     <string name="stickers">Stiker</string>
     <string name="unlock_premium_version">Buka Versi Premium</string>
-    <string name="_5_99">$5.99</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Pulihkan Data untuk WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Kesalahan memuat stiker</string>
     <string name="clear_all">Hapus Semua</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Apakah Anda yakin ingin menghapus semua data?</string>
@@ -181,7 +167,6 @@
     <string name="direct_chat_">Obrolan\nLangsung</string>
     <string name="famous_quotes">Kutipan\nTerkenal</string>
     <string name="text_to_emoji_">Teks ke\nEmoji</string>
-    <string name="whatsapp_stickers">Stikers</string>
     <string name="ascii_faces">Wajah\nASCII</string>
     <string name="something_went_wrong">Ada yang salah</string>
     <string name="screenshot_saved">Screenshot Tersimpan</string>
@@ -264,13 +249,10 @@
     <string name="ulimited_access_for_all_features">Akses Tak Terbatas ke Semua Fitur.</string>
     <string name="unlimited_media_recovery">Pemulihan Media Tak Terbatas</string>
     <string name="features">Fitur Pemulihan</string>
-    <string name="whatsapp_direct_message">Pesan Langsung WApp</string>
-    <string name="hello_blank_fragment">Halo fragmen kosong</string>
     <string name="regular">Reguler</string>
     <string name="new_line">Baris Baru</string>
     <string name="space">Spasi</string>
     <string name="reset">Atur Ulang</string>
-    <string name="quick_scan">Pindai Cepat</string>
     <string name="quick_clean">Bersihkan Cepat</string>
 
 </resources>

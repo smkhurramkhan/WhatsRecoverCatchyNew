@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Cài đặt</string>
     <string name="premium">Cao cấp</string>
-    <string name="upgrade_to_premium">Nâng cấp lên cao cấp</string>
     <string name="family_apps">Ứng dụng gia đình</string>
     <string name="how_to_use">Cách sử dụng</string>
     <string name="share">Chia sẻ</string>
@@ -80,7 +79,6 @@
     <string name="are_you_sure_you_want_to_exit">Bạn có chắc chắn muốn thoát không?</string>
     <string name="yes">Có</string>
     <string name="no">Không</string>
-    <string name="upgrade_to_enjoy_premium">Nâng cấp để tận hưởng phí bảo hiểm</string>
 
 
     <string name="no_status_found">Không tìm thấy trạng thái</string>
@@ -133,7 +131,6 @@
     <string name="date">Ngày</string>
     <string name="name">Tên</string>
     <string name="size">Kích thước</string>
-    <string name="clear_all_data">Xóa tất cả dữ liệu</string>
 
 
     <string name="_922">+92</string>
@@ -147,23 +144,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Chưa tìm thấy Video nào</string>
 
-    <string name="life_time"><b> Đăng ký</b></string>
     <string name="subscribe_now">Đăng ký ngay</string>
     <string name="continue_with_ads">Tiếp tục với quảng cáo</string>
 
-    <string name="recovery">Phục hồi</string>
-    <string name="direct_chat">Trò chuyện trực tiếp</string>
     <string name="status">Trạng thái</string>
     <string name="more_tools">Thêm công cụ</string>
     <string name="enjoyee_ads_free_application">Trải nghiệm không có quảng cáo</string>
-    <string name="restore_unlimited_messages_instantly">Khôi phục tin nhắn không giới hạn ngay lập tức</string>
 
-    <string name="or">HOẶC</string>
     <string name="direct_whats_chat">Trò chuyện trực tiếp</string>
-    <string name="write_your_text">Viết văn bản của bạn</string>
-    <string name="font_styles">Các kiểu phông chữ</string>
     <string name="stylish_text">Văn bản thời trang</string>
-    <string name="quatations_text">Trích dẫn</string>
     <string name="text_repeater">Bộ lặp văn bản</string>
     <string name="enter_message">Nhập tin nhắn</string>
     <string name="enter_repeat_number">Nhập số lặp lại</string>
@@ -172,7 +161,6 @@
     <string name="note_number_of_repeater_text_limit_999">Lưu ý: Số lượng giới hạn văn bản lặp lại 999</string>
     <string name="repeat">Lặp lại</string>
     <string name="new_line_on">Bật dòng mới</string>
-    <string name="clear">Xóa</string>
     <string name="please_enter_the_text_you_want_to_repeat">Vui lòng nhập văn bản bạn muốn lặp lại.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Vui lòng nhập số lần bạn muốn lặp lại văn bản</string>
     <string name="text_copied">Đã sao chép văn bản</string>
@@ -182,8 +170,6 @@
     <string name="text_to_emoji">Chuyển văn bản thành biểu tượng cảm xúc</string>
     <string name="stickers">Nhãn dán</string>
     <string name="unlock_premium_version">Mở khóa phiên bản cao cấp</string>
-    <string name="_5_99">$6,99/đời</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Khôi phục dữ liệu cho WA & WAB]]></string>
 
     <string name="error_adding_sticker_pack">Lỗi tải hình dán</string>
     <string name="clear_all">Xóa tất cả</string>
@@ -206,7 +192,6 @@
     <string name="direct_chat_">Trực tiếp\nTrò chuyện</string>
     <string name="famous_quotes">Những câu trích dẫn nổi tiếng</string>
     <string name="text_to_emoji_">Nhắn tin tới\nEmoji</string>
-    <string name="whatsapp_stickers">Stickers</string>
     <string name="ascii_faces">Ascii\nKhuôn mặt</string>
     <string name="something_went_wrong">Đã xảy ra lỗi</string>
     <string name="screenshot_saved">Đã lưu ảnh chụp màn hình</string>
@@ -291,13 +276,10 @@
     <string name="ulimited_access_for_all_features">Truy cập không giới hạn tất cả tính năng.</string>
     <string name="unlimited_media_recovery">Phục hồi phương tiện không giới hạn</string>
     <string name="features">Tính năng phục hồi</string>
-    <string name="whatsapp_direct_message">Tin nhắn trực tiếp</string>
-    <string name="hello_blank_fragment">Xin chào đoạn trống</string>
     <string name="regular">Thường</string>
     <string name="new_line">Dòng mới</string>
     <string name="space">Khoảng trắng</string>
     <string name="reset">Đặt lại</string>
-    <string name="quick_scan">Quét nhanh</string>
     <string name="quick_clean">Dọn dẹp nhanh</string>
 
 </resources>

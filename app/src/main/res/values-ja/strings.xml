@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">設定</string>
     <string name="premium">プレミアム</string>
-    <string name="upgrade_to_premium">プレミアムにアップグレード</string>
     <string name="family_apps">家族向けアプリ</string>
     <string name="how_to_use">使い方</string>
     <string name="share">共有</string>
@@ -61,7 +60,6 @@
     <string name="are_you_sure_you_want_to_exit">本当に終了しますか？</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
-    <string name="upgrade_to_enjoy_premium">プレミアムをお楽しみください</string>
 
     <string name="no_status_found">ステータスが見つかりません</string>
     <string name="restatus">再ステータス</string>
@@ -110,7 +108,6 @@
     <string name="date">日付</string>
     <string name="name">名前</string>
     <string name="size">サイズ</string>
-    <string name="clear_all_data">すべてのデータをクリア</string>
 
     <string name="_922">+92</string>
 
@@ -122,23 +119,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">まだビデオが検出されていません</string>
 
-    <string name="life_time"><b> サブスクリプション</b></string>
     <string name="subscribe_now">今すぐ購読</string>
     <string name="continue_with_ads">広告を表示して続行</string>
 
-    <string name="recovery">回復</string>
-    <string name="direct_chat">ダイレクトチャット</string>
     <string name="status">ステータス</string>
     <string name="more_tools">その他のツール</string>
     <string name="enjoyee_ads_free_application">広告なしのエクスペリエンス</string>
-    <string name="restore_unlimited_messages_instantly">無制限のメッセージを即座に復元</string>
 
-    <string name="or">または</string>
     <string name="direct_whats_chat">直接Whats Chat</string>
-    <string name="write_your_text">テキストを入力</string>
-    <string name="font_styles">フォントスタイル</string>
     <string name="stylish_text">スタイリッシュなテキスト</string>
-    <string name="quatations_text">引用文</string>
     <string name="text_repeater">テキストリピーター</string>
     <string name="enter_message">メッセージを入力</string>
     <string name="enter_repeat_number">リピート回数を入力</string>
@@ -147,7 +136,6 @@
     <string name="note_number_of_repeater_text_limit_999">注意: リピーターテキストの上限は999です</string>
     <string name="repeat">リピート</string>
     <string name="new_line_on">改行オン</string>
-    <string name="clear">クリア</string>
     <string name="please_enter_the_text_you_want_to_repeat">繰り返したいテキストを入力してください。</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">テキストを繰り返す回数を入力してください</string>
     <string name="text_copied">テキストがコピーされました</string>
@@ -157,8 +145,6 @@
     <string name="text_to_emoji">テキストから絵文字</string>
     <string name="stickers">ステッカー</string>
     <string name="unlock_premium_version">プレミアムバージョンのロックを解除</string>
-    <string name="_5_99">$5.99</string>
-    <string name="recover_data_for_wa_wab">WA＆WABのデータを回復</string>
     <string name="error_adding_sticker_pack">ステッカーの読み込みエラー</string>
     <string name="clear_all">すべてクリア</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">すべてのデータをクリアしますか？</string>
@@ -180,7 +166,6 @@
     <string name="direct_chat_">ダイレクト\nチャット</string>
     <string name="famous_quotes">有名な\n引用</string>
     <string name="text_to_emoji_">テキストから\n絵文字</string>
-    <string name="whatsapp_stickers">ステッカー</string>
     <string name="ascii_faces">ASCII\n顔</string>
     <string name="something_went_wrong">何かがうまくいきませんでした</string>
     <string name="screenshot_saved">スクリーンショットが保存されました</string>
@@ -265,13 +250,10 @@
   <string name="unlimited_media_recovery">無制限のメディア復元</string>
   <string name="features">回復機能</string>
 
-  <string name="whatsapp_direct_message">WApp 直接メッセージ</string>
-  <string name="hello_blank_fragment">空のフラグメントへようこそ</string>
-  <string name="regular">通常</string>
+    <string name="regular">通常</string>
   <string name="new_line">改行</string>
   <string name="space">スペース</string>
   <string name="reset">リセット</string>
-  <string name="quick_scan">クイックスキャン</string>
-  <string name="quick_clean">クイッククリーニング</string>
+    <string name="quick_clean">クイッククリーニング</string>
 
 </resources>

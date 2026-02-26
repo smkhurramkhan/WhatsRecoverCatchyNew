@@ -84,16 +84,6 @@
         <item name="android:textCursorDrawable">@drawable/color_cursor_</item>
     </style>
 
-    <style name="Widget.App.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.CircularProgressIndicator</item>
-        <item name="trackThickness">20dp</item>
-        <item name="indicatorDirectionCircular">clockwise</item>
-        <item name="android:indeterminate">true</item>
-    </style>
 
-
-    <style name="ThemeOverlay.App.CircularProgressIndicator" parent="">
-        <item name="colorPrimary">@color/colorPrimary</item>
-    </style>
     <color name="hintcolor">#8C8C8C</color>
 </resources>

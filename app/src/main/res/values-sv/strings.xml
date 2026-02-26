@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Inställningar</string>
     <string name="premium">Premium</string>
-    <string name="upgrade_to_premium">Uppgradera till premium</string>
     <string name="family_apps">Familjeappar</string>
     <string name="how_to_use">Hur man använder</string>
     <string name="share">Dela</string>
@@ -62,7 +61,6 @@
     <string name="are_you_sure_you_want_to_exit">Är du säker på att du vill avsluta?</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
-    <string name="upgrade_to_enjoy_premium">Uppgradera för att njuta av premium</string>
 
     <string name="no_status_found">Inget status hittat</string>
     <string name="restatus">Återställ status</string>
@@ -111,7 +109,6 @@
     <string name="date">Datum</string>
     <string name="name">Namn</string>
     <string name="size">Storlek</string>
-    <string name="clear_all_data">Rensa all data</string>
 
     <string name="_922">+92</string>
 
@@ -123,23 +120,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Inga videor upptäckta ännu</string>
 
-    <string name="life_time"><b> Prenumeration</b></string>
     <string name="subscribe_now">Prenumerera nu</string>
     <string name="continue_with_ads">Fortsätt med annonser</string>
 
-  <string name="recovery">Återställning</string>
-    <string name="direct_chat">Direkt chatt</string>
     <string name="status">Status</string>
     <string name="more_tools">Fler verktyg</string>
   <string name="enjoyee_ads_free_application">Annonsfri upplevelse</string>
-    <string name="restore_unlimited_messages_instantly">Återställ obegränsat meddelanden omedelbart</string>
 
-    <string name="or">ELLER</string>
     <string name="direct_whats_chat">Direkt WApp-chatt</string>
-    <string name="write_your_text">Skriv din text</string>
-    <string name="font_styles">Teckensnittsstilar</string>
     <string name="stylish_text">Stilig text</string>
-    <string name="quatations_text">Citat</string>
     <string name="text_repeater">Textrepeater</string>
     <string name="enter_message">Ange meddelande</string>
     <string name="enter_repeat_number">Ange antal repetitioner</string>
@@ -148,7 +137,6 @@
     <string name="note_number_of_repeater_text_limit_999">Observera: Antalet textrepetitioner är begränsat till 999</string>
     <string name="repeat">Repetera</string>
     <string name="new_line_on">Ny rad på</string>
-    <string name="clear">Rensa</string>
     <string name="please_enter_the_text_you_want_to_repeat">Ange den text du vill upprepa.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Ange antalet gånger du vill upprepa texten</string>
     <string name="text_copied">Text kopierad</string>
@@ -159,8 +147,6 @@
     <string name="stickers">Stickers</string>
 
     <string name="unlock_premium_version">Lås upp premiumversion</string>
-  <string name="_5_99">6,99 USD/livstid</string>
-    <string name="recover_data_for_wa_wab">><![CDATA[Recover Data for WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Fel vid laddning av klistermärken</string>
     <string name="clear_all">Rensa alla</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Är du säker på att du vill rensa all data?</string>
@@ -182,7 +168,6 @@
     <string name="direct_chat_">Direkt\nChatt</string>
     <string name="famous_quotes">Kända\nCitat</string>
     <string name="text_to_emoji_">Text till\nEmoji</string>
-    <string name="whatsapp_stickers">Klistermärken</string>
     <string name="ascii_faces">Ascii\nAnsikten</string>
     <string name="something_went_wrong">Något gick fel</string>
     <string name="screenshot_saved">Skärmdump sparad</string>
@@ -266,13 +251,10 @@
   <string name="ulimited_access_for_all_features">Obegränsad tillgång till alla funktioner.</string>
   <string name="unlimited_media_recovery">Obegränsad mediaåterställning</string>
   <string name="features">Återställningsfunktioner</string>
-  <string name="whatsapp_direct_message">Direktmeddelande</string>
-  <string name="hello_blank_fragment">Hej tom fragment</string>
-  <string name="regular">Vanlig</string>
+    <string name="regular">Vanlig</string>
   <string name="new_line">Ny rad</string>
   <string name="space">Mellanslag</string>
   <string name="reset">Återställ</string>
-  <string name="quick_scan">Snabbskanning</string>
-  <string name="quick_clean">Snabbstädning</string>
+    <string name="quick_clean">Snabbstädning</string>
 
 </resources>

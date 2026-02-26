@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">Impostazioni</string>
     <string name="premium">Premium</string>
-    <string name="upgrade_to_premium">Passa a premium</string>
     <string name="family_apps">App per la famiglia</string>
     <string name="how_to_use">Come utilizzare</string>
     <string name="share">Condividi</string>
@@ -62,7 +61,6 @@
     <string name="are_you_sure_you_want_to_exit">Sei sicuro di voler uscire?</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
-    <string name="upgrade_to_enjoy_premium">Passa a premium per goderti i vantaggi</string>
 
     <string name="no_status_found">Nessun stato trovato</string>
     <string name="restatus">Restatus</string>
@@ -111,7 +109,6 @@
     <string name="date">Data</string>
     <string name="name">Nome</string>
     <string name="size">Dimensione</string>
-    <string name="clear_all_data">Cancella tutti i dati</string>
 
     <string name="_922">+92</string>
 
@@ -123,23 +120,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">Nessun video rilevato ancora</string>
 
-    <string name="life_time"><b> Abbonamento</b></string>
     <string name="subscribe_now">Abbonati ora</string>
     <string name="continue_with_ads">Continua con gli annunci</string>
 
-    <string name="recovery">Recupero</string>
-    <string name="direct_chat">Chat diretta</string>
     <string name="status">Stato</string>
     <string name="more_tools">Altri strumenti</string>
     <string name="enjoyee_ads_free_application">Esperienza senza pubblicità</string>
-    <string name="restore_unlimited_messages_instantly">Ripristina messaggi illimitati istantaneamente</string>
 
-    <string name="or">O</string>
     <string name="direct_whats_chat">Chat diretta con WApp</string>
-    <string name="write_your_text">Scrivi il tuo testo</string>
-    <string name="font_styles">Stili del carattere</string>
     <string name="stylish_text">Testo elegante</string>
-    <string name="quatations_text">Citazioni</string>
     <string name="text_repeater">Ripetitore di testo</string>
     <string name="enter_message">Inserisci il messaggio</string>
     <string name="enter_repeat_number">Inserisci il numero di ripetizioni</string>
@@ -148,7 +137,6 @@
     <string name="note_number_of_repeater_text_limit_999">Nota: Limite di ripetizioni del testo 999</string>
     <string name="repeat">Ripeti</string>
     <string name="new_line_on">Nuova riga</string>
-    <string name="clear">Cancella</string>
     <string name="please_enter_the_text_you_want_to_repeat">Inserisci il testo che vuoi ripetere.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">Inserisci il numero di volte che vuoi ripetere il testo</string>
     <string name="text_copied">Testo copiato</string>
@@ -159,8 +147,6 @@
     <string name="text_to_emoji">Testo in Emoji</string>
     <string name="stickers">Adesivi</string>
     <string name="unlock_premium_version">Sblocca la versione premium</string>
-    <string name="_5_99">$5.99</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[Recupera i dati per WA & WAB]]></string>
     <string name="error_adding_sticker_pack">Errore nel caricare gli adesivi</string>
     <string name="clear_all">Cancella tutto</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">Sei sicuro di voler cancellare tutti i dati?</string>
@@ -182,7 +168,6 @@
     <string name="direct_chat_">Chat\nDiretta</string>
     <string name="famous_quotes">Citazioni\nFamose</string>
     <string name="text_to_emoji_">Testo in\nEmoji</string>
-    <string name="whatsapp_stickers">Adesivi</string>
 
     <string name="ascii_faces">Facce ASCII</string>
     <string name="something_went_wrong">Qualcosa è andato storto</string>
@@ -266,14 +251,11 @@
     <string name="ulimited_access_for_all_features">Accesso illimitato a tutte le funzionalità.</string>
     <string name="unlimited_media_recovery">Recupero illimitato dei media</string>
     <string name="features">Funzionalità di recupero</string>
-    <string name="whatsapp_direct_message">Messaggio diretto WApp</string>
 
-    <string name="hello_blank_fragment">Ciao frammento vuoto</string>
     <string name="regular">Regolare</string>
     <string name="new_line">Nuova riga</string>
     <string name="space">Spazio</string>
     <string name="reset">Reimposta</string>
-    <string name="quick_scan">Scansione rapida</string>
     <string name="quick_clean">Pulizia rapida</string>
 
 </resources>

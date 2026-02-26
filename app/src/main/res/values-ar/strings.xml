@@ -3,7 +3,6 @@
 
     <string name="action_settings">الإعدادات</string>
     <string name="premium">بريميوم</string>
-    <string name="upgrade_to_premium">الترقية إلى الإصدار المميز</string>
     <string name="family_apps">تطبيقات العائلة</string>
     <string name="how_to_use">كيفية الاستخدام</string>
     <string name="share">مشاركة</string>
@@ -82,7 +81,6 @@
     <string name="are_you_sure_you_want_to_exit">هل أنت متأكد من رغبتك في الخروج؟</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
-    <string name="upgrade_to_enjoy_premium">الترقية للاستمتاع بالإصدار المميز</string>
 
     <string name="no_status_found">لم يتم العثور على حالة</string>
     <string name="restatus">إعادة الحالة</string>
@@ -133,7 +131,6 @@
     <string name="date">التاريخ</string>
     <string name="name">الاسم</string>
     <string name="size">الحجم</string>
-    <string name="clear_all_data">مسح كافة البيانات</string>
 
 
     <string name="_922">+92</string>
@@ -147,23 +144,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">لم يتم اكتشاف أي مقاطع فيديو حتى الآن</string>
 
-    <string name="life_time"><b> الاشتراك</b></string>
     <string name="subscribe_now">اشترك الآن</string>
     <string name="continue_with_ads">متابعة الإعلانات</string>
 
-    <string name="recovery">الاسترداد</string>
-    <string name="direct_chat">الدردشة المباشرة</string>
     <string name="status">الحالة</string>
     <string name="more_tools">المزيد من الأدوات</string>
     <string name="enjoyee_ads_free_application">تجربة خالية من الإعلانات</string>
-    <string name="restore_unlimited_messages_instantly">استعادة عدد غير محدود من الرسائل على الفور</string>
 
-    <string name="or">أو</string>
     <string name="direct_whats_chat">الدردشة المباشرة</string>
-    <string name="write_your_text">اكتب النص الخاص بك</string>
-    <string name="font_styles">أنماط الخطوط</string>
     <string name="stylish_text">نص أنيق</string>
-    <string name="quatations_text">الاقتباسات</string>
     <string name="text_repeater">مكرر النص</string>
     <string name="enter_message">أدخل الرسالة</string>
     <string name="enter_repeat_number">أدخل رقم التكرار</string>
@@ -172,7 +161,6 @@
     <string name="note_number_of_repeater_text_limit_999">ملاحظة: الحد الأقصى لعدد النص المكرر هو 999</string>
     <string name="repeat">كرر</string>
     <string name="new_line_on">سطر جديد قيد التشغيل</string>
-    <string name="clear">مسح</string>
     <string name="please_enter_the_text_you_want_to_repeat">الرجاء إدخال النص الذي تريد تكراره.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">الرجاء إدخال عدد المرات التي تريد فيها تكرار النص</string>
     <string name="text_copied">تم نسخ النص</string>
@@ -182,8 +170,6 @@
     <string name="text_to_emoji">إرسال رسالة نصية إلى Emoji</string>
     <string name="stickers">الملصقات</string>
     <string name="unlock_premium_version">فتح الإصدار المميز</string>
-    <string name="_5_99">$5.99</string>
-    <string name="recover_data_for_wa_wab"><![CDATA[استرداد البيانات لـ WA وWAB]]></string>
     <string name="error_adding_sticker_pack">حدث خطأ أثناء تحميل الملصقات</string>
     <string name="clear_all">مسح الكل</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">هل أنت متأكد من رغبتك في مسح كافة البيانات؟</string>
@@ -206,7 +192,6 @@
     <string name="direct_chat_">الدردشة\nالمباشرة</string>
     <string name="famous_quotes">اقتباسات\nمشهورة</string>
     <string name="text_to_emoji_">أرسل رسالة نصية إلى</string>
-    <string name="whatsapp_stickers">ملصقات</string>
     <string name="ascii_faces">Ascii\nالوجوه</string>
     <string name="something_went_wrong">حدث خطأ ما</string>
     <string name="screenshot_saved">تم حفظ لقطة الشاشة</string>
@@ -290,13 +275,10 @@
     <string name="ulimited_access_for_all_features">وصول غير محدود لجميع الميزات.</string>
     <string name="unlimited_media_recovery">استعادة غير محدودة للوسائط</string>
     <string name="features">ميزات الاسترداد</string>
-    <string name="whatsapp_direct_message">رسالة مباشرة عبر واتساب</string>
-    <string name="hello_blank_fragment">مرحبًا بالمكون الفارغ</string>
     <string name="regular">عادي</string>
     <string name="new_line">سطر جديد</string>
     <string name="space">مسافة</string>
     <string name="reset">إعادة تعيين</string>
-    <string name="quick_scan">فحص سريع</string>
     <string name="quick_clean">تنظيف سريع</string>
 
 </resources>

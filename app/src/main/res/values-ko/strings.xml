@@ -2,7 +2,6 @@
 <resources>
     <string name="action_settings">설정</string>
     <string name="premium">프리미엄</string>
-    <string name="upgrade_to_premium">프리미엄으로 업그레이드</string>
     <string name="family_apps">가족 앱</string>
     <string name="how_to_use">사용 방법</string>
     <string name="share">공유</string>
@@ -61,7 +60,6 @@
     <string name="are_you_sure_you_want_to_exit">정말 종료하시겠습니까?</string>
     <string name="yes">예</string>
     <string name="no">아니오</string>
-    <string name="upgrade_to_enjoy_premium">프리미엄을 즐기려면 업그레이드하세요</string>
 
     <string name="no_status_found">상태를 찾을 수 없습니다</string>
     <string name="restatus">재상태</string>
@@ -110,7 +108,6 @@
     <string name="date">날짜</string>
     <string name="name">이름</string>
     <string name="size">크기</string>
-    <string name="clear_all_data">모든 데이터 지우기</string>
 
     <string name="_922">+92</string>
 
@@ -122,23 +119,15 @@
     <string name="_00_0000">00:00</string>
     <string name="no_video_detected_yet">아직 비디오가 감지되지 않았습니다</string>
 
-    <string name="life_time"><b> 구독</b></string>
     <string name="subscribe_now">지금 구독</string>
     <string name="continue_with_ads">광고와 함께 계속하기</string>
 
-    <string name="recovery">복구</string>
-    <string name="direct_chat">직접 채팅</string>
     <string name="status">상태</string>
     <string name="more_tools">더 많은 도구</string>
     <string name="enjoyee_ads_free_application">광고 없는 경험</string>
-    <string name="restore_unlimited_messages_instantly">무제한 메시지 즉시 복원</string>
 
-    <string name="or">또는</string>
     <string name="direct_whats_chat">직접 Whats Chat</string>
-    <string name="write_your_text">텍스트 입력</string>
-    <string name="font_styles">글꼴 스타일</string>
     <string name="stylish_text">세련된 텍스트</string>
-    <string name="quatations_text">인용구</string>
     <string name="text_repeater">텍스트 반복기</string>
     <string name="enter_message">메시지 입력</string>
     <string name="enter_repeat_number">반복 횟수 입력</string>
@@ -147,7 +136,6 @@
     <string name="note_number_of_repeater_text_limit_999">참고: 반복 텍스트 제한은 999입니다</string>
     <string name="repeat">반복</string>
     <string name="new_line_on">새 줄 삽입</string>
-    <string name="clear">지우기</string>
     <string name="please_enter_the_text_you_want_to_repeat">반복하려는 텍스트를 입력하세요.</string>
     <string name="please_enter_the_number_of_times_you_want_to_repeat_the_text">텍스트를 반복할 횟수를 입력하세요.</string>
     <string name="text_copied">텍스트가 복사되었습니다</string>
@@ -157,8 +145,6 @@
     <string name="text_to_emoji">텍스트를 이모지로</string>
     <string name="stickers">스티커</string>
     <string name="unlock_premium_version">프리미엄 버전 잠금 해제</string>
-    <string name="_5_99">$6.99/평생</string>
-    <string name="recover_data_for_wa_wab">WA 및 WAB 데이터 복구</string>
     <string name="error_adding_sticker_pack">스티커를 로드하는 중 오류가 발생했습니다</string>
     <string name="clear_all">모두 지우기</string>
     <string name="are_you_sure_you_want_to_clear_all_the_data">모든 데이터를 지우시겠습니까?</string>
@@ -180,7 +166,6 @@
     <string name="direct_chat_">직접\n채팅</string>
     <string name="famous_quotes">유명한\n인용구</string>
     <string name="text_to_emoji_">텍스트에서\n이모지</string>
-    <string name="whatsapp_stickers">스티커</string>
     <string name="ascii_faces">ASCII\n표정</string>
     <string name="something_went_wrong">문제가 발생했습니다</string>
     <string name="screenshot_saved">스크린샷이 저장되었습니다</string>
@@ -264,13 +249,10 @@
   <string name="ulimited_access_for_all_features">모든 기능 무제한 액세스.</string>
   <string name="unlimited_media_recovery">무제한 미디어 복구</string>
   <string name="features">복구 기능</string>
-  <string name="whatsapp_direct_message">WApp 직접 메시지</string>
-  <string name="hello_blank_fragment">빈 프래그먼트 안녕하세요</string>
-  <string name="regular">일반</string>
+    <string name="regular">일반</string>
   <string name="new_line">새 줄</string>
   <string name="space">공백</string>
   <string name="reset">재설정</string>
-  <string name="quick_scan">빠른 스캔</string>
-  <string name="quick_clean">빠른 정리</string>
+    <string name="quick_clean">빠른 정리</string>
 
 </resources>

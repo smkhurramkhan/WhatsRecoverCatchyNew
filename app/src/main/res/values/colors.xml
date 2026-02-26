@@ -14,14 +14,10 @@
     <color name="blue">#0000ff</color>
     <color name="red">#ff0000</color>
     <color name="tabUnSelected">#4A958A</color>
-    <color name="lightSky">#D2F8F2</color>
     <color name="lightGrey">#DBDDDD</color>
-    <color name="lightenGrey">#99F1F1F1</color>
     <color name="medium_grey">#d5d5d5</color>
     <color name="grey">#999999</color>
     <color name="colorControlActivated">#3E00DD00</color>
-    <color name="lightAqua">#F0FAF9</color>
-    <color name="colorAqua">#1FBFA7</color>
 
     <color name="blue_link">#0645AD</color>
     <color name="btnNotSelected">#809A97</color>
@@ -33,14 +29,11 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="defaultcolor">#757575</color>
 
-    <color name="maroon">#F12323</color>
     <color name="orange">#FFA500</color>
     <color name="purple">#800080</color>
 
     <color name="orangeTransparent">#23FF9900</color>
     <color name="blueTransparent">#260038FF</color>
-    <color name="redTransparent">#26FD0000</color>
-    <color name="documentTransparent">#2400FFB2</color>
     <color name="audioTransparentColor">#26AD00FF</color>
     <color name="voiceTransparentColor">#26219742</color>
     <color name="gifTransparentColor">#264705B4</color>
@@ -50,7 +43,6 @@
     <color name="shimerColor">#d8f0f7</color>
 
     <color name="bg_recover">#049372</color>
-    <color name="colorPrimaryTransparent">#57009A34</color>
     <color name="bgScreenColor">#D4F0DE</color>
     <color name="yellowColor">#FFDD0B</color>
     <color name="redishColor">#B81414</color>
