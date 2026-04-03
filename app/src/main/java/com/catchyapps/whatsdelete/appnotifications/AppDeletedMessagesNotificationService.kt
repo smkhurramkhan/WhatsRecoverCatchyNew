@@ -87,12 +87,19 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         } else if (MyAppConstants.hWhatsAppNewFilePath.exists()) {
             WA_PATH = MyAppConstants.hWhatsAppNewFilePath.absolutePath
         }
+        createNotificationChannel()
+        // Must call startForeground() soon after Context.startForegroundService(); otherwise
+        // RemoteServiceException. Catch blocks must not swallow without stopSelf() (see onStartCommand).
+        if (!showForegroundNotification()) {
+            Timber.w("Could not enter foreground after startForegroundService(); stopping self")
+            stopSelf()
+            return
+        }
+
         val pm = getSystemService(POWER_SERVICE) as PowerManager
         wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "whatsdelete:notification_wakelock")
         wakeLock?.acquire(10 * 60 * 1000L) // 10 minutes max, re-acquired in onStartCommand
 
-        createNotificationChannel()
-        showForegroundNotification()
         Timber.d("Service onCreate - foreground started")
     }
 
@@ -199,9 +206,9 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     }
 
     @SuppressLint("MissingPermission")
-    private fun showForegroundNotification() {
+    private fun showForegroundNotification(): Boolean {
         if (foregroundStarted) {
-            return
+            return true
         }
         val intent = Intent(context, MainActivity::class.java)
         intent.putExtra("fromNotification", true)
@@ -217,7 +224,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             .setContentText("Managing your deleted messages")
             .setContentIntent(pendIntent)
             .build()
-        try {
+        return try {
             if (Build.VERSION.SDK_INT >= 34) {
                 // Use manifest-declared type (specialUse), not dataSync — avoids Android 15 quota errors.
                 startForeground(
@@ -229,18 +236,17 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
                 startForeground(1001, notification)
             }
             foregroundStarted = true
+            true
         } catch (e: ForegroundServiceStartNotAllowedException) {
-            Timber.w(
-                e,
-                "Foreground start not allowed (quota/background); listener may still work when bound"
-            )
-        } catch (e: Exception) {
-            // Some OEMs wrap FGS errors; never crash the service process.
+            Timber.w(e, "Foreground start not allowed (quota/background)")
+            false
+        } catch (e: Throwable) {
             if (e.javaClass.name.contains("ForegroundServiceStartNotAllowed", ignoreCase = true)) {
                 Timber.w(e, "Foreground start blocked by system")
             } else {
                 Timber.e(e, "Unexpected error in showForegroundNotification")
             }
+            false
         }
     }
 
@@ -641,7 +647,11 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         }
 
         createNotificationChannel()
-        showForegroundNotification()
+        if (!showForegroundNotification()) {
+            Timber.w("onStartCommand: startForeground failed; stopping (startForegroundService contract)")
+            stopSelf(startId)
+            return START_NOT_STICKY
+        }
 
         if (wakeLock?.isHeld != true) {
             wakeLock?.acquire(10 * 60 * 1000L)
