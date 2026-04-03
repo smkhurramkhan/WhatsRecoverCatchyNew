@@ -33,6 +33,14 @@ class ServiceRestartWorker(
          * Uses KEEP policy so it won't reset the timer if already scheduled.
          */
         fun schedule(context: Context) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                // API 34+: starting FGS from a periodic worker fights FGS teardown deadlines and can
+                // trigger ForegroundServiceDidNotStopInTimeException. The OS rebinds the notification
+                // listener when access is enabled; MainActivity still starts the service in foreground.
+                WorkManager.getInstance(context).cancelUniqueWork(UNIQUE_WORK_NAME)
+                Timber.tag(TAG).d("Keep-alive worker not used on API 34+ (FGS policy)")
+                return
+            }
             val request = PeriodicWorkRequestBuilder<ServiceRestartWorker>(
                 15, TimeUnit.MINUTES
             ).build()
@@ -86,6 +94,10 @@ class ServiceRestartWorker(
     }
 
     private fun restartServiceIfNeeded() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            Timber.tag(TAG).d("Skipping FGS restart from worker on API 34+")
+            return
+        }
         val intent = Intent(applicationContext, AppDeletedMessagesNotificationService::class.java)
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -100,6 +112,13 @@ class ServiceRestartWorker(
                 "Cannot start FGS from background worker (Android 15+ / quota); open app to reconnect"
             )
         } catch (e: Exception) {
+            if (e.javaClass.name.contains("ForegroundServiceDidNotStopInTime", ignoreCase = true)) {
+                Timber.tag(TAG).w(
+                    e,
+                    "FGS stop-time policy; not restarting from worker (open app to refresh listener)"
+                )
+                return
+            }
             Timber.tag(TAG).e(e, "Failed to restart service")
         }
     }
