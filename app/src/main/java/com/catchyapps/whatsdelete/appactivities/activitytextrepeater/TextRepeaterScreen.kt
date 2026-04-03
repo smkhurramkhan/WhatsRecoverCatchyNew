@@ -38,16 +38,18 @@ class TextRepeaterScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity
       //  newLine = textRepeaterBinding.newLine.isChecked
 
         textRepeaterBinding.btnRepeatText.setOnClickListener {
-            if (textRepeaterBinding.etNumberText.text.isNullOrEmpty().not()
-                && textRepeaterBinding.etNumberText.text.toString().toInt() < 1000) {
+            val countStr = textRepeaterBinding.etNumberText.text?.toString()?.trim().orEmpty()
+            val repeatTimes = countStr.toIntOrNull()
+
+            if (repeatTimes != null && repeatTimes >= 0 && repeatTimes < 1000) {
                 if (textRepeaterBinding.etmessageText.text.isNullOrEmpty().not()) {
-                   // newLine = textRepeaterBinding.switchForNewLine.isChecked
-                  //  newLine = textRepeaterBinding.newLine.isChecked
-                  //  addSpace = textRepeaterBinding.space.isChecked
-
-                    textRepeatCount = textRepeaterBinding.etNumberText.text.toString().toInt()
-                    repeatText(textRepeaterBinding.newLine.isChecked, textRepeaterBinding.space.isChecked, textRepeaterBinding.etmessageText.text.toString(),textRepeatCount)
-
+                    textRepeatCount = repeatTimes
+                    repeatText(
+                        textRepeaterBinding.newLine.isChecked,
+                        textRepeaterBinding.space.isChecked,
+                        textRepeaterBinding.etmessageText.text.toString(),
+                        textRepeatCount
+                    )
                 } else {
                     Toast.makeText(
                         this, getString(R.string.please_enter_the_text_you_want_to_repeat),
