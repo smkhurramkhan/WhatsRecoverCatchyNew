@@ -227,18 +227,23 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
 
     @SuppressLint("NotifyDataSetChanged")
     private fun deleteItemFromPlaylist() {
-        val selectedItemPositions = statusAdapter!!.selectedItems
-        for (i in selectedItemPositions.indices.reversed()) {
-            lifecycleScope.launch {
-                deleteStatus(selectedItemPositions[i])
-
+        val selectedItemPositions = statusAdapter?.selectedItems?.sortedDescending().orEmpty()
+        if (selectedItemPositions.isEmpty()) return
+        // One sequential job: parallel launches race on folderList and cause IndexOutOfBoundsException.
+        lifecycleScope.launch {
+            for (position in selectedItemPositions) {
+                val list = folderList
+                if (list == null || position !in list.indices) continue
+                deleteStatus(position)
             }
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private suspend fun deleteStatus(position: Int) {
-        val path = folderList?.get(position)?.savedPath
+        val list = folderList
+        if (list == null || position !in list.indices) return
+        val path = list[position].savedPath
         val file = path?.let { File(it) }
             if (file?.exists() == true) {
                 val del = file.delete()
@@ -261,12 +266,10 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
         if (foldersEntity != null) {
 
             folderList?.get(position)?.id?.let {
-                AppHelperDb.deleteStatus(
-                    it
-                )
+                AppHelperDb.deleteStatus(it)
             }
 
-            folderList?.removeAt(position)
+            folderList?.takeIf { position in it.indices }?.removeAt(position)
             foldersEntity?.noOfItems = foldersEntity?.noOfItems!! - 1
 
 

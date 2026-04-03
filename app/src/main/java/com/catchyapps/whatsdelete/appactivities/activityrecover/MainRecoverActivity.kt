@@ -196,16 +196,19 @@ class MainRecoverActivity : com.catchyapps.whatsdelete.appactivities.BaseActivit
                         } else {
 
                             Timber.d("permission not granted")
-                            hStoragePermissionLauncher.launch(
-                                Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
-                                    flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or
-                                            Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                                    putExtra(
-                                        DocumentsContract.EXTRA_INITIAL_URI,
-                                        uri
-                                    )
-                                }
+                            val treeIntent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
+                                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                                    Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
+                                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                                putExtra(
+                                    DocumentsContract.EXTRA_INITIAL_URI,
+                                    uri
+                                )
+                            }
+                            MyAppPermissionUtils.launchOpenDocumentTreeIfHandled(
+                                this@MainRecoverActivity,
+                                hStoragePermissionLauncher,
+                                treeIntent,
                             )
 
                         }

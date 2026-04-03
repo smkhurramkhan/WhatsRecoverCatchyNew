@@ -95,16 +95,19 @@ class FragmentStatusesPager : Fragment() {
 
             } else {
 
-                hCheckStorageAccessForResults.launch(
-                    Intent(ACTION_OPEN_DOCUMENT_TREE).apply {
-                        flags = FLAG_GRANT_READ_URI_PERMISSION or
-                                FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                                FLAG_GRANT_WRITE_URI_PERMISSION
-                        putExtra(
-                            DocumentsContract.EXTRA_INITIAL_URI,
-                            uri
-                        )
-                    }
+                val treeIntent = Intent(ACTION_OPEN_DOCUMENT_TREE).apply {
+                    flags = FLAG_GRANT_READ_URI_PERMISSION or
+                        FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
+                        FLAG_GRANT_WRITE_URI_PERMISSION
+                    putExtra(
+                        DocumentsContract.EXTRA_INITIAL_URI,
+                        uri
+                    )
+                }
+                MyAppPermissionUtils.launchOpenDocumentTreeIfHandled(
+                    requireContext(),
+                    hCheckStorageAccessForResults,
+                    treeIntent,
                 )
 
             }

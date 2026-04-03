@@ -1,9 +1,13 @@
 package com.catchyapps.whatsdelete.basicapputils
 
 import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.ContentResolver
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
@@ -11,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
+import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.appactivities.activitywhatscleaner.CleanerConstans.Companion.treeUri
 import com.catchyapps.whatsdelete.databinding.FolderDialogPermissionLayoutBinding
 import timber.log.Timber
@@ -77,6 +82,35 @@ class MyAppPermissionUtils {
                 return true
             } ?: run {
                 return false
+            }
+        }
+
+        /**
+         * [Intent.ACTION_OPEN_DOCUMENT_TREE] has no handler on some devices (TV, Go, locked profiles, OEM quirks).
+         */
+        fun launchOpenDocumentTreeIfHandled(
+            context: Context,
+            launcher: ActivityResultLauncher<Intent>,
+            intent: Intent,
+        ): Boolean {
+            if (intent.resolveActivity(context.packageManager) == null) {
+                Toast.makeText(
+                    context,
+                    R.string.document_tree_picker_not_available,
+                    Toast.LENGTH_LONG,
+                ).show()
+                return false
+            }
+            return try {
+                launcher.launch(intent)
+                true
+            } catch (_: ActivityNotFoundException) {
+                Toast.makeText(
+                    context,
+                    R.string.document_tree_picker_not_available,
+                    Toast.LENGTH_LONG,
+                ).show()
+                false
             }
         }
 

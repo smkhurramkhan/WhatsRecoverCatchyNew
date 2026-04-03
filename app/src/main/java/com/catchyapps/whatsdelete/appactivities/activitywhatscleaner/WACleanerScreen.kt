@@ -172,16 +172,20 @@ class WACleanerScreen : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showPermissionDialog() {
-        storagePermissionLauncher.launch(
-            Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
-                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or
-                        Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                putExtra(
-                    DocumentsContract.EXTRA_INITIAL_URI,
-                    uri
-                )
-            })
+        val treeIntent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
+            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
+                Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            putExtra(
+                DocumentsContract.EXTRA_INITIAL_URI,
+                uri
+            )
+        }
+        MyAppPermissionUtils.launchOpenDocumentTreeIfHandled(
+            this,
+            storagePermissionLauncher,
+            treeIntent,
+        )
     }
 
     private fun hShowHideProgressDialog(hOnShowProgress: OnShowProgress) {

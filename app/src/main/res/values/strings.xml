@@ -31,6 +31,7 @@
     <string name="help">Help</string>
 
     <string name="enable_permission">ENABLE PERMISSION</string>
+    <string name="document_tree_picker_not_available">This device has no app that can open the folder picker. Grant storage access from system settings if available, or use a device with the standard Files app.</string>
     <string name="we_need_your_permission">We need your permission</string>
     <string name="we_need_your_permission_desc">In order to store your WhatsApp deleted messages locally, you need to allow \"Notification Access\" permission to this app. Select <b>WA Recover</b> application in next seen to enable the permission</string>
     <string name="no_deleted_chat_detected_yet">No deleted chat detected yet</string>
