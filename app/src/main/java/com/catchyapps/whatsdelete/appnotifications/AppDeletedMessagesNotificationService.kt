@@ -3,6 +3,7 @@ package com.catchyapps.whatsdelete.appnotifications
 import android.annotation.SuppressLint
 import android.app.ForegroundServiceStartNotAllowedException
 import android.app.Notification
+import android.app.Service
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -91,7 +92,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     override fun onDestroy() {
         Timber.d("Service onDestroy called")
-        foregroundStarted = false
+        stopForegroundIfNeeded(detachOnly = false)
         mediaPollingJob?.cancel()
         mediaPollingJob = null
         stopAllFileObservers()
@@ -164,7 +165,30 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     override fun onTaskRemoved(rootIntent: Intent?) {
         Timber.d("Service onTaskRemoved - app swiped away")
+        // Android 14+ may throw ForegroundServiceDidNotStopInTimeException if we stay
+        // foreground after task removal. DETACH drops FGS privilege but keeps the notification
+        // until the service stops or goes foreground again.
+        stopForegroundIfNeeded(detachOnly = true)
         super.onTaskRemoved(rootIntent)
+    }
+
+    /**
+     * @param detachOnly if true (e.g. onTaskRemoved), use STOP_FOREGROUND_DETACH so the
+     *        notification can stay visible; if false (onDestroy), remove it entirely.
+     */
+    private fun stopForegroundIfNeeded(detachOnly: Boolean = false) {
+        if (!foregroundStarted) return
+        try {
+            if (detachOnly) {
+                stopForeground(Service.STOP_FOREGROUND_DETACH)
+            } else {
+                stopForeground(Service.STOP_FOREGROUND_REMOVE)
+            }
+        } catch (e: Exception) {
+            Timber.w(e, "stopForeground failed")
+        } finally {
+            foregroundStarted = false
+        }
     }
 
     @SuppressLint("MissingPermission")
