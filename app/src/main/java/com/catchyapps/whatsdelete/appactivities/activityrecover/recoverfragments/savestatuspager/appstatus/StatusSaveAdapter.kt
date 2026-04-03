@@ -80,7 +80,13 @@ class StatusSaveAdapter(
         viewHolder: VHStatus,
         position: Int
     ) {
-        val hStatusesEntity = filesList[position] as EntityStatuses
+        if (position !in filesList.indices) {
+            Timber.w("onBindViewHolder: position=%d size=%d — stale layout", position, filesList.size)
+            return
+        }
+        val item = filesList[position]
+        if (item !is EntityStatuses) return
+        val hStatusesEntity = item
 
 
         val path = if (hStatusesEntity.savedPath != null) hStatusesEntity.savedPath
@@ -171,6 +177,9 @@ class StatusSaveAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
+        if (position !in filesList.indices) {
+            return MENU_ITEM_VIEW_TYPE
+        }
         return if (filesList[position] is EntityStatuses) {
             MENU_ITEM_VIEW_TYPE
         } else {
@@ -179,6 +188,7 @@ class StatusSaveAdapter(
     }
 
     fun toggleSelection(pos: Int) {
+        if (pos !in filesList.indices) return
         if (selected_items[pos, false]) {
             selected_items.delete(pos)
         } else {
@@ -526,5 +536,7 @@ class StatusSaveAdapter(
 
     fun hSetData(list: List<Any>) {
         filesList = list
+        selected_items.clear()
+        notifyDataSetChanged()
     }
 }

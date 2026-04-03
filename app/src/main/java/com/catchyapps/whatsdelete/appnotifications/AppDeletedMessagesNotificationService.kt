@@ -179,10 +179,15 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     override fun onTaskRemoved(rootIntent: Intent?) {
         Timber.d("Service onTaskRemoved - app swiped away")
-        // Android 14+ may throw ForegroundServiceDidNotStopInTimeException if we stay
-        // foreground after task removal. DETACH drops FGS privilege but keeps the notification
-        // until the service stops or goes foreground again.
-        stopForegroundIfNeeded(detachOnly = true)
+        // Android 14 (API 34)+: STOP_FOREGROUND_DETACH can still leave the process in a state that
+        // misses the "stop FGS in time" deadline → ForegroundServiceDidNotStopInTimeException.
+        // REMOVE fully clears foreground; the persistent tile returns when the app starts the
+        // service again (e.g. MainActivity / MainRecoverActivity).
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            stopForegroundIfNeeded(detachOnly = false)
+        } else {
+            stopForegroundIfNeeded(detachOnly = true)
+        }
         super.onTaskRemoved(rootIntent)
     }
 

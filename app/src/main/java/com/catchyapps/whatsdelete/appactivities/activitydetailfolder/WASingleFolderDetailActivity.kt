@@ -160,7 +160,6 @@ class WASingleFolderDetailActivity : com.catchyapps.whatsdelete.appactivities.Ba
                         activityFolderDetailBinding.layoutNotfound.visibility = View.VISIBLE
                     }
                     folderList?.toList()?.let { statusAdapter?.hSetData(it) }
-                    statusAdapter?.notifyDataSetChanged()
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
