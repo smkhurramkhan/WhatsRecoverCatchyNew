@@ -23,7 +23,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -39,12 +38,14 @@ import com.catchyapps.whatsdelete.appactivities.activityrecover.MainRecoverActiv
 import com.catchyapps.whatsdelete.appactivities.activityrecover.recoverfragments.recovermainpager.reovervoice.AudioMediaAdapter.CallBack
 import com.catchyapps.whatsdelete.appactivities.activitysetting.SettingsScreen
 import com.catchyapps.whatsdelete.appclasseshelpers.RVTouchListener
-import com.catchyapps.whatsdelete.databinding.AudioMediaFragmentBinding
+import com.catchyapps.whatsdelete.basicapputils.empty
+import com.catchyapps.whatsdelete.basicapputils.safeGet
 import timber.log.Timber
 import java.io.File
 import java.io.FileInputStream
 import java.util.*
 import java.util.concurrent.TimeUnit
+import com.catchyapps.whatsdelete.databinding.AudioMediaFragmentBinding
 
 
 class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
@@ -119,12 +120,11 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
             ) {
                 super.onScrolled(recyclerView, dx, dy)
                 totalItemCount = layoutManager?.itemCount!!
-                lastVisibleItem = layoutManager!!
-                    .findLastCompletelyVisibleItemPosition()
+                lastVisibleItem = layoutManager?.findLastCompletelyVisibleItemPosition()?:1
                 if (!loading && lastVisibleItem == totalItemCount - 1) {
                     pageNumber++
                     loading = true
-                    fragmentVoiceViewModel!!.hLoadMoreItems(pageNumber)
+                    fragmentVoiceViewModel?.hLoadMoreItems(pageNumber)
                 }
             }
         })
@@ -148,9 +148,9 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
             fragmentAudioBinding.hProgressbar.visibility = View.GONE
             fragmentAudioBinding.recyclerView.visibility = View.VISIBLE
             fragmentAudioBinding.tvNoAudioVoice.visibility = View.GONE
-            recyclerViewAdapter!!.hAddItems(list.reversed())
-            val fileEntities = recyclerViewAdapter!!.hGetLists()
-            Timber.d("List size  %s", fileEntities.size)
+            recyclerViewAdapter?.hAddItems(list.reversed())
+            val fileEntities = recyclerViewAdapter?.hGetLists()
+            Timber.d("List size  %s", fileEntities?.size)
             objectList = fileEntities as MutableList<EntityFiles>
         } else {
             if (isAudio) {
@@ -383,51 +383,61 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
         }
 
         try {
-            if (mediaPlayer!!.isPlaying) {
+            if (mediaPlayer?.isPlaying == true) {
                 fragmentAudioBinding.animationView.playAnimation()
                 pauseAudio()
                 isAudioPlaying = false
-                mediaPlayer!!.stop()
-                mediaPlayer!!.release()
+                mediaPlayer?.stop()
+                mediaPlayer?.release()
                 mediaPlayer = null
             }
-            mediaPlayer = MediaPlayer()
+            if (mediaPlayer == null) {
+                mediaPlayer = MediaPlayer()
+            }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 audioLengthInSec = data.fileUri?.let { getLengthPost10(it) } ?: 0
-                mediaPlayer!!.reset()
+                mediaPlayer?.reset()
                 openFileDescriptorForPath(data.fileUri ?: return)?.use { pfd ->
-                    mediaPlayer!!.setDataSource(pfd.fileDescriptor)
+                    mediaPlayer?.setDataSource(pfd.fileDescriptor)
                 } ?: run {
                     Timber.w("Could not open audio: %s", data.fileUri)
                     return
                 }
             } else {
-                data.filePath?.let { getLength(it) }!!
-                val tempFile = File(data.filePath)
+                data.filePath?.let { getLength(it) }
+                val tempFile = File(data.filePath.toString())
                 val fis = FileInputStream(tempFile)
-                mediaPlayer!!.reset()
-                mediaPlayer!!.setDataSource(fis.fd)
+                mediaPlayer?.reset()
+                mediaPlayer?.setDataSource(fis.fd)
 
             }
-            mediaPlayer!!.prepare()
-            mediaPlayer!!.setOnPreparedListener { mediaPlayers: MediaPlayer ->
-                mediaPlayer = mediaPlayers
-                mediaPlayer!!.seekTo(0)
-                fragmentAudioBinding.realseekBar.max = audioLengthInSec
-                fragmentAudioBinding.realseekBar.progress = 0
-                isAudioPlaying = true
-                playPauseAudio()
+            mediaPlayer?.prepare()
+            mediaPlayer?.setOnPreparedListener { mediaPlayers: MediaPlayer ->
+                // MediaPlayer may call back off the main thread or after the fragment is gone.
+                view?.post {
+                    if (!isAdded) return@post
+                    mediaPlayer = mediaPlayers
+                    mediaPlayer?.seekTo(0)
+                    fragmentAudioBinding.realseekBar.max = audioLengthInSec
+                    fragmentAudioBinding.realseekBar.progress = 0
+                    isAudioPlaying = true
+                    playPauseAudio()
+                }
             }
-            mediaPlayer!!.setOnCompletionListener { mediaPlayers ->
-                mediaPlayer!!.seekTo(0)
-                fragmentAudioBinding.realseekBar.progress = 0
-                isPlaying = false
-                fragmentAudioBinding.runTime.text = "00:00"
-                fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
-                    requireContext(),
-                    R.drawable.icon_primary_play
-                )
+            mediaPlayer?.setOnCompletionListener {
+                view?.post {
+                    if (!isAdded) return@post
+                    mediaPlayer?.seekTo(0)
+                    fragmentAudioBinding.realseekBar.progress = 0
+                    isPlaying = false
+                    fragmentAudioBinding.runTime.text = "00:00"
+                    val ctx = context ?: return@post
+                    fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
+                        ctx,
+                        R.drawable.icon_primary_play
+                    )
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -443,7 +453,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 if (mediaPlayer != null && fromUser) {
-                    mediaPlayer!!.seekTo(progress * 1000)
+                    mediaPlayer?.seekTo(progress * 1000)
                     fragmentAudioBinding.runTime.text =
                         getCurrentDuration((progress * 1000).toLong())
                 }
@@ -455,7 +465,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     fun playPauseAudio() {
         if (mediaPlayer != null) {
             if (isPlaying) {
-                mediaPlayer!!.pause()
+                mediaPlayer?.pause()
                 fragmentAudioBinding.animationView.pauseAnimation()
                 fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
                     requireContext(),
@@ -463,7 +473,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 )
                 isPlaying = false
             } else {
-                mediaPlayer!!.start()
+                mediaPlayer?.start()
                 fragmentAudioBinding.animationView.playAnimation()
                 fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
                     requireContext(),
@@ -499,23 +509,23 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
         val retriever = MediaMetadataRetriever()
         retriever.setDataSource(path)
         val time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-        val timeInMillisec = time!!.toLong()
+        val timeInMilliSec = time?.toLong()?:0
 
-        audioLengthInSec = TimeUnit.MILLISECONDS.toSeconds(timeInMillisec).toInt()
+        audioLengthInSec = TimeUnit.MILLISECONDS.toSeconds(timeInMilliSec).toInt()
     }
 
     private fun getDuration(audioFilePath: String): String? {
-        var hTimeinMillsec: Long = 1
+        var hTimeInMillSec: Long = 1
         return try {
             val retriever = MediaMetadataRetriever()
             retriever.setDataSource(audioFilePath)
             val time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-            if (time != null) {
-                hTimeinMillsec = time.toLong()
+            time?.let {
+                hTimeInMillSec = time.toLong()
             }
-            getCurrentDuration(hTimeinMillsec)
+            getCurrentDuration(hTimeInMillSec)
         } catch (e: Exception) {
-            return ""
+            return String.empty
         }
     }
 
@@ -552,18 +562,18 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
             override fun run() {
                 if (mediaPlayer != null) {
                     if (isAudioPlaying) {
-                        if (mediaPlayer!!.isPlaying) {
+                        if (mediaPlayer?.isPlaying == true) {
                             fragmentAudioBinding.runTime.text =
-                                getCurrentDuration(mediaPlayer!!.currentPosition.toLong())
-                            handler!!.postDelayed(this, 1000)
+                                getCurrentDuration(mediaPlayer?.currentPosition?.toLong()?:0)
+                            handler?.postDelayed(this, 1000)
                             fragmentAudioBinding.realseekBar.progress =
-                                mediaPlayer!!.currentPosition / 1000
+                                mediaPlayer?.currentPosition?.div(1000)?:0
                         }
                     }
                 }
             }
         }
-        handler!!.postDelayed(updateVideoDuration, 0)
+        handler?.postDelayed(updateVideoDuration, 0)
     }
 
     fun getCurrentDuration(timeInMillisecond: Long): String {
@@ -576,7 +586,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
         val sec = duration - (hrs * 3600 + min * 60)
         hours = when {
             hrs < 1 -> {
-                ""
+                String.empty
             }
 
             hrs > 9 -> {
@@ -613,13 +623,13 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 "0$sec"
             }
         }
-        return hours + "" + minutes + "" + seconds
+        return hours + String.empty + minutes + String.empty + seconds
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     fun pauseAudio() {
         if (mediaPlayer != null) {
-            mediaPlayer!!.pause()
+            mediaPlayer?.pause()
             isPlaying = false
             fragmentAudioBinding.animationView.pauseAnimation()
             fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
@@ -631,22 +641,20 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
 
     private fun multiSelect(position: Int) {
         if (position > -1) {
-            val data = recyclerViewAdapter!!.getItem(position)
-            if (data != null) {
-                if (actionMode != null) {
-                    if (selectedIds.indexOfKey(position) > -1) selectedIds.remove(position) else selectedIds.put(
-                        position,
-                        data.title
-                    )
-                    if (selectedIds.size() > 0) actionMode!!.title =
-                        selectedIds.size()
-                            .toString() + getString(R.string.items_selected) //show selected item count on action mode.
-                    else {
-                        actionMode?.title = "" //remove item count from action mode.
-                        actionMode?.finish() //hide action mode.
-                    }
-                    recyclerViewAdapter?.setSelectedIds(selectedIds)
+            val data = recyclerViewAdapter?.getItem(position)
+            if (actionMode != null) {
+                if (selectedIds.indexOfKey(position) > -1) selectedIds.remove(position) else selectedIds.put(
+                    position,
+                    data?.title
+                )
+                if (selectedIds.size() > 0) actionMode?.title =
+                    selectedIds.size()
+                        .toString() + getString(R.string.items_selected) //show selected item count on action mode.
+                else {
+                    actionMode?.title = String.empty //remove item count from action mode.
+                    actionMode?.finish() //hide action mode.
                 }
+                recyclerViewAdapter?.setSelectedIds(selectedIds)
             }
         }
     }
@@ -674,9 +682,8 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
 
     override fun onDestroyActionMode(mode: ActionMode) {
         actionMode = null
-        val isMultiSelect = false
         selectedIds = SparseArray()
-        recyclerViewAdapter!!.setSelectedIds(selectedIds)
+        recyclerViewAdapter?.setSelectedIds(selectedIds)
     }
 
     private fun alertDeleteConfirmation() {
@@ -690,7 +697,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
             try {
                 for (i in 0 until selectedIds.size()) {
                     val fileEntity = objectList[selectedIds.keyAt(i)]
-                    val fDelete = File(fileEntity.filePath!!)
+                    val fDelete = File(fileEntity.filePath.safeGet())
                     if (fDelete.exists()) {
                         val delete = fDelete.delete()
                         if (delete) {
@@ -700,7 +707,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                         }
                     }
                 }
-                if (objectList.size > 0) {
+                if (objectList.isNotEmpty()) {
                     recyclerViewAdapter?.notifyDataSetChanged()
                 } else {
                     fragmentAudioBinding.recyclerView.visibility = View.GONE
@@ -711,7 +718,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 e.printStackTrace()
             }
             dialog.cancel()
-            actionMode?.title = "" //remove item count from action mode.
+            actionMode?.title = String.empty //remove item count from action mode.
             actionMode?.finish() //
         }.setNegativeButton(getString(R.string.cancel)) { dialog: DialogInterface, which: Int -> dialog.cancel() }
         builder.create().show()
@@ -729,7 +736,7 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 )
                 selectedUri.add(u)
             }
-            actionMode?.title = "" //remove item count from action mode.
+            actionMode?.title = String.empty //remove item count from action mode.
             actionMode?.finish()
             shareMultiple(selectedUri)
         } catch (e: Exception) {
@@ -750,22 +757,38 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
         hReleaseAudio()
     }
 
+    override fun onDestroyView() {
+        mediaPlayer?.setOnPreparedListener(null)
+        mediaPlayer?.setOnCompletionListener(null)
+        try {
+            if (mediaPlayer?.isPlaying == true) {
+                mediaPlayer?.stop()
+            }
+            mediaPlayer?.release()
+        } catch (e: Exception) {
+            Timber.w(e, "MediaPlayer release in onDestroyView")
+        }
+        mediaPlayer = null
+        super.onDestroyView()
+    }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     fun hReleaseAudio() {
-        if (mediaPlayer != null) {
-            mediaPlayer!!.pause()
+        if (mediaPlayer != null && isAdded) {
+            mediaPlayer?.pause()
             isPlaying = false
             fragmentAudioBinding.animationView.pauseAnimation()
-            fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
-                requireContext(),
-                R.drawable.icon_primary_play
-            )
+            context?.let { ctx ->
+                fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
+                    ctx,
+                    R.drawable.icon_primary_play
+                )
+            }
         }
     }
 
     fun hExecuteSearch(newText: String?) {
-        recyclerViewAdapter!!.filter.filter(newText)
+        recyclerViewAdapter?.filter?.filter(newText)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
