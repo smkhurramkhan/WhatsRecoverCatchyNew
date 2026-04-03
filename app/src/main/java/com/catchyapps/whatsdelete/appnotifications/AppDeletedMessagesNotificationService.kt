@@ -56,6 +56,10 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     private var audioFileObserver: FileObserver? = null
     private var documentFileObserver: FileObserver? = null
 
+    /** Avoid calling startForeground twice (onCreate + onStartCommand) — doubles FGS quota use. */
+    @Volatile
+    private var foregroundStarted: Boolean = false
+
     private companion object {
         const val MAX_RECENT_KEYS = 50
         const val MEDIA_POLL_INTERVAL_MS = 15_000L // 15 seconds
@@ -87,6 +91,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     override fun onDestroy() {
         Timber.d("Service onDestroy called")
+        foregroundStarted = false
         mediaPollingJob?.cancel()
         mediaPollingJob = null
         stopAllFileObservers()
@@ -164,6 +169,9 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
 
     @SuppressLint("MissingPermission")
     private fun showForegroundNotification() {
+        if (foregroundStarted) {
+            return
+        }
         val intent = Intent(context, MainActivity::class.java)
         intent.putExtra("fromNotification", true)
         val pendIntent = PendingIntent.getActivity(
@@ -179,20 +187,29 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             .setContentIntent(pendIntent)
             .build()
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            if (Build.VERSION.SDK_INT >= 34) {
+                // Use manifest-declared type (specialUse), not dataSync — avoids Android 15 quota errors.
                 startForeground(
                     1001,
                     notification,
-                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_MANIFEST
                 )
             } else {
                 startForeground(1001, notification)
             }
+            foregroundStarted = true
         } catch (e: ForegroundServiceStartNotAllowedException) {
             Timber.w(
                 e,
                 "Foreground start not allowed (quota/background); listener may still work when bound"
             )
+        } catch (e: Exception) {
+            // Some OEMs wrap FGS errors; never crash the service process.
+            if (e.javaClass.name.contains("ForegroundServiceStartNotAllowed", ignoreCase = true)) {
+                Timber.w(e, "Foreground start blocked by system")
+            } else {
+                Timber.e(e, "Unexpected error in showForegroundNotification")
+            }
         }
     }
 
