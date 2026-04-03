@@ -14,7 +14,6 @@ import android.view.inputmethod.InputMethodManager
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
-import com.catchyapps.whatsdelete.R
 import com.catchyapps.whatsdelete.basicapputils.MyAppConstants
 import timber.log.Timber
 import java.text.SimpleDateFormat
@@ -115,14 +114,36 @@ class MyAppUtils {
         }
 
         fun showSnakeBar(mContext: Context) {
-            val snackbar = Snackbar.make((mContext as Activity).findViewById(R.id.content), "Added to folder", Snackbar.LENGTH_LONG)
-                .setAction("See List") { v: View? -> }
-            snackbar.show()
+            val activity = mContext as? Activity ?: return
+            val anchor = activity.findViewById<View>(android.R.id.content) ?: run {
+                Toast.makeText(mContext, "Added to folder", Toast.LENGTH_LONG).show()
+                return
+            }
+            try {
+                Snackbar.make(anchor, "Added to folder", Snackbar.LENGTH_LONG)
+                    .setAction("See List") { _: View? -> }
+                    .show()
+            } catch (_: IllegalArgumentException) {
+                Toast.makeText(mContext, "Added to folder", Toast.LENGTH_LONG).show()
+            }
         }
 
         @JvmStatic
         fun snackBar(context: Context, msg: String?) {
-            Snackbar.make((context as Activity).findViewById(R.id.content), msg!!, Snackbar.LENGTH_SHORT).show()
+            if (msg.isNullOrEmpty()) return
+            val activity = context as? Activity ?: run {
+                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+                return
+            }
+            val anchor = activity.findViewById<View>(android.R.id.content) ?: run {
+                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+                return
+            }
+            try {
+                Snackbar.make(anchor, msg, Snackbar.LENGTH_SHORT).show()
+            } catch (_: IllegalArgumentException) {
+                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+            }
         }
 
         fun hideKeyBoard(v: View?, context: Context) {
