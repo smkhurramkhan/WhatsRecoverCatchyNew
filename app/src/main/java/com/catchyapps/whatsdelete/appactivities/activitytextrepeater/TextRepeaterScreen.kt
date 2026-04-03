@@ -39,9 +39,12 @@ class TextRepeaterScreen : com.catchyapps.whatsdelete.appactivities.BaseActivity
 
         textRepeaterBinding.btnRepeatText.setOnClickListener {
             val countStr = textRepeaterBinding.etNumberText.text?.toString()?.trim().orEmpty()
-            val repeatTimes = countStr.toIntOrNull()
+            // Parse as Long so values like "999999999999" don't hit Integer.parseInt overflow.
+            val repeatLong = countStr.toLongOrNull()
+            val repeatTimes =
+                if (repeatLong != null && repeatLong in 0 until 1000) repeatLong.toInt() else null
 
-            if (repeatTimes != null && repeatTimes >= 0 && repeatTimes < 1000) {
+            if (repeatTimes != null) {
                 if (textRepeaterBinding.etmessageText.text.isNullOrEmpty().not()) {
                     textRepeatCount = repeatTimes
                     repeatText(
