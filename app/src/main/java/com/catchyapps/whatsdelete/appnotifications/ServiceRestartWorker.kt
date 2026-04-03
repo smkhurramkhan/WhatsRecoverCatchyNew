@@ -1,5 +1,6 @@
 package com.catchyapps.whatsdelete.appnotifications
 
+import android.app.ForegroundServiceStartNotAllowedException
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -93,6 +94,11 @@ class ServiceRestartWorker(
                 applicationContext.startService(intent)
             }
             Timber.tag(TAG).d("Service restart command sent successfully")
+        } catch (e: ForegroundServiceStartNotAllowedException) {
+            Timber.tag(TAG).w(
+                e,
+                "Cannot start FGS from background worker (Android 15+ / quota); open app to reconnect"
+            )
         } catch (e: Exception) {
             Timber.tag(TAG).e(e, "Failed to restart service")
         }

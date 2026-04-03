@@ -1,11 +1,13 @@
 package com.catchyapps.whatsdelete.appnotifications
 
 import android.annotation.SuppressLint
+import android.app.ForegroundServiceStartNotAllowedException
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
+import android.content.pm.ServiceInfo
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -160,6 +162,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         super.onTaskRemoved(rootIntent)
     }
 
+    @SuppressLint("MissingPermission")
     private fun showForegroundNotification() {
         val intent = Intent(context, MainActivity::class.java)
         intent.putExtra("fromNotification", true)
@@ -175,7 +178,22 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             .setContentText("Managing your deleted messages")
             .setContentIntent(pendIntent)
             .build()
-        startForeground(1001, notification)
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(
+                    1001,
+                    notification,
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                )
+            } else {
+                startForeground(1001, notification)
+            }
+        } catch (e: ForegroundServiceStartNotAllowedException) {
+            Timber.w(
+                e,
+                "Foreground start not allowed (quota/background); listener may still work when bound"
+            )
+        }
     }
 
     private fun createNotificationChannel() {
