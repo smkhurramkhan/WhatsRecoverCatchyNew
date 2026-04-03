@@ -26,6 +26,11 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.catchyapps.whatsdelete.R
@@ -42,7 +47,6 @@ import com.catchyapps.whatsdelete.basicapputils.empty
 import com.catchyapps.whatsdelete.basicapputils.safeGet
 import timber.log.Timber
 import java.io.File
-import java.io.FileInputStream
 import java.util.*
 import java.util.concurrent.TimeUnit
 import com.catchyapps.whatsdelete.databinding.AudioMediaFragmentBinding
@@ -65,6 +69,8 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     private lateinit var fragmentAudioBinding: AudioMediaFragmentBinding
     private var fragmentVoiceViewModel: VoiceMediaVMFragment? = null
 
+
+    private var playAudioJob: Job? = null
 
     private var totalItemCount = 0
     private var lastVisibleItem = 0
@@ -364,23 +370,18 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
 
     @SuppressLint("SetTextI18n")
     override fun playAudio(itemPos: Int) {
-        fragmentAudioBinding.playercontainer.visibility = View.VISIBLE
+        if (itemPos !in objectList.indices) return
+        playAudioJob?.cancel()
+
         val data = objectList[itemPos]
+        fragmentAudioBinding.playercontainer.visibility = View.VISIBLE
         fragmentAudioBinding.songName.text = data.title
         fragmentAudioBinding.animationView.background = ContextCompat.getDrawable(
             requireContext(), R.drawable.round_circle
         )
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-
-            fragmentAudioBinding.totalTime.text =
-                " /  ${data.fileUri?.let { getDurationAbove10(it) }}"
-
-        } else {
-
-            fragmentAudioBinding.totalTime.text = " /  ${data.filePath?.let { getDuration(it) }}"
-
-        }
+        fragmentAudioBinding.totalTime.text = " / --:--"
+        fragmentAudioBinding.runTime.text = "00:00"
+        fragmentAudioBinding.realseekBar.progress = 0
 
         try {
             if (mediaPlayer?.isPlaying == true) {
@@ -391,62 +392,10 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 mediaPlayer?.release()
                 mediaPlayer = null
             }
-            if (mediaPlayer == null) {
-                mediaPlayer = MediaPlayer()
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                audioLengthInSec = data.fileUri?.let { getLengthPost10(it) } ?: 0
-                mediaPlayer?.reset()
-                openFileDescriptorForPath(data.fileUri ?: return)?.use { pfd ->
-                    mediaPlayer?.setDataSource(pfd.fileDescriptor)
-                } ?: run {
-                    Timber.w("Could not open audio: %s", data.fileUri)
-                    return
-                }
-            } else {
-                data.filePath?.let { getLength(it) }
-                val tempFile = File(data.filePath.toString())
-                val fis = FileInputStream(tempFile)
-                mediaPlayer?.reset()
-                mediaPlayer?.setDataSource(fis.fd)
-
-            }
-            mediaPlayer?.prepare()
-            mediaPlayer?.setOnPreparedListener { mediaPlayers: MediaPlayer ->
-                // MediaPlayer may call back off the main thread or after the fragment is gone.
-                view?.post {
-                    if (!isAdded) return@post
-                    mediaPlayer = mediaPlayers
-                    mediaPlayer?.seekTo(0)
-                    fragmentAudioBinding.realseekBar.max = audioLengthInSec
-                    fragmentAudioBinding.realseekBar.progress = 0
-                    isAudioPlaying = true
-                    playPauseAudio()
-                }
-            }
-            mediaPlayer?.setOnCompletionListener {
-                view?.post {
-                    if (!isAdded) return@post
-                    mediaPlayer?.seekTo(0)
-                    fragmentAudioBinding.realseekBar.progress = 0
-                    isPlaying = false
-                    fragmentAudioBinding.runTime.text = "00:00"
-                    val ctx = context ?: return@post
-                    fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
-                        ctx,
-                        R.drawable.icon_primary_play
-                    )
-                }
-            }
         } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(requireActivity(), "Error in play audio" + e.message, Toast.LENGTH_SHORT)
-                .show()
+            Timber.w(e, "stop previous MediaPlayer")
         }
-        updateCurrentDuration()
-        fragmentAudioBinding.runTime.text = "00:00"
-        fragmentAudioBinding.realseekBar.progress = 0
+
         fragmentAudioBinding.realseekBar.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
@@ -459,6 +408,112 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
                 }
             }
         })
+
+        playAudioJob = viewLifecycleOwner.lifecycleScope.launch {
+            val (durationLabel, lengthSec) = withContext(Dispatchers.IO) {
+                val label = try {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        data.fileUri?.let { getDurationAbove10(it) }
+                    } else {
+                        data.filePath?.let { getDuration(it) }
+                    }
+                } catch (e: Exception) {
+                    Timber.w(e, "audio duration metadata")
+                    null
+                }
+                val len = try {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        data.fileUri?.let { getLengthPost10(it) } ?: 0
+                    } else {
+                        data.filePath?.let { getLengthSeconds(it) } ?: 0
+                    }
+                } catch (e: Exception) {
+                    Timber.w(e, "audio length metadata")
+                    0
+                }
+                Pair(label ?: getCurrentDuration(0), len)
+            }
+
+            if (!isAdded) return@launch
+            fragmentAudioBinding.totalTime.text = " / $durationLabel"
+            audioLengthInSec = lengthSec
+
+            try {
+                if (mediaPlayer == null) {
+                    mediaPlayer = MediaPlayer()
+                }
+                mediaPlayer?.reset()
+                mediaPlayer?.setOnPreparedListener(null)
+                mediaPlayer?.setOnCompletionListener(null)
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    val uri = data.fileUri
+                    if (uri == null) {
+                        Timber.w("playAudio: missing fileUri")
+                        return@launch
+                    }
+                    openFileDescriptorForPath(uri)?.use { pfd ->
+                        mediaPlayer?.setDataSource(pfd.fileDescriptor)
+                    } ?: run {
+                        Timber.w("Could not open audio: %s", uri)
+                        if (isAdded) {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.something_went_wrong),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        return@launch
+                    }
+                } else {
+                    val fp = data.filePath
+                    if (fp == null) {
+                        return@launch
+                    }
+                    mediaPlayer?.setDataSource(fp)
+                }
+
+                mediaPlayer?.setOnPreparedListener { mediaPlayers: MediaPlayer ->
+                    view?.post {
+                        if (!isAdded) return@post
+                        mediaPlayer = mediaPlayers
+                        mediaPlayer?.seekTo(0)
+                        fragmentAudioBinding.realseekBar.max = audioLengthInSec
+                        fragmentAudioBinding.realseekBar.progress = 0
+                        isAudioPlaying = true
+                        playPauseAudio()
+                    }
+                }
+                mediaPlayer?.setOnCompletionListener {
+                    view?.post {
+                        if (!isAdded) return@post
+                        mediaPlayer?.seekTo(0)
+                        fragmentAudioBinding.realseekBar.progress = 0
+                        isPlaying = false
+                        fragmentAudioBinding.runTime.text = "00:00"
+                        val ctx = context ?: return@post
+                        fragmentAudioBinding.playButton.background = ContextCompat.getDrawable(
+                            ctx,
+                            R.drawable.icon_primary_play
+                        )
+                    }
+                }
+                mediaPlayer?.prepareAsync()
+            } catch (e: Exception) {
+                Timber.w(e, "playAudio setup failed")
+                if (isAdded) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Error in play audio${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            if (isAdded) {
+                updateCurrentDuration()
+            }
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -488,60 +543,77 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     private fun getLengthPost10(path: String): Int? {
         return try {
             openFileDescriptorForPath(path)?.use { pfd ->
-                MediaMetadataRetriever().apply {
-                    setDataSource(pfd.fileDescriptor)
+                val retriever = MediaMetadataRetriever()
+                try {
+                    retriever.setDataSource(pfd.fileDescriptor)
                     val hDurationLong =
-                        extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
-                    return hDurationLong?.let { it1 ->
-                        TimeUnit.MILLISECONDS.toSeconds(it1).toInt()
+                        retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
+                    hDurationLong?.let { TimeUnit.MILLISECONDS.toSeconds(it).toInt() }
+                } finally {
+                    try {
+                        retriever.release()
+                    } catch (_: Exception) {
                     }
                 }
             }
-            null
         } catch (e: Exception) {
             Timber.w(e, "getLengthPost10 failed for %s", path)
             null
         }
     }
 
-    private fun getLength(path: String) {
-
+    private fun getLengthSeconds(path: String): Int {
         val retriever = MediaMetadataRetriever()
-        retriever.setDataSource(path)
-        val time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-        val timeInMilliSec = time?.toLong()?:0
-
-        audioLengthInSec = TimeUnit.MILLISECONDS.toSeconds(timeInMilliSec).toInt()
+        return try {
+            retriever.setDataSource(path)
+            val time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+            TimeUnit.MILLISECONDS.toSeconds(time?.toLong() ?: 0L).toInt()
+        } catch (e: Exception) {
+            0
+        } finally {
+            try {
+                retriever.release()
+            } catch (_: Exception) {
+            }
+        }
     }
 
     private fun getDuration(audioFilePath: String): String? {
-        var hTimeInMillSec: Long = 1
+        val retriever = MediaMetadataRetriever()
         return try {
-            val retriever = MediaMetadataRetriever()
             retriever.setDataSource(audioFilePath)
             val time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-            time?.let {
-                hTimeInMillSec = time.toLong()
-            }
+            val hTimeInMillSec = time?.toLong() ?: 1L
             getCurrentDuration(hTimeInMillSec)
         } catch (e: Exception) {
-            return String.empty
+            String.empty
+        } finally {
+            try {
+                retriever.release()
+            } catch (_: Exception) {
+            }
         }
     }
 
     fun getDurationAbove10(audioFilePath: String): String? {
         return try {
             openFileDescriptorForPath(audioFilePath)?.use { pfd ->
-                MediaMetadataRetriever().apply {
-                    setDataSource(pfd.fileDescriptor)
+                val retriever = MediaMetadataRetriever()
+                try {
+                    retriever.setDataSource(pfd.fileDescriptor)
                     val hDurationLong =
-                        extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
+                        retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
                     if (hDurationLong != null) {
-                        return getCurrentDuration(hDurationLong)
+                        return@use getCurrentDuration(hDurationLong)
+                    }
+                    null
+                } finally {
+                    try {
+                        retriever.release()
+                    } catch (_: Exception) {
                     }
                 }
             }
-            null
         } catch (e: Exception) {
             Timber.w(e, "getDurationAbove10 failed for %s", audioFilePath)
             null
@@ -758,6 +830,8 @@ class VoiceMediaFragment : Fragment(), CallBack, ActionMode.Callback {
     }
 
     override fun onDestroyView() {
+        playAudioJob?.cancel()
+        playAudioJob = null
         mediaPlayer?.setOnPreparedListener(null)
         mediaPlayer?.setOnCompletionListener(null)
         try {
