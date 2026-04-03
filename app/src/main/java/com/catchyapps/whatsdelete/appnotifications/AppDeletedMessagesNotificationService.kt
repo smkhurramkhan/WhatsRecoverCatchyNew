@@ -34,11 +34,13 @@ import com.catchyapps.whatsdelete.roomdb.appentities.EntityMessages
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -71,6 +73,10 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
     // Tracks recently processed notification keys to skip duplicates
     private val recentNotificationKeys = LinkedHashSet<String>()
 
+    /** Offloads icon decode / PNG compress / DB so onNotificationPosted does not block the main thread (ANR). */
+    private val notificationWorkJob = SupervisorJob()
+    private val notificationWorkScope = CoroutineScope(notificationWorkJob + Dispatchers.Default)
+
     @SuppressLint("InvalidWakeLockTag")
     override fun onCreate() {
         super.onCreate()
@@ -95,6 +101,7 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
         stopForegroundIfNeeded(detachOnly = false)
         mediaPollingJob?.cancel()
         mediaPollingJob = null
+        notificationWorkJob.cancel()
         stopAllFileObservers()
         if (wakeLock?.isHeld == true) {
             wakeLock?.release()
@@ -369,44 +376,49 @@ class AppDeletedMessagesNotificationService : NotificationListenerService() {
             !title.contains("Finished backup") &&
             !title.contains("Couldn't complete")
         ) {
-            var bitmap: Bitmap? = null
-            var byteArray = ByteArray(0)
-            try {
-                if (extras[Notification.EXTRA_LARGE_ICON] is Icon) {
-                    val icon = extras[Notification.EXTRA_LARGE_ICON] as Icon?
-                    if (icon != null) {
-                        val drawable = icon.loadDrawable(context)
-                        bitmap = drawable?.let { drawableToBitmap(it) }
+            // Snapshot icon extra on the listener thread; decode/compress/DB run in the background.
+            val largeIconExtra = extras[Notification.EXTRA_LARGE_ICON]
+            notificationWorkScope.launch {
+                var byteArray = ByteArray(0)
+                try {
+                    when (val largeIcon = largeIconExtra) {
+                        is Icon -> {
+                            val drawable = largeIcon.loadDrawable(applicationContext)
+                            drawable?.let { drawableToBitmap(it) }?.let { bmp ->
+                                ByteArrayOutputStream().use { stream ->
+                                    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                                    byteArray = stream.toByteArray()
+                                }
+                            }
+                        }
+                        is Bitmap -> {
+                            ByteArrayOutputStream().use { stream ->
+                                largeIcon.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                                byteArray = stream.toByteArray()
+                            }
+                        }
                     }
-                } else {
-                    bitmap = extras[Notification.EXTRA_LARGE_ICON] as Bitmap?
+                } catch (e: Exception) {
+                    Timber.w(e, "notification large icon decode failed")
                 }
-                if (bitmap != null) {
-                    val stream = ByteArrayOutputStream()
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-                    byteArray = stream.toByteArray()
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-            // Use Mutex to serialize DB writes -- prevents race condition on first install
-            CoroutineScope(Dispatchers.Main).launch {
-                dbMutex.withLock {
-                    doInBackground(text, title, ticker, pack, byteArray)
-                }
-            }
 
-            val msgrcv = Intent("Msg")
-            msgrcv.putExtra("package", pack)
-            msgrcv.putExtra("ticker", ticker)
-            msgrcv.putExtra("title", title)
-            msgrcv.putExtra("text", text)
-            if (bitmap != null) {
-                val stream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-                msgrcv.putExtra("icon", byteArray)
+                withContext(Dispatchers.Main) {
+                    val msgrcv = Intent("Msg").apply {
+                        putExtra("package", pack)
+                        putExtra("ticker", ticker)
+                        putExtra("title", title)
+                        putExtra("text", text)
+                        if (byteArray.isNotEmpty()) putExtra("icon", byteArray)
+                    }
+                    LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(msgrcv)
+                }
+
+                withContext(Dispatchers.IO) {
+                    dbMutex.withLock {
+                        doInBackground(text, title, ticker, pack, byteArray)
+                    }
+                }
             }
-            LocalBroadcastManager.getInstance(context!!).sendBroadcast(msgrcv)
         }
     }
 
